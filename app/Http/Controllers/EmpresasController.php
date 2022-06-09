@@ -16,19 +16,29 @@ class EmpresasController extends Controller
     public function index(Request $request)
     {
         $razao_social_like=$request->get('empresa1');
-       // $empresas = Empresas::all();
         
-        //return view('app.empresa.index');
         //$idEmpresa =Empresas::where('razao_social','like',$razao_social_like.'%')->get('id');
        // return view('app.empresa.index', ['empresas' => $empresas]);
        if (isset($_POST['empresa1'])){
         if (!empty($razao_social_like)) {
-            echo($razao_social_like);
            $empresas =Empresas::where('razao_social','like',$razao_social_like.'%')->get();
-           //$empresas=Empresas::all();
             return view('app.empresa.index', ['empresas' => $empresas]);
     }else{
-       echo('dados invállidos');
+        //$empresas =Empresas::where('razao_social','like','ita'.'%')->get('id')->toJson();
+        $empresas =Empresas::where('razao_social','like','ita'.'%')->get();
+        foreach($empresas as $emp){
+            echo($emp->razao_social);
+        }
+        
+        $empresas =Empresas::where('razao_social','like','ita'.'%')->first();
+            $empresas->teste= 'teste';
+            unset($empresas->razao_social);
+            dd($empresas);
+            echo($emp->razao_social);
+
+
+        /* echo($empresas->razao_social); */
+        /* dd($empresas->razao_social); */
     }
     }else{
         $empresas =Empresas::where('id',0)->get();
@@ -44,7 +54,6 @@ class EmpresasController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *

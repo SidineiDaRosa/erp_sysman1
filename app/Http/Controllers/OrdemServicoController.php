@@ -97,11 +97,9 @@ class OrdemServicoController extends Controller
     //public function store(Request $request)
     public function store(Request $req)
     {
-
         $equipamentos = Equipamento::all();
-
+        $req['teste']='teste';
         OrdemServico::create($req->all());
-
         return redirect()->route('ordem-servico.create', ['$equipamentos' => $equipamentos]);
     }
     /**
@@ -109,12 +107,11 @@ class OrdemServicoController extends Controller
      *
      * @param  \App\Models\OrdemServico  $ordem_servico
      * @return \Illuminate\Http\Response
-     */
+    */
     public function show(OrdemServico $ordem_servico)
     {
         return view('app.ordem_servico.show', ['ordem_servico' => $ordem_servico]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *

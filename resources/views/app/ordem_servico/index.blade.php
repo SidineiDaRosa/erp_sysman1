@@ -5,28 +5,17 @@
 <main class="content">
     <div class="card">
         <style>
-            .card-header {
-                background-color: rgb(211, 211, 211);
-                opacity: 0.95;
-
-            }
+        .card-header {
+            background-color: rgb(211, 211, 211);
+            opacity: 0.95;
+        }
         </style>
         <div class="card-header">
-            <details sidinei>
-
-                <summary>
-                    da rosa
-                </summary>
-                sidinei
-
-            </details>
             <script>
-                function Funcao() {
-                    alert('teste');
-
-                    document.getElementById("t1").value = "{{$funcionarios}}"
-
-                }
+            function Funcao() {
+                alert('teste');
+                document.getElementById("t1").value = "{{$funcionarios}}"
+            }
             </script>
             <!------------------------------------->
             <!----teste de url--------------------->
@@ -34,7 +23,6 @@
                 <form action="{{'filtro-os'}}" method="POST">
                     @csrf
             </div>
-
             <!------------------------------------------------------------------------------------------->
             <!----datas---------------------------------------------------------------------------------->
             <!------------------------------------------------------------------------------------------->
@@ -47,11 +35,13 @@
 
                 <div class="col-md-2">
                     <label for="data_inicio">Data prevista</label>
-                    <input type="date" class="form-control" name="data_inicio" id="data_inicio" placeholder="dataPrevista" value="">
+                    <input type="date" class="form-control" name="data_inicio" id="data_inicio"
+                        placeholder="dataPrevista" value="">
                 </div>
                 <div class="col-md-2">
                     <label for="hora_inicio">Hora prevista</label>
-                    <input type="time" class="form-control" name="hora_inicio" id="hora_inicio" placeholder="horaPrevista" value="">
+                    <input type="time" class="form-control" name="hora_inicio" id="hora_inicio"
+                        placeholder="horaPrevista" value="">
                 </div>
                 <div class="col-md-2">
                     <label for="dataFim">Data fim</label>
@@ -66,7 +56,8 @@
                     <select name="responsavel" id="responsavel" class="form-control-template">
                         <option value="todos">todos</option>
                         @foreach ($funcionarios as $funcionario_find)
-                        <option value="{{$funcionario_find->primeiro_nome}}" {{($funcionario_find->responsavel ?? old('responsavel')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
+                        <option value="{{$funcionario_find->primeiro_nome}}"
+                            {{($funcionario_find->responsavel ?? old('responsavel')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
                             {{$funcionario_find->primeiro_nome}}
                         </option>
                         @endforeach
@@ -112,36 +103,36 @@
         </div>
         <div class="card-body">
             <style>
-                #tblOs {
-                    font-size: small;
-                    padding: 1px;
-                    margin-left: 0px;
-                    width: 100%;
-                }
+            #tblOs {
+                font-size: small;
+                padding: 1px;
+                margin-left: 0px;
+                width: 100%;
+            }
 
-                thead {
-                    font-size: 20px;
-                    height: 50px;
-                    padding: 1px;
-                }
+            thead {
+                font-size: 20px;
+                height: 50px;
+                padding: 1px;
+            }
 
-                th {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                    font-size: 20px;
-                    font-weight: 100;
-                }
+            th {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 20px;
+                font-weight: 100;
+            }
 
-                tr {
-                    height: auto;
-                    font-weight: 300;
+            tr {
+                height: auto;
+                font-weight: 300;
 
-                }
+            }
 
-                td {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                    font-size: 10px;
-                    font-weight: 1000;
-                }
+            td {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 10px;
+                font-weight: 1000;
+            }
             </style>
             <table class="table table-dark table-striped table-responsive-md-1 mb-0" id="tblOs">
                 <thead>
@@ -177,21 +168,25 @@
                         <td>{{ $ordem_servico->data_fim}}</td>
                         <td>{{ $ordem_servico->hora_fim}}</td>
                         <td>
-                           
-                                {{ $ordem_servico->Empresa->razao_social}}
-                            
+
+                            {{ $ordem_servico->Empresa->razao_social}}
+
                         </td>
                         <td>{{ $ordem_servico->equipamento->nome}}</td>
                         <td>{{ $ordem_servico->emissor}}</td>
                         <td>{{ $ordem_servico->responsavel}}</td>
-                        <td>
-                         
-                                {{ $ordem_servico->descricao}}
+                        <td id="descricao">
+
+                            {{ $ordem_servico->descricao}}
+                            <style>
                             
+                            </style>
+
+
                         </td>
                         <td>
-                                {{ $ordem_servico->Executado}}
-                           
+                            {{ $ordem_servico->Executado}}
+
                         </td>
                         <td>{{ $ordem_servico->situacao}}</td>
                         <td>{{ $ordem_servico->valor}}</td>

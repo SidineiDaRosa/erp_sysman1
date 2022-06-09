@@ -8,17 +8,15 @@
     <div class="card">
         <div class="card-header-template">
             <div>Listagem de Empresas</div>
-            <div>
-                <a href="" class="btn btn-primary btn-sm">
-                    NOVO
-                </a>
-            </div>
-        </div>
-        <form action="{{'Empresas-filtro'}}" method="POST">
+            <form action="{{'Empresas-filtro'}}" method="POST">
                 @csrf
-                <input type="text" name="empresa1">
+
+                <div class="col-md-6 mb-0">
+                    <input type="text" name="empresa1">
+                </div>
                 <!--------------------------------------------->
                 <div class="col-md-0">
+
                     <input type="submit" class="btn btn-info btn-icon-split" value="Filtrar">
 
                     <span class="icon text-white-50">
@@ -28,6 +26,13 @@
                     </input>
                 </div>
             </form>
+            <div>
+                <a href="" class="btn btn-primary btn-sm">
+                    Nova empresa
+                </a>
+            </div>
+        </div>
+
 
         <div class="card-body">
             <table class="table-template table-hover table-striped table-bordered">
@@ -62,14 +67,16 @@
                         <td>{{ $empresa->bairro}}</td>
                         <td>{{ $empresa->cidade}}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{route('empresas.show', ['empresa'=>$empresa->id])}}">Visualizar</a>
+                            <a class="btn btn-primary btn-sm"
+                                href="{{route('empresas.show', ['empresa'=>$empresa->id])}}">Visualizar</a>
                         </td>
                         <td>
                             <a class="btn btn-primary btn-sm" href="">Editar</a>
                         </td>
                         <td>
                             <div class="col-sm-0">
-                                <a href="{{route('ordem-servico.create', ['empresa'=>$empresa->id])}}" class="btn btn-info btn-icon-split">
+                                <a href="{{route('ordem-servico.create', ['empresa'=>$empresa->id])}}"
+                                    class="btn btn-info btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="icofont-plus-circle"></i>
                                     </span>
@@ -79,7 +86,8 @@
                         </td>
                         <td>
                             <div class="col-sm-0">
-                                <a href="{{route('equipamento.index', ['empresa'=>$empresa->id])}}" class="btn  btn-info btn-icon-split">
+                                <a href="{{route('equipamento.index', ['empresa'=>$empresa->id])}}"
+                                    class="btn  btn-info btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="icofont-plus-circle"></i>
                                     </span>
