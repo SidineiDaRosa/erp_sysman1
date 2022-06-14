@@ -178,11 +178,7 @@
                         <td id="descricao">
 
                             {{ $ordem_servico->descricao}}
-                            <style>
-                            
-                            </style>
-
-
+                        
                         </td>
                         <td>
                             {{ $ordem_servico->Executado}}

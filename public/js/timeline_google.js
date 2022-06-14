@@ -4,6 +4,7 @@
 function executaTimeLine() {
     google.charts.load("current", { packages: ["timeline"] });
     google.charts.setOnLoadCallback(drawChart);
+
     function drawChart() {
         var container = document.getElementById("timeline");
         var chart = new google.visualization.Timeline(container);
@@ -18,17 +19,16 @@ function executaTimeLine() {
 
         for (var i = 1; i < table.rows.length; i++) {
             let codId =
-                document.getElementById("tblOs").rows[i].cells[0].innerHTML;
+                document.getElementById("tblOs").rows[i].cells[0].innerHTML; //id
             let patrimonio =
-                document.getElementById("tblOs").rows[i].cells[7].innerHTML;
+                document.getElementById("tblOs").rows[i].cells[5].innerHTML; //patrimonio
             let nome =
-                document.getElementById("tblOs").rows[i].cells[9].innerHTML;
-            let executar =
-                document.getElementById("tblOs").rows[i].cells[10].innerHTML;
-            let executado =
+                document.getElementById("tblOs").rows[i].cells[9].innerHTML; //nome
+            let descricao =
                 document.getElementById("tblOs").rows[i].cells[11].innerHTML;
-            let nomeExec =
-                "Res:" + nome + ", Desc:" + executar + "->" + executado;
+            let executado =
+                document.getElementById("tblOs").rows[i].cells[12].innerHTML;
+            let nomeExec = "ID:" + codId + "-Responsável:" + nome + "-Desc:" + descricao + "-Executado:" + executado;
 
             //data inicial
             let dataInic =
@@ -137,7 +137,7 @@ function executaTimeLine() {
                 colors: ["#78f", "#5af", "#6af"],
                 timeline: {
                     rowLabelStyle: {
-                        fontName: "Arial",
+                        fontName: "Arial sans-serif",
                         fontSize: 17,
                         color: "#000000",
                     },

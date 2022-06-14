@@ -11,20 +11,13 @@
             <form action="{{'Empresas-filtro'}}" method="POST">
                 @csrf
 
-                <div class="col-md-6 mb-0">
-                    <input type="text" name="empresa1">
-                </div>
                 <!--------------------------------------------->
-                <div class="col-md-0">
 
-                    <input type="submit" class="btn btn-info btn-icon-split" value="Filtrar">
-
-                    <span class="icon text-white-50">
-                        <i class="icofont-filter"></i>
-                    </span>
-                    <span class="text"></span>
-                    </input>
-                </div>
+                <input type="text" id="query" name="empresa1" placeholder="Buscar empresa..."
+                    aria-label="Search through site content">
+                <button type="submit">
+                    <i class="icofont-search"></i>
+                </button>
             </form>
             <div>
                 <a href="" class="btn btn-primary btn-sm">
@@ -32,7 +25,42 @@
                 </a>
             </div>
         </div>
+        <!-------------------------------------------------------------------------->
+        <style>
+        form {
+            background-color:cadetblue;
+            width: 500px;
+            height: 44px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
+        input {
+            all: unset;
+            font: 16px system-ui;
+            color:white;
+            height: 100%;
+            width: 100%;
+            padding: 6px 10px;
+        }
+
+        ::placeholder {
+            color: white;
+            opacity: 0.9;
+        }
+
+      
+        button {
+            all: unset;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+        }
+        </style>
+
+        <!-------------------------------------------------------------------------->
 
         <div class="card-body">
             <table class="table-template table-hover table-striped table-bordered">
