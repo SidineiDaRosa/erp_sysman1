@@ -40,29 +40,33 @@ class OrdemServicoController extends Controller
                         $dataInicio = $request->get("data_inicio");
                         $situacao = $request->get("situacao");
                         $ordens_servicos = OrdemServico::where('situacao', $situacao)->where('data_inicio', ('>='), $dataInicio)->orderby('data_inicio')->orderby('hora_inicio')->get();
-                        return view('app.ordem_servico.index', ['equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios, 'empresa' => $empresa]);
+                        //somando valor
+                        $valorTotal = OrdemServico::where('situacao', $situacao)->where('data_inicio', ('>='), $dataInicio)->sum('valor');
+                       
+                        return view('app.ordem_servico.index', ['equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
+                         'empresa' => $empresa,
+                         'valorTotal'=>$valorTotal]);
                     } else {
-                        $responsavel = $request->get("responsavel");
-                        return ('<div id="erro">
-                        <style>
-                         #erro{
-                         height:100px;
-                        width:100%;
-                         background-color:red;
-                         text-align:center;
-                         border-radius:5px;
-                         opacity: 0.8;               
-                         }
-                        </style>
-                        <h1>Verifique os dados digitados no campo data!</h1>
-                        </div>');
+                        $funcionarios = Funcionario::all();
+                        $empresa_id = $request->get("empresa_id");
+                        $dataFim = $request->get("data_fim");
+                        $situacao = $request->get("situacao");
+                        $ordens_servicos = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id',$empresa_id )->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
+                        //somando valor
+                        $valorTotal = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id',$empresa_id )->where('situacao', $situacao)->sum('valor');
+                       
+                        return view('app.ordem_servico.index', ['equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios, 
+                        'empresa' => $empresa,'valorTotal'=>$valorTotal]);                   
                     }
                 }
             }
         } else {
             $funcionarios = Funcionario::all();
             $ordens_servicos = OrdemServico::where('id', 0)->get();
-            return view('app.ordem_servico.index', ['equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios, 'empresa' => $empresa]);
+            $valorTotal=0;
+          return view('app.ordem_servico.index', ['equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios, 
+            'empresa' => $empresa,
+            'valorTotal'=>$valorTotal]);
         }
     }
 

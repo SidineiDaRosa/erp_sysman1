@@ -22,37 +22,41 @@
             <div class="form-row">
                 <form action="{{'filtro-os'}}" method="POST">
                     @csrf
+
             </div>
             <!------------------------------------------------------------------------------------------->
             <!----datas---------------------------------------------------------------------------------->
             <!------------------------------------------------------------------------------------------->
-            <div class="form-row mb-0">
+            <div class="form-row">
                 <div class="col-md-2">
-                    <label for="id">ID</label>
+                    <label for="id">ID:</label><input type="checkbox" name="" id="">
                     <input type="number" class="form-control" id="id" name="id" placeholder="ID Os" value="">
+
                 </div>
-                <!----------------------------------->
+                <p>
+
+                    <!----------------------------------->
 
                 <div class="col-md-2">
-                    <label for="data_inicio">Data prevista</label>
+                    <label for="data_inicio">Data prevista:</label><input type="checkbox" name="" id="">
                     <input type="date" class="form-control" name="data_inicio" id="data_inicio"
                         placeholder="dataPrevista" value="">
                 </div>
                 <div class="col-md-2">
-                    <label for="hora_inicio">Hora prevista</label>
+                    <label for="hora_inicio">Hora prevista:</label><input type="checkbox" name="" id="">
                     <input type="time" class="form-control" name="hora_inicio" id="hora_inicio"
                         placeholder="horaPrevista" value="">
                 </div>
                 <div class="col-md-2">
-                    <label for="dataFim">Data fim</label>
+                    <label for="dataFim">Data fim:</label><input type="checkbox" name="" id="">
                     <input type="date" class="form-control" name="data_fim" id="dataFim" placeholder="dataFim" value="">
                 </div>
                 <div class="col-md-2">
-                    <label for="horaFim">Hora fim</label>
+                    <label for="horaFim">Hora fim:</label><input type="checkbox" name="" id="">
                     <input type="time" class="form-control" name="hora_fim" id="horaFim" placeholder="horaFim" value="">
                 </div>
                 <div class="col-md-6 mb-0">
-                    <label for="responsavel" class="">Responsável</label>
+                    <label for="responsavel" class="">Responsável:</label><input type="checkbox" name="" id="">
                     <select name="responsavel" id="responsavel" class="form-control-template">
                         <option value="todos">todos</option>
                         @foreach ($funcionarios as $funcionario_find)
@@ -66,7 +70,7 @@
                 </div>
                 <!----------------------------------->
                 <div class="col-md-2 mb-0">
-                    <label for="situacao" class="">Situação</label>
+                    <label for="situacao" class="">Situação:</label><input type="checkbox" name="" id="">
                     <select class="form-control" name="situacao" id="situacao" value="">
                         <option value="aberto">aberto</option>
                         <option value="fechado">fechado</option>
@@ -75,8 +79,25 @@
                         <option value="em andamento">em andamento</option>
                     </select>
                 </div>
+                <!--------------------------------------------------------------------------------------->
+                <!---------Select empresa------------->
+                <!--------------------------------------------------------------------------------------->
+                <div class="col-md-6 mb-0">
+                    <label for="empresas" class="">Empresa:</label><input type="checkbox" name="" id="">
+                    <select name="empresa_id" id="empresa_id" class="form-control-template">
+                        <option value=""> --Selecione a empresa--</option>
+                        @foreach ($empresa as $empresas_find)
+                        <option value="{{$empresas_find->id}}"
+                            {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
+                            {{$empresas_find->razao_social}}
+                        </option>
+                        @endforeach
+                    </select>
+                    {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
+                </div>
+                <!------------------------------------------------------------------------------------------->
                 <div class="col-md-0">
-                    <label for="btFiltrar" class="">Filtrar</label>
+                    <label for="btFiltrar" class="">Filtrar:</label>
                     <p>
                         <input type="submit" class="btn btn-info btn-icon-split" value="Filtrar">
 
@@ -178,14 +199,14 @@
                         <td id="descricao">
 
                             {{ $ordem_servico->descricao}}
-                        
+
                         </td>
                         <td>
                             {{ $ordem_servico->Executado}}
 
                         </td>
                         <td>{{ $ordem_servico->situacao}}</td>
-                        <td>{{ $ordem_servico->valor}}</td>
+                        <td id="valor" value="{{ $ordem_servico->valor}}">{{ $ordem_servico->valor}}</td>
                         <td>
                             <a href="{{route('ordem-servico.show', ['ordem_servico'=>$ordem_servico->id])}}">
                                 <button class="btn btn-sm-template btn-info">Visualizar</button>
@@ -202,9 +223,14 @@
                                 <a class="btn btn-sm-template btn btn-danger">Excluir</a>
                         </td>
                     </tr>
+
                 </tbody>
+
+
                 @endforeach
+
             </table>
+            <h3>Valor Total:R$ {{$valorTotal}}</h3>
         </div>
 
     </div>

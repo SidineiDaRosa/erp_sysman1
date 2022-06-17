@@ -59,12 +59,11 @@
             height: 44px;
         }
         </style>
-
         <!-------------------------------------------------------------------------->
 
         <div class="card-body">
             <table class="table-template table-hover table-striped table-bordered">
-                <thead class="bg-active">
+                <thead class="bg-active ">
                     <tr>
                         <th scope="col" class="th-title">Id</th>
                         <th scope="col" class="th-title">Razão social</th>
