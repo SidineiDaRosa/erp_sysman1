@@ -230,25 +230,56 @@
                 @endforeach
 
             </table>
-            <h3>Valor Total:R$ {{$valorTotal}}</h3>
+            <p></p>
+
+            <div class="card border-success mb-3 md-1" style="max-width: 18rem;">
+                Valor Total:R$ {{$valorTotal}}
+            </div>
         </div>
 
-    </div>
-
-    <div class="row mb-0">
-        <div class="col-md-12">
-            <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="executaTimeLine()">
-                Gera time line grafico de gantt
-            </button>
+        <div class="row mb-0 md-0">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="executaTimeLine()">
+                    Gera time line grafico de gantt
+                </button>
+            </div>
         </div>
-    </div>
-    <!--------------------------------------------------------------------->
-    <!--Código que gera o gáfico de gantt-->
-    <!--------------------------------------------------------------------->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    </script>
-    <div id="timeline" style="height: 2000px;"></div>timeline
-    <!--------------------------------------------------------------------->
+        <!--------------------------------------------------------------------->
+        <!--Código que gera o gáfico de gantt-->
+        <!--------------------------------------------------------------------->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        </script>
+
+        <div id="timeline" style="height: 2000px;">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+            let valor = "{{$valorTotal}}"; //pega valor total
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Valor total', valor ],
+                    ['Eat', 2],
+                    ['Commute', 2],
+                    ['Watch TV', 2],
+                    ['Sleep', 7]
+                ]);
+                var options = {
+                    title: 'My Daily Activities'
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                chart.draw(data, options);
+            }
+            </script>
+            <div id="piechart" style="width: 900px; height: 500px;"></div>
+        </div>timeline
+        <!--------------------------------------------------------------------->
 </main>
 @endsection
 <footer>

@@ -28,9 +28,11 @@ class OrdemServicoController extends Controller
             if (!empty($id)) {
                 $funcionarios = Funcionario::all();
                 $ordens_servicos = OrdemServico::where('id', $id)->orderby('data_inicio')->orderby('hora_inicio')->get();
+                $valorTotal=OrdemServico::where('id', $id)->orderby('data_inicio')->orderby('hora_inicio')->sum('valor');
                 return view('app.ordem_servico.index', [
                     'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
-                    'empresa' => $empresa
+                    'empresa' => $empresa,
+                    'valorTotal'=>$valorTotal
                 ]);
             } else {
                 if (isset($_POST['data_inicio'])) {
