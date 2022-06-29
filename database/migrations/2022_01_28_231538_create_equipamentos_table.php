@@ -31,7 +31,6 @@ class CreateEquipamentosTable extends Migration
             
         });
     }
-
     /**
      * Reverse the migrations.
      *
