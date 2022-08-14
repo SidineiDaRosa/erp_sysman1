@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/icofont.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
-    <title>BRESIS - Login</title>
+    <title>SYSMAN- Login</title>
 </head>
 
 <body>
@@ -19,8 +19,10 @@
         @csrf
         <div class="login-card card">
             <div class="card-header">
-                <i class="icofont-birds mr-2"></i>
-                <span class="font-wheight-light">BlackBirds</span>
+
+ 
+            <i class="fa-solid fa-user-helmet-safety"></i>
+                <span class="font-wheight-light">SYSMAN</span>
             </div>
             <div class="card-body">
                 <div class="form-group">
