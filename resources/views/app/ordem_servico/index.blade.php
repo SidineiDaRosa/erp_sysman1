@@ -232,7 +232,17 @@
             </table>
             <p></p>
 
-            <div class="card border-success mb-3 md-1" style="max-width: 18rem;">
+            <div class="card border-success mb-3 md-1" style="max-width: 18rem;" id="valorTotal">
+            <style>
+                #valorTotal{
+                    font-size:20px;
+                    font-weight:700;
+                    font-stretch: normal;
+                    float:right;
+                    padding:10px;
+                    
+                }
+            </style>
                 Valor Total:R$ {{$valorTotal}}
             </div>
         </div>
