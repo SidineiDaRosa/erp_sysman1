@@ -22,7 +22,7 @@
 
  
             <i class="fa-solid fa-user-helmet-safety"></i>
-                <span class="font-wheight-light">SYSMAN</span>
+                <span class="font-wheight-light">SYSMAN 1.0</span>
             </div>
             <div class="card-body">
                 <div class="form-group">

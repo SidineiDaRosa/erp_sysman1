@@ -31,7 +31,6 @@
                 <div class="col-md-2">
                     <label for="id">ID:</label><input type="checkbox" name="" id="">
                     <input type="number" class="form-control" id="id" name="id" placeholder="ID Os" value="">
-
                 </div>
                 <p>
                     <!----------------------------------->
