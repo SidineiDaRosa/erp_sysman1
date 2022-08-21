@@ -16,7 +16,7 @@
         </div>
         
         <div class="card-body">
-            @component('app.fornecedor._components.form_create_edit', ['fornecedores'=>$fornecedores])     
+        @component('app.empresa._components.form_create', ['empresa'=>$empresa])     
             @endcomponent
         </div>
 

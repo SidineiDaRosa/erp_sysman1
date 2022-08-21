@@ -20,8 +20,8 @@
                 </button>
             </form>
             <div>
-                <a href="" class="btn btn-primary btn-sm">
-                    Nova empresa
+                <a href="{{route('empresas.create')}}" class="btn btn-primary btn-sm">
+                    Nova Empresas
                 </a>
             </div>
         </div>

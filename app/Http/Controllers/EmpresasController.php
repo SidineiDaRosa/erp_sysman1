@@ -52,7 +52,10 @@ class EmpresasController extends Controller
      */
     public function create()
     {
-        //
+        $empresa=Empresas::all();
+      return view('app.empresa.create', ['empresa'=>$empresa]); //
+      //$fornecedores=Fornecedor::all();
+     // return view('app.fornecedor.create', ['fornecedores'=>$fornecedores]);
     }
     /**
      * Store a newly created resource in storage.
@@ -62,7 +65,10 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
+        
         //
+        Empresas::create($request->all());
+        return redirect()->route('empresas.index');
     }
 
     /**
