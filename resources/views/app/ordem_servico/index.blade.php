@@ -34,9 +34,7 @@
 
                 </div>
                 <p>
-
                     <!----------------------------------->
-
                 <div class="col-md-2">
                     <label for="data_inicio">Data prevista:</label><input type="checkbox" name="" id="">
                     <input type="date" class="form-control" name="data_inicio" id="data_inicio"
