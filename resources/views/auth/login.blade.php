@@ -11,9 +11,13 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <style>
     body{
-       background-image:url("{{ asset('img/horizonte_fundo.jpg') }}");
+       background-image:url("{{ asset('img/94170.jpg') }}");
        background-repeat:no-repeat;
-       image-resolution:100%;
+       object-fit: contain;
+       background-size:100%;
+      
+    
+       
     }
 </style>
     <title>SYSMAN- Login</title>
