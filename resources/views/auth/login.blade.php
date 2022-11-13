@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icofont.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-
+<style>
+    body{
+       background-image:url("{{ asset('img/94170.jpg') }}");
+       background-repeat:no-repeat;
+       object-fit: contain;
+       background-size:100%;
+      
+    
+       
+    }
+</style>
     <title>SYSMAN- Login</title>
 </head>
 
@@ -22,7 +32,7 @@
 
  
             <i class="fa-solid fa-user-helmet-safety"></i>
-                <span class="font-wheight-light">SYSMAN 1.0</span>
+                <span class="font-wheight-light">SYSMAN 1.0.0</span>
             </div>
             <div class="card-body">
                 <div class="form-group">

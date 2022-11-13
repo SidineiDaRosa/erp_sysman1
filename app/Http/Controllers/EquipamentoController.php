@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Empresas;
 use Illuminate\Http\Request;
 use App\Models\Marca;
