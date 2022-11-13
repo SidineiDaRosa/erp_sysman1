@@ -75,7 +75,7 @@
                     </a>
                     <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-patrimonio">
                         <a class="sidebar-submenu-expanded-a" href="{{route('equipamento.index')}}">&nbsp&nbspEquipamentos</a><br>
-                        <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">&nbsp&nbspCadastro de
+                        <a class="sidebar-submenu-expanded-a" href="{{ route('equipamento.create') }}">&nbsp&nbspCadastro de
                             equipamentos</a><br>
                         <hr>
                         <a class="sidebar-submenu-expanded-a" href="">Consulta manutenção</a><br>
