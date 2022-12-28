@@ -11,53 +11,57 @@
             <form action="{{'Empresas-filtro'}}" method="POST">
                 @csrf
 
-                <!--------------------------------------------->
+                <!--input box filtro buscar empresas--------->
 
-                <input type="text" id="query" name="empresa1" placeholder="Buscar empresa..."
-                    aria-label="Search through site content">
+                <input type="text" id="query" name="empresa1" placeholder="Buscar empresa..." aria-label="Search through site content">
                 <button type="submit">
                     <i class="icofont-search"></i>
+
                 </button>
+
             </form>
             <div>
-                <a href="{{route('empresas.create')}}" class="btn btn-primary btn-sm">
-                    Nova Empresas
+                <a class="btn btn-bg-template btn-outline-primary" href="{{route('empresas.create')}}">
+
+                    <i class="icofont-company"></i>
+                   new unit company
                 </a>
+
             </div>
         </div>
         <!-------------------------------------------------------------------------->
         <style>
-        form {
-            background-color:cadetblue;
-            width: 500px;
-            height: 44px;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
+            form {
+                background-color: white;
+                width: 500px;
+                height: 44px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
 
-        input {
-            all: unset;
-            font: 16px system-ui;
-            color:white;
-            height: 100%;
-            width: 100%;
-            padding: 6px 10px;
-        }
+            input {
+                all: unset;
+                font: 16px system-ui;
+                color: blue;
+                height: 100%;
+                width: 100%;
+                padding: 6px 10px;
+            }
 
-        ::placeholder {
-            color: white;
-            opacity: 0.9;
-        }
+            ::placeholder {
+                color: blueviolet;
+                opacity: 0.9;
+            }
 
-      
-        button {
-            all: unset;
-            cursor: pointer;
-            width: 44px;
-            height: 44px;
-        }
+
+            button {
+                all: unset;
+                cursor: pointer;
+                width: 44px;
+                height: 44px;
+            }
         </style>
         <!-------------------------------------------------------------------------->
 
@@ -73,12 +77,8 @@
                         <th scope="col" class="th-title">Endereço</th>
                         <th scope="col" class="th-title">Bairro</th>
                         <th scope="col" class="th-title">Cidade</th>
-                        <th scope="col" class="th-title">Visualisar</th>
-                        <th scope="col" class="th-title">Editar</th>
-                        <th scope="col" class="th-title">Nova ordem</th>
+                        <th scope="col" class="th-title">Operações</th>
                         <th scope="col" class="th-title">Busca equipamentos</th>
-                        <th scope="col" class="th-title">Site</th>
-                        <th scope="col" class="th-title">Segmento</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,29 +94,25 @@
                         <td>{{ $empresa->bairro}}</td>
                         <td>{{ $empresa->cidade}}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm"
-                                href="{{route('empresas.show', ['empresa'=>$empresa->id])}}">Visualizar</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">Editar</a>
-                        </td>
-                        <td>
-                            <div class="col-sm-0">
-                                <a href="{{route('ordem-servico.create', ['empresa'=>$empresa->id])}}"
-                                    class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="icofont-plus-circle"></i>
-                                    </span>
-                                    <span class="text">Nova ordem</span>
-                                </a>
-                            </div>
+                            <a class="btn btn-sm-template btn-outline-primary" href="{{route('empresas.show', ['empresa'=>$empresa->id])}}">
+                                <i class="icofont-eye-alt"></i>
+                            </a>
+                            <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{ route('empresas.edit', ['empresa'=>$empresa->id]) }}">
+                                <i class="icofont-ui-edit"></i> </a>
+
+                            <a href="{{route('ordem-servico.create', ['empresa'=>$empresa->id])}}" class="btn-sm btn-success">
+                                <span class="icon text-white-50">
+                                    <i class="icofont-database-add"></i>
+                                </span>
+                                <span class="text">Nova ordem</span>
+                            </a>
+
                         </td>
                         <td>
                             <div class="col-sm-0">
-                                <a href="{{route('equipamento.index', ['empresa'=>$empresa->id])}}"
-                                    class="btn  btn-info btn-icon-split">
+                                <a href="{{route('equipamento.index', ['empresa'=>$empresa->id])}}" class="btn-sm btn-success">
                                     <span class="icon text-white-50">
-                                        <i class="icofont-plus-circle"></i>
+                                        <i class="icofont-search"></i>
                                     </span>
                                     <span class="text">Busca Equipamentos</span>
                                 </a>

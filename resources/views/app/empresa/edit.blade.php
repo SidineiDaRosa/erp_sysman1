@@ -7,7 +7,7 @@
     <main class="content">
         <div class="card">
             <div class="card-header-template">
-                <div>Editar Fornecedor</div>
+                <div>Editar unidade da empresa</div>
                 <div>
                     <a href="{{ route('fornecedor.create') }}" class="btn btn-primary btn-sm">
                         NOVO
@@ -19,9 +19,8 @@
             </div>
             
             <div class="card-body">
-                @component('app.fornecedor._components.form_create_edit', ['fornecedor' => $fornecedor])
+                @component('app.fornecedor._components.form_create_edit', ['fornecedor' => $fornecedor,'empresa'=>$empresa])
                 @endcomponent
-
             </div>
 
         </div>

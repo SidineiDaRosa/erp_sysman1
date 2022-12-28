@@ -28,6 +28,8 @@ class CreateEquipamentosTable extends Migration
             $table->foreign('equipamento_pai')->references('id')->on('equipamentos');
             $table->unsignedBigInteger('combustivel')->nullable();//combustivel usado no equipamento
             $table->foreign('combustivel')->references('id')->on('produtos');
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
             
         });
     }

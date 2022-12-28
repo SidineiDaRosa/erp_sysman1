@@ -18,11 +18,15 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        $produtos=Produto::all();
-
-        return view('app.produto.index', ['produtos'=>$produtos, 'request'=>$request->all()] );
+        $nome_produto_like = $request->get('produto');
+        //$nome_produto_like='DIE';
+        //$produtos=Produto::all();
+        $unidades = UnidadeMedida::all();
+        $categorias = Categoria::all();
+        $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
+        
+        return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -30,14 +34,13 @@ class ProdutoController extends Controller
      */
     public function create()
     {
+        
         $marcas = Marca::all();
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
-        return view('app.produto.create', ['marcas'=>$marcas, 'unidades'=>$unidades, 'categorias'=>$categorias]);
-
+        return view('app.produto.create', ['marcas' => $marcas, 'unidades' => $unidades, 'categorias' => $categorias]);
     }
 
-    
     /**
      * Store a newly created resource in storage.
      *
@@ -48,7 +51,6 @@ class ProdutoController extends Controller
     {
         Produto::create($request->all());
         return redirect()->route('produto.index');
-        
     }
 
     /**
@@ -59,7 +61,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-        return view('app.produto.show', ['produto'=>$produto]);
+        return view('app.produto.show', ['produto' => $produto]);
     }
 
     /**
@@ -72,9 +74,8 @@ class ProdutoController extends Controller
     {
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
-        $marcas=Marca::all();
-        return view('app.produto.edit', ['produto'=>$produto, 'marcas'=>$marcas, 'unidades'=>$unidades, 'categorias'=>$categorias]);
-
+        $marcas = Marca::all();
+        return view('app.produto.edit', ['produto' => $produto, 'marcas' => $marcas, 'unidades' => $unidades, 'categorias' => $categorias]);
     }
 
     /**
@@ -84,12 +85,11 @@ class ProdutoController extends Controller
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    
+
     public function update(Request $request, Produto $produto)
     {
         $produto->update($request->all());
         return redirect()->route('produto.index');
-
     }
 
     /**

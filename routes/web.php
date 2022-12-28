@@ -47,7 +47,7 @@ Route::middleware('auth')->post('/filtro-os', [App\Http\Controllers\OrdemServico
 
 Route::middleware('auth')->resource('/ordem-producao', 'App\Http\Controllers\OrdemProducaoController');
 
-//ordem de produção
+//entrada de produto
 Route::middleware('auth')->resource('/entrada-produto', 'App\Http\Controllers\EntradaProdutoController');
 
 Route::middleware('auth')->get(
@@ -104,6 +104,21 @@ Route::middleware('auth')->get('utils/get-todas-os',
 //busca empresas
 Route::middleware('auth')->post('/Empresas-filtro', [App\Http\Controllers\EmpresasController::class,'index']);
 Route::middleware('auth')->resource('/empresas', 'App\Http\Controllers\EmpresasController');
-//Filtro equipamento
+//Filtro Produtos
+Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\ProdutoController::class,'index']);
+//Rota saida de produtos
+Route::middleware('auth')->resource('/Saida-produto', 'App\Http\Controllers\SaidaProdutoController');
+Route::middleware('auth')->resource('/mostra-produto', 'App\Http\Controllers\SaidaProdutoController');
+//Rota estoque de produtos
+Route::middleware('auth')->resource('/Estoque-produto', 'App\Http\Controllers\EstoqueProdutoController');
+//Rota pecas equipamentos
+Route::middleware('auth')->resource('/Peca-equipamento', 'App\Http\Controllers\PecaEquipamentoController');
+//Rota pedidos de compra
+Route::middleware('auth')->resource('/pedido-compra', 'App\Http\Controllers\PedidoCompraController');
+//Rota pedidos de saida
+Route::middleware('auth')->resource('/pedido-saida', 'App\Http\Controllers\PedidosSaidaController');
+//Rota pedidos de saida
+Route::middleware('auth')->resource('/pedido-saida-lista', 'App\Http\Controllers\PedidoSaidaListaController');
+
 
 

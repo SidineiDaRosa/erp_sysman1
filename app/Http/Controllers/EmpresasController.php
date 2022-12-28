@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Empresas;
 use Illuminate\Http\Request;
+use App\Models\Empresas;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Emphasis;
 
 class EmpresasController extends Controller
@@ -90,8 +89,11 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Empresas $empresa)
     {
+        //
+        $empresa = Empresas::all(); 
+        return view('app.empresa.create', ['empresa'=>$empresa]); //
         //
     }
 

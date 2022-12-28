@@ -10,11 +10,12 @@
                 <div>Visualizar Produto</div>
                 <div>
                     <a href="{{ route('produto.index') }}" class="btn btn-sm btn-primary">
-                        LISTAGEM
+                        Lista de produtos
                     </a>
                     <a href="{{ route('produto.create') }}" class="btn btn-sm btn-primary">
                         NOVO
                     </a>
+
                 </div>
             </div>
             <div class="card-body">
@@ -29,7 +30,7 @@
                     </tr>
                     <tr>
                         <td class="text-right pr-2">DESCRIÇÂO</td>
-                        <td>{{ $produto->descricao }}</td>
+                        <td>href="{{ $produto->descricao }}"</td>
                     </tr>
                     <tr>
                         <td class="text-right pr-2"> MARCA</td>
@@ -40,8 +41,16 @@
                         <td>{{ $produto->estoque_minimo }}</td>
                     </tr>
                     <tr>
+                        <td class="text-right pr-2">ESTOQUE ATUAL</td>
+                        <td>{{ $produto->estoque_ideal }}</td>
+                    </tr>
+                    <tr>
                         <td class="text-right pr-2">ESTOQUE MÁXIMO</td>
                         <td>{{ $produto->estoque_maximo }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right pr-2">Local no estoque</td>
+                        <td>{{ $produto->local_estoque}}</td>
                     </tr>
                 </table>
             </div>

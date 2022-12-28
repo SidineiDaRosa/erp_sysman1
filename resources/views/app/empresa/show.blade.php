@@ -18,15 +18,37 @@
             ID:
             {{ $empresa->id }}
             <p></p>
+            <h3> Razão Social:
+                {{ $empresa->razao_social }}
+            </h3>
 
-            Razão Social:
-            {{ $empresa->razao_social }}
             <p></p>
             Nome fantasia:
             {{ $empresa->nome_fantasia }}
             <p></p>
-            Endereço:
-            {{ $empresa->endereco }}
+            CNPJ:
+            {{ $empresa->cnpj }}
+            <p></p>
+            inscição estadual:
+            {{ $empresa->insc_estadual }}
+            <p></p>
+            endereço:
+            {{ $empresa->endereco}}
+            <p></p>
+            Bairro:
+            {{ $empresa->bairro }}
+            <p></p>
+            Cidade:
+            {{ $empresa->ciadeade }}
+            <p></p>
+            Estado:
+            {{ $empresa->estado }}
+            <p></p>
+            Telefone:
+            {{ $empresa->Telefone }}
+            <p></p>
+            E-mail:
+            {{ $empresa->email }}
 
 
 

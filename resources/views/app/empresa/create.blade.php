@@ -7,7 +7,7 @@
 <main class="content">
     <div class="card">
         <div class="card-header-template">
-            <div>Cadastrar Novo Fornecedor</div>
+            <div>Cadastrar nova empresa unidade</div>
             <div>
                 <a href="{{route('fornecedor.index')}}" class="btn btn-primary btn-sm">
                     LISTAGEM

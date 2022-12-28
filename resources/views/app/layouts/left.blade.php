@@ -26,8 +26,8 @@
 
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-home">
-                    <a class="sidebar-submenu-expanded-a" href="{{route('empresas.index')}}">Filiais</a><br>
-                    <a class="sidebar-submenu-expanded-a" href="">Cadastros</a><br>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('empresas.index')}}">Matriz/Filiais consultas gerais</a><br>
+                    
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="">Configuraçoes</a>
                 </div>
@@ -63,6 +63,10 @@
                     <a class="sidebar-submenu-expanded-a" href="{{route('entrada-produto.index')}}">Entrada de
                         produtos</a>
                     <a class="sidebar-submenu-expanded-a" href="{{route('fornecedor.index')}}">Fornecedores</a>
+                    <hr>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('pedido-compra.index')}}">Pedido de compra</a>
+                    <hr>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('pedido-saida.index')}}">Pedido de saída</a>
                 </div>
             </li>
             <!--Menu Máquinas e equipamentos-->
@@ -75,17 +79,17 @@
                     </a>
                     <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-patrimonio">
                         <a class="sidebar-submenu-expanded-a" href="{{route('equipamento.index')}}">&nbsp&nbspEquipamentos</a><br>
-                        <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">&nbsp&nbspCadastro de
+                        <a class="sidebar-submenu-expanded-a" href="{{ route('equipamento.create') }}">&nbsp&nbspCadastro de
                             equipamentos</a><br>
                         <hr>
                         <a class="sidebar-submenu-expanded-a" href="">Consulta manutenção</a><br>
                         <a class="sidebar-submenu-expanded-a" href="{{route('ordem-servico.index')}}">
                             <i class="icofont-repair"></i>
                             &nbsp&nbspOrdem de serviço</a><br>
-                        <a class="sidebar-submenu-expanded-a" href="{{route('entrada-produto.index')}}">
+                        <a class="sidebar-submenu-expanded-a" href="">
                             <i class="icofont-dashboard-web"></i>
                             &nbsp&nbspRelatórios</a><br>
-                        <a class="sidebar-submenu-expanded-a" href="{{route('fornecedor.index')}}">
+                        <a class="sidebar-submenu-expanded-a" href="">
                             <i class="icofont-bars"></i>
                             &nbsp&nbspGráficos</a>
                     </div>

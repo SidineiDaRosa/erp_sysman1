@@ -19,9 +19,12 @@ class CreateEntradasProdutosTable extends Migration
             $table->foreign('produto_id')->references('id')->on('produtos');
             $table->unsignedBigInteger('fornecedor_id');
             $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
-            $table->double('quantidade', 8,2);
+            $table->double('quantidade', 8,2);//comprimento 8 com 2 digitos
             $table->string('nota_fiscal')->nullable();
-            $table->date('data');            
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
+            $table->date('data');
+            $table->date('data_vencimento');             
             $table->timestamps();
         });
     }

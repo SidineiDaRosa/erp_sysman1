@@ -8,6 +8,15 @@
             @endif
 
             <div class="row mb-1">
+                <label for="cod_fabricante" class="col-md-4 col-form-label text-md-end text-right">Cod fabricante</label>
+
+                <div class="col-md-6">
+                    <input id="Cod_fabricante" type="text" class="form-control-template" name="cod_fabricante"
+                        value="{{ $produto->cod_fabricante?? old('cod_fabricante') }}" required autocomplete="cod_fabricante" autofocus>
+                    {{ $errors->has('cod_fabricante') ? $errors->first('cod_fabricante') : '' }}
+                </div>
+            </div>
+            <div class="row mb-1">
                 <label for="nome" class="col-md-4 col-form-label text-md-end text-right">Nome</label>
 
                 <div class="col-md-6">
@@ -16,7 +25,6 @@
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                 </div>
             </div>
-
 
             <div class="row mb-1">
                 <label for="descricao" class="col-md-4 col-form-label text-md-end text-right">Descrição</label>
@@ -113,6 +121,32 @@
                     {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
 
                 </div>
+            </div>
+            <div class="row mb-1">
+                <label for="estoque_maximo" class="col-md-4 col-form-label text-md-end text-right">link para peca</label>
+
+                <div class="col-md-6">
+                    <input name="link_peca" id="link_peca" type="text"
+                        class="form-control-template @error('link_peca') is-invalid @enderror"
+                        estoque_maximo="link_peca"
+                        value="{{ $produto->link_peca ?? old('link_peca') }}">
+                    {{ $errors->has('link_peca') ? $errors->first('link_peca') : '' }}
+
+                </div>
+                
+            </div>
+            <div class="row mb-1">
+                <label for="local_estoque" class="col-md-4 col-form-label text-md-end text-right">local no estoque</label>
+
+                <div class="col-md-6">
+                    <input name="local_estoque" id="local_estoque" type="text"
+                        class="form-control-template @error('local_estoque') is-invalid @enderror"
+                        estoque_maximo="local_estoque"
+                        value="{{ $produto->local_estoque ?? old('local_estoque') }}">
+                    {{ $errors->has('local_estoque') ? $errors->first('local_estoque') : '' }}
+
+                </div>
+                
             </div>
 
             <div class="row mb-1">
