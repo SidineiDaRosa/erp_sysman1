@@ -24,7 +24,7 @@
        
         <div class="logo">
             <i class="icofont-birds mr-2 text-dark"></i>
-            <span class="font-wheight-light">Sidinei Da Rosa</span>
+            <span class="font-wheight-light">Sysman8.v1.0</span>
         </div>
         <div class="spacer"></div>
 

@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class SaidaProduto extends Model
 {
     use HasFactory;
+    protected $table='saidas_produtos';
+    protected $fillable=[
+        'pedidos_saida_id',
+        'produto_id',
+        'quantidade',
+        'data',
+        'equipamento_id'
+    ];
+
+    public function produto(){
+        return $this->belongsTo('App\Models\Produto');
+    }
+    public function Equipamento()
+    {
+        return $this->belongsTo('App\Models\Equipamento');
+    }
+  
 }

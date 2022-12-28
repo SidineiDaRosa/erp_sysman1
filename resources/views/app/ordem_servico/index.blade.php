@@ -120,6 +120,7 @@
             </div>
         </div>
         <div class="card-body">
+            <!--
             <style>
             #tblOs {
                 font-size: small;
@@ -152,7 +153,8 @@
                 font-weight: 1000;
             }
             </style>
-            <table class="table table-dark table-striped table-responsive-md-1 mb-0" id="tblOs">
+        -->
+            <table class="table table-dark table-sm table-hover table-responsive-md-1 mb-0" id="tblOs">
                 <thead>
                     <tr>
                         <th scope="col" class="">ID</th>
@@ -171,8 +173,7 @@
                         <th scope="col" class="">Status</th>
                         <th scope="col" class="">Valor</th>
                         <th scope="col" class="">Visualizar</th>
-                        <th scope="col" class="">Editar</th>
-                        <th scope="col" class="">Excluir</th>
+                     
                     </tr>
                 </thead>
                 @foreach ($ordens_servicos as $ordem_servico)
@@ -204,20 +205,43 @@
                         </td>
                         <td>{{ $ordem_servico->situacao}}</td>
                         <td id="valor" value="{{ $ordem_servico->valor}}">{{ $ordem_servico->valor}}</td>
+                        <!--Div operaçoes do registro da ordem des serviço-->
                         <td>
-                            <a href="{{route('ordem-servico.show', ['ordem_servico'=>$ordem_servico->id])}}">
-                                <button class="btn btn-sm-template btn-info">Visualizar</button>
-                            </a>
-                        </td>
+                            <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
+                                <a class="btn btn-sm-template btn-outline-primary" href="{{route('ordem-servico.show', ['ordem_servico'=>$ordem_servico->id])}}">
+                                    <i class="icofont-eye-alt"></i>
+                                </a>
 
-                        <td>
-                            <a href="{{route('ordem-servico.edit', ['ordem_servico'=>$ordem_servico->id])}}">
-                                <button class="btn btn-sm-template btn-primary">Editar</button>
-                        </td>
 
-                        <td>
-                            <a href="{{route('ordem-servico.destroy', ['ordem_servico'=>$ordem_servico->id])}}">
-                                <a class="btn btn-sm-template btn btn-danger">Excluir</a>
+                                <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{route('ordem-servico.edit', ['ordem_servico'=>$ordem_servico->id])}}">
+
+                                    <i class="icofont-ui-edit"></i> </a>
+
+                                <!--Condoçes para deletar a os-->
+                                <form id="form_{{ $ordem_servico->id }}" method="post" action="{{route('ordem-servico.destroy', ['ordem_servico'=>$ordem_servico->id])}}">
+                                    @method('DELETE')
+                                    @csrf
+
+                                </form>
+                                <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarOs()">
+                                    <i class="icofont-ui-delete"></i>
+                                    <script>
+                                        function DeletarOs() {
+                                            var x;
+                                            var r = confirm("Deseja deletar a ordem de serviço?");
+                                            if (r == true) {
+
+                                                document.getElementById('form_{{$ordem_servico->id }}').submit()
+                                            } else {
+                                                x = "Você pressionou Cancelar!";
+                                            }
+                                            document.getElementById("demo").innerHTML = x;
+                                        }
+                                    </script>
+                                </a>
+                                <!------------------------------>
+
+                            </div>
                         </td>
                     </tr>
 

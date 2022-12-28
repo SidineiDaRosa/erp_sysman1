@@ -1,3 +1,5 @@
+
+
 @extends('app.layouts.app')
 
 @section('titulo', 'Marcas')
@@ -49,6 +51,7 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-primary btn-sm"href="{{ route('fornecedor.edit', ['fornecedor' => $fornecedor->id]) }}">Editar</a>
+                                    
                                 </td>
                                 <td>
                                     <a class="btn btn-danger btn-sm"href="#" onclick="document.getElementById('form_{{ $fornecedor->id }}').submit()">Excluir</a>

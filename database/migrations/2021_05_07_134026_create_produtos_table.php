@@ -15,6 +15,7 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
+            $table->string('cod_fabricante',100);
             $table->string('nome', 100);
             $table->text('descricao')->nullable();
             $table->unsignedBigInteger('marca_id');
@@ -26,6 +27,7 @@ class CreateProdutosTable extends Migration
             $table->integer('estoque_minimo')->nullable();
             $table->integer('estoque_ideal')->nullable();
             $table->integer('estoque_maximo')->nullable();
+            $table->string('link_peca',200)->after('estoque_maximo');
             $table->timestamps();
         });
     }

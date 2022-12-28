@@ -20,4 +20,7 @@ class EntradaProduto extends Model
     public function produto(){
         return $this->belongsTo('App\Models\Produto');
     }
+    public function Fornecedor(){
+        return $this->belongsTo('App\Models\Fornecedor');
+    }
 }
