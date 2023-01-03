@@ -10,6 +10,7 @@ use App\Models\PedidoCompra;
 use App\Models\Empresas;
 use App\Models\PedidoSaida;
 use App\Models\SaidaProduto;
+use App\Models\Fornecedor;
 
 class PedidosSaidaController extends Controller
 {
@@ -40,7 +41,11 @@ class PedidosSaidaController extends Controller
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
-        return view('app.pedido_saida.create', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+        $fornecedores = Fornecedor::all();
+        return view('app.pedido_saida.create', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida,
+        'empresa' => $empresas,
+        'fornecedores' => $fornecedores
+    ]);
     }
 
     /**

@@ -4,14 +4,14 @@
 <main class="content">
     <div class="card">
         <div class="card-header-template">
-            <div> Pedidos de saida lista</div>
+            <div> Pedidos de saida</div>
             <div>
 
                 <a href="{{route('pedido-saida.create')}}" class="btn-sm btn-success">
 
                     <i class="icofont-database-add"></i>
                     </span>
-                    <span class="text">Inserir produto</span>
+                    <span class="text">Criar novo pedido de saída</span>
                 </a>
 
             </div>
@@ -57,42 +57,42 @@
                                 <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{route('pedido-saida-lista.index', ['pedido_saida'=>$pedido_saida->id])}}">
                                     <i class="icofont-list"></i>
                                     <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{route('pedido-saida.edit', ['pedido_saida'=>$pedido_saida->id])}}">
-                                    <i class="icofont-ui-edit"></i> </a>
-                                <!--Condioçes para deletar a os-->
-                                <form id="form_{{$pedido_saida->id }}" method="post" action="{{route('pedido-saida.destroy', [$pedido_saida->id])}}">
-                                    @method('POST')
-                                    @csrf
+                                        <i class="icofont-ui-edit"></i> </a>
+                                    <!--Condioçes para deletar a os-->
+                                    <form id="form_{{$pedido_saida->id }}" method="post" action="{{route('pedido-saida.destroy', [$pedido_saida->id])}}">
+                                        @method('POST')
+                                        @csrf
 
-                                </form>
-                                <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarPedidoSaida()">
-                                    <i class="icofont-ui-delete"></i>
-                                    <script>
-                                        function DeletarPedidoSaida() {
-                                            var x;
-                                            var r = confirm("Deseja deletar a pedido de saida?");
-                                            if (r == true) {
+                                    </form>
+                                    <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarPedidoSaida()">
+                                        <i class="icofont-ui-delete"></i>
+                                        <script>
+                                            function DeletarPedidoSaida() {
+                                                var x;
+                                                var r = confirm("Deseja deletar a pedido de saida?");
+                                                if (r == true) {
 
-                                                document.getElementById('form_header{{$pedido_saida->id }}').submit()
-                                            } else {
-                                                x = "Você pressionou Cancelar!";
+                                                    document.getElementById('form_header{{$pedido_saida->id }}').submit()
+                                                } else {
+                                                    x = "Você pressionou Cancelar!";
+                                                }
+                                                document.getElementById("demo").innerHTML = x;
                                             }
-                                            document.getElementById("demo").innerHTML = x;
-                                        }
 
-                                        function PedidosSaidaHeader() {
-                                            var x;
-                                            var r = confirm(" Pedido de saida header?");
-                                            if (r == true) {
+                                            function PedidosSaidaHeader() {
+                                                var x;
+                                                var r = confirm(" Pedido de saida header?");
+                                                if (r == true) {
 
-                                                document.getElementById('form_header{{$pedido_saida->id }}').submit()
-                                            } else {
-                                                x = "Você pressionou Cancelar!";
+                                                    document.getElementById('form_header{{$pedido_saida->id }}').submit()
+                                                } else {
+                                                    x = "Você pressionou Cancelar!";
+                                                }
+                                                document.getElementById("demo").innerHTML = x;
                                             }
-                                            document.getElementById("demo").innerHTML = x;
-                                        }
-                                    </script>
-                                </a>
-                                <!------------------------------>
+                                        </script>
+                                    </a>
+                                    <!------------------------------>
                             </div>
                         </td>
 

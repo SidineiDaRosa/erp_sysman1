@@ -20,5 +20,23 @@
 
             </a>
         </div>
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <ul>
+                <li>Cadastro de ordens de serviço</li>
+                <li>Cadastro de empresas</li>
+                <li>Cadastro de equipamentos</li>
+            </ul>
+        </div>
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <ul>
+                <li>Cadastro de ordens de serviço</li>
+                <li>Cadastro de empresas</li>
+                <li>Cadastro de equipamentos</li>
+            </ul>
+        </div>
+
+    </div>
     </div>
 </main>
