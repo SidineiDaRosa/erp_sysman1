@@ -42,10 +42,11 @@ class PedidosSaidaController extends Controller
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
         $fornecedores = Fornecedor::all();
-        return view('app.pedido_saida.create', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida,
-        'empresa' => $empresas,
-        'fornecedores' => $fornecedores
-    ]);
+        return view('app.pedido_saida.create', [
+            'equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida,
+            'empresa' => $empresas,
+            'fornecedores' => $fornecedores
+        ]);
     }
 
     /**
@@ -54,9 +55,11 @@ class PedidosSaidaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
         //
+        PedidoSaida::create($req->all());
+        //return redirect()->route('ordem-servico.create', ['$equipamentos' => $equipamentos]);
     }
 
     /**
