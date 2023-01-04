@@ -112,11 +112,12 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    @endsection
+        <iframe src="{{route('produto.index')}}" width="100%" height="300" style="border:1px solid black;">
+        </iframe>
+        @endsection
 
 
-    <footer>
-    </footer>
+        <footer>
+        </footer>
 
-    </html>
+        </html>
