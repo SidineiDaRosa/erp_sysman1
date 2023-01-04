@@ -59,19 +59,7 @@
                     <input type="text" class="form-control" name="emissor" id="emissor" value="{{$pedido_saida_f->funcionarios->primeiro_nome ?? old('hora_prevista') }}" required autocomplete="funcionarios_id " autofocus readonly>
                     {{ $errors->has('funcionarios_id ') ? $errors->first('funcionarios_id ') : '' }}
                 </div>
-                <!-----------------------------------
-                <div class="col-md-2 mb-0">
-                    <label for="situacao" class="">Situação:</label><input type="checkbox" name="" id="">
-                    <select class="form-control" name="situacao" id="situacao" value="">
-                        <option value="aberto">aberto</option>
-                        <option value="fechado">fechado</option>
-                        <option value="indefinido">indefinido</option>
-                        <option value="cancelada">cancelada</option>
-                        <option value="em andamento">em andamento</option>
-                    </select>
-                </div>
-                
-                -------------------------------------------------------------------------------------->
+
                 <div class="col-md-2">
                     <label for="status">Status:</label>
                     <input type="text" class="form-control" name="status" id="status" value="{{$pedido_saida_f->status ?? old('status') }}" required autocomplete="status" autofocus readonly>
@@ -84,29 +72,17 @@
                     <input type="text" class="form-control" name="equipamento" id="equipamento" value="{{$pedido_saida_f->equipamento->nome ?? old('hora_prevista') }}" required autocomplete="funcionarios_id " autofocus readonly>
                     {{ $errors->has('funcionarios_id ') ? $errors->first('funcionarios_id ') : '' }}
                 </div>
-                <!------------------------------------------------------------------------------------------->
-                <div class="col-md-0">
-                    <label for="btFiltrar" class="">Filtrar:</label>
-                    <p>
-                        <input type="submit" class="btn btn-info btn-icon-split" value="Filtrar">
 
-                        <span class="icon text-white-50">
-                            <i class="icofont-filter"></i>
-                        </span>
-                        <span class="text"></span>
-
-                        </input>
-                </div>
                 </form>
                 <!--------------------------------------->
                 <div class="col-md-0">
-                    <label for="btFiltrar" class="">Nova os</label>
+                    <label for="btFiltrar" class="">Adicionar produto</label>
                     <p>
                         <a href="" class="btn btn-info btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="icofont-plus-circle"></i>
                             </span>
-                            <span class="text">Nova ordem</span>
+                            <span class="text">Adicionar produto</span>
                         </a>
                 </div>
             </div>

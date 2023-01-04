@@ -18,7 +18,7 @@ class CreatePedidosSaidaTable extends Migration
             $table->date('data_emissao');
             $table->time('hora_emissao');
             $table->date('data_prevista');
-            $table->time('hora_prevista'); 
+            $table->time('hora_prevista');
             $table->unsignedBigInteger('empresa_id')->nullable(); //foreing vem da própria tabela equipamentos
             $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->unsignedBigInteger('equipamento_id')->nullable(); //foreing vem da própria tabela equipamentos
@@ -27,8 +27,8 @@ class CreatePedidosSaidaTable extends Migration
             $table->foreign('funcionarios_id')->references('id')->on('funcionarios');
             $table->unsignedBigInteger('fornecedor_id');
             $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
-            $table->string('status',50); 
-            $table->string('descricao',200);
+            $table->string('status', 50);
+            $table->string('descricao', 200);
             $table->timestamps();
         });
     }

@@ -17,10 +17,14 @@ class PedidoSaida extends Model
         'hora_prevista',
         'empresa_id',
         'equipamento_id',
-        'funcionario_id',
+        'funcionarios_id',
+        'fornecedor_id',
         'status',
         'descrcao'
     ];
+    public function Empresa(){
+        return $this->belongsTo('App\Models\Empresas');
+    }
     public function Equipamento()
     {
         return $this->belongsTo('App\Models\Equipamento');
@@ -29,9 +33,7 @@ class PedidoSaida extends Model
     {
         return $this->belongsTo('App\Models\Funcionario');
     }
-    public function Empresa(){
-        return $this->belongsTo('App\Models\Empresas');
-    }
+  
     public function produto(){
         return $this->belongsTo('App\Models\Produto');
     }

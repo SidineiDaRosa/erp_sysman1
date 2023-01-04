@@ -47,11 +47,11 @@
                             <input type="time" class="form-control" name="hora_prevista" id="horaFim" placeholder="horaFim" value="">
                         </div>
                         <div class="col-md-6 mb-0">
-                            <label for="emissor" class="">Emissor</label>
-                            <select name="funcionarios_id" id="emissor" class="form-control-template">
+                            <label for="funcionarios_id" class="">Emissor</label>
+                            <select name="funcionarios_id" id="funcionarios_id" class="form-control-template">
                                 <option value=""> --Selecione o emissor--</option>
                                 @foreach ($funcionarios as $funcionario_find)
-                                <option value="{{$funcionario_find->primeiro_nome}}" {{($funcionario_find->emissor ?? old('emissor')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
+                                <option value="{{$funcionario_find->id}}" {{($funcionario_find->id ?? old('emissor')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
                                     {{$funcionario_find->primeiro_nome}}
                                 </option>
                                 @endforeach
@@ -61,7 +61,7 @@
                         <!----------------------------------->
                         <div class="col-md-2 mb-0">
                             <label for="situacao" class="">Status:</label>
-                            <select class="form-control" name="situacao" id="situacao" value="">
+                            <select class="form-control" name="status" id="situacao" value="">
                                 <option value="aberto">aberto</option>
                                 <option value="fechado">fechado</option>
                                 <option value="indefinido">indefinido</option>
@@ -105,7 +105,7 @@
                         <div class="col-md-6 mb-0">
                             <label for="cliente" class="">Cliente</label>
 
-                            <select name="cliente" id="" class="form-control">
+                            <select name="fornecedor_id" id="" class="form-control">
                                 <option value=""> --Selecione o fornecedor--</option>
                                 @foreach ($fornecedores as $fornecedor)
                                 <option value="{{ $fornecedor->id }}" {{ ($fornecedor->fornecedor_id ?? old('fornecedor_id')) == $fornecedor->id ? 'selected' : '' }}>
