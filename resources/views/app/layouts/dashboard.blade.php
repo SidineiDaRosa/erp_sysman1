@@ -39,4 +39,6 @@
 
     </div>
     </div>
+    <iframe src="{{ route('produto.index') }}" title="Produtos" style="height:400px;width:100%;"></iframe>
+    
 </main>
