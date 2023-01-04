@@ -79,7 +79,7 @@
             <p></p>
             <label for="">Acertividade</label>
             <p>
-                <label for="">Acuraciadade</label>
+                <label for="">Acuracidade</label>
         </div>
         <div class="divt">
 
