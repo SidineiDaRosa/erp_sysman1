@@ -92,7 +92,6 @@
                 <thead>
                     <tr>
                         <th scope="col" class="th-title">Id</th>
-                        <th scope="col" class="th-title">pedido_saida_id</th>
                         <th scope="col" class="th-title">Produto</th>
                         <th scope="col" class="th-title">Quantidade</th>
                         <th scope="col" class="th-title">Data</th>
@@ -103,7 +102,6 @@
                     @foreach ($saidas_produto as $saida_produto)
                     <tr>
                         <th scope="row">{{$saida_produto->id }}</td>
-                        <td>{{ $saida_produto->pedidos_saida_id}}</td>
                         <td>{{ $saida_produto->produto->nome }}</td>
                         <td>{{ $saida_produto->quantidade }}</td>
                         <td>{{ $saida_produto->data }}</td>
