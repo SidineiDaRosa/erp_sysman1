@@ -4,7 +4,7 @@
 <script src="{{ asset('js/timeline_google.js') }}" defer></script>
 <main class="content">
     <div class="card">
-        listagem Pedido de saída
+        Pedido da saída listagem
         <style>
             .card-header {
                 background-color: rgb(211, 211, 211);
@@ -112,11 +112,11 @@
                 </tbody>
             </table>
         </div>
-        <iframe src="{{ route('produto.index') }}" title="Produtos" style="height:400px;width:100%;"></iframe>
-        @endsection
+    </div>
+    @endsection
 
 
-        <footer>
-        </footer>
+    <footer>
+    </footer>
 
-        </html>
+    </html>
