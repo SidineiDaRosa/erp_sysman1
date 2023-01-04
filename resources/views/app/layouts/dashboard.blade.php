@@ -20,25 +20,40 @@
 
             </a>
         </div>
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <ul>
-                <li>Cadastro de ordens de serviço</li>
-                <li>Cadastro de empresas</li>
-                <li>Cadastro de equipamentos</li>
-            </ul>
-        </div>
-        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <ul>
-                <li>Cadastro de ordens de serviço</li>
-                <li>Cadastro de empresas</li>
-                <li>Cadastro de equipamentos</li>
-            </ul>
-        </div>
+        <div class="cards-dashboard" id="cardsboard">
+            <style>
+                #cardsboard {
+                    display:flexbox;
+                    flex-direction:row;
+                    height: 200px;
+                    background-color: red;
+                }
+            </style>
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Header</div>
+                <ul>
+                    <li>Cadastro de ordens de serviço</li>
+                    <li>Cadastro de empresas</li>
+                    <li>Cadastro de equipamentos</li>
+                </ul>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Manutenção</div>
+                <ul>
+                    <li>acertividade nas manuteçôes</li>
 
+                    <i class="icofont-dart icofont-10x"></i>
+                </ul>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Manutenção</div>
+                <ul>
+                    <li>acertividade nas manuteçôes</li>
+                    </i><i class="icofont-automation icofont-10x"></i>
+                </ul>
+            </div>
+        </div>
     </div>
-    </div>
-    <iframe src="{{ route('produto.index') }}" title="Produtos" style="height:400px;width:100%;"></iframe>
-    
+
+
 </main>
