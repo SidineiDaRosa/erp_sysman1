@@ -112,7 +112,7 @@
                 </tbody>
             </table>
         </div>
-        <iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials"></iframe>
+        <iframe src="{{ route('produto.index') }}" title="Produtos" style="height:400px;width:100%;"></iframe>
         @endsection
         
 
