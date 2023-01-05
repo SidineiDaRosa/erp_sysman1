@@ -43,7 +43,7 @@
                     <div class="row mb-1">
                         <label for="valor" class="col-md-4 col-form-label text-md-end text-right">Valor</label>
                         <div class="col-md-6">
-                            <input name="valor" id="valor" type="number" class="form-control " value="{{ $produto->valor ?? old('valor') }}">
+                            <input name="valor" id="valor" type="number" class="form-control " value="{{ $produto->valor ?? old('valor') }}" onchange="Qnt_X_Valor()">
                             {{ $errors->has('valor') ? $errors->first('valor') : '' }}
                         </div>
                     </div>
@@ -56,8 +56,7 @@
                                     let n1 = document.getElementById('valor').value;
                                     let n2 = document.getElementById('quantidade').value;
                                     let sub = n1 * n2;
-                                    alert(sub)
-                                    document.getElementById('subtotal').value=sub;
+                                    document.getElementById('subtotal').value = sub;
                                 };
                             </script>
 
@@ -100,7 +99,7 @@
 
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary" disabled>
+                            <button type="submit" class="btn btn-primary">
                                 {{ isset($saida_produto) ? 'Atualizar' : 'Cadastrar' }}
                             </button>
                         </div>
