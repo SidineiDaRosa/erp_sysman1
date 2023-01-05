@@ -92,7 +92,7 @@
                                 </option>
                                 @endforeach
                             </select>
-                            {{ $errors->has('equipamento') ? $errors->first('equipamento') : '' }}
+                            {{ $errors->has('equipamento_id') ? $errors->first('equipamento_id') : '' }}
                         </div>
 
                     </div>
