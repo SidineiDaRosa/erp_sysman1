@@ -93,7 +93,10 @@
                     <tr>
                         <th scope="col" class="th-title">Id</th>
                         <th scope="col" class="th-title">Produto</th>
+                        <th scope="col" class="th-title">Unidade</th>
                         <th scope="col" class="th-title">Quantidade</th>
+                        <th scope="col" class="th-title">Valor Unit</th>
+                        <th scope="col" class="th-title">Subtotal</th>
                         <th scope="col" class="th-title">Data</th>
                         <th scope="col" class="th-title">Patrmônio</th>
                     </tr>
@@ -102,8 +105,11 @@
                     @foreach ($saidas_produto as $saida_produto)
                     <tr>
                         <th scope="row">{{$saida_produto->id }}</td>
-                        <td>{{ $saida_produto->produto->nome }}</td>
-                        <td>{{ $saida_produto->quantidade }}</td>
+                        <td>{{ $saida_produto->produto->nome}}</td>
+                        <td>{{ $saida_produto->unidade_medida}}</td>
+                        <td>{{ $saida_produto->quantidade}}</td>
+                        <td>{{ $saida_produto->valor}}</td>
+                        <td>{{ $saida_produto->subtotal}}</td>
                         <td>{{ $saida_produto->data }}</td>
                         <td>{{ $saida_produto->equipamento->nome}}</td>
 

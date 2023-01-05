@@ -35,6 +35,7 @@
                     <th scope="row">{{$saida_produto->id }}</td>
                     <td>{{ $saida_produto->pedidos_saida_id}}</td>
                     <td>{{ $saida_produto->produto->nome }}</td>
+                    <td>{{ $saida_produto->unidade_medida }}</td>
                     <td>{{ $saida_produto->quantidade }}</td>
                     <td>{{ $saida_produto->data }}</td>
                     <td>{{ $saida_produto->equipamento->nome}}</td>

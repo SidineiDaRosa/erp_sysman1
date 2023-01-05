@@ -12,7 +12,10 @@ class SaidaProduto extends Model
     protected $fillable=[
         'pedidos_saida_id',
         'produto_id',
+        'unidade_medida',
         'quantidade',
+        'valor',
+        'subtotal',
         'data',
         'equipamento_id'
     ];
