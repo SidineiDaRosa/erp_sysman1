@@ -57,6 +57,7 @@
                                     let n2 = document.getElementById('quantidade').value;
                                     let sub = n1 * n2;
                                     alert(sub)
+                                    document.getElementById('subtotal').value=sub;
                                 };
                             </script>
 
