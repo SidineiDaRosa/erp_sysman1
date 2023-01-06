@@ -190,16 +190,31 @@
         </div>
         <div class="form-row mb-0">
 
-            <div class="col-md-6 mb-0">
-                <label for="link_foto" class="col-md-6 col-form-label text-md-end">link foto</label>
+            <div class="col-md-4 mb-0">
+                <label for="link_foto" class="col-md-4 col-form-label text-md-end">link foto</label>
                 <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="">
                 {{ $errors->has('link_foto') ? $errors->first('link_foto') : '' }}
 
             </div>
-            <div class="col-md-6 mb-0">
-                <label for="status_servicos" class="col-md-6 col-form-label text-md-end">status dos serviço</label>
+            <div class="col-md-2 mb-0">
+                <label for="status_servicos" class="col-md-4 col-form-label text-md-end">status %</label>
                 <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="">
-                {{ $errors->has('status_servico') ? $errors->first('status_servico') : '' }}
+                {{ $errors->has('status_servicos') ? $errors->first('status_servicos') : '' }}
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="gravidade" class="col-md-4 col-form-label text-md-end">gravidade</label>
+                <input id="gravidade" type="text" class="form-control-template" name="gravidade" value="">
+                {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="urgencia" class="col-md-4 col-form-label text-md-end">urgência</label>
+                <input id="urgencia" type="text" class="form-control-template" name="urgencia" value="">
+                {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+                <input id="tendencia" type="text" class="form-control-template" name="tendencia" value="">
+                {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
             </div>
 
         </div>

@@ -134,10 +134,10 @@
             <input id="id1" type="nuber" class="form-control-template" name="id" value="{{$ordem_servico->id}}" disabled>
             {{ $errors->has('id') ? $errors->first('id') : '' }}
         </div>
-        
+
         <!------------------------------------------------------>
-         <!-------------empresa--------------->
-         <div class="col-sm-1 mb-0">
+        <!-------------empresa--------------->
+        <div class="col-sm-1 mb-0">
             <label for="empresa_id" class="col-md-6 col-form-label text-md-end">ID</label>
             <input type="text" class="form-control-template" name="empresa_id" id="empresa_id" value="{{$ordem_servico->empresa->id}}" readonly>
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
@@ -164,9 +164,9 @@
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <div class="col-md-2 mb-0">
-                <label for="valor" class="col-md-6 col-form-label text-md-end">R$:</label>
-                <input id="valor" name="valor" value="{{$ordem_servico->valor}}"input type="number" min="0.00" max="100000.00" step="00.01" class="form-control-template">
-            </div>
+            <label for="valor" class="col-md-6 col-form-label text-md-end">R$:</label>
+            <input id="valor" name="valor" value="{{$ordem_servico->valor}}" input type="number" min="0.00" max="100000.00" step="00.01" class="form-control-template">
+        </div>
     </div>
     <!------------------------------------------------------------------------------------------->
     <!----Datas---------------------------------------------------------------------------------->
@@ -263,11 +263,41 @@
         </div>
         <div class="col-sm-6 mb-0">
             <label for="executado" class="col-md-6 col-form-label text-md-end">Descrição serviços executados</label>
-            <input type="text" class="form-control-template" name="Executado" id="executado" value="{{$ordem_servico->Executado}}">
+            <input type="text" class="form-control-template" name="executado" id="executado" value="{{$ordem_servico->Executado}}">
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <!------------------------------------------------>
         <!------------------------------------------------>
+    </div>
+    <div class="form-row mb-0">
+
+        <div class="col-md-4 mb-0">
+            <label for="link_foto" class="col-md-4 col-form-label text-md-end">link foto</label>
+            <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="">
+            {{ $errors->has('link_foto') ? $errors->first('link_foto') : '' }}
+
+        </div>
+        <div class="col-md-2 mb-0">
+            <label for="status_servicos" class="col-md-4 col-form-label text-md-end">status %</label>
+            <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="">
+            {{ $errors->has('status_servicos') ? $errors->first('status_servicos') : '' }}
+        </div>
+        <div class="col-md-2 mb-0">
+            <label for="gravidade" class="col-md-4 col-form-label text-md-end">gravidade</label>
+            <input id="gravidade" type="text" class="form-control-template" name="gravidade" value="">
+            {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
+        </div>
+        <div class="col-md-2 mb-0">
+            <label for="urgencia" class="col-md-4 col-form-label text-md-end">urgência</label>
+            <input id="urgencia" type="text" class="form-control-template" name="urgencia" value="">
+            {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
+        </div>
+        <div class="col-md-2 mb-0">
+            <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+            <input id="tendencia" type="text" class="form-control-template" name="tendencia" value="">
+            {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
+        </div>
+
     </div>
     <hr>
     <div class="row sm-3 mb-0">
