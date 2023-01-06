@@ -189,7 +189,7 @@
 
         <div class="col-sm-3 mb-0">
             <label for="dataPrevista">Data prevista</label>
-            <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}">
+            <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}" onchange="ValidateDateFim()">
             <div class="invalid-tooltip">
                 Por favor, informe data
             </div>
@@ -204,10 +204,31 @@
         </div>
         <div class="col-sm-3 mb-0">
             <label for="dataFim">Data fim</label>
-            <input type="date" class="form-control" name="data_fim" id="dataFim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}">
+            <input type="date" class="form-control" name="data_fim" id="dataFim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}" required  onchange="ValidateDateFim()">
             <div class="invalid-tooltip">
                 Por favor, informe dataFim.
             </div>
+            <script>
+                function ValidateDateFim() {
+
+                    let dataEmissao = document.getElementById('data_emissao').value;
+                    let dataPrevista = document.getElementById('dataPrevista').value;
+                    let dataFim = document.getElementById('dataFim').value;
+                    alert()
+                   // if (dataPrevista < dataEmissao) {
+                       // alert('A data prevista deve ser maior que a data de emissão!');
+                       // document.getElementById('dataPrevista').value = 'null';
+
+                    //}
+
+
+                    //if (dataFim < dataPrevista) {
+                    //  alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
+                    // document.getElementById('dataFim').value = 'null';
+
+                    // }
+                };
+            </script>
         </div>
         <div class="col-sm-3 mb-0">
             <label for="horaFim">Hora fim</label>
@@ -273,28 +294,28 @@
 
         <div class="col-md-4 mb-0">
             <label for="link_foto" class="col-md-4 col-form-label text-md-end">link foto</label>
-            <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="">
+            <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="{{$ordem_servico->link_foto}}">
             {{ $errors->has('link_foto') ? $errors->first('link_foto') : '' }}
 
         </div>
         <div class="col-md-2 mb-0">
             <label for="status_servicos" class="col-md-4 col-form-label text-md-end">status %</label>
-            <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="">
+            <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="{{$ordem_servico->status_servicos}}">
             {{ $errors->has('status_servicos') ? $errors->first('status_servicos') : '' }}
         </div>
         <div class="col-md-2 mb-0">
             <label for="gravidade" class="col-md-4 col-form-label text-md-end">gravidade</label>
-            <input id="gravidade" type="text" class="form-control-template" name="gravidade" value="">
+            <input id="gravidade" type="text" class="form-control-template" name="gravidade" value="{{$ordem_servico->gravidade}}">
             {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
         </div>
         <div class="col-md-2 mb-0">
             <label for="urgencia" class="col-md-4 col-form-label text-md-end">urgência</label>
-            <input id="urgencia" type="text" class="form-control-template" name="urgencia" value="">
+            <input id="urgencia" type="text" class="form-control-template" name="urgencia" value="{{$ordem_servico->urgencia}}">
             {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
         </div>
         <div class="col-md-2 mb-0">
             <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
-            <input id="tendencia" type="text" class="form-control-template" name="tendencia" value="">
+            <input id="tendencia" type="text" class="form-control-template" name="tendencia" value="{{$ordem_servico->tendencia}}">
             {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
         </div>
 
