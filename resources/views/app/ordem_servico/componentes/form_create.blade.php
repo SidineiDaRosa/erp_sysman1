@@ -21,20 +21,18 @@
             <!--------------------------------------------------------------------------------------->
             <div class="col-md-0 mb-0">
                 <label for="empresa_id" class="col-md-4 col-form-label text-md-end">Id</label>
-                <input id="empresa_id" type="text" class="form-control-template" name="empresa_id" 
-                value="@foreach($empresa as $empresas_f)
+                <input id="empresa_id" type="text" class="form-control-template" name="empresa_id" value="@foreach($empresa as $empresas_f)
                     {{$empresas_f['id']}}
-                    @endforeach" readonly >
+                    @endforeach" readonly>
                 {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
             </div>
             <div class="col-md-7 mb-0">
                 <label for="empresa" class="col-md-4 col-form-label text-md-end">Empresa</label>
-                <input id="empresa" type="text" class="form-control-template" name="empresa" 
-                value="@foreach($empresa as $empresas_f)
+                <input id="empresa" type="text" class="form-control-template" name="empresa" value="@foreach($empresa as $empresas_f)
                     {{$empresas_f['razao_social']}}
-                    @endforeach" readonly >
+                    @endforeach" readonly>
                 {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
-            
+
             </div>
             <!------------------------------------------------------------------------------------------->
             <!---equipamento-->
@@ -53,7 +51,7 @@
             </div>
             <div class="col-md-2 mb-0">
                 <label for="valor" class="col-md-6 col-form-label text-md-end">R$:</label>
-                <input id="valor" name="valor" value="" input type="number" min="0.00" max="100000.00" step="00.01"  placeholder="R$00,00" class="form-control-template">
+                <input id="valor" name="valor" value="" input type="number" min="0.00" max="100000.00" step="00.01" placeholder="R$00,00" class="form-control-template">
             </div>
         </div>
         <!------------------------------------------------------------------------------------------->
@@ -187,6 +185,21 @@
                 <label for="responsavel" class="col-md-6 col-form-label text-md-end">executado</label>
                 <input id="executado" type="text" class="form-control-template" name="executado" value="">
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+            </div>
+
+        </div>
+        <div class="form-row mb-0">
+
+            <div class="col-md-6 mb-0">
+                <label for="link_foto" class="col-md-6 col-form-label text-md-end">link foto</label>
+                <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="">
+                {{ $errors->has('link_foto') ? $errors->first('link_foto') : '' }}
+
+            </div>
+            <div class="col-md-6 mb-0">
+                <label for="status_servicos" class="col-md-6 col-form-label text-md-end">status dos serviço</label>
+                <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="">
+                {{ $errors->has('status_servico') ? $errors->first('status_servico') : '' }}
             </div>
 
         </div>

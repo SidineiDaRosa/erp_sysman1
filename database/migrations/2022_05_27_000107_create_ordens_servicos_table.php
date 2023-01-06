@@ -32,8 +32,14 @@ class CreateOrdensServicosTable extends Migration
             $table->string('responsavel');
             $table->string('descricao');
             $table->string('Executado');
+            $table->integer('status_servicos',2);
+            $table->string('link_foto',200);
+            $table->integer('gravidade',1);
+            $table->integer('urgencia',1);
+            $table->integer('tendencia',1);
             $table->float('valor');
             $table->string('situacao');
+
             $table->timestamps();
         });
     }

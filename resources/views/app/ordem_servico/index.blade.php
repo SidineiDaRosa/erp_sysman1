@@ -5,17 +5,17 @@
 <main class="content">
     <div class="card">
         <style>
-        .card-header {
-            background-color: rgb(211, 211, 211);
-            opacity: 0.95;
-        }
+            .card-header {
+                background-color: rgb(211, 211, 211);
+                opacity: 0.95;
+            }
         </style>
         <div class="card-header">
             <script>
-            function Funcao() {
-                alert('teste');
-                document.getElementById("t1").value = "{{$funcionarios}}"
-            }
+                function Funcao() {
+                    alert('teste');
+                    document.getElementById("t1").value = "{{$funcionarios}}"
+                }
             </script>
             <!------------------------------------->
             <!----teste de url--------------------->
@@ -36,13 +36,11 @@
                     <!----------------------------------->
                 <div class="col-md-2">
                     <label for="data_inicio">Data prevista:</label><input type="checkbox" name="" id="">
-                    <input type="date" class="form-control" name="data_inicio" id="data_inicio"
-                        placeholder="dataPrevista" value="">
+                    <input type="date" class="form-control" name="data_inicio" id="data_inicio" placeholder="dataPrevista" value="">
                 </div>
                 <div class="col-md-2">
                     <label for="hora_inicio">Hora prevista:</label><input type="checkbox" name="" id="">
-                    <input type="time" class="form-control" name="hora_inicio" id="hora_inicio"
-                        placeholder="horaPrevista" value="">
+                    <input type="time" class="form-control" name="hora_inicio" id="hora_inicio" placeholder="horaPrevista" value="">
                 </div>
                 <div class="col-md-2">
                     <label for="dataFim">Data fim:</label><input type="checkbox" name="" id="">
@@ -57,8 +55,7 @@
                     <select name="responsavel" id="responsavel" class="form-control-template">
                         <option value="todos">todos</option>
                         @foreach ($funcionarios as $funcionario_find)
-                        <option value="{{$funcionario_find->primeiro_nome}}"
-                            {{($funcionario_find->responsavel ?? old('responsavel')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
+                        <option value="{{$funcionario_find->primeiro_nome}}" {{($funcionario_find->responsavel ?? old('responsavel')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
                             {{$funcionario_find->primeiro_nome}}
                         </option>
                         @endforeach
@@ -84,8 +81,7 @@
                     <select name="empresa_id" id="empresa_id" class="form-control-template">
                         <option value=""> --Selecione a empresa--</option>
                         @foreach ($empresa as $empresas_find)
-                        <option value="{{$empresas_find->id}}"
-                            {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
+                        <option value="{{$empresas_find->id}}" {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
                             {{$empresas_find->razao_social}}
                         </option>
                         @endforeach
@@ -170,10 +166,11 @@
                         <th scope="col" class="">Responsável</th>
                         <th scope="col" class="">Descrição</th>
                         <th scope="col" class="">Executado</th>
+                        <th scope="col" class="">link foto</th>
                         <th scope="col" class="">Status</th>
                         <th scope="col" class="">Valor</th>
                         <th scope="col" class="">Visualizar</th>
-                     
+
                     </tr>
                 </thead>
                 @foreach ($ordens_servicos as $ordem_servico)
@@ -203,6 +200,7 @@
                             {{ $ordem_servico->Executado}}
 
                         </td>
+                        <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
                         <td>{{ $ordem_servico->situacao}}</td>
                         <td id="valor" value="{{ $ordem_servico->valor}}">{{ $ordem_servico->valor}}</td>
                         <!--Div operaçoes do registro da ordem des serviço-->
@@ -254,16 +252,16 @@
             <p></p>
 
             <div class="card border-success mb-3 md-1" style="max-width: 18rem;" id="valorTotal">
-            <style>
-                #valorTotal{
-                    font-size:20px;
-                    font-weight:700;
-                    font-stretch: normal;
-                    float:right;
-                    padding:10px;
-                    
-                }
-            </style>
+                <style>
+                    #valorTotal {
+                        font-size: 20px;
+                        font-weight: 700;
+                        font-stretch: normal;
+                        float: right;
+                        padding: 10px;
+
+                    }
+                </style>
                 Valor Total:R$ {{$valorTotal}}
             </div>
         </div>
@@ -284,29 +282,29 @@
         <div id="timeline" style="height: 2000px;">
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
-            let valor = "{{$valorTotal}}"; //pega valor total
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
-            google.charts.setOnLoadCallback(drawChart);
+                let valor = "{{$valorTotal}}"; //pega valor total
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
 
-            function drawChart() {
+                function drawChart() {
 
-                var data = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Valor total', valor ],
-                    ['Eat', 2],
-                    ['Commute', 2],
-                    ['Watch TV', 2],
-                    ['Sleep', 7]
-                ]);
-                var options = {
-                    title: 'My Daily Activities'
-                };
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    var data = google.visualization.arrayToDataTable([
+                        ['Task', 'Hours per Day'],
+                        ['Valor total', valor],
+                        ['Eat', 2],
+                        ['Commute', 2],
+                        ['Watch TV', 2],
+                        ['Sleep', 7]
+                    ]);
+                    var options = {
+                        title: 'My Daily Activities'
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-                chart.draw(data, options);
-            }
+                    chart.draw(data, options);
+                }
             </script>
             <div id="piechart" style="width: 900px; height: 500px;"></div>
         </div>timeline

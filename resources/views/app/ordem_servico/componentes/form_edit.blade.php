@@ -263,7 +263,7 @@
         </div>
         <div class="col-sm-6 mb-0">
             <label for="executado" class="col-md-6 col-form-label text-md-end">Descrição serviços executados</label>
-            <input type="text" class="form-control-template" name="Executado" id="Executado" value="{{$ordem_servico->Executado}}">
+            <input type="text" class="form-control-template" name="Executado" id="executado" value="{{$ordem_servico->Executado}}">
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <!------------------------------------------------>

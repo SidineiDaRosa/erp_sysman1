@@ -22,6 +22,11 @@ class OrdemServico extends Model
         'responsavel',
         'descricao',
         'executado',
+        'status_servicos',
+        'link_foto',
+        'gravidade',
+        'urgencia',
+        'tendencia',
         'valor',
         'empresa_id',
         'situacao'
