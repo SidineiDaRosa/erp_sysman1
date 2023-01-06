@@ -118,10 +118,16 @@
                 </tbody>
             </table>
         </div>
-        <iframe src="{{route('produto.index')}}" width="100%" height="300" style="border:1px solid black;">
+        <iframe id="ifm1" src="{{route('produto.index')}}" width="100%" height="300" style="border:1px solid black;">
         </iframe>
-        @endsection
+        <input type="button" value="btn" onclick="ifrm()">
+        <script>
+            function ifrm() {
+           
+            }
+        </script>
 
+        @endsection
 
         <footer>
         </footer>
