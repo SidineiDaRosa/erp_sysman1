@@ -202,11 +202,14 @@
                         document.getElementById('data_prevista').value = 'null';
 
                     }
-                    if (dataFim < dataPrevista) {
-                        alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
-                        document.getElementById('data_fim').value = 'null';
+                    if (dataFim != 'null') {
+                        if (dataFim < dataPrevista) {
+                            alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
+                            document.getElementById('data_fim').value = 'null';
 
+                        }
                     }
+
 
                 }
             </script>
