@@ -1,6 +1,9 @@
 @extends('site.main')
 @section('content')
-
+<div>
+    <h1>aqui e uma imagem</h1>
+    <img src="{{ asset('img/slide-home/2.jpg') }}" alt="imagem 1">
+</div>
 {{-- inicio carousel bootstrap --}}
 {{-- <div class="container-fluid" style="margin: 0;">
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="margin: 0;">
@@ -76,25 +79,25 @@
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide " data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/1.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/1.jpeg') }}" class="w-100" />
         </div>
         <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/2.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/2.jpeg') }}" class="w-100" />
         </div>
         <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/3.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/3.jpeg') }}" class="w-100" />
         </div>
         <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/4.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/4.jpeg') }}" class="w-100" />
         </div>
         <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/5.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/5.jpeg') }}" class="w-100" />
         </div>
         <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/6.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/6.jpeg') }}" class="w-100" />
         </div>
         <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/7.jpg') }}" class="w-50" />
+            <img src="{{ asset('img/slide-home/7.jpeg') }}" class="w-100" />
         </div>
     </div>
     <div class="swiper-pagination"></div>
