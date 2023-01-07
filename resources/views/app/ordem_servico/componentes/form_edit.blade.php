@@ -117,8 +117,6 @@
         document.getElementById('bg-modal').style.display = 'none';
     }
 </script>
-
-
 <!----**************************************************************************************--->
 <!----Grava -->
 <!---*************************************************************************************----->
@@ -174,14 +172,14 @@
     <div class="form-row">
         <div class="col-md-3 mb-0">
             <label for="data_Emissao">Data emissao</label>
-            <input type="date" class="form-control" id="data_Emissao" name="data_emissao" placeholder="dataEmissao" value="{{$ordem_servico->data_emissao}}" readonly>
+            <input type="date" class="form-control" id="data_emissao" name="data_emissao" placeholder="dataEmissao" value="{{$ordem_servico->data_emissao}}" readonly>
             <div class="invalid-tooltip">
                 informe a data
             </div>
         </div>
         <div class="col-sm-3 mb-0">
             <label for="horaEmissao">Hora emissao</label>
-            <input type="time" class="form-control" name=hora_emissao id="horaEmissao" placeholder="horaEmissao" required value="{{$ordem_servico->hora_emissao}}" readonly>
+            <input type="time" class="form-control" name=hora_emissao id="hora_Emissao" placeholder="horaEmissao" required value="{{$ordem_servico->hora_emissao}}" readonly>
             <div class="invalid-tooltip">
                 Por favor, informe a hora.
             </div>
@@ -189,35 +187,54 @@
 
         <div class="col-sm-3 mb-0">
             <label for="dataPrevista">Data prevista</label>
-            <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}" onchange="ValidateDateFim()">
+            <input type="date" class="form-control" name="data_inicio" id="data_prevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}" onchange="ValidateDate()">
             <div class="invalid-tooltip">
                 Por favor, informe data
             </div>
+            <script>
+                function ValidateDate() {
+
+                    let dataEmissao = document.getElementById('data_emissao').value;
+                    let dataPrevista = document.getElementById('data_prevista').value;
+                    let dataFim = document.getElementById('data_fim').value;
+                    if (dataPrevista < dataEmissao) {
+                        alert('A data prevista deve ser maior que a data de emissão!');
+                        document.getElementById('data_prevista').value = 'null';
+
+                    }
+                    if (dataFim < dataPrevista) {
+                        alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
+                        document.getElementById('data_fim').value = 'null';
+
+                    }
+
+                }
+            </script>
         </div>
 
         <div class="col-sm-3 mb-0">
             <label for="horaPrevista">Hora prevista</label>
-            <input type="time" class="form-control" name="hora_inicio" id="horaPrevista" placeholder="horaPrevista" required value="{{$ordem_servico->hora_inicio}}">
+            <input type="time" class="form-control" name="hora_inicio" id="hora_prevista" placeholder="horaPrevista" required value="{{$ordem_servico->hora_inicio}}">
             <div class="invalid-tooltip">
                 Por favor, informe hora.
             </div>
         </div>
         <div class="col-sm-3 mb-0">
             <label for="dataFim">Data fim</label>
-            <input type="date" class="form-control" name="data_fim" id="dataFim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}" required  onchange="ValidateDateFim()">
+            <input type="date" class="form-control" name="data_fim" id="data_fim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}" required onchange="ValidateDate()">
             <div class="invalid-tooltip">
                 Por favor, informe dataFim.
             </div>
             <script>
                 function ValidateDateFim() {
-
-                    let dataEmissao = document.getElementById('data_emissao').value;
-                    let dataPrevista = document.getElementById('dataPrevista').value;
-                    let dataFim = document.getElementById('dataFim').value;
                     alert()
-                   // if (dataPrevista < dataEmissao) {
-                       // alert('A data prevista deve ser maior que a data de emissão!');
-                       // document.getElementById('dataPrevista').value = 'null';
+                    // let dataEmissao = document.getElementById('data_emissao').value;
+                    //let dataPrevista = document.getElementById('dataPrevista').value;
+                    //let dataFim = document.getElementById('dataFim').value;
+
+                    // if (dataPrevista < dataEmissao) {
+                    // alert('A data prevista deve ser maior que a data de emissão!');
+                    // document.getElementById('dataPrevista').value = 'null';
 
                     //}
 
@@ -232,7 +249,7 @@
         </div>
         <div class="col-sm-3 mb-0">
             <label for="horaFim">Hora fim</label>
-            <input type="time" class="form-control" name="hora_fim" id="horaFim" placeholder="horaFim" required value="{{$ordem_servico->hora_fim}}">
+            <input type="time" class="form-control" name="hora_fim" id="hora_Fim" placeholder="horaFim" required value="{{$ordem_servico->hora_fim}}">
             <div class="invalid-tooltip">
                 Por favor, informe um estado válido.
             </div>
