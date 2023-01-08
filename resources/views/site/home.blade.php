@@ -1,104 +1,164 @@
-@extends('site.main')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
 
-{{-- inicio carousel bootstrap --}}
-{{-- <div class="container-fluid" style="margin: 0;">
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="margin: 0;">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-                    aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            </div>
-            
-            
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ asset('img/slide-home/1.jpg') }}" alt="imagem 1">
-<div class="carousel-caption d-none d-md-block">
-    <h2>sysman8</h2>
-    <p>Conte com a gente para executar sua obra</p>
-</div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('css/comum.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icofont.min.css') }}">
 
-<div class="carousel-item">
-    <img class="d-block w-100" src="{{ asset('img/slide-home/2.jpg') }}" alt="imagem 1">
-    <div class="carousel-caption d-none d-md-block">
-        <h2>sysman8</h2>
-        <p>Conte com a gente para executar sua obra</p>
+    <link rel="stylesheet" href="{{ asset('img') }}">
+    <title>sysman8</title>
+
+</head>
+
+
+<body>
+    <div id="div-topbar">
+
+        <div>
+            <a class="nav-link" href="{{ route('site.home') }}">Início</a>
+        </div>
+        <div>
+            <a class="nav-link" href="#"> Produtos e Serviços</a>
+        </div>
+        <div>
+            <a class="nav-link" href="#">Downlodas</a>
+        </div>
+        <div>
+            <a class="nav-link" href="#">Downlodas</a>
+        </div>
+
+        <div>
+            <a class="nav-link" target="_blank" href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4">Webmail</a>
+        </div>
+        <div>
+            <a class="nav-link" href="{{ route('app.home') }}">Área restrita</a>
+        </div>
+
+
+
+
     </div>
-</div>
+    <div id="div-body">
 
-<div class="carousel-item">
-    <img class="d-block w-100" src="{{ asset('img/slide-home/3.jpg') }}" alt="imagem 1">
-    <div class="carousel-caption d-none d-md-block">
-        <h2>sysman8</h2>
-        <p>Conte com a gente para executar sua obra</p>
     </div>
-</div>
 
-<div class="carousel-item">
-    <img class="d-block w-100" src="{{ asset('img/slide-home/4.jpg') }}" alt="imagem 1">
-    <div class="carousel-caption d-none d-md-block">
-        <h2>sysman8</h2>
-        <p>Conte com a gente para executar sua obra</p>
-    </div>
-</div>
+</body>
+<footer>
+    <div id="footer_main">
 
+        <div class="divt">
+            </i><i class="icofont-automation icofont-5x"></i>
+            <p></p>
+            <label for="">Automação</label>
+            <p>
+                <label for="">Manutenção programada</label>
 
-<div class="carousel-item">
-    <img class="d-block w-100" src="{{ asset('img/slide-home/5.jpg') }}" alt="imagem 1">
-    <div class="carousel-caption d-none d-md-block">
-        <h2>sysman8
-
-        </h2>
-        <p>Conte com a gente para executar sua obra</p>
-    </div>
-</div>
-
-
-</div>
-
-</div>
-
-<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-</button>
-</div> --}}
-{{-- fim carousel bootstrap --}}
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide " data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/1.jpg') }}" class="w-50" />
         </div>
-        <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/2.jpg') }}" class="w-50" />
+        <div class="divt">
+
+
+            <i class="icofont-dart icofont-5x"></i>
+            <p></p>
+            <label for="">Acertividade</label>
+            <p>
+                <label for="">Acuracidade</label>
         </div>
-        <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/3.jpg') }}" class="w-50" />
-        </div>
-        <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/4.jpg') }}" class="w-50" />
-        </div>
-        <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/5.jpg') }}" class="w-50" />
-        </div>
-        <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/6.jpg') }}" class="w-50" />
-        </div>
-        <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="{{ asset('img/slide-home/7.jpg') }}" class="w-50" />
+        <div class="divt">
+
+            <i class="icofont-help-robot icofont-5x"></i>
+            <p></p>
+            <label for="">Equipamentos</label>
+
         </div>
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></i></div>
-    <div class="swiper-button-prev"></i></div>
-</div>
-@endsection
+</footer>
+<style>
+    #div-topbar {
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        width: 100%;
+        background-color: rgb(211, 211, 211);
+    }
+
+
+    #div-body {
+        height: 500px;
+        width: 100%;
+        background-image: url("/public/img/automação-industrial-1.jpg");
+        background-repeat:no-repeat;
+    }
+
+    footer {
+
+        height: 300px;
+        position: relative;
+
+    }
+
+    #footer_main {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        background-color: rgb(235, 227, 227);
+        position: relative;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    .divt {
+        height: 200px;
+        width: 30%;
+        margin: 1%;
+        background-color: rgb(119, 147, 172);
+        position: relative;
+    }
+
+    @media only screen and (max-width: 600px) {
+        body {
+            background-color: lightblue;
+
+
+        }
+
+        #div-topbar {
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            width: 100%;
+            background-color: blueviolet;
+        }
+
+        #footer_main {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            background-color: rgb(245, 235, 235);
+            position: relative;
+
+        }
+
+        .divt {
+            height: 200px;
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(149, 175, 197);
+            position: relative;
+        }
+</style>
+
+
+
+
+
+
+</html>

@@ -7,7 +7,7 @@
                      <span class="navbar-toggler-icon"></span>
                  </button>
                  <a class="navbar-brand me-auto ms-lg-0 ms-3" href="{{ route('site.home') }}">
-                     <img src="{{ asset('img/site/logo.png') }}" style="max-width:165px" alt="Bresola Terraplanagem" />
+                     <img src="{{ asset('img/site/logo.png') }}" style="max-width:165px" alt="sysman8" />
                  </a>
                  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                      <ul class="navbar-nav">
