@@ -47,6 +47,7 @@
 
     </div>
     <div id="div-body">
+        <img class="d-block w-100" src="{{ asset('img/automação-industrial-1.jpg') }}" alt="imagem 1">
 
     </div>
 
@@ -57,19 +58,28 @@
         <div class="divt">
             </i><i class="icofont-automation icofont-5x"></i>
             <p></p>
-            <label for="">Automação</label>
+            <label for="">Automação de máquinas</label>
             <p>
                 <label for="">Manutenção programada</label>
+            </p>
+            <p>
+                <label for="">Egenharia de processos</label>
+            </p>
+            <p>
+
 
         </div>
         <div class="divt">
 
 
             <i class="icofont-dart icofont-5x"></i>
-            <p></p>
-            <label for="">Acertividade</label>
             <p>
-                <label for="">Acuracidade</label>
+            <hr>
+            <label for="">Acertividade</label>
+            <hr>
+            <label for="">Acuracidade</label>
+            <hr>
+             <label for="">Desenvolvimento de aplicações</label>
         </div>
         <div class="divt">
 
@@ -94,7 +104,7 @@
         height: 500px;
         width: 100%;
         background-image: url("/public/img/automação-industrial-1.jpg");
-        background-repeat:no-repeat;
+        background-repeat: no-repeat;
     }
 
     footer {
