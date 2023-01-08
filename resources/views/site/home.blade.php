@@ -23,13 +23,17 @@
     <div id="div-topbar">
 
         <div>
-            <a class="nav-link" href="{{ route('site.home') }}">Início</a>
+
+
+            
+            <a class="nav-link" href="{{ route('site.home') }}">
+            <i class="icofont-home icofont-2x"></i>
+            </a>
+
         </div>
+    
         <div>
             <a class="nav-link" href="#"> Produtos e Serviços</a>
-        </div>
-        <div>
-            <a class="nav-link" href="#">Downlodas</a>
         </div>
         <div>
             <a class="nav-link" href="#">Downlodas</a>
@@ -74,12 +78,12 @@
 
             <i class="icofont-dart icofont-5x"></i>
             <p>
-            <hr>
-            <label for="">Acertividade</label>
-            <hr>
-            <label for="">Acuracidade</label>
-            <hr>
-             <label for="">Desenvolvimento de aplicações</label>
+                <hr>
+                <label for="">Acertividade</label>
+                <hr>
+                <label for="">Acuracidade</label>
+                <hr>
+                <label for="">Desenvolvimento de aplicações</label>
         </div>
         <div class="divt">
 
@@ -91,18 +95,19 @@
     </div>
 </footer>
 <style>
-#div-topbar {
-        position:absolute;
+    #div-topbar {
+        position: absolute;
         display: flex;
         flex-direction: row;
         height: 100px;
         width: 100%;
+        text-align:justify;
         background-color: rgb(211, 211, 211);
     }
 
 
     #div-body {
-        height: 500px;
+        height:100%;
         width: 100%;
         background-image: url("/public/img/automação-industrial-1.jpg");
         background-repeat: no-repeat;
@@ -110,7 +115,7 @@
 
     footer {
 
-        height: 300px;
+        height:300px;
         position: relative;
 
     }
@@ -165,6 +170,4 @@
             background-color: rgb(149, 175, 197);
             position: relative;
         }
-    
 </style>
-
