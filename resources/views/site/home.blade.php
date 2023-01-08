@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -92,6 +92,7 @@
 </footer>
 <style>
     #div-topbar {
+        position:absolute;
         display: flex;
         flex-direction: row;
         height: 100px;
@@ -165,10 +166,3 @@
             position: relative;
         }
 </style>
-
-
-
-
-
-
-</html>
