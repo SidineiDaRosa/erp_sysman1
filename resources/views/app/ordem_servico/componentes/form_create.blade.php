@@ -201,31 +201,57 @@
                 <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="">
                 {{ $errors->has('status_servicos') ? $errors->first('status_servicos') : '' }}
             </div>
+
             <div class="col-md-2 mb-0">
-                <label for="gravidade" class="col-md-4 col-form-label text-md-end">gravidade</label>
-                <input id="gravidade" type="text" class="form-control-template" name="gravidade" value="">
-                {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
-            </div>
-            <div class="col-md-2 mb-0">
-                <label for="urgencia" class="col-md-4 col-form-label text-md-end">urgência</label>
-                <input id="urgencia" type="text" class="form-control-template" name="urgencia" value="">
-                {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
-            </div>
-            <div class="col-md-2 mb-0">
-                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
-                <input id="tendencia" type="text" class="form-control-template" name="tendencia" value="">
-                {{ $errors->has('gravidade') ? $errors->first('gravidade') : '' }}
+                <label for="gravidade" class="col-md-4 col-form-label text-md-end">Gravidade</label>
+                <select class="form-control" name="gravidade" id="gravidade" value="">
+                    <option value="5">Extremamante grave</option>
+                    <option value="4">Muito grave</option>
+                    <option value="3">Grave</option>
+                    <option value="2">Pouco grave</option>
+                    <option value="1">Nada grave</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a urgencia.
+                </div>
             </div>
 
-        </div>
-        <hr>
-        <div class="row mb-0">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">
-                    {{ isset($equipamento) ? 'Atualizar' : 'Cadastrar' }}
-                </button>
+            <div class="col-md-2 mb-0">
+                <label for="urgencia" class="col-md-4 col-form-label text-md-end">Urgência</label>
+                <select class="form-control" name="urgencia" id="urgencia" value="">
+                    <option value="5">Extremamante urgente</option>
+                    <option value="4">Urgente</option>
+                    <option value="3">Urgente se possível</option>
+                    <option value="2">Pouco urgente</option>
+                    <option value="1">Não urgente</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a urgencia.
+                </div>
             </div>
-        </div>
+            <!---->
+            <div class="col-md-2 mb-0">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+                <select class="form-control" name="tendencia" id="tendencia" value="">
+                    <option value="5">Piorar rápidamante</option>
+                    <option value="4">Piorar em curto prazo</option>
+                    <option value="3">Piorar</option>
+                    <option value="2">Piorar logo prazo</option>
+                    <option value="1">Não irá piorar</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <!---->
+            <hr>
+            <div class="row mb-0">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        {{ isset($equipamento) ? 'Atualizar' : 'Cadastrar' }}
+                    </button>
+                </div>
+            </div>
     </form>
 
     <script>
