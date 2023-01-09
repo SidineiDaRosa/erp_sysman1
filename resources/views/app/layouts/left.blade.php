@@ -43,7 +43,7 @@
                     <a class="sidebar-submenu-expanded-a" href="{{route('marca.index')}}">Busca Marcas</a><br>
                     <a class="sidebar-submenu-expanded-a" href="">Cadastro de marcas</a><br>
                     <hr>
-                    <a class="sidebar-submenu-expanded-a" href="">Cadastro de grupo</a>
+                    <a class="sidebar-submenu-expanded-a" href="">Cadastro de grupo /categoria</a>
                 </div>
             </li>
             <!--Menu recursos-->
