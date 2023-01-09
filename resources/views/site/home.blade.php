@@ -18,20 +18,14 @@
 
 </head>
 
-
 <body>
     <div id="div-topbar">
 
         <div>
-
-
-            
             <a class="nav-link" href="{{ route('site.home') }}">
-            <i class="icofont-home icofont-2x"></i>
+                <i class="icofont-home icofont-2x"></i>
             </a>
-
         </div>
-    
         <div>
             <a class="nav-link" href="#"> Produtos e Serviços</a>
         </div>
@@ -78,11 +72,10 @@
 
             <i class="icofont-dart icofont-5x"></i>
             <p>
-                <hr>
                 <label for="">Acertividade</label>
-                <hr>
+            <p>
                 <label for="">Acuracidade</label>
-                <hr>
+            <p>
                 <label for="">Desenvolvimento de aplicações</label>
         </div>
         <div class="divt">
@@ -101,13 +94,13 @@
         flex-direction: row;
         height: 100px;
         width: 100%;
-        text-align:justify;
+        text-align: justify;
         background-color: rgb(211, 211, 211);
     }
 
 
     #div-body {
-        height:100%;
+        height: 100%;
         width: 100%;
         background-image: url("/public/img/automação-industrial-1.jpg");
         background-repeat: no-repeat;
@@ -115,7 +108,7 @@
 
     footer {
 
-        height:300px;
+        height: 300px;
         position: relative;
 
     }
@@ -128,6 +121,7 @@
         position: relative;
         align-items: center;
         text-align: center;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 
     }
 
