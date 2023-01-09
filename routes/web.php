@@ -16,6 +16,10 @@ Route::get('/',function (){
     return view('site.home');
 })->name('site.home');
 
+Route::get('/site-about',function (){
+    return view('site.about');
+})->name('site.about');
+
 //Route::get('/', function () {
 //return view('auth.login');
 //});

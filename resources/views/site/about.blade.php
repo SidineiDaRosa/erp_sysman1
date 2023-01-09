@@ -47,67 +47,69 @@
 
     </div>
     <div id="div-body">
-        <img class="d-block w-100" src="{{ asset('img/automação-industrial-1.jpg') }}" alt="imagem 1">
+
+
+        <div class="font-30px">
+            Missão <p></p>
+            <div class="font-20px">
+                “Proporcionar soluções inovadoras capaz de otimizar processos <p></p>
+                de maneira eficiente fornecendo as melhores forma de aproveitamento de
+                recursos, sempre de forma sustentável". <p></p>
+                
+            </div>
+        </div>
+
+
+        <div class="font-30px">
+            Visão <p></p>
+            <div class="font-20px">
+                “ser referência no setor tecnológico para indústria, sempre em busca dos melhores resultados<p></p>
+                para que o clente esteja stifeito com os produtos e serviços oferecidos, <p></p>
+                buscar sempre os melhores resultados.”.
+            </div>
+        </div>
+        <div class="font-30px">
+            Valores <p></p>
+            <div class="font-20px">
+                “Proporcionar assistência, com qualidade visando<p></p>
+                trazer segurança formando uma parceria com clientes parceiros e colaboradores, <p></p>
+                prporcionando resultados duradouros pensado no curto e longo prazo”.
+            </div>
+        </div>
 
     </div>
 
 </body>
-<footer>
-    <div id="footer_main">
 
-        <div class="divt">
-            </i><i class="icofont-automation icofont-5x"></i>
-            <p></p>
-            <label for="">Automação de máquinas</label>
-            <p>
-                <label for="">Manutenção programada</label>
-            </p>
-            <p>
-                <label for="">Egenharia de processos</label>
-            </p>
-            <p>
-
-
-        </div>
-        <div class="divt">
-
-
-            <i class="icofont-dart icofont-5x"></i>
-            <p>
-                <label for="">Acertividade</label>
-            <p>
-                <label for="">Acuracidade</label>
-            <p>
-                <label for="">Desenvolvimento de aplicações</label>
-        </div>
-        <div class="divt">
-
-            <i class="icofont-help-robot icofont-5x"></i>
-            <p></p>
-            <label for="">Equipamentos</label>
-
-        </div>
-    </div>
-</footer>
 <style>
     #div-topbar {
-        position:relative;
+        position: relative;
         display: flex;
         flex-direction: row;
         height: 100px;
         width: 100%;
-        text-align: justify;
         background-color: rgb(211, 211, 211);
     }
 
 
     #div-body {
-        height: 100%;
+        height: 800px;
         width: 100%;
-        background-image: url("/public/img/automação-industrial-1.jpg");
+        color: white;
+        text-align: center;
+        /*background-image: url("/public/img/automação-industrial-1.jpg");*/
         background-repeat: no-repeat;
+        background-color: rgb(71, 74, 81);
     }
 
+    .font-30px {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 30px;
+    }
+    .font-20px {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 20px;
+    }
     footer {
 
         height: 300px;
@@ -116,6 +118,7 @@
     }
 
     #footer_main {
+
         display: flex;
         flex-direction: row;
         height: auto;
@@ -123,8 +126,7 @@
         position: relative;
         align-items: center;
         text-align: center;
-        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     }
 
     .divt {
