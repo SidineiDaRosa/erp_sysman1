@@ -63,17 +63,17 @@
         <div class="font-30px">
             Visão <p></p>
             <div class="font-20px">
-                “ser referência no setor tecnológico para indústria, sempre em busca dos melhores resultados<p></p>
-                para que o clente esteja stifeito com os produtos e serviços oferecidos, <p></p>
+                “ser referência no setor de serviços para indústria, sempre em busca dos melhores resultados<p></p>
+                trazendo satifação para stakeholders com produtos e serviços oferecidos, <p></p>
                 buscar sempre os melhores resultados.”.
             </div>
         </div>
         <div class="font-30px">
             Valores <p></p>
             <div class="font-20px">
-                “Proporcionar assistência, com qualidade visando<p></p>
+                “Proporcionar assistência técnica de qualidade, visando<p></p>
                 trazer segurança formando uma parceria com clientes parceiros e colaboradores, <p></p>
-                prporcionando resultados duradouros pensado no curto e longo prazo”.
+                prporcionando resultados duradouros pensado no curto médio e longo prazo”.
             </div>
         </div>
 
