@@ -55,7 +55,7 @@
         <div>
             <a class="nav-link" href="{{ route('site.about') }}"> sobre nós</a>
         </div>
-
+      
 
     </div>
     <div id="div-body">

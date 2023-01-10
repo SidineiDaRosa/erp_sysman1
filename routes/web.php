@@ -19,6 +19,9 @@ Route::get('/',function (){
 Route::get('/site-about',function (){
     return view('site.about');
 })->name('site.about');
+Route::get('/site-panel',function (){
+    return view('site.control_panel');
+})->name('site.control_panel');
 
 //Route::get('/', function () {
 //return view('auth.login');
@@ -126,6 +129,8 @@ Route::middleware('auth')->resource('/pedido-compra', 'App\Http\Controllers\Pedi
 Route::middleware('auth')->resource('/pedido-saida', 'App\Http\Controllers\PedidosSaidaController');
 //Rota pedidos de saida
 Route::middleware('auth')->resource('/pedido-saida-lista', 'App\Http\Controllers\PedidoSaidaListaController');
+//Rota control panel
+Route::middleware('auth')->resource('/control-panel', 'App\Http\Controllers\ControlPanelController');
 
 
 

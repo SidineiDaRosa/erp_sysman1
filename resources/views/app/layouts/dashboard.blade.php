@@ -14,7 +14,9 @@
         </div>
 
     </div>
-
+    <div>
+        <a class="nav-link" href="{{ route('site.control_panel') }}"> Painel de controle</a>
+    </div>
 
     <div class="" id="cardsboard">
         <style>
