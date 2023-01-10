@@ -18,12 +18,12 @@
         const element = document.getElementById("demo");
         setInterval(function() {
             element.innerHTML += "Hello"
-            document.getElementById('btn1').click();
+            document.getElementById('busca').click();
            
             //btn.addEventListener("click", exibirMensagem);
 
 
-        }, 5000);
+        }, 1000);
     </script>
     <a id="busca" class="sidebar-submenu-expanded-a" href="{{route('control-panel.index')}}">Busca</a><br>
     <form id="form"action="{{route('control-panel.index')}}" method="get">
@@ -31,6 +31,7 @@
         @csrf
         <input id="btn1"type="submit" value="get" >
     </form>
+  
 
 </body>
 
