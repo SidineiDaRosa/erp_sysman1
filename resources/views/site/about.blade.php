@@ -55,7 +55,7 @@
                 “Proporcionar soluções inovadoras capaz de otimizar processos <p></p>
                 de maneira eficiente fornecendo as melhores forma de aproveitamento de
                 recursos, sempre de forma sustentável". <p></p>
-                
+
             </div>
         </div>
 
@@ -106,10 +106,12 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 30px;
     }
+
     .font-20px {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 20px;
     }
+
     footer {
 
         height: 300px;
@@ -168,4 +170,7 @@
             background-color: rgb(149, 175, 197);
             position: relative;
         }
+    }
 </style>
+
+</html>

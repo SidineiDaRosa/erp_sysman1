@@ -27,7 +27,19 @@
             </a>
         </div>
         <div>
-            <a class="nav-link" href="#"> Produtos e Serviços</a>
+            <a id="div-produtos-servicos" class="nav-link" href="#"> Produtos e Serviços</a>
+            <div id="div-produtos-1"></div>
+            
+            <style>
+                #div-produtos-servicos:hover {
+                    height: 400px;
+                    background-color: rgb(215, 219, 221);
+                    transition-delay: 0.5s;
+                    transition-duration: 3s;
+                    text-align: center;
+
+                }
+            </style>
         </div>
         <div>
             <a class="nav-link" href="#">Downlodas</a>
@@ -91,12 +103,11 @@
 </footer>
 <style>
     #div-topbar {
-        position:relative;
+        position: relative;
         display: flex;
         flex-direction: row;
         height: 100px;
         width: 100%;
-        text-align: justify;
         background-color: rgb(211, 211, 211);
     }
 
@@ -123,8 +134,7 @@
         position: relative;
         align-items: center;
         text-align: center;
-        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     }
 
     .divt {
@@ -166,4 +176,7 @@
             background-color: rgb(149, 175, 197);
             position: relative;
         }
+    }
 </style>
+
+</html>
