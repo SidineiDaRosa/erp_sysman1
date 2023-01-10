@@ -6,6 +6,7 @@ use App\Models\Produto;
 use App\Models\Equipamento;
 use App\Models\OrdemProducao;
 use App\Models\RecursosProducao;
+use App\Models\PecasEquipamentos;
 
 use Illuminate\Http\Request;
   /**

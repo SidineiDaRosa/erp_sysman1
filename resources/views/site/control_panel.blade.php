@@ -15,23 +15,59 @@
 
     <p id="demo"></p>
     <script>
+        let data_atual = new Date();
+        var dia = String(data_atual.getDate()).padStart(2, '0');
+        var mes = String(data_atual.getMonth() + 1).padStart(2, '0');
+        var ano = data_atual.getFullYear();
+        data_atual = ano + '-' + mes + '-' + dia;
         const element = document.getElementById("demo");
         setInterval(function() {
-            element.innerHTML += "Hello"
-            document.getElementById('busca').click();
-           
+            //element.innerHTML += "Hello"
+            //document.getElementById('busca').click();
+
             //btn.addEventListener("click", exibirMensagem);
 
 
-        }, 1000);
+        }, 5000);
+
+        function calcula() {
+            let dataInicial = document.getElementById('data_inicial').value
+            //União da data e hora de início
+            //let horaInicNew = new Date(dataInic + "T" + horaInic + "Z");
+            let dataInicial1 = new Date(dataInicial);
+        
+
+            //dataTimeInic.setHours(horaInicNew.getHours() + 3);
+            //dataTimeInic.setMonth(horaInicNew.getMonth() + 1);
+            //inicio pega datas e hora
+           // let anoInic = dataTimeInic.getUTCFullYear();
+            //alert('ano:' + anoInic)
+           // let mesInic = dataTimeInic.getUTCMonth();
+            // alert('mes:' + mesInic)
+            let ano=dataInicial1.getFullYear()
+            let mes=dataInicial1.getMonth();
+            let diaInic = dataInicial1.getDay();
+            let horas = dataInicial1.getHours();
+
+            //alert('dia:' + diaInic)
+           // let horaInicial = dataTimeInic.getHours();
+            //alert('horas:' + horaInicial)
+           // let minutosInic = dataTimeInic.getUTCMinutes();
+            //alert('minutos:' + minutosInic)
+           // let segundosInic = dataTimeInic.getSeconds();
+            //alert('segundos:' + segundosInic)
+
+            alert(ano+"----"+mes+"----"+diaInic+"-----"+horas);
+        }
     </script>
     <a id="busca" class="sidebar-submenu-expanded-a" href="{{route('control-panel.index')}}">Busca</a><br>
-    <form id="form"action="{{route('control-panel.index')}}" method="get">
+    <form id="form" action="{{route('control-panel.index')}}" method="get">
         @method('POST')
         @csrf
-        <input id="btn1"type="submit" value="get" >
+        <input id="btn1" type="submit" value="get">
     </form>
-  
+    <input type="date" id="data_inicial">
+    <input type="button" value="Calcular dias" onclick="calcula()">
 
 </body>
 
