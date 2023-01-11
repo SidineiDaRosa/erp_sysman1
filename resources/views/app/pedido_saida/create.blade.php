@@ -4,7 +4,7 @@
 <script src="{{ asset('js/timeline_google.js') }}" defer></script>
 <main class="content">
     <div class="card">
-        novo pedido de saida
+        Novo pedido de saida
         <style>
             .card-header {
                 background-color: rgb(211, 211, 211);
@@ -118,31 +118,22 @@
                         </div>
                         <div class="row mb-0">
                             <div class="col-md-12">
+                                <label for="btFiltrar" class="">Salvar pedido</label>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                    {{ isset($equipamento) ? 'Atualizar' : 'Cadastrar' }}
+                                    {{ isset($equipamento) ? 'Atualizar' : 'Salvar pedido de saída' }}
                                 </button>
                             </div>
                         </div>
+
                 </form>
                 <div class="col-md-0">
-                    <label for="btFiltrar" class="">Salvar pedido</label>
+                    <label for="btFiltrar" class="">Voltar para pedidos de saída</label>
                     <p>
-                        <a href="" class="btn btn-info btn-icon-split" type="submit">
+                        <a href="{{route('pedido-saida.index')}}" class="btn btn-info btn-icon-split" type="submit">
                             <span class="icon text-white-50">
-                                <i class="icofont-plus-circle"></i>
+                                <i class="icofont-list"></i>
                             </span>
-                            <span class="text">Salvar pedido</span>
-                        </a>
-                </div>
-
-                <div class="col-md-0">
-                    <label for="btFiltrar" class="">atualizar</label>
-                    <p>
-                        <a href="" class="btn btn-info btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="icofont-refresh"></i>
-                            </span>
-                            <span class="text">ataulizar</span>
+                            <span class="text">Voltar para pedidos de saída</span>
                         </a>
                 </div>
 
