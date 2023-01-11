@@ -2,6 +2,11 @@
 <!----modal window -->
 <!---*************************************************************************************----->
 <!--Janela modal-->
+<style>
+    form{
+        background-color:rgb(220,220,220);
+    }
+</style>
 <div class="bg-modal" id="bg-modal">
     <div class="modal-md">
         <h6>Alteração do status da ordem de serviço</h6>

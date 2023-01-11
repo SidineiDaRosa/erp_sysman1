@@ -1,6 +1,12 @@
 <!----**************************************************************************************--->
 <!----Grava -->
+
 <!---*************************************************************************************----->
+<style>
+    form{
+        background-color:rgb(220,220,220);
+    }
+</style>
 @if (isset($ordem_servico->id))
 <form action="{{route('ordem-servico.store',['ordem_servico' => $ordem_servico->id]) }}" method="POST">
     @csrf

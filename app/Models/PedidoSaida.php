@@ -20,7 +20,10 @@ class PedidoSaida extends Model
         'funcionarios_id',
         'fornecedor_id',
         'status',
-        'descrcao'
+        'descricao',
+        'ordem_servico_id'
+        
+
     ];
     public function Empresa(){
         return $this->belongsTo('App\Models\Empresas');
@@ -37,5 +40,7 @@ class PedidoSaida extends Model
     public function produto(){
         return $this->belongsTo('App\Models\Produto');
     }
-
+    public function ordens_servicos(){
+        return $this->belongsTo('App\Models\OrdemServico');
+    }
 }

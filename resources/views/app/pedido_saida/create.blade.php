@@ -121,7 +121,7 @@
 
                         <div class="col-md-1">
                             <label for="ordem_serviço_id">Ordem serviço:</label>
-                            <input type="text" class="form-control" name="ordem_serviço_id" id="ordem_serviço_id" placeholder="ordem_serviço_id" value="" >
+                            <input type="text" class="form-control" name="ordem_servico_id" id="ordem_servico_id" placeholder="ordem_serviço_id" value="" >
                         </div>
                         <!------------------------------------------------------------------------------------------->
 
