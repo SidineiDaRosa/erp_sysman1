@@ -31,35 +31,22 @@
         }, 5000);
 
         function calcula() {
-            let dataInicial = document.getElementById('data_inicial').value
-            //União da data e hora de início
-            //let horaInicNew = new Date(dataInic + "T" + horaInic + "Z");
-            let dataInicial1 = new Date(dataInicial);
+            let data_inicial3 = document.getElementById('data_inicial').value
+            let data_atual = new Date()
+            let dataInicial = new Date(data_inicial)
+            let ano = dataInicial.getFullYear()
+            let dia = dataInicial.getDate()
+            let hora = dataInicial.getHours()
+            ///
+            let dia_atual = data_atual.getDate()
+            ///https://www.treinaweb.com.br/blog/trabalhando-com-data-no-javascript?gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNmQO6WInMUWZ5oZB094L6ktEKAh_wAv4L39MlFsYgtnUIvffNkShuwaAtA4EALw_wcB
         
+        } 
 
-            //dataTimeInic.setHours(horaInicNew.getHours() + 3);
-            //dataTimeInic.setMonth(horaInicNew.getMonth() + 1);
-            //inicio pega datas e hora
-           // let anoInic = dataTimeInic.getUTCFullYear();
-            //alert('ano:' + anoInic)
-           // let mesInic = dataTimeInic.getUTCMonth();
-            // alert('mes:' + mesInic)
-            let ano=dataInicial1.getFullYear()
-            let mes=dataInicial1.getMonth();
-            let diaInic = dataInicial1.getDay();
-            let horas = dataInicial1.getHours();
 
-            //alert('dia:' + diaInic)
-           // let horaInicial = dataTimeInic.getHours();
-            //alert('horas:' + horaInicial)
-           // let minutosInic = dataTimeInic.getUTCMinutes();
-            //alert('minutos:' + minutosInic)
-           // let segundosInic = dataTimeInic.getSeconds();
-            //alert('segundos:' + segundosInic)
 
-            alert(ano+"----"+mes+"----"+diaInic+"-----"+horas);
-        }
     </script>
+
     <a id="busca" class="sidebar-submenu-expanded-a" href="{{route('control-panel.index')}}">Busca</a><br>
     <form id="form" action="{{route('control-panel.index')}}" method="get">
         @method('POST')
@@ -68,7 +55,7 @@
     </form>
     <input type="date" id="data_inicial">
     <input type="button" value="Calcular dias" onclick="calcula()">
-
+ 
 </body>
 
 </html>
