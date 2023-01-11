@@ -21,13 +21,13 @@
             <li class="nav-item">
                 <a onclick="FunExpandMenuHome();">
 
-                    <i class="icofont-institution"></i>&nbsp&nbsp&nbspHome
-                    <i class="icofont-caret-down"></i>
+                    <i class="icofont-institution icofont-2x"></i>&nbsp&nbsp&nbspHome
+                    <i class="icofont-caret-down icofont-2x"></i>
 
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-home">
-                    <a class="sidebar-submenu-expanded-a" href="{{route('empresas.index')}}">Matriz/Filiais consultas gerais</a><br>
-                    
+                    <a class="sidebar-submenu-expanded-a" href="{{route('empresas.index')}}">Busca unidade empresarial</a><br>
+
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="">Configuraçoes</a>
                 </div>
@@ -35,12 +35,12 @@
             <!--Menu marcas-->
             <li class="nav-item">
                 <a onclick="FunExpandMenuMarcas();">
-                    <i class="icofont-cc"></i>
+                    <i class="icofont-cc icofont-2x"></i>
                     &nbsp&nbspMarcas
-                    <i class="icofont-caret-down"></i>
+                    <i class="icofont-caret-down icofont-2x"></i>
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-marcas">
-                    <a class="sidebar-submenu-expanded-a" href="{{route('marca.index')}}">Busca Marcas</a><br>
+                    <a class="sidebar-submenu-expanded-a icofont-2x" href="{{route('marca.index')}}">Busca Marcas</a><br>
                     <a class="sidebar-submenu-expanded-a" href="">Cadastro de marcas</a><br>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="">Cadastro de grupo /categoria</a>
@@ -49,40 +49,42 @@
             <!--Menu recursos-->
             <li class="nav-item">
                 <a onclick="FunExpandMenuRecursos();">
-                    <i class="icofont-cubes"></i>
+                    <i class="icofont-cubes icofont-2x"></i>
                     &nbsp&nbspRecursos
-                    <i class="icofont-caret-down"></i>
+                    <i class="icofont-caret-down icofont-2x"></i>
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-recursos">
-                    <a class="sidebar-submenu-expanded-a" href="{{route('produto.index')}}">Cadeia de
-                        suprimentos</a><br>
-                    <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">Por
-                        fornecedor</a><br>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('produto.index')}}">Produtos</a><br>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="">Consulta estoque</a><br>
-                    <a class="sidebar-submenu-expanded-a" href="{{route('entrada-produto.index')}}">Entrada de
-                        produtos</a>
-                    <a class="sidebar-submenu-expanded-a" href="{{route('fornecedor.index')}}">Fornecedores</a>
-                    <hr>
+                    <hr>             
                     <a class="sidebar-submenu-expanded-a" href="{{route('pedido-compra.index')}}">Pedido de compra</a>
                     <hr>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('entrada-produto.index')}}">Entrada de
+                        produtos</a>
+                    <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('pedido-saida.index')}}">Pedido de saída</a>
+                    <hr>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('fornecedor.index')}}">Fornecedores</a>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">Por
+                        fornecedor</a><br>
+                    
                 </div>
             </li>
             <!--Menu Máquinas e equipamentos-->
             <li class="nav-item">
                 <a href="#">
                     <a onclick="FunExpandMenuPeatrimonio();">
-                        <i class="icofont-vehicle-trucktor"></i>
-                        &nbsp&nbspPatrimônio
-                        <i class="icofont-caret-down"></i>
+                        <i class="icofont-vehicle-trucktor icofont-2x"></i>
+                        &nbsp&nbspAtivos
+                        <i class="icofont-caret-down icofont-2x"></i>
                     </a>
                     <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-patrimonio">
-                        <a class="sidebar-submenu-expanded-a" href="{{route('equipamento.index')}}">&nbsp&nbspEquipamentos</a><br>
+                        <a class="sidebar-submenu-expanded-a" href="{{route('equipamento.index')}}">&nbsp&nbspAtivos e Passivos</a><br>
                         <a class="sidebar-submenu-expanded-a" href="{{ route('equipamento.create') }}">&nbsp&nbspCadastro de
                             equipamentos</a><br>
                         <hr>
-                        <a class="sidebar-submenu-expanded-a" href="">Consulta manutenção</a><br>
+                        <a class="sidebar-submenu-expanded-a" href="">Manutenção</a><br>
                         <a class="sidebar-submenu-expanded-a" href="{{route('ordem-servico.index')}}">
                             <i class="icofont-repair"></i>
                             &nbsp&nbspOrdem de serviço</a><br>
@@ -98,9 +100,9 @@
             <li class="nav-item">
                 <a href="#">
                     <a href="{{route('ordem-producao.index')}}">
-                        <i class="icofont-industries-4"></i>
+                        <i class="icofont-industries-4 icofont-2x"></i>
                         &nbsp&nbspProdução
-                        <i class="icofont-caret-down"></i>
+                        <i class="icofont-caret-down icofont-2x"></i>
 
                     </a>
             </li>
@@ -108,9 +110,9 @@
 
             <li class="nav-item">
                 <a href="{{route('register')}}">
-                    <i class="icofont-users mr-2"></i>
+                    <i class="icofont-users mr-2 icofont-2x"></i>
                     &nbspUsuários
-                    <i class="icofont-caret-down"></i>
+                    <i class="icofont-caret-down icofont-2x"></i>
                 </a>
             </li>
 
