@@ -27,8 +27,9 @@
                         <th scope="col" class="th-title">Data prevista</th>
                         <th scope="col" class="th-title">hora prevista</th>
                         <th scope="col" class="th-title">Equipamento</th>
-                        <th scope="col" class="th-title">status</th>
                         <th scope="col" class="th-title">Emissor</th>
+                        <th scope="col" class="th-title">status</th>
+                        <th scope="col" class="th-title">Os</th>
                         <th scope="col" class="th-title">operaçoes</th>
 
                     </tr>
@@ -44,6 +45,7 @@
                         <td>{{ $pedido_saida->equipamento->nome}}</td>
                         <td>{{ $pedido_saida->funcionarios->primeiro_nome}}</td>
                         <td>{{ $pedido_saida->status}}</td>
+                        <td>{{ $pedido_saida->ordem_servico_id}}</td>
 
                         <td>
                             <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">

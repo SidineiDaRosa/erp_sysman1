@@ -27,6 +27,8 @@ class CreatePedidosSaidaTable extends Migration
             $table->foreign('funcionarios_id')->references('id')->on('funcionarios');
             $table->unsignedBigInteger('fornecedor_id');
             $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
+            $table->unsignedBigInteger('ordem_servico_id')->nullable(); //foreing vem da própria tabela ordem seviço
+            $table->foreign('ordem_servico_id')->references('id')->on('ordens_servicos');
             $table->string('status', 50);
             $table->string('descricao', 200);
             $table->timestamps();
