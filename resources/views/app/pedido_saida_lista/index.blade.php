@@ -84,6 +84,13 @@
                             </span>
                             <span class="text">Adicionar produto</span>
                         </a>
+                        <a href="{{route('pedido-saida.index')}}" class="btn btn-info btn-icon-split">
+                            <span class="icon text-white-50 ">
+                            <i class="icofont-list"></i>
+                            </span>
+                            <span class="text">Voltar para pedidos de saída</span>
+                        </a>
+
                 </div>
             </div>
         </div>
@@ -123,7 +130,7 @@
         <input type="button" value="btn" onclick="ifrm()">
         <script>
             function ifrm() {
-           
+
             }
         </script>
 

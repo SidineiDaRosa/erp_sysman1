@@ -59,7 +59,12 @@ class PedidosSaidaController extends Controller
     {
         //
         PedidoSaida::create($req->all());
-        //return redirect()->route('ordem-servico.create', ['$equipamentos' => $equipamentos]);
+        $pedidos_saida = PedidoSaida::all();
+        $equipamentos = Equipamento::all();
+        $funcionarios = Funcionario::all();
+        $empresas = Empresas::all();
+        $fornecedores = Fornecedor::all();
+        return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
     }
 
     /**
