@@ -25,7 +25,9 @@
                 </a>
 
                 <a href="{{ route('produto.create') }}" class="btn btn-sm btn-primary">
+                    <i class="icofont-database-add icofont-2x"></i>
                     Novo produto
+
                 </a>
             </div>
         </div>
@@ -104,15 +106,15 @@
 
                     <td>
                         <a href="{{ route('entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
-                            
-                                <i class="icofont-database-add"></i>
+
+                            <i class="icofont-database-add"></i>
                             </span>
                             <span class="text">Inserir estoque</span>
                         </a>
                     </td>
                     <td>
                         <a href="{{ route('Saida-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-warning">
-                        <i class="icofont-cart-alt"></i>
+                            <i class="icofont-cart-alt"></i>
                             </span>
                             <span class="text">saida estoque</span>
                         </a>

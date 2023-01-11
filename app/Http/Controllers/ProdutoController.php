@@ -24,8 +24,15 @@ class ProdutoController extends Controller
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
         $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
-        
-        return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+        //if (isset($_POST['id'])) {
+      
+            if (!empty($nome_produto_like)) {
+                return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }else{
+                $produtos =Produto::where('id',0)->get();
+                return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            };
+        //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
     }
     /**
      * Show the form for creating a new resource.
@@ -61,6 +68,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
+
         return view('app.produto.show', ['produto' => $produto]);
     }
 
