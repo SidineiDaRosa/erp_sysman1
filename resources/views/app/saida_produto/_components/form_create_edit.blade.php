@@ -36,10 +36,9 @@
         <div class="row mb-1">
             <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Unidade medida</label>
             <div class="col-md-6">
-                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="@foreach($produtos as $empresas_f)
-                    {{$empresas_f['unidade_medida_id']}}
-                    @endforeach" readonly>
-                    {{ $errors->has('unidade_medida') ? $errors->first('unidade_medida') : '' }}
+                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value=" {{$empresas_f->unidade_medida->nome}}
+                    " readonly>
+                    {{ $errors->has('unidade_medida->nome') ? $errors->first('unidade_medida->nome') : '' }}
             </div>
         </div>
 
@@ -108,7 +107,7 @@
             </div>
         </div>
 
-
+        {{$empresas_f->unidade_medida->nome}}
 
 
     </form>

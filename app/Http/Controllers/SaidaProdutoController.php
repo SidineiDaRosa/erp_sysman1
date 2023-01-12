@@ -40,6 +40,7 @@ class SaidaProdutoController extends Controller
         //
         $patrimonios = Equipamento::all();
         $unidade_medida = UnidadeMedida::all();
+     
         $produtoId = $produto_id->get('produto');
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.saida_produto.create', [
