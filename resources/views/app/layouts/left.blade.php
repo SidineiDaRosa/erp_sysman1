@@ -57,7 +57,7 @@
                     <a class="sidebar-submenu-expanded-a" href="{{route('produto.index')}}">Produtos</a><br>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="">Consulta estoque</a><br>
-                    <hr>             
+                    <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('pedido-compra.index')}}">Pedido de compra</a>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('entrada-produto.index')}}">Entrada de
@@ -66,9 +66,10 @@
                     <a class="sidebar-submenu-expanded-a" href="{{route('pedido-saida.index')}}">Pedido de saída</a>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('fornecedor.index')}}">Fornecedores</a>
+                    <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">Por
                         fornecedor</a><br>
-                    
+
                 </div>
             </li>
             <!--Menu Máquinas e equipamentos-->
