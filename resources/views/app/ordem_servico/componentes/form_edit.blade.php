@@ -192,7 +192,7 @@
 
         <div class="col-sm-3 mb-0">
             <label for="dataPrevista">Data prevista</label>
-            <input type="date" class="form-control" name="data_inicio" id="data_prevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}" onchange="ValidateDate()">
+            <input type="date" class="form-control" name="data_inicio" id="data_prevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}" onchange="">
             <div class="invalid-tooltip">
                 Por favor, informe data
             </div>
@@ -215,7 +215,6 @@
                         }
                     }
 
-
                 }
             </script>
         </div>
@@ -229,7 +228,7 @@
         </div>
         <div class="col-sm-3 mb-0">
             <label for="dataFim">Data fim</label>
-            <input type="date" class="form-control" name="data_fim" id="data_fim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}" required onchange="ValidateDate()">
+            <input type="date" class="form-control" name="data_fim" id="data_fim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}" required onchange="">
             <div class="invalid-tooltip">
                 Por favor, informe dataFim.
             </div>
