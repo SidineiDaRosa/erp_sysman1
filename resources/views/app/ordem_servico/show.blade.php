@@ -7,6 +7,12 @@
                 Ordem de serviço
             </div>
             <div>
+                <a href="{{route('pedido-saida.create', ['ordem_servico'=>$ordem_servico->id])}}" class="btn-sm btn-success">
+                    <i class="icofont-database-add"></i>
+                    </span>
+                    <span class="text">Criar novo pedido de saída</span>
+                </a>
+
                 <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
                 <a class="btn btn-primary btn-lg" href="{{ route('ordem-servico.index') }}">listar</a>
             </div>
@@ -63,10 +69,10 @@
                 </table>
                 <span>Descrição dos serviços executados</span>
                 <table class="table-template table-hover" border="1">
-                        <td>
-                            {{$ordem_servico->Executado}}
-                        </td>
-                   
+                    <td>
+                        {{$ordem_servico->Executado}}
+                    </td>
+
                 </table>
 
                 <table class="table-template table-hover" border="1">

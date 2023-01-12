@@ -11,6 +11,7 @@ use App\Models\Empresas;
 use App\Models\PedidoSaida;
 use App\Models\SaidaProduto;
 use App\Models\Fornecedor;
+use App\Models\OrdemServico;
 
 class PedidosSaidaController extends Controller
 {
@@ -31,12 +32,14 @@ class PedidosSaidaController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $requ)
     {
         //
+        $ordem_servico_id = $requ->get('ordem_servico');
+        $ordem_servico = OrdemServico::where('id',$ordem_servico_id)->get();
         $pedidos_saida = PedidoSaida::all();
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
@@ -45,7 +48,8 @@ class PedidosSaidaController extends Controller
         return view('app.pedido_saida.create', [
             'equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida,
             'empresa' => $empresas,
-            'fornecedores' => $fornecedores
+            'fornecedores' => $fornecedores,
+            'ordem_servico'=>$ordem_servico
         ]);
     }
 

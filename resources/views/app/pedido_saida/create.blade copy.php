@@ -30,6 +30,8 @@
                     @csrf
                     @endif
                     @foreach ($ordem_servico as $ordem_servico_f)
+
+                    
                     @endforeach
                     <div class="form-row">
                         <div class="col-md-1">
@@ -48,16 +50,18 @@
                             <label for="horaFim">Hora Prevista:</label>
                             <input type="time" class="form-control" name="hora_prevista" id="horaFim" placeholder="horaFim" value="">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-0">
                             <label for="funcionarios_id" class="">Emissor</label>
-
-                            <input type="text" class="form-control" id="emissor" name="emissor" placeholder="emissor" value="{{auth()->user()->name}}" readonly>
-                            <input type="text" class="form-control" id="funcionarios_id" name="funcionarios_id"value="1" hidden>
+                            <select name="funcionarios_id" id="funcionarios_id" class="form-control-template">
+                                <option value=""> --Selecione o emissor--</option>
+                                @foreach ($funcionarios as $funcionario_find)
+                                <option value="{{$funcionario_find->id}}" {{($funcionario_find->id ?? old('emissor')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
+                                    {{$funcionario_find->primeiro_nome}}
+                                </option>
+                                @endforeach
+                            </select>
+                            {{ $errors->has('emissor') ? $errors->first('emissor') : '' }}
                         </div>
-                      
-                            
-
-                        
                         <!----------------------------------->
                         <div class="col-md-2 mb-0">
                             <label for="situacao" class="">Status:</label>
@@ -72,22 +76,32 @@
                         <!--------------------------------------------------------------------------------------->
                         <!---------Select empresa------------->
                         <!--------------------------------------------------------------------------------------->
-
-                        <div class="col-md-6">
-                            <label for="empresa_id" class="">Empresa</label>
-
-                            <input type="text" class="form-control" id="empresa_id" name="empresa_id" placeholder="empresa_id" value="{{$ordem_servico_f->empresa->id}}" readonly>
-
+                        <div class="col-md-6 mb-0">
+                            <label for="empresas" class="">Empresa:</label>
+                            <select name="empresa_id" id="empresa_id" class="form-control-template">
+                                <option value=""> --Selecione a empresa--</option>
+                                @foreach ($empresa as $empresas_find)
+                                <option value="{{$empresas_find->id}}" {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
+                                    {{$empresas_find->razao_social}}
+                                </option>
+                                @endforeach
+                            </select>
+                            {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
                         </div>
                         <!------------------------------------------------------------------------------------------->
                         <!---equipamento-->
                         <!------------------------------------------------------------------------------------------->
-
-                        <div class="col-md-6">
-                            <label for="equipamento_id" class="">Equipamento</label>
-
-                            <input type="text" class="form-control" id="equipamento_id" name="equipamento_id" placeholder="equipamento_id" value="{{$ordem_servico_f->equipamento->id}}" readonly>
-
+                        <div class="col-md-6 mb-0">
+                            <label for="equipamento_pai" class="">Equipamento/Patrimônio</label>
+                            <select name="equipamento_id" id="equipamento_id" class="form-control-template">
+                                <option value=""> --Selecione o equipamento--</option>
+                                @foreach ($equipamentos as $equipment)
+                                <option value="{{$equipment->id}}" {{($equipment->equipamento_id ?? old('equipamento_id')) == $equipment->id ? 'selected' : '' }}>
+                                    {{$equipment->nome}}
+                                </option>
+                                @endforeach
+                            </select>
+                            {{ $errors->has('equipamento_pai') ? $errors->first('equipamento_pai') : '' }}
                         </div>
                         <!------------------------------------------------------------------------------------------->
                         <!---cliente-->
