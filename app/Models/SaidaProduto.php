@@ -27,5 +27,9 @@ class SaidaProduto extends Model
     {
         return $this->belongsTo('App\Models\Equipamento');
     }
+    public function unidade_medida(){
+        //  return $this->belongsTo('App\Models\UnidadeMedida', 'unidade_medida_id', 'id');
+        return $this->belongsTo('App\Models\UnidadeMedida');
+      }
   
 }

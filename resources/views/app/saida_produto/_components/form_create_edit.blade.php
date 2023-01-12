@@ -36,8 +36,10 @@
         <div class="row mb-1">
             <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Unidade medida</label>
             <div class="col-md-6">
-                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="{{ $produto->unidade_medida ?? old('unidade_medida') }}">
-                {{ $errors->has('unidade_medida') ? $errors->first('unidade_medida') : '' }}
+                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="@foreach($produtos as $empresas_f)
+                    {{$empresas_f['unidade_medida_id']}}
+                    @endforeach" readonly>
+                    {{ $errors->has('unidade_medida') ? $errors->first('unidade_medida') : '' }}
             </div>
         </div>
 
@@ -53,14 +55,12 @@
             <div class="col-md-6">
                 <input name="quantidade" id="quantidade" type="number" class="form-control " value="{{ $produto->quantidade ?? old('quantidade') }}" onchange="Qnt_X_Valor()">
                 <script>
-
-               
-                function Qnt_X_Valor() {
-                let n1 = document.getElementById('valor').value;
-                let n2 = document.getElementById('quantidade').value;
-                let sub = n1 * n2;
-                document.getElementById('subtotal').value = sub;
-                };
+                    function Qnt_X_Valor() {
+                        let n1 = document.getElementById('valor').value;
+                        let n2 = document.getElementById('quantidade').value;
+                        let sub = n1 * n2;
+                        document.getElementById('subtotal').value = sub;
+                    };
                 </script>
 
 

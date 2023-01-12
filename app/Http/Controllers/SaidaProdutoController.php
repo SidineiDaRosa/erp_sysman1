@@ -10,6 +10,7 @@ use App\Models\Produto;
 use App\Models\Fornecedor;
 use App\Models\Equipamento;
 use App\Models\Marca;
+use App\Models\UnidadeMedida;
 
 class SaidaProdutoController extends Controller
 {
@@ -38,10 +39,12 @@ class SaidaProdutoController extends Controller
     {
         //
         $patrimonios = Equipamento::all();
+        $unidade_medida = UnidadeMedida::all();
         $produtoId = $produto_id->get('produto');
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.saida_produto.create', [
-            'produtos' => $produtos, 'patrimonios' =>  $patrimonios
+            'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
+            'unidade_medida'=>$unidade_medida
 
         ]);
     }
