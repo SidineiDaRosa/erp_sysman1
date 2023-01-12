@@ -3,8 +3,8 @@
 
 <!---*************************************************************************************----->
 <style>
-    form{
-        background-color:rgb(220,220,220);
+    form {
+        background-color: rgb(220, 220, 220);
     }
 </style>
 @if (isset($ordem_servico->id))
@@ -152,16 +152,20 @@
         <!------------------------------------------------------------------------------------------->
         <div class="form-row mb-0">
             <div class="col-md-6 mb-0">
-                <label for="emissor" class="col-md-4 col-form-label text-md-end">Emissor</label>
-                <select name="emissor" id="emissor" class="form-control-template">
+                <label for="emissor" class="col-md-6 col-form-label text-md-end">Emissor</label>
+
+                <input type="text" class="form-control" id="emissor" name="emissor" placeholder="emissor" value="{{auth()->user()->name}}" readonly>
+
+                <!----<select name="emissor" id="emissor" class="form-control-template">
                     <option value=""> --Selecione o emissor--</option>
                     @foreach ($funcionarios as $funcionario_find)
                     <option value="{{$funcionario_find->primeiro_nome}}" {{($funcionario_find->emissor ?? old('emissor')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
                         {{$funcionario_find->primeiro_nome}}
                     </option>
                     @endforeach
-                </select>
-                {{ $errors->has('emissor') ? $errors->first('emissor') : '' }}
+                      {{ $errors->has('emissor') ? $errors->first('emissor') : '' }}
+                </select>-->
+                
             </div>
             <!-------------------------------------------------------------------------------------------->
             <!---Responsável ------------->
