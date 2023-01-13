@@ -3,16 +3,9 @@
 
 @section('content')
 
-<main class="content">
-    <div class="card">
-        <div class="card-header-template">
-            <style>
-                .card-header-template {
-                    text-align: center;
-                    align-content: center;
-                }
-            </style>
-            <div>LISTAGEM DE PRODUTOS</div>
+<main class="">
+    <div id="div-top"class="">
+        <div class="">
             @foreach ($pedido_saida as $pedido_f)
             @endforeach
 
@@ -25,10 +18,8 @@
                 <button type="submit">
                     <i class="icofont-search"></i>
                 </button>
-                <input type="text" name="pedido" value="{{$pedido_f->id}}">
+                <input type="text" name="pedido" value="{{$pedido_f->id}}" readonly>
             </form>
-
-
         </div>
     </div>
     <!---estilização do input box buscar produtos---->
@@ -63,6 +54,10 @@
             cursor: pointer;
             width: 44px;
             height: 44px;
+        }
+        #div-top{
+            background-color:blueviolet;
+            margin-bottom:3px;
         }
     </style>
     <!-------------------------------------------------------------------------->

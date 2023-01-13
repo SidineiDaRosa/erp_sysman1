@@ -46,12 +46,12 @@
                 </div>
                 <div class="col-md-2">
                     <label for="dataFim">Data Prevista entrega:</label>
-                    <input type="date" class="form-control" name="data_fim" id="dataFim" value="{{$pedido_saida_f->data_prevista ?? old('data_prevista') }}" required autocomplete="data_prevista" autofocus>
+                    <input type="date" class="form-control" name="data_fim" id="dataFim" value="{{$pedido_saida_f->data_prevista ?? old('data_prevista') }}" required autocomplete="data_prevista" autofocus readonly>
                     {{ $errors->has('data_prevista') ? $errors->first('data_prevista') : '' }}
                 </div>
                 <div class="col-md-2">
                     <label for="horaFim">Hora prevista:</label>
-                    <input type="time" class="form-control" name="hora_fim" id="horaFim" value="{{$pedido_saida_f->hora_prevista ?? old('hora_prevista') }}" required autocomplete="hora_prevista" autofocus>
+                    <input type="time" class="form-control" name="hora_fim" id="horaFim" value="{{$pedido_saida_f->hora_prevista ?? old('hora_prevista') }}" required autocomplete="hora_prevista" autofocus readonly>
                     {{ $errors->has('hora_prevista') ? $errors->first('hora_prevista') : '' }}
                 </div>
                 <div class="col-md-2">
@@ -72,21 +72,21 @@
                     <input type="text" class="form-control" name="equipamento" id="equipamento" value="{{$pedido_saida_f->equipamento->nome ?? old('hora_prevista') }}" required autocomplete="funcionarios_id " autofocus readonly>
                     {{ $errors->has('funcionarios_id ') ? $errors->first('funcionarios_id ') : '' }}
                 </div>
+              
 
+                <div class="col-md-1">
+                    <label for="ordem_serviço_id">Ordem serviço:</label>
+                    <input type="text" class="form-control" name="ordem_servico_id" id="ordem_servico_id" placeholder="ordem_serviço_id" value="{{$pedido_saida_f->ordem_servico_id}}" readonly>
+                </div>
                 </form>
                 <!--------------------------------------->
                 <div class="col-md-0">
                     <label for="btFiltrar" class="">Adicionar produto</label>
                     <p>
-                        <a href="{{route('item-produto.index')}}" class="btn btn-info btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="icofont-plus-circle"></i>
-                            </span>
-                            <span class="text">Adicionar produto</span>
-                        </a>
+
                         <a href="{{route('pedido-saida.index')}}" class="btn btn-info btn-icon-split">
                             <span class="icon text-white-50 ">
-                            <i class="icofont-list"></i>
+                                <i class="icofont-list"></i>
                             </span>
                             <span class="text">Voltar para pedidos de saída</span>
                         </a>
