@@ -78,7 +78,7 @@
                 <div class="col-md-0">
                     <label for="btFiltrar" class="">Adicionar produto</label>
                     <p>
-                        <a href="" class="btn btn-info btn-icon-split">
+                        <a href="{{route('item-produto.index')}}" class="btn btn-info btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="icofont-plus-circle"></i>
                             </span>
@@ -125,7 +125,7 @@
                 </tbody>
             </table>
         </div>
-        <iframe id="ifm1" src="{{route('produto.index')}}" width="100%" height="300" style="border:1px solid black;">
+        <iframe id="ifm1" src="{{route('item-produto.index',['pedido' => $pedido_saida_f->id])}}" width="100%" height="300" style="border:1px solid black;">
         </iframe>
         <input type="button" value="btn" onclick="ifrm()">
         <script>

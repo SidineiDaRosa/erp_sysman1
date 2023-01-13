@@ -131,6 +131,9 @@ Route::middleware('auth')->resource('/pedido-saida', 'App\Http\Controllers\Pedid
 Route::middleware('auth')->resource('/pedido-saida-lista', 'App\Http\Controllers\PedidoSaidaListaController');
 //Rota control panel
 Route::middleware('auth')->resource('/control-panel', 'App\Http\Controllers\ControlPanelController');
-
+//Rota Busca produto para dicionar item a pedidos
+Route::middleware('auth')->resource('/item-produto', 'App\Http\Controllers\ItemProdutoController');
+//Filtro Produtos item
+Route::middleware('auth')->post('/item-produto-filtro', [App\Http\Controllers\ItemProdutoController::class,'index']);
 
 

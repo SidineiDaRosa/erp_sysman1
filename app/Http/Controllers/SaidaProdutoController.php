@@ -10,6 +10,7 @@ use App\Models\Produto;
 use App\Models\Fornecedor;
 use App\Models\Equipamento;
 use App\Models\Marca;
+use App\Models\PedidoSaida;
 use App\Models\UnidadeMedida;
 
 class SaidaProdutoController extends Controller
@@ -40,12 +41,15 @@ class SaidaProdutoController extends Controller
         //
         $patrimonios = Equipamento::all();
         $unidade_medida = UnidadeMedida::all();
-     
+
         $produtoId = $produto_id->get('produto');
-        $produtos  = Produto::where('id', $produtoId)->get();
+        $pedidoId = $produto_id->get('pedido');
+        $produtos = Produto::where('id', $produtoId)->get();
+        $pedido = PedidoSaida::where('id', $pedidoId)->get();
         return view('app.saida_produto.create', [
             'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
-            'unidade_medida'=>$unidade_medida
+            'unidade_medida' => $unidade_medida,
+            'pedido'=>$pedido 
 
         ]);
     }
@@ -59,6 +63,8 @@ class SaidaProdutoController extends Controller
     public function store(Request $request)
     {
         //
+        $pedido_saida_id = $request->get('pedidos_saida_id');
+        $pedido_saida = PedidoSaida::where('id',$pedido_saida_id)->get();
         SaidaProduto::create($request->all());
         $saidas_produtos = SaidaProduto::all();
         ///------------------------------------------
@@ -70,9 +76,7 @@ class SaidaProdutoController extends Controller
         $categorias = Marca::all();
         $unidades = Empresas::all();
         //echo('controller saidas de produtos');
-        return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-    
-
+        return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias,'pedido_saida'=>$pedido_saida]);
     }
 
     /**
