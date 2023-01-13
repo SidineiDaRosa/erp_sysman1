@@ -145,6 +145,19 @@
                     Por favor, informe situacao.
                 </div>
             </div>
+            <div class="col-md-2 mb-0">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+                <select class="form-control" name="tendencia" id="tendencia" value="">
+                    <option value="Corretiva">Corretiva</option>
+                    <option value="Preventiva">Preventiva</option>
+                    <option value="Preditiva">preditiva</option>
+                    <option value="Melhoria">Melhoria</option>
+                  
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
 
         </div>
         <!------------------------------------------------------------------------------------------->
