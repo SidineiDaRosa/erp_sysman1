@@ -15,11 +15,10 @@ class AddCamposToPecasEquipamentos extends Migration
     {
         Schema::table('pecas_equipamentos', function (Blueprint $table) {
             //
-            $table->data('data_proxima_manutencao')->after('intervalo_manutencao');
-            $table->integer('hora_proxima_manutencao')->after('data_proxima_manutencao');
+            $table->date('data_proxima_manutencao')->after('status');
+            $table->date('hora_proxima_manutencao')->after('data_proxima_manutencao');
             $table->integer('horimetro')->after('hora_proxima_manutencao');
             $table->integer('forma_medicao')->after('horimetro');
-
         });
     }
 

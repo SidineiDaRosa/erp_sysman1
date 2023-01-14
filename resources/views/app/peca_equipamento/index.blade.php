@@ -42,6 +42,9 @@
                     <th scope="col">intervalo</th>
                     <th scope="col">data ultima substituação</th>
                     <th scope="col">Hora</th>
+                    <th scope="col">data proxima</th>
+                    <th scope="col">horas proxima</th>
+                    <th scope="col">horimetro</th>
                     <th scope="col">status</th>
                     <th scope="col">Operaçoes</th>
 
@@ -59,6 +62,9 @@
                     <td>{{ $peca_equipamento->intervalo_manutencao}}</td>
                     <td>{{ $peca_equipamento->data_substituicao}}</td>
                     <td>{{ $peca_equipamento->hora_substituicao}}</td>
+                    <td>{{ $peca_equipamento->data_proxima_substituicao}}</td>
+                    <td>{{ $peca_equipamento->horas_proxima_substituicao}}</td>
+                    <td>{{ $peca_equipamento->horimetro}}</td>
                     <td>{{ $peca_equipamento->status}}</td>
 
                 </tr>
