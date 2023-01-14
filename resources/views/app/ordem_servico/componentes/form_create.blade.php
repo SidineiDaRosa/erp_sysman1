@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="col-md-2 mb-0">
-                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tipo de os</label>
                 <select class="form-control" name="tendencia" id="tendencia" value="">
                     <option value="Corretiva">Corretiva</option>
                     <option value="Preventiva">Preventiva</option>
@@ -267,6 +267,39 @@
                 </div>
             </div>
             <!---->
+            <div class="col-md-2 mb-0">
+                <label for="causa" class="col-md-4 col-form-label text-md-end">Causa</label>
+                <select class="form-control" name="causa" id="causa" value="">
+                    <option value="5">Quebra</option>
+                    <option value="4">Imprevisto</option>
+                    <option value="3">Proposital</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="efeito" class="col-md-4 col-form-label text-md-end">Efeito</label>
+                <select class="form-control" name="efeito" id="efeito" value="">
+                    <option value="5">Prejuizo na produção</option>
+                    <option value="4">Atrazo</option>
+                    <option value="3">Riscos humano</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="solucao" class="col-md-4 col-form-label text-md-end">Solução</label>
+                <select class="form-control" name="solucao" id="solucao" value="">
+                    <option value="5">Agilizar</option>
+                    <option value="4">Mão de obra autonama</option>
+                    <option value="3">Acionar segurança</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
             <hr>
             <div class="row mb-0">
                 <div class="col-md-12">
