@@ -24,7 +24,7 @@
                 {{ $errors->has('id') ? $errors->first('id') : '' }}
             </div>
         </div>
-      
+
         <div class="row mb-1">
             <label for="produtos" class="col-md-4 col-form-label text-md-end text-right">Produto</label>
             <div class="col-md-6">
@@ -54,19 +54,64 @@
             </div>
         </div>
         <div class="row mb-3">
+            <label for="intervalo_manutencao" class="col-md-4 col-form-label text-md-end text-right">intervalo manutencao</label>
+            <div class="col-md-6">
+                <input name="intervalo_manutencao" id="intervalo_manutencao" type="number" class="form-control " value="" onchange="AtualizaProxManut()">
+                {{ $errors->has('intervalo_manutencao') ? $errors->first('intervalo_manutencao') : '' }}
+            </div>
+        </div>
+        <script>
+            function AtualizaProxManut() {
+                let dataUltimaSub, anoUltimasub, diaUltimaSub
+                let dataProxManut
+                let intervaloMan
+                let mesesProxima, diasProxima, anosProxima
+                dataUltimaSub = document.getElementById('data_substituicao').value
+                intervaloMan = document.getElementById('intervalo_manutencao').value
+                let dataUltimaSub_1 = new Date(dataUltimaSub)
+                let anoUltima = dataUltimaSub_1.getFullYear();
+                let mesUltima = dataUltimaSub_1.getMonth() + 1;
+                let diaUltima = dataUltimaSub_1.getDate() + 1;
+                //if (intervaloMan > 8700) {
+                    //let anosInter = (parseInt(intervaloMan / 730))
+                   // anosProxima = anosInter + mesUltima
+              //  }
+
+                if (intervaloMan > 730) {
+                    let mesesInter = (parseInt(intervaloMan / 730))
+                    mesesProxima = mesesInter + mesUltima
+
+                }
+
+                dataProxManut = anoUltima + '-' + mesesProxima + '-' + diaUltima;
+                //var dia = String(data_atual.getDate()).padStart(2, '0');
+                //var mes = String(data_atual.getMonth() + 1).padStart(2, '0');
+                //var ano = data_atual.getFullYear();
+                //data_atual = anoUltima+ '-' + messesProxima + '-' + dia;
+                document.getElementById('data_proxima_manutencao').value = dataProxManut
+                //let dias=(parseInt(intervaloMan/24))
+                //dataProxManut=dataUltimaSub+dias
+
+                //let dataTimeFim = new Date(horaFimNew);
+                //dataTimeFim.setHours(horaFimNew.getHours() + 3);
+                // dataTimeFim.setMonth(horaFimNew.getMonth() + 1);
+            }
+        </script>
+        <div class="row mb-3">
+            <label for="data_proxima_manutencao" class="col-md-4 col-form-label text-md-end text-right">Data da próxima manutenção</label>
+            <div class="col-md-6">
+                <input name="data_proxima_manutencao" id="data_proxima_manutencao" type="date" class="form-control " value="" readonly>
+                {{ $errors->has('data') ? $errors->first('data') : '' }}
+            </div>
+        </div>
+        <div class="row mb-3">
             <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">quantidade</label>
             <div class="col-md-6">
                 <input name="quantidade" id="quantidade" type="number" class="form-control " value="">
                 {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
             </div>
         </div>
-        <div class="row mb-3">
-            <label for="intervalo_manutencao" class="col-md-4 col-form-label text-md-end text-right">intervalo manutencao</label>
-            <div class="col-md-6">
-                <input name="intervalo_manutencao" id="intervalo_manutencao" type="number" class="form-control " value="">
-                {{ $errors->has('intervalo_manutencao') ? $errors->first('intervalo_manutencao') : '' }}
-            </div>
-        </div>
+
         <div class="row mb-3">
             <label for="status" class="col-md-4 col-form-label text-md-end text-right">Satatus</label>
             <div class="col-md-6">
