@@ -62,8 +62,8 @@
                     <td>{{ $peca_equipamento->intervalo_manutencao}}</td>
                     <td>{{ $peca_equipamento->data_substituicao}}</td>
                     <td>{{ $peca_equipamento->hora_substituicao}}</td>
-                    <td>{{ $peca_equipamento->data_proxima_substituicao}}</td>
-                    <td>{{ $peca_equipamento->horas_proxima_substituicao}}</td>
+                    <td>{{ $peca_equipamento->data_proxima_manutencao}}</td>
+                    <td>{{ $peca_equipamento->horas_proxima_manutencao}}</td>
                     <td>{{ $peca_equipamento->horimetro}}</td>
                     <td>{{ $peca_equipamento->status}}</td>
 

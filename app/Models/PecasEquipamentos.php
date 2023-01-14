@@ -16,6 +16,10 @@ class PecasEquipamentos extends Model
         'data_substituicao',
         'hora_substituicao',
         'intervalo_manutencao',
+        'data_proxima_manutencao',
+        'horas_proxima_manutencao',
+        'horimetro',
+        'forma_medicao',
         'status',
         'link_peca',
        
