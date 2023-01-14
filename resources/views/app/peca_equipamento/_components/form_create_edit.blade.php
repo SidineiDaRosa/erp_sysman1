@@ -81,7 +81,7 @@
                     mesesProxima = String(getMeses + 1).padStart(2, '0');
                     anosProxima = String(anosInter_1 + anoUltima).padStart(4, '0');
                     diasProxima = String(diaUltima).padStart(2, '0')
-                    //alert('qnt anos=' + anosProxima + '--meses=' + mesesProxima)
+                    alert('qnt anos=' + anosProxima + '--meses=' + mesesProxima)
                 }
                 if (intervaloMan >= 720 & intervaloMan < 8700) {
                     mesesInter = (parseInt(intervaloMan / 730))
@@ -89,7 +89,7 @@
                     anosProxima = String(anoUltima).padStart(4, '0');
                     mesesProxima = String(mesesInter + mesUltima).padStart(2, '0');
                     diasProxima = String(diaUltima).padStart(2, '0')
-                    //alert('qnt anos=' + anosProxima + '--meses=' + mesesProxima + '-Dias=' + diasProxima)
+                    alert('qnt anos=' + anosProxima + '--meses=' + mesesProxima + '-Dias=' + diasProxima)
                 }
                 if (intervaloMan >= 1 & intervaloMan < 720) {
                     diasInter = (parseInt(intervaloMan / 24)) + diaUltima
@@ -103,7 +103,7 @@
                     anosProxima = anoUltima
                     mesesProxima = String(mesUltima).padStart(2, '0');
                     diasProxima = String(diasInter).padStart(2, '0')
-                   // alert('qnt anos=' + anosProxima + '--meses=' + mesesProxima + '-Dias=' + diasProxima)
+                    alert('qnt anos=' + anosProxima + '--meses=' + mesesProxima + '-Dias=' + diasProxima)
                 }
                 //var dia = String(data_atual.getDate()).padStart(2, '0');
                 //var mes = String(mesesProxima .getMonth() + 1).padStart(2, '0');

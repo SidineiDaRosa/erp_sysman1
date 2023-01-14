@@ -51,9 +51,9 @@ class PecaEquipamentoController extends Controller
         //
         
         PecasEquipamentos::create($request->all());
-        //$equipamento_id = $equipamento->get('equipamento');
+        $equipamentoId = $request->get('equipamento');
+        $equipamento = Equipamento::where('id',  $equipamentoId)->get();
         $pecasEquip = PecasEquipamentos::all();
-        $equipamento = Equipamento::all();
         return view('app.peca_equipamento.index', ['pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento]);
     }
 
