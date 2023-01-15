@@ -23,12 +23,11 @@
         const element = document.getElementById("demo");
         setInterval(function() {
             //element.innerHTML += "Hello"
-            //document.getElementById('busca').click();
+            document.getElementById('busca').click();
 
-            //btn.addEventListener("click", exibirMensagem);
+           // btn.addEventListener("click", exibirMensagem);
 
-
-        }, 5000);
+        }, 20000);
 
         function calcula() {
             let data_inicial3 = document.getElementById('data_inicial').value
