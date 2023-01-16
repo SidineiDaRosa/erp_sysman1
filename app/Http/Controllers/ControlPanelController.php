@@ -32,7 +32,7 @@ class ControlPanelController extends Controller
 
             $numRegistroPecaEquip = PecasEquipamentos::find($x); //busca o registro do produto com o id da entrada do produto
             if (!empty($numRegistroPecaEquip)) {//verifica se exite este registro
-                $numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao + 10; // soma estoque antigo com a entrada de produto
+                $numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
                 $numRegistroPecaEquip->save();
             } else {
                // echo ('este registro é nullo');
