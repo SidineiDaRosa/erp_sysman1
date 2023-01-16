@@ -30,9 +30,9 @@ class ControlPanelController extends Controller
             //echo "The number is: $x <br>";
 
             $numRegistroPecaEquip = PecasEquipamentos::find($x); //busca o registro do produto com o id da entrada do produto
-            dd($numRegistroPecaEquip );
-            //$numRegistroPecaEquip = $numRegistroPecaEquip->horas_proxima_manutencao + 1; // soma estoque antigo com a entrada de produto
-            //$numRegistroPecaEquip->save();
+           
+            $numRegistroPecaEquip = $numRegistroPecaEquip->horas_proxima_manutencao + 10; // soma estoque antigo com a entrada de produto
+            $numRegistroPecaEquip->save();
             //echo ($numRegistroPecaEquip) . "<br>";
            // $x += 1;
             //if ($x = $totRegPecEquip) {
