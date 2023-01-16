@@ -37,14 +37,12 @@ class ControlPanelController extends Controller
             $numRegistroPecaEquip->save();
             //echo ($numRegistroPecaEquip) . "<br>";
             $x += 1;
-           // if ($x = $totRegPecEquip) {
-                
-               // $x = 1;
-                //return view('site.control_panel');
-          // }
-            
         }
+        if ($x = $totRegPecEquip) {
 
+             $x = 0;
+            return view('site.control_panel');
+        }
         //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
         //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
 
