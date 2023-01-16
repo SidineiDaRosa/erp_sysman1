@@ -24,8 +24,10 @@ class OrdemServicoController extends Controller
         $empresa = Empresas::all();
         $equipamento = Equipamento::all();
         $id = $request->get("id");
+        $operador='=';
         if (isset($_POST['id'])) {
             if (!empty($id)) {
+              
                 $funcionarios = Funcionario::all();
                 $ordens_servicos = OrdemServico::where('id', $id)->orderby('data_inicio')->orderby('hora_inicio')->get();
                 $valorTotal = OrdemServico::where('id', $id)->orderby('data_inicio')->orderby('hora_inicio')->sum('valor');
