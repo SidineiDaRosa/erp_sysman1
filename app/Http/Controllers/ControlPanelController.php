@@ -25,6 +25,7 @@ class ControlPanelController extends Controller
         $qnt = 1;
         //$produto = Produto::find($produtos); //busca o registro do produto com o id da entrada do produto
         $totRegPecEquip = PecasEquipamentos::select('id')->max('id');
+        $totRegPecEquip = 8;
         $x = 1;
         while ($x <= $totRegPecEquip) {
             //echo "The number is: $x <br>";
