@@ -37,11 +37,11 @@ class ControlPanelController extends Controller
             $numRegistroPecaEquip->save();
             //echo ($numRegistroPecaEquip) . "<br>";
             $x += 1;
-            if ($x = $totRegPecEquip) {
+           // if ($x = $totRegPecEquip) {
                 
-                $x = 1;
-                return view('site.control_panel');
-           }
+               // $x = 1;
+                //return view('site.control_panel');
+          // }
             
         }
 
