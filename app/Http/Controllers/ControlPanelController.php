@@ -39,8 +39,7 @@ class ControlPanelController extends Controller
             $x += 1;
             if ($x = $totRegPecEquip) {
                 
-                $x = 0;
-                $totRegPecEquip=0;
+                $x = 1;
                 return view('site.control_panel');
            }
             
