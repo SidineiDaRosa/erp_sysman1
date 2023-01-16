@@ -27,7 +27,7 @@
 
            // btn.addEventListener("click", exibirMensagem);
 
-        }, 20000);
+        }, 10000);
 
         function calcula() {
             let data_inicial3 = document.getElementById('data_inicial').value

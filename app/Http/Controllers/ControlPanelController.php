@@ -27,12 +27,18 @@ class ControlPanelController extends Controller
         $totRegPecEquip = PecasEquipamentos::select('id')->max('id');
         $x = 1;
         while ($x <= $totRegPecEquip) {
-            echo "The number is: $x <br>";
+            //echo "The number is: $x <br>";
+
             $numRegistroPecaEquip = PecasEquipamentos::find($x); //busca o registro do produto com o id da entrada do produto
-            echo ($numRegistroPecaEquip)."<br>";
+            $numRegistroPecaEquip = $numRegistroPecaEquip->hosra_proxima_manutencao + 1; // soma estoque antigo com a entrada de produto
+            $numRegistroPecaEquip->save();
+            //echo ($numRegistroPecaEquip) . "<br>";
             $x += 1;
+            if ($x = $totRegPecEquip) {
+                $x = 0;
+            }
         }
-       
+
         //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
         //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
 
