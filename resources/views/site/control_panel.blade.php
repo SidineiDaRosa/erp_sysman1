@@ -25,9 +25,9 @@
             //element.innerHTML += "Hello"
             document.getElementById('busca').click();
 
-           // btn.addEventListener("click", exibirMensagem);
+            // btn.addEventListener("click", exibirMensagem);
 
-        }, 10000);
+        }, 60000);
 
         function calcula() {
             let data_inicial3 = document.getElementById('data_inicial').value
@@ -39,11 +39,8 @@
             ///
             let dia_atual = data_atual.getDate()
             ///https://www.treinaweb.com.br/blog/trabalhando-com-data-no-javascript?gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNmQO6WInMUWZ5oZB094L6ktEKAh_wAv4L39MlFsYgtnUIvffNkShuwaAtA4EALw_wcB
-        
-        } 
 
-
-
+        }
     </script>
 
     <a id="busca" class="sidebar-submenu-expanded-a" href="{{route('control-panel.index')}}">Busca</a><br>
@@ -53,8 +50,13 @@
         <input id="btn1" type="submit" value="get">
     </form>
     <input type="date" id="data_inicial">
-    <input type="button" value="Calcular dias" onclick="calcula()">
- 
+    <input type="button" value="Pega Data hora" onclick="PegaDataHoraPhp()">
+    <script>
+        function PegaDataHoraPhp() {
+            document.getElementById('busca').click();
+        }
+    </script>
+
 </body>
 
 </html>
