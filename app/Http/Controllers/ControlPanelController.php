@@ -77,7 +77,10 @@ class ControlPanelController extends Controller
         echo ('Total de horas que se passaram=' . $totIntervaloPassado . '<br><hr></>');
         $numRegistroPecaEquip = PecasEquipamentos::find(13); //busca o registro do produto com o id da entrada do produto
           $numRegistroPecaEquip->data_susbstituicao= $numRegistroPecaEquip->data_susbstituicao; // soma estoque antigo com a entrada de produto
-        echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
+          //$diaProximaManu= $numRegistroPecaEquip->data_susbstituicao('d');
+        //echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
+         echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
+
         //echo ('Data sub=' . $numRegistroPecaEquip. '<br><hr></>');
         //$numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
         //$numRegistroPecaEquip->save();
