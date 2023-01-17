@@ -56,25 +56,30 @@ class ControlPanelController extends Controller
         $diaAtual = date('d');
         $mesAtual = date('m');
         $anoAatual = date('y');
-        $diaPassado=5;
-        $mesPassado=1;
-        $anoPassado=23;
+        $diaPassado = 5;
+        $mesPassado = 1;
+        $anoPassado = 23;
         // $dataAntiga=new DateTime('25/10/2022');
         // $timezone = new DateTimeZone('America/Sao_Paulo');
-        echo ('<h1>Apartir do ano 2000 </h1>'. '<br>');
-        echo ('O dia do mes hoje é='. $diaAtual. '<br>');
+        echo ('<h1>Apartir do ano 2000 </h1>' . '<br>');
+        echo ('O dia do mes hoje é=' . $diaAtual . '<br>');
         echo ('O mês atual é=' . $mesAtual . '<br>');
-        echo ('O ano atual é=' . $anoAatual .'<br><hr></>');
-        $totalDiasAtual=($diaAtual+($mesAtual*31)+($anoAatual*365))-30;
-        $totHorasAtual=$totalDiasAtual*24;
-        echo ('Total de dias é=' . $totalDiasAtual .'<br>');
-        echo ('Total de horas é=' . $totHorasAtual.'<br><hr></>');
-        $totDiasPassado=($diaPassado+($mesPassado*31)+($anoPassado*365))-30;
-        $totHorasPassado=$totDiasPassado*24;
-        echo ('Total de dias passado é=' .$totDiasPassado .'<br>');
-        echo ('Total de horas passado é=' . $totHorasPassado.'<br><hr></>');
-        $totIntervaloPassado=$totHorasAtual-$totHorasPassado;
-        echo ('Total de horas que se passaram=' . $totIntervaloPassado.'<br><hr></>');
+        echo ('O ano atual é=' . $anoAatual . '<br><hr></>');
+        $totalDiasAtual = ($diaAtual + ($mesAtual * 31) + ($anoAatual * 365)) - 30;
+        $totHorasAtual = $totalDiasAtual * 24;
+        echo ('Total de dias é=' . $totalDiasAtual . '<br>');
+        echo ('Total de horas é=' . $totHorasAtual . '<br><hr></>');
+        $totDiasPassado = ($diaPassado + ($mesPassado * 31) + ($anoPassado * 365)) - 30;
+        $totHorasPassado = $totDiasPassado * 24;
+        echo ('Total de dias passado é=' . $totDiasPassado . '<br>');
+        echo ('Total de horas passado é=' . $totHorasPassado . '<br><hr></>');
+        $totIntervaloPassado = $totHorasAtual - $totHorasPassado;
+        echo ('Total de horas que se passaram=' . $totIntervaloPassado . '<br><hr></>');
+        $numRegistroPecaEquip = PecasEquipamentos::find(5); //busca o registro do produto com o id da entrada do produto
+        echo ('a=' . $numRegistroPecaEquip. '<br><hr></>');
+        //$numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
+        //$numRegistroPecaEquip->save();
+
 
         // echo ('Tempo='.$timezone.'<br>');
         //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
