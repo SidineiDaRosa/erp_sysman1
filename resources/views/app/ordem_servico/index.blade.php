@@ -28,30 +28,30 @@
             <!----datas---------------------------------------------------------------------------------->
             <!------------------------------------------------------------------------------------------->
             <div class="form-row">
-                <div class="col-md-2">
-                    <label for="id">ID:</label><input type="checkbox" name="" id="">
+                <div class="col-md-1">
+                    <label for="id">ID:</label>
                     <input type="number" class="form-control" id="id" name="id" placeholder="ID Os" value="">
                 </div>
                 <p>
                     <!----------------------------------->
-                <div class="col-md-2">
-                    <label for="data_inicio">Data prevista:</label><input type="checkbox" name="" id="">
+                <div class="col-md-1">
+                    <label for="data_inicio">Data inicial:</label>
                     <input type="date" class="form-control" name="data_inicio" id="data_inicio" placeholder="dataPrevista" value="">
                 </div>
-                <div class="col-md-2">
-                    <label for="hora_inicio">Hora prevista:</label><input type="checkbox" name="" id="">
+                <div class="col-md-1">
+                    <label for="hora_inicio">Hora prevista:</label>
                     <input type="time" class="form-control" name="hora_inicio" id="hora_inicio" placeholder="horaPrevista" value="">
                 </div>
-                <div class="col-md-2">
-                    <label for="dataFim">Data fim:</label><input type="checkbox" name="" id="">
+                <div class="col-md-1">
+                    <label for="dataFim">Data final:</label>
                     <input type="date" class="form-control" name="data_fim" id="dataFim" placeholder="dataFim" value="">
                 </div>
-                <div class="col-md-2">
-                    <label for="horaFim">Hora fim:</label><input type="checkbox" name="" id="">
+                <div class="col-md-1">
+                    <label for="horaFim">Hora fim:</label>
                     <input type="time" class="form-control" name="hora_fim" id="horaFim" placeholder="horaFim" value="">
                 </div>
                 <div class="col-md-6 mb-0">
-                    <label for="responsavel" class="">Responsável:</label><input type="checkbox" name="" id="">
+                    <label for="responsavel" class="">Responsável:</label>
                     <select name="responsavel" id="responsavel" class="form-control-template">
                         <option value="todos">todos</option>
                         @foreach ($funcionarios as $funcionario_find)
@@ -64,7 +64,7 @@
                 </div>
                 <!----------------------------------->
                 <div class="col-md-2 mb-0">
-                    <label for="situacao" class="">Situação:</label><input type="checkbox" name="" id="">
+                    <label for="situacao" class="">Situação:</label>
                     <select class="form-control" name="situacao" id="situacao" value="">
                         <option value="aberto">aberto</option>
                         <option value="fechado">fechado</option>
@@ -73,11 +73,23 @@
                         <option value="em andamento">em andamento</option>
                     </select>
                 </div>
+                <div class="col-md-2 mb-0">
+                    <label for="tipo_consulta" class="">Tipo de consulta:</label>
+
+                    <select class="form-control" name="tipo_consulta" id="tipo_consulta" value="">
+                        <option value="1">Pelo ID</option>
+                        <option value="2">>=Data inicial <= Data inicial </option>
+                        <option value="3">>=Data inicial e <=Data final</option>
+                        <option value="4">=Data final</option>
+                        <option value="5">=>Data inicial e equipamento</option>
+                        <option value="6">Data inicial e empresa</option>
+                    </select>
+                </div>
                 <!--------------------------------------------------------------------------------------->
                 <!---------Select empresa------------->
                 <!--------------------------------------------------------------------------------------->
                 <div class="col-md-6 mb-0">
-                    <label for="empresas" class="">Empresa:</label><input type="checkbox" name="" id="">
+                    <label for="empresas" class="">Empresa:</label>
                     <select name="empresa_id" id="empresa_id" class="form-control-template">
                         <option value=""> --Selecione a empresa--</option>
                         @foreach ($empresa as $empresas_find)
