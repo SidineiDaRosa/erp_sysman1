@@ -20,23 +20,69 @@ class ItemProdutoController extends Controller
     {
         //
         $pedido_saida_id = $request->get('pedido');
-        $pedido_saida = PedidoSaida::where('id',$pedido_saida_id)->get();
+        $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
+        $nome_produto_like = $request->get('produto');
+        //$nome_produto_like='DIE';
+        //$produtos=Produto::all();
+        //$unidades = UnidadeMedida::all();
+       // $categorias = Categoria::all();
+        //$produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
+        //if (isset($_POST['id'])) {
+
+       // if (!empty($nome_produto_like)) {
+           // return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+       // } else {
+           // $produtos = Produto::where('id', 0)->get();
+            //return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+        //};
+        //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+        //return view('app.item_produto.add_item');
+        //-------------------------------------------------------------------------------------------------
+        $pedido_saida_id = $request->get('pedido');
+        $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
+        $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
         //$nome_produto_like='DIE';
         //$produtos=Produto::all();
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
-        $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
-        //if (isset($_POST['id'])) {
-      
-            if (!empty($nome_produto_like)) {
-                return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias,'pedido_saida'=>$pedido_saida]);
-            }else{
-                $produtos =Produto::where('id',0)->get();
-                return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias,'pedido_saida'=>$pedido_saida]);
-            };
-        //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-        //return view('app.item_produto.add_item');
+        if ($tipoFiltro >= 1 ) {
+            if ($tipoFiltro == 1) {
+                $produtos = Produto::where('id', $nome_produto_like)->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    
+                       return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+                }
+            }
+            if ($tipoFiltro == 2) {
+                $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+                }
+            }
+            if ($tipoFiltro == 3) {
+                $produtos = Produto::where('cod_fabricante', 'like', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+                }
+            }
+            if ($tipoFiltro == 4) {
+                $produtos = Produto::where('categoria_id', $nome_produto_like . '%')->get();
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+                }
+            }
+        } else {
+            $produtos = Produto::where('id', 0)->get();
+            return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+        };
     }
 
     /**

@@ -18,30 +18,65 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
+
+        $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
         //$nome_produto_like='DIE';
         //$produtos=Produto::all();
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
-        $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
-        //if (isset($_POST['id'])) {
-      
-            if (!empty($nome_produto_like)) {
-                return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-            }else{
-                $produtos =Produto::where('id',0)->get();
-                return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-            };
+        if ($tipoFiltro >= 1) {
+            if ($tipoFiltro == 1) {
+                $produtos = Produto::where('id', $nome_produto_like)->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+            }
+            if ($tipoFiltro == 2) {
+                $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+                //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+            if ($tipoFiltro == 3) {
+                $produtos = Produto::where('cod_fabricante', 'like', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+                //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+            if ($tipoFiltro == 4) {
+                $produtos = Produto::where('categoria_id', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+                //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+        } else {
+            $produtos = Produto::where('id', 0)->get();
+            return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+        };
         //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+
     }
     /**
      * Show the form for creating a new resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        
+
         $marcas = Marca::all();
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();

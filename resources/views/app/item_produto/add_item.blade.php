@@ -11,7 +11,15 @@
 
             <form id="formSearchingProducts" action="{{'item-produto-filtro'}}" method="POST">
                 @csrf
-
+                <div class="col-md-4 mb-0">
+                    <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
+                        <option value="1">Busca pelo ID</option>
+                        <option value="2">Busca Pelas inicias</option>
+                        <option value="3">Busca pelo Código do Fabricante</option>
+                        <option value="4">Busca por categoria</option>
+                        <option value="0">Busca Pelo estoque minimo</option>
+                    </select>
+                </div>
                 <!--input box filtro buscar produto--------->
                 
                 <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
@@ -26,7 +34,7 @@
     <style>
         #formSearchingProducts {
             background-color: white;
-            width: 500px;
+            width: 800px;
             height: 44px;
             border-radius: 5px;
             display: flex;
