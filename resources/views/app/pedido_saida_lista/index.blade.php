@@ -125,7 +125,8 @@
                 </tbody>
             </table>
         </div>
-        <iframe id="ifm1" src="{{route('item-produto.index',['pedido' => $pedido_saida_f->id])}}" width="100%" height="300" style="border:1px solid black;">
+        <!--Iframe do subformulario de produtos-->
+        <iframe id="ifm1" src="{{route('item-produto.index',['pedido' => $pedido_saida_f->id])}}" width="100%" height="500" style="border:1px solid black;">
         </iframe>
         <input type="button" value="btn" onclick="ifrm()">
         <script>
