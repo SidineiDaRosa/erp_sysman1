@@ -75,7 +75,7 @@ class ControlPanelController extends Controller
         echo ('Total de horas passado é=' . $totHorasPassado . '<br><hr></>');
         $totIntervaloPassado = $totHorasAtual - $totHorasPassado;
         echo ('Total de horas que se passaram=' . $totIntervaloPassado . '<br><hr></>');
-        $numRegistroPecaEquip = PecasEquipamentos::find(5); //busca o registro do produto com o id da entrada do produto
+        $numRegistroPecaEquip->data_susbtituicao = PecasEquipamentos::find(5); //busca o registro do produto com o id da entrada do produto
         echo ('a=' . $numRegistroPecaEquip. '<br><hr></>');
         //$numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
         //$numRegistroPecaEquip->save();
