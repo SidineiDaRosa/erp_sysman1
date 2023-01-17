@@ -81,7 +81,7 @@
 
             <div class="col-md-2 mb-0">
                 <label for="dataPrevista">Data prevista</label>
-                <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="" onchange="ValidateDateFim()">
+                <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="" onchange="ValidateDatePrevista()">
                 <div class="invalid-tooltip">
                     Por favor, informe data.
                 </div>
@@ -90,8 +90,8 @@
                         let dataPrevista = document.getElementById('dataPrevista').value;
                         let dataEmissao = document.getElementById('data_emissao').value;
                         if (dataPrevista < dataEmissao) {
-                            alert('A data prevista deve ser maior');
-                            document.getElementById('dataPrevista').value = 'null';
+                            alert('Atenção! A data prevista que você está inserindo é anterior a data de emissão.');
+                            //document.getElementById('dataPrevista').value = 'null';
 
                         }
                     }
