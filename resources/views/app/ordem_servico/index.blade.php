@@ -181,7 +181,8 @@
                         <th scope="col" class="">link foto</th>
                         <th scope="col" class="">Status</th>
                         <th scope="col" class="">Valor</th>
-                        <th scope="col" class="">Visualizar</th>
+                        <th scope="col" class="">Operações</th>
+                        <th scope="col" class="">check</th>
 
                     </tr>
                 </thead>
@@ -196,9 +197,7 @@
                         <td>{{ $ordem_servico->data_fim}}</td>
                         <td>{{ $ordem_servico->hora_fim}}</td>
                         <td>
-
                             {{ $ordem_servico->Empresa->razao_social}}
-
                         </td>
                         <td>{{ $ordem_servico->equipamento->nome}}</td>
                         <td>{{ $ordem_servico->emissor}}</td>
@@ -252,8 +251,15 @@
                                 <!------------------------------>
 
                             </div>
+                        <td>
+                            <div class="col-md-2 mb-0">
+                                <input type="checkbox" name="" id="">
+                            </div>
                         </td>
+
                     </tr>
+
+
 
                 </tbody>
 
