@@ -56,9 +56,6 @@ class ControlPanelController extends Controller
         $diaAtual = date('d');
         $mesAtual = date('m');
         $anoAatual = date('y');
-        $diaPassado = 5;
-        $mesPassado = 1;
-        $anoPassado = 23;
         // $dataAntiga=new DateTime('25/10/2022');
         // $timezone = new DateTimeZone('America/Sao_Paulo');
         echo ('<h1>Apartir do ano 2000 </h1>' . '<br>');
@@ -69,28 +66,19 @@ class ControlPanelController extends Controller
         $totHorasAtual = $totalDiasAtual * 24;
         echo ('Total de dias é=' . $totalDiasAtual . '<br>');
         echo ('Total de horas é=' . $totHorasAtual . '<br><hr></>');
-        $totDiasPassado = ($diaPassado + ($mesPassado * 31) + ($anoPassado * 365)) - 30;
-        $totHorasPassado = $totDiasPassado * 24;
-        echo ('Total de dias passado é=' . $totDiasPassado . '<br>');
-        echo ('Total de horas passado é=' . $totHorasPassado . '<br><hr></>');
-        $totIntervaloPassado = $totHorasAtual - $totHorasPassado;
-        echo ('Total de horas que se passaram=' . $totIntervaloPassado . '<br><hr></>');
-        $numRegistroPecaEquip = PecasEquipamentos::find(13); //busca o registro do produto com o id da entrada do produto
+        $numRegistroPecaEquip = PecasEquipamentos::find(12); //busca o registro do produto com o id da entrada do produto
         $numRegistroPecaEquip->data_susbstituicao = $numRegistroPecaEquip->data_susbstituicao; // soma estoque antigo com a entrada de produto
         //$diaProximaManu= $numRegistroPecaEquip->data_susbstituicao('d');
         //echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
-        echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao . '<br><hr></>');
         $dataFutura = $numRegistroPecaEquip->data_proxima_manutencao;
         //$dataFuturaFormat = DateTime::createFromFormat('d/m/Y',$dataFutura);
         $data = implode("/", array_reverse(explode("-", $dataFutura))); //converte uma data para formato brasileiro trazido do banco mysql
-        //$data = implode("-",array_reverse(explode("/",$data))); enviando para o banco
-        echo ('Data futura=' . $data . '<br><hr></>');
-        //Crindo uma nova data
+        //$data = implode("-",array_reverse(explode("/",$data))); enviando para o banco----https://www.l9web.com.br/blog/?cat=3
         $data_final = $data;
         // $ontem = DateTime::createFromFormat('d/m/Y', $data_final)->modify('-1 day');
         $ontem = DateTime::createFromFormat('d/m/Y', $data_final);
 
-        echo ('ontem=' . $ontem->format('d/m/Y') . '<hr></>');
+        echo ('A data trazida do banco é=' . $ontem->format('d/m/Y') . '<hr></>');
         echo ('Dia=' . $ontem->format('d') . '<hr></>');
         echo ('Mes=' . $ontem->format('m') . '<hr></>');
         echo ('Ano=' . $ontem->format('y') . '<hr></>');
