@@ -76,11 +76,29 @@ class ControlPanelController extends Controller
         $totIntervaloPassado = $totHorasAtual - $totHorasPassado;
         echo ('Total de horas que se passaram=' . $totIntervaloPassado . '<br><hr></>');
         $numRegistroPecaEquip = PecasEquipamentos::find(13); //busca o registro do produto com o id da entrada do produto
-          $numRegistroPecaEquip->data_susbstituicao= $numRegistroPecaEquip->data_susbstituicao; // soma estoque antigo com a entrada de produto
-          //$diaProximaManu= $numRegistroPecaEquip->data_susbstituicao('d');
+        $numRegistroPecaEquip->data_susbstituicao = $numRegistroPecaEquip->data_susbstituicao; // soma estoque antigo com a entrada de produto
+        //$diaProximaManu= $numRegistroPecaEquip->data_susbstituicao('d');
         //echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
-         echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
+        echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao . '<br><hr></>');
+        $dataFutura = $numRegistroPecaEquip->data_proxima_manutencao;
+        //$dataFuturaFormat = DateTime::createFromFormat('d/m/Y',$dataFutura);
+        $data = implode("/", array_reverse(explode("-", $dataFutura))); //converte uma data para formato brasileiro trazido do banco mysql
+        //$data = implode("-",array_reverse(explode("/",$data))); enviando para o banco
+        echo ('Data futura=' . $data . '<br><hr></>');
+        //Crindo uma nova data
+        $data_final = $data;
+        // $ontem = DateTime::createFromFormat('d/m/Y', $data_final)->modify('-1 day');
+        $ontem = DateTime::createFromFormat('d/m/Y', $data_final);
 
+        echo ('ontem=' . $ontem->format('d/m/Y') . '<hr></>');
+        echo ('Dia=' . $ontem->format('d') . '<hr></>');
+        echo ('Mes=' . $ontem->format('m') . '<hr></>');
+        echo ('Ano=' . $ontem->format('y') . '<hr></>');
+        $totDiasFuturo = ($ontem->format('d') + ($ontem->format('m')  * 31) + ($ontem->format('y') * 365)) - 30;
+        $totHorasFuturo =  $totDiasFuturo * 24;
+        echo ('Dias futuro=' . $totDiasFuturo . '<hr></>');
+        echo ('Horas futuro=' . $totHorasFuturo . '<hr></>');
+        echo ('Diferença de horas entre datas=' . ($totHorasFuturo- $totHorasAtual) . '<hr></>');
         //echo ('Data sub=' . $numRegistroPecaEquip. '<br><hr></>');
         //$numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
         //$numRegistroPecaEquip->save();
