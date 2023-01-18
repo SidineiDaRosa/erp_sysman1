@@ -16,7 +16,23 @@
 <aside class="sidebar" id="sidebarleft">
     <nav class="menu mt-3" id="">
         <!--Classe inicio das listas de menu-->
+
         <ul class="nav-list">
+            <li class="nav-item">
+                <a onclick="FunExpandMenuHome();">
+                    <i class="icofont-dashboard icofont-2x">&nbsp&nbsp&nbspDashboard</i>
+
+                    <i class="icofont-caret-down icofont-2x"></i>
+
+                </a>
+                <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-home">
+                    <a class="sidebar-submenu-expanded-a" href="{{ route('site.control_panel') }}">Painel de controle</a><br>
+
+                    <hr>
+                    <a class="sidebar-submenu-expanded-a" href="{{ route('site.control_panel') }}">Configurações</a>
+                </div>
+            </li>
+            <hr>
             <!--Menu home page-->
             <li class="nav-item">
                 <a onclick="FunExpandMenuHome();">
