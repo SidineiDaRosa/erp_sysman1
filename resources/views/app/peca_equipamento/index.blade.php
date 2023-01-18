@@ -3,7 +3,11 @@
 @section('content')
 <main class="content">
     <div class="card">
-
+        <style>
+            .card {
+                background-color: rgb(211, 211, 211);
+            }
+        </style>
         <div class="form-row mb-2">
 
             <div class="col-md-2 mb-0">
@@ -23,10 +27,12 @@
 
             </div>
             <div class="col-md-4 mb-0">
-                <label for="equipamento" class="col-md-4 col-form-label text-md-end"></label><p><p>
-                <a href="{{ route('Peca-equipamento.create',['equipamento' => $equipamento_f->id]) }}" class="btn btn-sm btn-primary">
-                    Cadastrar peça do equipamento
-                </a>
+                <label for="equipamento" class="col-md-4 col-form-label text-md-end"></label>
+                <p>
+                <p>
+                    <a href="{{ route('Peca-equipamento.create',['equipamento' => $equipamento_f->id]) }}" class="btn btn-sm btn-primary">
+                        Cadastrar peça do equipamento
+                    </a>
             </div>
         </div>
     </div>
@@ -55,8 +61,8 @@
                 @foreach ($pecas_equipamento as $peca_equipamento)
                 <tr>
                     <td scope="row">{{ $peca_equipamento->id }}</td>
-                    <td>{{ $peca_equipamento->equipamento}}</td>
-                    <td>{{ $peca_equipamento->produto_id}}</td>
+                    <td>{{ $equipamento_f->nome}}</td>
+                    <td>{{ $peca_equipamento->produto->nome}}</td>
                     <td>{{ $peca_equipamento->quantidade}}</td>
                     <td>{{ $peca_equipamento->link_peca}}</td>
                     <td>{{ $peca_equipamento->intervalo_manutencao}}</td>
@@ -66,6 +72,46 @@
                     <td>{{ $peca_equipamento->horas_proxima_manutencao}}</td>
                     <td>{{ $peca_equipamento->horimetro}}</td>
                     <td>{{ $peca_equipamento->status}}</td>
+                    <!--Div operaçoes do registro da ordem des serviço-->
+                    <td>
+                        <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
+                            <a class="btn btn-sm-template btn-outline-primary" href="">
+                                <i class="icofont-eye-alt"></i>
+                            </a>
+
+
+                            <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="">
+
+                                <i class="icofont-ui-edit"></i> </a>
+
+
+                            <!--Condoçes para deletar a os-->
+                            <form id="" method="post" action="">
+                                @method('DELETE')
+                                @csrf
+
+                            </form>
+                            <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarOs()">
+                                <i class="icofont-ui-delete"></i>
+                                <script>
+                                    function DeletarOs() {
+                                        var x;
+                                        var r = confirm("Deseja deletar a ordem de serviço?");
+                                        if (r == true) {
+
+                                            // document.getElementById('').submit()
+                                        } else {
+                                            x = "Você pressionou Cancelar!";
+                                        }
+                                        document.getElementById("demo").innerHTML = x;
+                                    }
+                                </script>
+                            </a>
+                            <!------------------------------>
+
+
+
+                        </div>
 
                 </tr>
                 @endforeach
