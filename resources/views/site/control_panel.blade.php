@@ -24,7 +24,7 @@
         setInterval(function() {
             //element.innerHTML += "Hello"
             document.getElementById('busca').click();
-
+            document.getElementById('timer_interval').value =0;
             // btn.addEventListener("click", exibirMensagem);
 
         }, 60000);
@@ -41,8 +41,43 @@
             ///https://www.treinaweb.com.br/blog/trabalhando-com-data-no-javascript?gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNmQO6WInMUWZ5oZB094L6ktEKAh_wAv4L39MlFsYgtnUIvffNkShuwaAtA4EALw_wcB
 
         }
-    </script>
+        setInterval(function() {
+            //element.innerHTML += "Hello"
+            document.getElementById('timer').value = new Date()
+            let interval = document.getElementById('timer_interval').value
+            interval1 = (interval++)
+            document.getElementById('timer_interval').value = interval1 + 1;
+            //document.getElementById('timer_interval').value = interval1
 
+        }, 1000);
+    </script>
+    <style>
+        #timer {
+            height: 50px;
+            width: auto;
+            font-size: 30px;
+            float: right;
+            background:none;
+            border:none;
+        }
+        #timer_interval{
+            height: 50px;
+            width: auto;
+            font-size: 30px;
+            background:none;
+            border:none;
+            
+        }
+
+        body {
+            background-color: rgb(211, 211, 211);
+        }
+    </style>
+    <input type="text" id="timer" readonly>
+    <p></p>
+    <h3>Tempo setado em 60s para atualização dos registros</h3>
+    <input type="number" id="timer_interval" readonly>
+    <p></p>
     <a id="busca" class="sidebar-submenu-expanded-a" href="{{route('control-panel.index')}}">Busca</a><br>
     <form id="form" action="{{route('control-panel.index')}}" method="get">
         @method('POST')

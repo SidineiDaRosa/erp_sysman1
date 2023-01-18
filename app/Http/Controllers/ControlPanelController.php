@@ -26,22 +26,12 @@ class ControlPanelController extends Controller
         $diaAtual = date('d');
         $mesAtual = date('m');
         $anoAatual = date('y');
-        // $dataAntiga=new DateTime('25/10/2022');
         // $timezone = new DateTimeZone('America/Sao_Paulo');
-        echo ('<h1>Apartir do ano 2000 </h1>' . '<br>');
-        echo ('O dia do mês hoje=' . $diaAtual . '<br>');
-        echo ('O mês atual é.....=' . $mesAtual . '<br>');
-        echo ('O ano atual é....=' . $anoAatual . '<br><hr></>');
         $totalDiasAtual = ($diaAtual + ($mesAtual * 31) + ($anoAatual * 365)) - 30;
         $totHorasAtual = $totalDiasAtual * 24;
-        // $executaAtualizacao = 0;
-        //if ($executaAtualizacao == 5) {
-        //$produto = Produto::find($produtos); //busca o registro do produto com o id da entrada do produto
         $totRegPecEquip = PecasEquipamentos::select('id')->max('id');
-        // $totRegPecEquip = 13;
         $x = 1;
         while ($x <= $totRegPecEquip) {
-            //echo "The number is: $x <br>";
 
             $numRegistroPecaEquip = PecasEquipamentos::find($x); //busca o registro do produto com o id da entrada do produto
 
