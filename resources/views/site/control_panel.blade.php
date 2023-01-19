@@ -93,7 +93,7 @@
         }
     </script>
     <hr>
-
+    {{$pecas_equipamentos}}
 </body>
 
 </html>
