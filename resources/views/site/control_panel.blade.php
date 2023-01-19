@@ -24,7 +24,7 @@
         setInterval(function() {
             //element.innerHTML += "Hello"
             document.getElementById('busca').click();
-            document.getElementById('timer_interval').value =0;
+            document.getElementById('timer_interval').value = 0;
             // btn.addEventListener("click", exibirMensagem);
 
         }, 60000);
@@ -57,16 +57,17 @@
             width: auto;
             font-size: 30px;
             float: right;
-            background:none;
-            border:none;
+            background: none;
+            border: none;
         }
-        #timer_interval{
+
+        #timer_interval {
             height: 50px;
             width: auto;
             font-size: 30px;
-            background:none;
-            border:none;
-            
+            background: none;
+            border: none;
+
         }
 
         body {
@@ -91,7 +92,8 @@
             document.getElementById('busca').click();
         }
     </script>
-
+    <hr>
+    {{$pecas_equipamentos}}
 </body>
 
 </html>

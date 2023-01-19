@@ -47,8 +47,9 @@ class ControlPanelController extends Controller
                 $numRegistroPecaEquip->horas_proxima_manutencao = $horasRestante;
                 $numRegistroPecaEquip->save();
                 if($horasRestante<=72){
-                    echo ('Estas rodens devem ser programadas para execuação:');
-                    echo ('Estas rodens devem ser programadas para execuação:'.$numRegistroPecaEquip.'<p>');
+                    //echo ('Estas rodens devem ser programadas para execuação:');
+                   // echo ('Estas rodens devem ser programadas para execuação:'.$numRegistroPecaEquip.'<p>');
+                    return view('site.control_panel',['pecas_equipamentos'=>$numRegistroPecaEquip]);
                 }
                 
                 /// } else {
@@ -62,7 +63,7 @@ class ControlPanelController extends Controller
 
             $x = 0;
             $totRegPecEquip = 0;
-            return view('site.control_panel');
+            //return view('site.control_panel');
         }
         // }
         if ($tipo_atualizacao >= 1) {
