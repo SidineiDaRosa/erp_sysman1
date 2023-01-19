@@ -46,8 +46,14 @@ class ControlPanelController extends Controller
                 $horasRestante = $totHorasFuturo - $totHorasAtual;
                 $numRegistroPecaEquip->horas_proxima_manutencao = $horasRestante;
                 $numRegistroPecaEquip->save();
+                if($horasRestante<=72){
+                    echo ('Estas rodens devem ser programadas para execuação:');
+                    echo ('Estas rodens devem ser programadas para execuação:'.$numRegistroPecaEquip.'<p>');
+                }
+                
                 /// } else {
                 // echo ('este registro é nullo');
+                
             }
 
             $x += 1;
