@@ -93,11 +93,10 @@
         }
     </script>
     <hr>
-    ($pecas_equipamentos as $peca_euqipamento)
+    ($pecas_equipamentos as $peca_equipamento)
     <table>
         <tr>
-            <td>{{$peca_euqipamento->id}}</td>
-            <td>{{$peca_euqipamento->nome}}</td>
+            <td>{{$peca_equipamento->id}}</td>
         </tr>
     </table>
 </body>
