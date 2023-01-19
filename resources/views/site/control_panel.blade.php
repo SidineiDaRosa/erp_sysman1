@@ -93,14 +93,9 @@
         }
     </script>
     <hr>
-    @foreach
-    ($pecas_equipamentos as $peca_equipamento)
-    @endforeach
-    <table>
-        <tr>
-            <td>{{$peca_equipamento->id}}</td>
-        </tr>
-    </table>
+
+    {{$pecas_equipamentos}}
+    
 </body>
 
 </html>
