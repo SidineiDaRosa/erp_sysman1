@@ -52,9 +52,15 @@ class ControlPanelController extends Controller
                     echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');
                     
                 }
+                if($horasRestante<=1){
+                    echo ('Estas ordens devem ser programadas para execução<p>');
+                    echo ('Ordem:'.$numRegistroPecaEquip->id.'<hr background_color="red";>');
+                    echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');
+                    
+                }
                 
                 /// } else {
-               
+             
                 
             }
 
