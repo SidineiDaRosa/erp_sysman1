@@ -40,7 +40,7 @@ class ControlPanelController extends Controller
                 // $dataFutura = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
 
                 $dataProximaManutencao_impld = implode("/", array_reverse(explode("-", $dataProximaManutencao))); //converte uma data para formato brasileiro trazido do banco mysql
-                $ontem = DateTime::createFromFormat('d/m/Y',  $dataProximaManutencao_impld); //formata a data
+                $ontem = DateTime::createFromFormat('d/m/Y',  $dataProximaManutencao_impld); //formata a data       
                 $totDiasFuturo = ($ontem->format('d') + ($ontem->format('m')  * 31) + ($ontem->format('y') * 365)) - 30;
                 $totHorasFuturo =  $totDiasFuturo * 24;
                 $horasRestante = $totHorasFuturo - $totHorasAtual;
