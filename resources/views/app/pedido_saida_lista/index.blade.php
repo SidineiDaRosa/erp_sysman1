@@ -101,6 +101,7 @@
                         <th scope="col" class="th-title">Id</th>
                         <th scope="col" class="th-title">Produto</th>
                         <th scope="col" class="th-title">Produto_ID</th>
+                        <th scope="col" class="th-title">Cod Fabricante</th>
                         <th scope="col" class="th-title">Unidade</th>
                         <th scope="col" class="th-title">Quantidade</th>
                         <th scope="col" class="th-title">Valor Unit</th>
@@ -113,6 +114,7 @@
                     @foreach ($saidas_produto as $saida_produto)
                     <tr>
                         <th scope="row">{{$saida_produto->id }}</td>
+                        <td>{{ $saida_produto->produto->cod_fabricante}}</td>
                         <td>{{ $saida_produto->produto->id}}</td>
                         <td>{{ $saida_produto->produto->nome}}</td>
                         <td>{{ $saida_produto->unidade_medida}}</td>
