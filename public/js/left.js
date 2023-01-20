@@ -1,3 +1,4 @@
+document.getElementById("sidebar-submenu-expanded-dashboard").style.display = "none";
 document.getElementById("sidebar-submenu-expanded-home").style.display = "none";
 document.getElementById("sidebar-submenu-expanded-marcas").style.display =
     "none";
@@ -5,9 +6,41 @@ document.getElementById("sidebar-submenu-expanded-recursos").style.display =
     "none";
 document.getElementById("sidebar-submenu-expanded-patrimonio").style.display =
     "none";
+
+function FunExpandMenuDashboard() {
+    switch (
+    document.getElementById("sidebar-submenu-expanded-dashboard").style.display
+    ) {
+        
+        case "none":
+            document.getElementById(
+                "sidebar-submenu-expanded-daschboard"
+            ).style.display = "block";
+
+            document.getElementById(
+                "sidebar-submenu-expanded-marcas"
+            ).style.display = "none";
+            document.getElementById(
+                "sidebar-submenu-expanded-recursos"
+            ).style.display = "none";
+            document.getElementById(
+                "sidebar-submenu-expanded-patrimonio"
+            ).style.display = "none";
+            document.getElementById(
+                "sidebar-submenu-expanded-home"
+            ).style.display = "none";
+            break;
+        case "block":
+            document.getElementById(
+                "sidebar-submenu-expanded-dashboard"
+            ).style.display = "none";
+            alert()
+            break;
+    }
+}
 function FunExpandMenuHome() {
     switch (
-        document.getElementById("sidebar-submenu-expanded-home").style.display
+    document.getElementById("sidebar-submenu-expanded-home").style.display
     ) {
         case "none":
             document.getElementById(
@@ -34,7 +67,7 @@ function FunExpandMenuHome() {
 
 function FunExpandMenuMarcas() {
     switch (
-        document.getElementById("sidebar-submenu-expanded-marcas").style.display
+    document.getElementById("sidebar-submenu-expanded-marcas").style.display
     ) {
         case "none":
             document.getElementById(
@@ -60,8 +93,8 @@ function FunExpandMenuMarcas() {
 }
 function FunExpandMenuRecursos() {
     switch (
-        document.getElementById("sidebar-submenu-expanded-recursos").style
-            .display
+    document.getElementById("sidebar-submenu-expanded-recursos").style
+        .display
     ) {
         case "none":
             document.getElementById(
@@ -87,8 +120,8 @@ function FunExpandMenuRecursos() {
 }
 function FunExpandMenuPeatrimonio() {
     switch (
-        document.getElementById("sidebar-submenu-expanded-patrimonio").style
-            .display
+    document.getElementById("sidebar-submenu-expanded-patrimonio").style
+        .display
     ) {
         case "none":
             document.getElementById(

@@ -19,13 +19,13 @@
 
         <ul class="nav-list">
             <li class="nav-item">
-                <a onclick="FunExpandMenuHome();">
+                <a onclick="FunExpandMenuDashboard();">
                     <i class="icofont-dashboard icofont-2x">&nbsp&nbsp&nbspDashboard</i>
 
                     <i class="icofont-caret-down icofont-2x"></i>
 
                 </a>
-                <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-home">
+                <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-dashboard">
                     <a class="sidebar-submenu-expanded-a" href="{{ route('site.control_panel') }}">Painel de controle</a><br>
 
                     <hr>
