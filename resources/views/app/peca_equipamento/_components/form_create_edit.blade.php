@@ -172,3 +172,8 @@
             </div>
         </div>
     </form>
+    <style>
+        form{
+            background-color: rgb(211,211,211);
+        }
+    </style>
