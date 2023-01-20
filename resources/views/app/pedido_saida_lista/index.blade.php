@@ -99,9 +99,9 @@
                 <thead>
                     <tr>
                         <th scope="col" class="th-title">Id</th>
-                        <th scope="col" class="th-title">Produto</th>
+                        <th scope="col" class="th-title">Cod fabricante</th>
                         <th scope="col" class="th-title">Produto_ID</th>
-                        <th scope="col" class="th-title">Cod Fabricante</th>
+                        <th scope="col" class="th-title">Descrição</th>
                         <th scope="col" class="th-title">Unidade</th>
                         <th scope="col" class="th-title">Quantidade</th>
                         <th scope="col" class="th-title">Valor Unit</th>
