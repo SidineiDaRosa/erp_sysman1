@@ -63,7 +63,11 @@
                 <tr>
                     <td scope="row">{{ $peca_equipamento->id }}</td>
                     <td>{{ $equipamento_f->nome}}</td>
-                    <td>{{ $peca_equipamento->produto->id}}</td>
+                    <td>{{ $peca_equipamento->produto->id}} <a class="btn btn-sm-template btn-outline-primary" href="">
+                        
+                            <i class="icofont-search-2"></i>
+                        </a>
+                    </td>
                     <td>{{ $peca_equipamento->produto->nome}}</td>
                     <td>{{ $peca_equipamento->quantidade}}</td>
                     <td>{{ $peca_equipamento->link_peca}}</td>
