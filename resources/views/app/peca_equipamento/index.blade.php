@@ -42,7 +42,8 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">equipamento</th>
-                    <th scope="col">produto</th>
+                    <th scope="col">Produto Id</th>
+                    <th scope="col">Produto</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Link</th>
                     <th scope="col">intervalo</th>
@@ -62,6 +63,7 @@
                 <tr>
                     <td scope="row">{{ $peca_equipamento->id }}</td>
                     <td>{{ $equipamento_f->nome}}</td>
+                    <td>{{ $peca_equipamento->produto->id}}</td>
                     <td>{{ $peca_equipamento->produto->nome}}</td>
                     <td>{{ $peca_equipamento->quantidade}}</td>
                     <td>{{ $peca_equipamento->link_peca}}</td>
