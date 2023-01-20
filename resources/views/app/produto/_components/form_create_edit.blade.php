@@ -27,7 +27,7 @@
             </div>
 
             <div class="row mb-1">
-                <label for="descricao" class="col-md-4 col-form-label text-md-end text-right">Descrição</label>
+                <label for="descricao" class="col-md-4 col-form-label text-md-end text-right">Dados técnicos</label>
 
                 <div class="col-md-6">
                     <input id="descricao" name="descricao" type="text" class="form-control-template" descricao="descricao"
@@ -98,13 +98,13 @@
             </div>
 
             <div class="row mb-1">
-                <label for="estoque_ideal" class="col-md-4 col-form-label text-md-end text-right">Estoque Ideal</label>
+                <label for="estoque_ideal" class="col-md-4 col-form-label text-md-end text-right">Estoque atual</label>
 
                 <div class="col-md-6">
                     <input name="estoque_ideal" id="estoque_ideal" type="text"
                         class="form-control-template "
                         estoque_ideal="estoque_ideal"
-                        value="{{ $produto->estoque_ideal ?? old('estoque_ideal') }}">
+                        value="{{ $produto->estoque_ideal ?? old('estoque_ideal') }}" value="0" readonly>
                     {{ $errors->has('estoque_ideal') ? $errors->first('estoque_ideal') : '' }}
                 </div>
             </div>

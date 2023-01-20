@@ -28,9 +28,7 @@
             </form>
 
             <div>
-                <a href="{{ route('Estoque-produto.index') }}" class="btn btn-sm btn-primary">
-                    Status estoque de produtos
-                </a>
+
 
                 <a href="{{ route('produto.create') }}" class="btn btn-sm btn-primary">
                     <i class="icofont-database-add icofont-2x"></i>
