@@ -18,8 +18,10 @@
                 <thead>
                     <tr>
                         <th scope="col" class="th-title">Id</th>
+                        <th scope="col" class="th-title">Produto Id</th>
                         <th scope="col" class="th-title">Produto</th>
                         <th scope="col" class="th-title">Quantidade</th>
+                        <th scope="col" class="th-title">Valor</th>
                         <th scope="col" class="th-title">Data</th>
                         <th scope="col" class="th-title">Fornecedor</th>
                         <th scope="col" class="th-title">Operações</th>
@@ -30,8 +32,10 @@
                     @foreach ($entradas_produtos as $entrada_produto)
                     <tr>
                         <th scope="row">{{ $entrada_produto->id }}</td>
+                        <td>{{ $entrada_produto->produto->id }}</td>
                         <td>{{ $entrada_produto->produto->nome }}</td>
                         <td>{{ $entrada_produto->quantidade }}</td>
+                        <td>{{ $entrada_produto->valor }}</td>
                         <td>{{ $entrada_produto->data}}</td>
                         <td>{{ $entrada_produto->Fornecedor->nome_fantasia}}</td>
                         <td>

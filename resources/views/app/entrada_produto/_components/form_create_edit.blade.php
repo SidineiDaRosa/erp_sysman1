@@ -57,6 +57,13 @@
                             {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
                         </div>
                     </div>
+                    <div class="row mb-1">
+                        <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">R$</label>
+                        <div class="col-md-6">
+                            <input name="valor" id="valor" type="text" class="form-control " value="{{ $produto->valor ?? old('valor') }}">
+                            {{ $errors->has('valor') ? $errors->first('valor') : '' }}
+                        </div>
+                    </div>
 
                     <div class="row mb-1">
                         <label for="nota_fiscal" class="col-md-4 col-form-label text-md-end text-right">Nota Fiscal</label>
@@ -65,8 +72,6 @@
                             {{ $errors->has('nota_fiscal') ? $errors->first('nota_fiscal') : '' }}
                         </div>
                     </div>
-
-
 
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">

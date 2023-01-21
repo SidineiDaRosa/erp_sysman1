@@ -13,6 +13,7 @@ class EntradaProduto extends Model
         'produto_id',
         'fornecedor_id',
         'quantidade',
+        'valor',
         'nota_fiscal',
         'data'
     ];

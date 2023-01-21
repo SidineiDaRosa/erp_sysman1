@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddOsToPedidosSaida extends Migration
+class AddValorToEntradasProdutos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AddOsToPedidosSaida extends Migration
      */
     public function up()
     {
-        Schema::table('pedidos_saida', function (Blueprint $table) {
+        Schema::table('entradas_produtos', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('ordem_servico_id')->nullable()->after('status'); //foreing vem da própria tabela ordem seviço
-            $table->foreign('ordem_servico_id')->references('id')->on('ordens_servicos');
+            $table->decimal('valor',9,2)->after('quantidade');
         });
     }
 
@@ -27,7 +26,7 @@ class AddOsToPedidosSaida extends Migration
      */
     public function down()
     {
-        Schema::table('pedidos_saida', function (Blueprint $table) {
+        Schema::table('entradas_produtos', function (Blueprint $table) {
             //
         });
     }
