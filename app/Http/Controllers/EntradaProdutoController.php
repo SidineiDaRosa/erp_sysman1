@@ -18,14 +18,30 @@ class EntradaProdutoController extends Controller
      */
     public function index(Request $request)
     {
+
         $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
         //$fornecedores=Fornecedor::all();
-        if ($tipoFiltro == 2) {
-            $entradas_produtos = EntradaProduto::all();
-            return view('app.entrada_produto.index', [
-                'entradas_produtos' => $entradas_produtos,
-            ]);
+        if ($tipoFiltro == 1) {
+            //$entradas_produtos = EntradaProduto::all();
+            //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
+            $entradas_produtos = EntradaProduto::where('id',$nome_produto_like)->get();
+            echo($entradas_produtos);
+           if (!empty($entradas_produtos )) {
+                return view('app.entrada_produto.index', [
+                    'entradas_produtos' => $entradas_produtos,
+                ]);
+            }
+            //if ($tipoFiltro == 2) {
+                //$entradas_produtos = EntradaProduto::all();
+                //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
+               
+               // echo($entradas_produtos);
+              // if (!empty($entradas_produtos )) {
+                    //return view('app.entrada_produto.index', [
+                        //'entradas_produtos' => $entradas_produtos,
+                   // ]);
+               // }
         } else {
             $entradas_produtos = EntradaProduto::all();
             $entradas_produtos  = Produto::where('id', 0)->get();
