@@ -5,10 +5,65 @@
     <div class="card">
         <div class="card-header-template">
             <div> Lista entrada de produtos</div>
+
+            <form id="formSearchingProducts" action="{{'Produtos-filtro'}}" method="POST">
+                @csrf
+                <div class="col-md-4 mb-0">
+                    <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
+                        <option value="1">Busca pelo ID</option>
+                        <option value="2">Busca Pelas inicias</option>
+                        <option value="3">Busca pelo Código do Fabricante</option>
+                        <option value="4">Busca por categoria</option>
+                        <option value="0">Busca Pelo estoque minimo</option>
+                    </select>
+                </div>
+                <!---estilização do input box buscar produtos---->
+                <style>
+                    #formSearchingProducts {
+                        background-color: white;
+                        width: 700px;
+                        height: 44px;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }
+
+                    input {
+                        all: unset;
+                        font: 16px system-ui;
+                        color: blue;
+                        height: 100%;
+                        width: 100%;
+                        padding: 6px 10px;
+                    }
+
+                    ::placeholder {
+                        color: blueviolet;
+                        opacity: 0.9;
+                    }
+
+
+                    button {
+                        all: unset;
+                        cursor: pointer;
+                        width: 44px;
+                        height: 44px;
+                    }
+                </style>
+                <!-------------------------------------------------------------------------->
+                <!--input box filtro buscar produto--------->
+
+                <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
+                <button type="submit">
+                    <i class="icofont-search"></i>
+                </button>
+            </form>
             <div>
                 <a href="{{ route('produto.index') }}" class="btn btn-sm btn-primary">
                     Lista de produtos
                 </a>
+
 
             </div>
 

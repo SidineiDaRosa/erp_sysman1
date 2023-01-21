@@ -16,14 +16,23 @@ class EntradaProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $tipoFiltro = $request->get('tipofiltro');
+        $nome_produto_like = $request->get('produto');
         //$fornecedores=Fornecedor::all();
-    
-        $entradas_produtos = EntradaProduto::all();
-        return view('app.entrada_produto.index', [
-            'entradas_produtos' => $entradas_produtos,
-        ]);
+        if ($tipoFiltro == 2) {
+            $entradas_produtos = EntradaProduto::all();
+            return view('app.entrada_produto.index', [
+                'entradas_produtos' => $entradas_produtos,
+            ]);
+        } else {
+            $entradas_produtos = EntradaProduto::all();
+            $entradas_produtos  = Produto::where('id', 0)->get();
+            return view('app.entrada_produto.index', [
+                'entradas_produtos' => $entradas_produtos,
+            ]);
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -35,7 +44,7 @@ class EntradaProdutoController extends Controller
         $produtoId = $produto_id->get('produto');
         $fornecedores = Fornecedor::all();
         //dd( $produtoId);
-       // $produtos = Produto::all();
+        // $produtos = Produto::all();
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.entrada_produto.create', [
             'produtos' => $produtos,
@@ -52,7 +61,7 @@ class EntradaProdutoController extends Controller
     public function store(Request $request)
     {
         EntradaProduto::create($request->all());
-     
+
         $produto = Produto::find($request->input('produto_id')); //busca o registro do produto com o id da entrada do produto
         $produto->estoque_ideal = $produto->estoque_ideal + $request->input('quantidade'); // soma estoque antigo com a entrada de produto
         $produto->save();

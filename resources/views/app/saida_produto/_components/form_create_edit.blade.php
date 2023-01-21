@@ -48,7 +48,7 @@
         <div class="row mb-1">
             <label for="valor" class="col-md-4 col-form-label text-md-end text-right">Valor</label>
             <div class="col-md-6">
-                <input name="valor" id="valor" type="decimal" class="form-control " value="{{ $produto->valor ?? old('valor') }}" data-mask="000,00" data-mask-selectonfocus="true" onchange="Qnt_X_Valor()">
+                <input name="valor" id="valor" type="decimal" class="form-control " value="{{ $produto->valor ?? old('valor') }}" onchange="Qnt_X_Valor()">
                 {{ $errors->has('valor') ? $errors->first('valor') : '' }}
             </div>
         </div>
