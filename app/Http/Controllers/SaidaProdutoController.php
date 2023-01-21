@@ -45,6 +45,7 @@ class SaidaProdutoController extends Controller
         $produtoId = $produto_id->get('produto');
         $pedidoId = $produto_id->get('pedido');
         $produtos = Produto::where('id', $produtoId)->get();
+        $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
         $pedido = PedidoSaida::where('id', $pedidoId)->get();
         return view('app.saida_produto.create', [
             'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
