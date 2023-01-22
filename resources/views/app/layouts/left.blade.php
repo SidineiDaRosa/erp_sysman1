@@ -57,7 +57,7 @@
                     <i class="icofont-caret-down icofont-2x"></i>
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-marcas">
-                    <a class="sidebar-submenu-expanded-a icofont-2x" href="{{route('marca.index')}}">Busca Marcas</a><br>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('marca.index')}}">Busca Marcas</a><br>
                     <a class="sidebar-submenu-expanded-a" href="">Cadastro de marcas</a><br>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="">Cadastro de grupo /categoria</a>

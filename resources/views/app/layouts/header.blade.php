@@ -23,8 +23,8 @@
         </div>
        
         <div class="logo">
-            <i class="icofont-birds mr-2 text-dark"></i>
-            <span class="font-wheight-light">Sysman8.v1.0</span>
+        <i class="icofont-architecture-alt icofont-2x wite"></i>
+            <span class="font-wheight-light">Sysman8.V1.0</span>
         </div>
         <div class="spacer"></div>
 

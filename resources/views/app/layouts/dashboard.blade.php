@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="d-flex m-2 justify-content-around">
-                <span class="record">sysman8-v1.0-2022</span>
+                <span class="record">sysman8-V1.0-2022</span>
             </div>
         </div>
 
