@@ -34,7 +34,7 @@ class EntradaProdutoController extends Controller
             //if ($tipoFiltro == 2) {
                 //$entradas_produtos = EntradaProduto::all();
                 //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
-               
+               //$valorTotal = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
                // echo($entradas_produtos);
               // if (!empty($entradas_produtos )) {
                     //return view('app.entrada_produto.index', [
