@@ -26,7 +26,6 @@ class EntradaProdutoController extends Controller
             //$entradas_produtos = EntradaProduto::all();
             //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
             $entradas_produtos = EntradaProduto::where('produto_id',$nome_produto_like)->get();
-            echo($entradas_produtos);
            if (!empty($entradas_produtos )) {
                 return view('app.entrada_produto.index', [
                     'entradas_produtos' => $entradas_produtos,
