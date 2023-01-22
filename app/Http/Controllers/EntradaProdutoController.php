@@ -42,7 +42,6 @@ class EntradaProdutoController extends Controller
                    // ]);
                // }
         } else {
-            $entradas_produtos = EntradaProduto::all();
             $entradas_produtos  = Produto::where('id', 0)->get();
             return view('app.entrada_produto.index', [
                 'entradas_produtos' => $entradas_produtos,
