@@ -12,16 +12,19 @@ use App\Http\Controllers\OrdemServicoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',function (){
+
+Route::get('/', function () {
     return view('site.home');
 })->name('site.home');
-
-Route::get('/site-about',function (){
+Route::get('/site-about', function () {
     return view('site.about');
 })->name('site.about');
-Route::get('/site-panel',function (){
+Route::get('/site-panel', function () {
     return view('site.control_panel');
 })->name('site.control_panel');
+Route::get('/configuracoes', function () {
+    return view('site.configuracoes');
+})->name('site.configuracoes');
 
 //Route::get('/', function () {
 //return view('auth.login');
@@ -51,7 +54,7 @@ Route::middleware('auth')->resource('/equipamento', 'App\Http\Controllers\Equipa
 Route::middleware('auth')->resource('/ordem-servico', 'App\Http\Controllers\OrdemServicoController');
 
 //ordem de serviço rota de pesquisas
-Route::middleware('auth')->post('/filtro-os', [App\Http\Controllers\OrdemServicoController::class,'index']);
+Route::middleware('auth')->post('/filtro-os', [App\Http\Controllers\OrdemServicoController::class, 'index']);
 
 //ordem de produção
 
@@ -98,24 +101,32 @@ Route::middleware('auth')->post(
 )->name('parada-equipamento.store');
 
 //busca o horimetro inicial de Ordem de produção via ajax
-Route::middleware('auth')->get('utils/get-horimetro-inicial',
-'App\Http\Controllers\UtilsController@getHorimetroInicial')->name('utils.get-horimetro-inicial');
+Route::middleware('auth')->get(
+    'utils/get-horimetro-inicial',
+    'App\Http\Controllers\UtilsController@getHorimetroInicial'
+)->name('utils.get-horimetro-inicial');
 
 //busca o horimetro inicial de recursos de produção via ajax.
-Route::middleware('auth')->get('utils/get-horimetro-inicial-recursos',
-'App\Http\Controllers\UtilsController@getHorimetroInicialRecursos')->name('utils.get-horimetro-inicial-recursos');
+Route::middleware('auth')->get(
+    'utils/get-horimetro-inicial-recursos',
+    'App\Http\Controllers\UtilsController@getHorimetroInicialRecursos'
+)->name('utils.get-horimetro-inicial-recursos');
 //busca ultimo registro de ordem de serviço ajax.
-Route::middleware('auth')->get('utils/get-last-id-os',
-'App\Http\Controllers\UtilsController@getLastIdOs')->name('get-last-id-os');
+Route::middleware('auth')->get(
+    'utils/get-last-id-os',
+    'App\Http\Controllers\UtilsController@getLastIdOs'
+)->name('get-last-id-os');
 
 //busca ordem se serviços todas.
-Route::middleware('auth')->get('utils/get-todas-os',
-'App\Http\Controllers\UtilsController@getTodasOs')->name('get-todas-os');
+Route::middleware('auth')->get(
+    'utils/get-todas-os',
+    'App\Http\Controllers\UtilsController@getTodasOs'
+)->name('get-todas-os');
 //busca empresas
-Route::middleware('auth')->post('/Empresas-filtro', [App\Http\Controllers\EmpresasController::class,'index']);
+Route::middleware('auth')->post('/Empresas-filtro', [App\Http\Controllers\EmpresasController::class, 'index']);
 Route::middleware('auth')->resource('/empresas', 'App\Http\Controllers\EmpresasController');
 //Filtro Produtos
-Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\ProdutoController::class,'index']);
+Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\ProdutoController::class, 'index']);
 //Rota saida de produtos
 Route::middleware('auth')->resource('/Saida-produto', 'App\Http\Controllers\SaidaProdutoController');
 Route::middleware('auth')->resource('/mostra-produto', 'App\Http\Controllers\SaidaProdutoController');
@@ -126,7 +137,7 @@ Route::middleware('auth')->resource('/Peca-equipamento', 'App\Http\Controllers\P
 //Rota pedidos de compra
 Route::middleware('auth')->resource('/pedido-compra', 'App\Http\Controllers\PedidoCompraController');
 //Rota filtro pedido de entrada
-Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\EntradaProdutoController::class,'index']);
+Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\EntradaProdutoController::class, 'index']);
 //Rota pedidos de saida
 Route::middleware('auth')->resource('/pedido-saida', 'App\Http\Controllers\PedidosSaidaController');
 //Rota pedidos de saida
@@ -136,6 +147,4 @@ Route::middleware('auth')->resource('/control-panel', 'App\Http\Controllers\Cont
 //Rota Busca produto para dicionar item a pedidos
 Route::middleware('auth')->resource('/item-produto', 'App\Http\Controllers\ItemProdutoController');
 //Filtro Produtos item
-Route::middleware('auth')->post('/item-produto-filtro', [App\Http\Controllers\ItemProdutoController::class,'index']);
-
-
+Route::middleware('auth')->post('/item-produto-filtro', [App\Http\Controllers\ItemProdutoController::class, 'index']);

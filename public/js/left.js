@@ -1,40 +1,20 @@
 document.getElementById("sidebar-submenu-expanded-dashboard").style.display = "none";
 document.getElementById("sidebar-submenu-expanded-home").style.display = "none";
-document.getElementById("sidebar-submenu-expanded-marcas").style.display =
-    "none";
-document.getElementById("sidebar-submenu-expanded-recursos").style.display =
-    "none";
-document.getElementById("sidebar-submenu-expanded-patrimonio").style.display =
-    "none";
+document.getElementById("sidebar-submenu-expanded-marcas").style.display = "none";
+document.getElementById("sidebar-submenu-expanded-recursos").style.display = "none";
+document.getElementById("sidebar-submenu-expanded-patrimonio").style.display = "none";
 
 function FunExpandMenuDashboard() {
+
     switch (
     document.getElementById("sidebar-submenu-expanded-dashboard").style.display
     ) {
-        
         case "none":
-            document.getElementById(
-                "sidebar-submenu-expanded-daschboard"
-            ).style.display = "block";
+            document.getElementById("sidebar-submenu-expanded-dashboard").style.display = "block";
 
-            document.getElementById(
-                "sidebar-submenu-expanded-marcas"
-            ).style.display = "none";
-            document.getElementById(
-                "sidebar-submenu-expanded-recursos"
-            ).style.display = "none";
-            document.getElementById(
-                "sidebar-submenu-expanded-patrimonio"
-            ).style.display = "none";
-            document.getElementById(
-                "sidebar-submenu-expanded-home"
-            ).style.display = "none";
             break;
         case "block":
-            document.getElementById(
-                "sidebar-submenu-expanded-dashboard"
-            ).style.display = "none";
-            alert()
+            document.getElementById("sidebar-submenu-expanded-dashboard").style.display = "none";
             break;
     }
 }
@@ -46,7 +26,6 @@ function FunExpandMenuHome() {
             document.getElementById(
                 "sidebar-submenu-expanded-home"
             ).style.display = "block";
-
             document.getElementById(
                 "sidebar-submenu-expanded-marcas"
             ).style.display = "none";
@@ -64,7 +43,6 @@ function FunExpandMenuHome() {
             break;
     }
 }
-
 function FunExpandMenuMarcas() {
     switch (
     document.getElementById("sidebar-submenu-expanded-marcas").style.display

@@ -29,7 +29,7 @@
                     <a class="sidebar-submenu-expanded-a" href="{{ route('site.control_panel') }}">Painel de controle</a><br>
 
                     <hr>
-                    <a class="sidebar-submenu-expanded-a" href="{{ route('site.control_panel') }}">Configurações</a>
+                    <a class="sidebar-submenu-expanded-a" href="{{ route('site.configuracoes') }}">Configurações</a>
                 </div>
             </li>
             <hr>
@@ -37,15 +37,16 @@
             <li class="nav-item">
                 <a onclick="FunExpandMenuHome();">
 
-                    <i class="icofont-institution icofont-2x"></i>&nbsp&nbsp&nbspHome
+                <i class="icofont-company icofont-2x"></i></i>&nbsp&nbsp&nbspUnidades Cia
                     <i class="icofont-caret-down icofont-2x"></i>
+                    
 
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-home">
                     <a class="sidebar-submenu-expanded-a" href="{{route('empresas.index')}}">Busca unidade empresarial</a><br>
 
                     <hr>
-                    <a class="sidebar-submenu-expanded-a" href="">Configuraçoes</a>
+                    <a class="sidebar-submenu-expanded-a" href="#"></a>
                 </div>
             </li>
             <!--Menu marcas-->
