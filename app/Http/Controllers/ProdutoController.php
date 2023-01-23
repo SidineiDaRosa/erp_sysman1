@@ -18,9 +18,10 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-
+        
         $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
+        echo($tipoFiltro );
         //$nome_produto_like='DIE';
         //$produtos=Produto::all();
         $unidades = UnidadeMedida::all();

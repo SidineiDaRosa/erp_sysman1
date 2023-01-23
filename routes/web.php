@@ -137,7 +137,7 @@ Route::middleware('auth')->resource('/Peca-equipamento', 'App\Http\Controllers\P
 //Rota pedidos de compra
 Route::middleware('auth')->resource('/pedido-compra', 'App\Http\Controllers\PedidoCompraController');
 //Rota filtro pedido de entrada
-Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\EntradaProdutoController::class, 'index']);
+Route::middleware('auth')->post('/Ent-Produtos-filtro', [App\Http\Controllers\EntradaProdutoController::class, 'index']);
 //Rota pedidos de saida
 Route::middleware('auth')->resource('/pedido-saida', 'App\Http\Controllers\PedidosSaidaController');
 //Rota pedidos de saida
