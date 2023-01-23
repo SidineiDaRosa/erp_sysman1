@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Empresas;
 use Illuminate\Http\Request;
 use App\Models\Marca;
 use App\Models\Equipamento;
 use Illuminate\Support\Arr;
+use Picqer\Barcode\BarcodeGeneratorHTML;
 
 class EquipamentoController extends Controller
 {
@@ -19,28 +21,29 @@ class EquipamentoController extends Controller
     {
         // $posts = Post::whereHas('comments', function($q)
         //{$q->where('content', 'like', 'foo%');})->get();
-        $id= $request->get('empresa');
-        
-      //  $equipamentos = Equipamento::all();
-       // $empresas = Empresas::all();
-       if (isset($_POST['empresa'])) {
-            if (!empty($id)) {            
+        $id = $request->get('empresa');
+
+        //  $equipamentos = Equipamento::all();
+        // $empresas = Empresas::all();
+        if (isset($_POST['empresa'])) {
+            if (!empty($id)) {
                 $empresas = Empresas::all();
-                $equipamentos = Equipamento::where('empresa_id',$id)->get();
-              return view('app.equipamento.index', ['equipamentos' => $equipamentos,
-             'empresas' => $empresas]);
-               
-           } else {
+                $equipamentos = Equipamento::where('empresa_id', $id)->get();
+                return view('app.equipamento.index', [
+                    'equipamentos' => $equipamentos,
+                    'empresas' => $empresas
+                ]);
+            } else {
                 echo ('dados');
             }
-           
         } else {
 
             $empresas = Empresas::all();
-                $equipamentos = Equipamento::where('empresa_id',$id)->get();
-              return view('app.equipamento.index', ['equipamentos' => $equipamentos,
-             'empresas' => $empresas]);
-           
+            $equipamentos = Equipamento::where('empresa_id', $id)->get();
+            return view('app.equipamento.index', [
+                'equipamentos' => $equipamentos,
+                'empresas' => $empresas
+            ]);
         }
     }
 
@@ -90,6 +93,8 @@ class EquipamentoController extends Controller
         //$empresa=Empresas::all();   
         //return view('app.equipamento.show', ['equipamento' => $equipamento,
         // 'empresa'=>$empresa]);
+
+   
         return view('app.equipamento.show', ['equipamento' => $equipamento]);
     }
 
