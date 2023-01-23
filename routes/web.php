@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrdemServicoController;
+//use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -148,3 +149,12 @@ Route::middleware('auth')->resource('/control-panel', 'App\Http\Controllers\Cont
 Route::middleware('auth')->resource('/item-produto', 'App\Http\Controllers\ItemProdutoController');
 //Filtro Produtos item
 Route::middleware('auth')->post('/item-produto-filtro', [App\Http\Controllers\ItemProdutoController::class, 'index']);
+//rota qrcode
+Route::get('qrcode', function () {
+    return QrCode::size(300)->generate('A basic example of QR code!');//https://morioh.com/p/5f7b3d064fb9----https://techvblogs.com/blog/generate-qr-code-laravel-8
+});
+Route::get('qrcode-with-color', function () {
+    return \QrCode::size(300)
+                    ->backgroundColor(255,55,0)
+                    ->generate('A simple example of QR code');
+});

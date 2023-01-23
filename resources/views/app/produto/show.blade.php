@@ -53,6 +53,16 @@
                         <td>{{ $produto->local_estoque}}</td>
                     </tr>
                 </table>
+                <!--{!! QrCode::size(300)->backgroundColor(255,90,0)->generate('https://techvblogs.com/blog/generate-qr-code-laravel-8') !!}-->
+                {!! QrCode::size(300)->backgroundColor(255,90,0)->generate( $produto->id ) !!}
+                <script>
+                    function link(){
+                        var url_atual = window.location.href;
+                        alert(url_atual)
+                    }
+                    
+                </script>
+                <input type="button" value="link" onclick="link()">
             </div>
         </div>
 

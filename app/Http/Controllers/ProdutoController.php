@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\Marca;
@@ -30,8 +30,11 @@ class ProdutoController extends Controller
             if ($tipoFiltro == 1) {
                 $produtos = Produto::where('id', $nome_produto_like)->get();
                 //if (isset($_POST['id'])) {
-
+                  
+                
                 if (!empty($nome_produto_like)) {
+                 
+                   //return QrCode::size(300)->generate('$nome_produto_like');
                     return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
                 }
             }
