@@ -53,7 +53,7 @@
                     <td>{{ $produto->local_estoque}}</td>
                 </tr>
             </table>
-            {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id ) !!}</tr>
+            {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}</tr>
             <hr>
 
             <hr><?php
@@ -63,7 +63,7 @@
                 $urlPaginaAtual = $protocolo . $url
                 //echo $protocolo.$url;
                 ?>
-                web site:
+                Visualisar no web site:
                 <p></p>
             {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
         </div>
