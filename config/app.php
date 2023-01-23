@@ -163,10 +163,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         //provedor de serviços do qrcod
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-
+     
         /*
          * Package Service Providers...
-         */
 
         /*
          * Application Service Providers...
