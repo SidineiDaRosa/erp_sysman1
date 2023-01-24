@@ -8,7 +8,7 @@
 
             <form id="formSearchingProducts" action="{{'Ent-Produtos-filtro'}}" method="POST">
                 @csrf
-                  <!--------------------------------------------------------------------------------------->
+                <!--------------------------------------------------------------------------------------->
                 <!---------Select empresa------------->
                 <!--------------------------------------------------------------------------------------->
 
@@ -32,7 +32,7 @@
                         <option value="5">Busca Pela empresa</option>
                     </select>
                 </div>
-              
+
                 < <!---estilização do input box buscar produtos---->
                     <style>
                         #formSearchingProducts {
@@ -111,7 +111,10 @@
                         <td>{{ $entrada_produto->valor }}</td>
                         <td>{{ $entrada_produto->data}}</td>
                         <td>{{ $entrada_produto->Fornecedor->nome_fantasia}}</td>
-                        <td>{{ $entrada_produto->empresa_id}}</td>
+                        @foreach ($empresa as $empresas_find)
+
+                        @endforeach
+                        <td>{{$entrada_produto->empresa->razao_social}}</td>
                         <td>
                             <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
                                 <a class="btn btn-sm-template btn-outline-primary" href="{{ route('entrada-produto.show', ['entrada_produto' => $entrada_produto->id]) }}">
