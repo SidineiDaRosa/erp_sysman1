@@ -7,7 +7,7 @@ use App\Models\EntradaProduto;
 use App\Models\Produto;
 use App\Models\Fornecedor;
 use App\Models\EntradaProdutos;
-use App\Models\EstoqueProdutos;
+use App\Models\Empresas;
 
 class EntradaProdutoController extends Controller
 {
@@ -58,11 +58,12 @@ class EntradaProdutoController extends Controller
         $produtoId = $produto_id->get('produto');
         $fornecedores = Fornecedor::all();
         //dd( $produtoId);
-        // $produtos = Produto::all();
+         $empresa = Empresas::all();
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.entrada_produto.create', [
             'produtos' => $produtos,
-            'fornecedores' => $fornecedores
+            'fornecedores' => $fornecedores,
+            'empresa' => $empresa
 
         ]);
     }

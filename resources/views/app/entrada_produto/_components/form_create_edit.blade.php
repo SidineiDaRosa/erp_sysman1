@@ -49,7 +49,24 @@
                             {{ $errors->has('fornecedor_id') ? $errors->first('fornecedor_id') : '' }}
                         </div>
                     </div>
-
+                    <!--------------------------------------------------------------------------------------->
+                    <!---------Select empresa------------->
+                    <!--------------------------------------------------------------------------------------->
+                    <div class="row mb-1">
+                        <label for="empresas" class="col-md-4 col-form-label text-md-end text-right">Empresa:</label>
+                        <div class="col-md-6">
+                            <select name="empresa_id" id="empresa_id" class="form-control">
+                                <option value=""> --Selecione a empresa--</option>
+                                @foreach ($empresa as $empresas_find)
+                                <option value="{{$empresas_find->id}}" {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
+                                    {{$empresas_find->razao_social}}
+                                </option>
+                                @endforeach
+                            </select>
+                            {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
+                        </div>
+                    </div>
+                    <!------------------------------------------------------------------------------------------->
                     <div class="row mb-1">
                         <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">Quantidade</label>
                         <div class="col-md-6">
