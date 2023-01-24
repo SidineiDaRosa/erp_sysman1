@@ -29,7 +29,7 @@
                         <th scope="row">{{ $estoque_produto->id }}</td>
                         <td>{{ $estoque_produto->produto->id}}</td>
                         <td>{{ $estoque_produto->produto->nome }}</td>
-                        <td>{{ $estoque_produto->unidade_medida_id }}</td>
+                        <td>{{ $estoque_produto->unidade_medida }}</td>
                         <td>{{ $estoque_produto->quantidade }}</td>
                         <td>{{ $estoque_produto->valor }}</td>
                         <td>{{ $estoque_produto->estoque_minimo }}</td>

@@ -19,6 +19,7 @@ class CreateEstoqueProdutosTable extends Migration
             $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->unsignedBigInteger('produto_id');
             $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->string('unidade_medida',10);
             $table->double('quantidade', 8,2);//comprimento 8 com 2 digitos
             $table->unsignedBigInteger('estoque_minimo')->after('valor');
             $table->unsignedBigInteger('estoque_maximo')->after('estoque_minimo');
