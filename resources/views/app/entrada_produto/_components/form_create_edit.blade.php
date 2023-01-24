@@ -10,7 +10,7 @@
                     <div class="row mb-3">
                         <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                         <div class="col-md-6">
-                            <input name="data" id="data_emissao" type="date" class="form-control " value="{{ $produto->data ?? old('data') }}"readonly>
+                            <input name="data" id="data_emissao" type="date" class="form-control " value="{{ $produto->data ?? old('data') }}" readonly>
                             {{ $errors->has('data') ? $errors->first('data') : '' }}
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                         </div>
                     </div>
-                    
+
 
                     <div class="row mb-1">
                         <label for="fornecedor_id" class="col-md-4 col-form-label text-md-end text-right">Fornecedor</label>
@@ -80,5 +80,19 @@
                             </button>
                         </div>
                     </div>
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <?php
+
+                            $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+                            $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                            $urlPaginaAtual = $protocolo . $url
+                            //echo $protocolo.$url;
+                            ?>
+                            Inserir no estoque:
+                            <p></p>
+                            {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
+                        </div>
+                    </div>
+
                 </form>
-                
