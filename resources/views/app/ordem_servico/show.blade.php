@@ -85,7 +85,20 @@
                     </tr>
 
                 </table>
+                <p></p>
+                {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $ordem_servico->id.'--'.$ordem_servico->data_inicio.'---'.ordem_servico->equipamento->nome) !!}</tr>
+                <hr>
 
+                <hr><?php
+
+                    $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+                    $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    $urlPaginaAtual = $protocolo . $url
+                    //echo $protocolo.$url;
+                    ?>
+                Visualisar no web site:
+                <p></p>
+                {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
         </div>
 
     </div>

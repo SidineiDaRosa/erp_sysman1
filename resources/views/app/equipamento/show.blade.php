@@ -45,7 +45,7 @@
             <p></p>
 
 
-            {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}</tr>
+            {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $equipamento->id.'--'.$equipamento->nome) !!}</tr>
             <hr>
 
             <hr><?php
