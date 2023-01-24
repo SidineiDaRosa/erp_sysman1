@@ -21,30 +21,49 @@ class EntradaProdutoController extends Controller
 
         $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
+        $empresa_id = $request->get('empresa_id');
+        $empresa = Empresas::all();
         //$fornecedores=Fornecedor::all();
-        if ($tipoFiltro == 1) {
-            //$entradas_produtos = EntradaProduto::all();
-            //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
-            $entradas_produtos = EntradaProduto::where('produto_id',$nome_produto_like)->get();
-           if (!empty($entradas_produtos )) {
-                return view('app.entrada_produto.index', [
-                    'entradas_produtos' => $entradas_produtos,
-                ]);
-            }
-            //if ($tipoFiltro == 2) {
+        if ($tipoFiltro >= 1) {
+
+
+            if ($tipoFiltro == 1) {
                 //$entradas_produtos = EntradaProduto::all();
                 //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
-               //$valorTotal = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
-               // echo($entradas_produtos);
-              // if (!empty($entradas_produtos )) {
-                    //return view('app.entrada_produto.index', [
-                        //'entradas_produtos' => $entradas_produtos,
-                   // ]);
-               // }
+                $entradas_produtos = EntradaProduto::where('produto_id', $nome_produto_like)->get();
+                if (!empty($entradas_produtos)) {
+                    return view('app.entrada_produto.index', [
+                        'entradas_produtos' => $entradas_produtos,
+                        'empresa' => $empresa
+                    ]);
+                }
+
+                //if ($tipoFiltro == 2) {
+                //$entradas_produtos = EntradaProduto::all();
+                //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
+                //$valorTotal = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
+                // echo($entradas_produtos);
+                // if (!empty($entradas_produtos )) {
+                //return view('app.entrada_produto.index', [
+                //'entradas_produtos' => $entradas_produtos,
+                // ]);
+                // }
+            }
+            if ($tipoFiltro == 5) {
+                $entradas_produtos = EntradaProduto::where('empresa_id',$empresa_id )->get();
+                //$valorTotal = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
+                if (!empty($entradas_produtos)) {
+                    return view('app.entrada_produto.index', [
+                        'entradas_produtos' => $entradas_produtos,
+                        'empresa' => $empresa
+                    ]);
+                }
+            }
         } else {
             $entradas_produtos  = Produto::where('id', 0)->get();
             return view('app.entrada_produto.index', [
                 'entradas_produtos' => $entradas_produtos,
+                'empresa' => $empresa
             ]);
         }
     }
@@ -58,7 +77,7 @@ class EntradaProdutoController extends Controller
         $produtoId = $produto_id->get('produto');
         $fornecedores = Fornecedor::all();
         //dd( $produtoId);
-         $empresa = Empresas::all();
+        $empresa = Empresas::all();
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.entrada_produto.create', [
             'produtos' => $produtos,
