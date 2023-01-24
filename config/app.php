@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         //provedor de serviços do qrcod
         // SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+
         /*
          * Package Service Providers...
 
@@ -232,7 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //Aliases dp qr code
         //'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        
     ],
 
 ];
