@@ -73,7 +73,7 @@
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-recursos">
                     <a class="sidebar-submenu-expanded-a" href="{{route('produto.index')}}">Produtos</a><br>
                     <hr>
-                    <a class="sidebar-submenu-expanded-a" href="">Consulta estoque</a><br>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('Estoque-produto.index')}}">Consulta estoque</a><br>
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('pedido-compra.index')}}">Pedido de compra</a>
                     <hr>

@@ -12,8 +12,14 @@
                 <thead>
                     <tr>
                         <th scope="col" class="th-title">Id</th>
+                        <th scope="col" class="th-title">Produto id</th>
                         <th scope="col" class="th-title">Produto</th>
+                        <th scope="col" class="th-title">Unid</th>
                         <th scope="col" class="th-title">Quantidade</th>
+                        <th scope="col" class="th-title">Valor</th>
+                        <th scope="col" class="th-title">estoque minimo</th>
+                        <th scope="col" class="th-title">estoque máximo</th>
+                        <th scope="col" class="th-title">Local</th>
                         <th scope="col" class="th-title">empresa</th>
                     </tr>
                 </thead>
@@ -21,9 +27,15 @@
                     @foreach ($estoque_produtos as $estoque_produto)
                     <tr>
                         <th scope="row">{{ $estoque_produto->id }}</td>
+                        <td>{{ $estoque_produto->produto->id}}</td>
                         <td>{{ $estoque_produto->produto->nome }}</td>
+                        <td>{{ $estoque_produto->unidade_medida_id }}</td>
                         <td>{{ $estoque_produto->quantidade }}</td>
-                        <td>{{ $estoque_produto->empresa_id}}</td>
+                        <td>{{ $estoque_produto->valor }}</td>
+                        <td>{{ $estoque_produto->estoque_minimo }}</td>
+                        <td>{{ $estoque_produto->estoque_maximo}}</td>
+                        <td>{{ $estoque_produto->local}}</td>
+                        <td>{{ $estoque_produto->empresa->nome_fantasia}}</td>
                     </tr>
                     </tr>
 

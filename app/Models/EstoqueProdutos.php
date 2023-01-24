@@ -12,8 +12,13 @@ class EstoqueProdutos extends Model
     protected $fillable=[
         'empresa_id',
         'produto_id',
-        'empresas_id', 
+        'unidade_medida_id', 
         'quantidade',
+        'valor',
+        'estoque_minimo',
+        'estoque_maximo',
+        'local',
+
     ];
 
     public function produto(){
