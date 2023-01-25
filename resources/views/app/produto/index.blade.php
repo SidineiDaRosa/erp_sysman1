@@ -110,15 +110,6 @@
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
                     <td>{{ $produto->local_estoque}}</td>
-
-                    <td>
-                        <a href="{{ route('entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
-
-                            <i class="icofont-database-add"></i>
-                            </span>
-                            <span class="text">Inserir estoque</span>
-                        </a>
-                    </td>
                     
                     <td>
                         <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
