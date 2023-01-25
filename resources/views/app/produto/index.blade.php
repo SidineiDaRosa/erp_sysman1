@@ -82,14 +82,10 @@
                     <th scope="col">Nome</th>
                     <th scope="col">un medida</th>
                     <th scope="col">Dados técnicos</th>
-                    <th scope="col">Estoque Mínimo</th>
-                    <th scope="col">Estoque atual</th>
-                    <th scope="col">Estoque Máximo</th>
                     <th scope="col">Fabricante</th>
                     <th scope="col">Ver peça</th>
-                    <th scope="col">local estoque</th>
                     <th scope="col">Entrada estoque</th>
-                    <th scope="col">Saida estoque</th>
+                    <th scope="col">Cad Estoque</th>
                     <th scope="col">Operações</th>
 
                 </tr>
@@ -104,9 +100,6 @@
                     <td>{{ $produto->nome }}</td>
                     <td>{{ $produto->unidade_medida->nome}}</td>
                     <td>{{ $produto->descricao }}</td>
-                    <td>{{ $produto->estoque_minimo }}</td>
-                    <td>{{ $produto->estoque_ideal }}</td>
-                    <td>{{ $produto->estoque_maximo }}</td>
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
                     <td>{{ $produto->local_estoque}}</td>

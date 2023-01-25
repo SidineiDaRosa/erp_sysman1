@@ -83,45 +83,6 @@
                     {{ $errors->has('categoria_id') ? $errors->first('categoria_id') : '' }}
                 </div>
             </div>
-
-
-            <div class="row mb-1">
-                <label for="estoque_minimo" class="col-md-4 col-form-label text-md-end text-right">Estoque Mínimo</label>
-
-                <div class="col-md-6">
-                    <input name="estoque_minimo" id="estoque_minimo" type="text"
-                        class="form-control-template @error('estoque_minimo') is-invalid @enderror"
-                        estoque_minimo="estoque_minimo"
-                        value="{{ $produto->estoque_minimo ?? old('estoque_minimo') }}">
-                    {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
-                </div>
-            </div>
-
-            <div class="row mb-1">
-                <label for="estoque_ideal" class="col-md-4 col-form-label text-md-end text-right">Estoque atual</label>
-
-                <div class="col-md-6">
-                    <input name="estoque_ideal" id="estoque_ideal" type="text"
-                        class="form-control-template "
-                        estoque_ideal="estoque_ideal"
-                        value="{{ $produto->estoque_ideal ?? old('estoque_ideal') }}" value="0" readonly>
-                    {{ $errors->has('estoque_ideal') ? $errors->first('estoque_ideal') : '' }}
-                </div>
-            </div>
-
-
-            <div class="row mb-1">
-                <label for="estoque_maximo" class="col-md-4 col-form-label text-md-end text-right">Estoque Máximo</label>
-
-                <div class="col-md-6">
-                    <input name="estoque_maximo" id="estoque_maximo" type="text"
-                        class="form-control-template @error('estoque_maximo') is-invalid @enderror"
-                        estoque_maximo="estoque_maximo"
-                        value="{{ $produto->estoque_maximo ?? old('estoque_maximo') }}">
-                    {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
-
-                </div>
-            </div>
             <div class="row mb-1">
                 <label for="estoque_maximo" class="col-md-4 col-form-label text-md-end text-right">link para peca</label>
 
