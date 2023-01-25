@@ -38,7 +38,7 @@
                         <td>{{ $estoque_produto->empresa->nome_fantasia}}</td>
 
                         <td>
-                            <a href="{{ route('entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
+                            <a href="{{ route('entrada-produto.create',['produto' => $estoque_produto->id]) }}" class="btn-sm btn-success">
 
                                 <i class="icofont-database-add"></i>
                                 </span>
