@@ -23,13 +23,13 @@
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
             </div>
         </div>
-        "@foreach($produtos as $empresas_f)
-        {{$empresas_f['$produtos->nome']}}
-        @endforeach
+
         <div class="row mb-1">
             <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Produto</label>
             <div class="col-md-6">
-                <input name="produto" id="produto" type="text" class="form-control " value="" readonly>
+                <input name="produto" id="produto" type="text" class="form-control " value="@foreach($produtos as $empresas_f)
+                    {{$empresas_f['nome']}}
+                    @endforeach" readonly>
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
             </div>
         </div>
@@ -51,13 +51,14 @@
             </div>
         </div>
         <!------------------------------------------------------------------------------------------->
-
-
+        @foreach
+        ($unidades as $unidade_f){{$unidade_f}}
+        @endforeach
+       
         <div class="row mb-1">
             <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Unid</label>
             <div class="col-md-6">
-                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="@foreach($unidades as $unidade_f)
-                {{$unidade_f['nome']}}@endforeach">
+                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="">
 
             </div>
         </div>
