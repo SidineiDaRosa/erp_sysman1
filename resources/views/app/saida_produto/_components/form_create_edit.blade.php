@@ -7,13 +7,11 @@
     <form action="{{ route('Saida-produto.store') }}" method="POST">
         @csrf
         @endif
-        @foreach($pedido as $pedido_f)
-       
-        @endforeach
+     
         <div class="row mb-1">
             <label for="pedidos_saida_id" class="col-md-4 col-form-label text-md-end text-right">Num pedido saida</label>
             <div class="col-md-6">
-                <input name="pedidos_saida_id" id="pedidos_saida_id" type="null" class="form-control " value=" {{$pedido_f->id}}">
+                <input name="pedidos_saida_id" id="pedidos_saida_id" type="null" class="form-control " value=" ">
                 {{ $errors->has('pedidos_saida_id') ? $errors->first('pedidos_saida_id') : '' }}
             </div>
         </div>

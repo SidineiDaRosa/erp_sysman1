@@ -47,7 +47,7 @@
                                 </span>
                                 <span class="text">Inserir estoque</span>
                             </a>
-                            <a href="{{ route('Saida-produto.create',['produto' => $produto->id,'estoque_id'=>$estoque_produto->id ]) }}" class="btn-sm btn-warning">
+                            <a href="{{ route('Saida-produto.create',['produto' => $produto->id,'estoque_id'=>$estoque_produto->id]) }}" class="btn-sm btn-warning">
                                 <i class="icofont-cart-alt"></i>
                                 </span>
                                 <span class="text">saida estoque</span>

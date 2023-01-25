@@ -7,6 +7,7 @@ use App\Models\EstoqueProdutos;
 use App\Models\Produto;
 use App\Models\Fornecedor;
 use App\Models\Empresas;
+use App\Models\PedidoSaida;
 
 class EstoqueProdutoController extends Controller
 {
@@ -18,12 +19,12 @@ class EstoqueProdutoController extends Controller
     public function index()
     {
         //
-        $estoque_produtos= EstoqueProdutos::all();
-        $empresas=Empresas::all();
-        $produtos=Produto::all();
-        
+        $estoque_produtos = EstoqueProdutos::all();
+        $empresas = Empresas::all();
+        $produtos = Produto::all();
+
         return view('app.estoque_produto.index', [
-            'estoque_produtos'=>$estoque_produtos,'empresas'=>$empresas,'produtos'=>$produtos
+            'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
         ]);
     }
     /**
@@ -35,13 +36,12 @@ class EstoqueProdutoController extends Controller
     {
         $produtoId = $produto_id->get('produto');
         $fornecedores = Fornecedor::all();
-        //dd( $produtoId);
         $empresa = Empresas::all();
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.estoque_produto.create', [
             'produtos' => $produtos,
             'fornecedores' => $fornecedores,
-            'empresa' => $empresa
+            'empresa' => $empresa,
 
         ]);
     }
@@ -55,7 +55,7 @@ class EstoqueProdutoController extends Controller
     {
         //
         EstoqueProdutos::create($request->all());
-        
+
         return redirect()->route('Estoque-produto.index');
     }
 
