@@ -11,11 +11,11 @@
                 </a>
             </div>
         </div>
-
+        {{$unidades}}
         <div class="card-body">
             @component('app.estoque_produto._components.form_create_edit', [
             'produtos' => $produtos,
-            'fornecedores'=>$fornecedores,'empresa'=>$empresa, 
+            'fornecedores'=>$fornecedores,'empresa'=>$empresa,
             ])
             @endcomponent
         </div>
