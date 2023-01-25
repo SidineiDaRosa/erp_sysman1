@@ -75,7 +75,6 @@ class EntradaProdutoController extends Controller
     public function create(Request $produto_id)
     {
         $produtoId = $produto_id->get('produto');
-        echo($produtoId );
         $fornecedores = Fornecedor::all();
         //dd( $produtoId);
         $empresa = Empresas::all();
