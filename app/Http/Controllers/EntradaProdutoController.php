@@ -95,10 +95,10 @@ class EntradaProdutoController extends Controller
     public function store(Request $request)
     {
         EntradaProduto::create($request->all());
-
         $produto = Produto::find($request->input('produto_id')); //busca o registro do produto com o id da entrada do produto
         $produto->estoque_ideal = $produto->estoque_ideal + $request->input('quantidade'); // soma estoque antigo com a entrada de produto
         $produto->save();
+        
         return redirect()->route('entrada-produto.index');
     }
     /**

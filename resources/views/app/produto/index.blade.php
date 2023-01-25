@@ -119,6 +119,16 @@
                             <span class="text">Inserir estoque</span>
                         </a>
                     </td>
+                    
+                    <td>
+                        <a href="{{ route('Entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
+
+                            <i class="icofont-database-add"></i>
+                            </span>
+                            <span class="text">Criar estoque</span>
+                        </a>
+                    </td>
+                    
                     <td>
                         <a href="{{ route('Saida-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-warning">
                             <i class="icofont-cart-alt"></i>
@@ -131,7 +141,6 @@
                             <a class="btn btn-sm-template btn-outline-primary" href="{{ route('produto.show', ['produto' => $produto->id]) }}">
                                 <i class="icofont-eye-alt"></i>
                             </a>
-
 
                             <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{ route('produto.edit', ['produto' => $produto->id]) }}">
 

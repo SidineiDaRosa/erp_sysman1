@@ -27,12 +27,22 @@ class EstoqueProdutoController extends Controller
     }
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $produto_id)
     {
-        //
+        $produtoId = $produto_id->get('produto');
+        $fornecedores = Fornecedor::all();
+        //dd( $produtoId);
+        $empresa = Empresas::all();
+        $produtos  = Produto::where('id', $produtoId)->get();
+        return view('app.entrada_produto.create', [
+            'produtos' => $produtos,
+            'fornecedores' => $fornecedores,
+            'empresa' => $empresa
+
+        ]);
     }
     /**
      * Store a newly created resource in storage.
@@ -43,6 +53,9 @@ class EstoqueProdutoController extends Controller
     public function store(Request $request)
     {
         //
+        EstoqueProdutos::create($request->all());
+        
+        return redirect()->route('entrada-produto.index');
     }
 
     /**
