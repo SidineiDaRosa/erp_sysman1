@@ -18,7 +18,7 @@
                         <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Produto id</label>
                         <div class="col-md-6">
                             <input name="produto_id" id="produto_id" type="text" class="form-control " value="@foreach($produtos as $empresas_f)
-                    {{$empresas_f['id']}}
+                    {{$empresas_f['produto_id']}}
                     @endforeach" readonly>
                             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                         </div>
