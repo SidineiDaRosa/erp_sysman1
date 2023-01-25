@@ -121,7 +121,7 @@
                     </td>
                     
                     <td>
-                        <a href="{{ route('Entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
+                        <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
 
                             <i class="icofont-database-add"></i>
                             </span>
