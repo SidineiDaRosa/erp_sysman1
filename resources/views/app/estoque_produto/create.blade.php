@@ -13,7 +13,7 @@
             </div>
 
             <div class="card-body">
-            @component('app.entrada_produto._components.form_create_edit', [
+            @component('app.estoque_produto._components.form_create_edit', [
                     'produtos' => $produtos,
                     'fornecedores'=>$fornecedores,'empresa'=>$empresa,
 
