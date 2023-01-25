@@ -13,19 +13,36 @@ class EstoqueProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $empresa_id = $request->get('empresa_id');
+        $tipoFiltro = $request->get('tipofiltro');
+        $nome_produto_like = $request->get('produto');
         $estoque_produtos = EstoqueProdutos::all();
         $empresas = Empresas::all();
         $produtos = Produto::all();
 
-        return view('app.estoque_produto.index', [
-            'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
-        ]);
+        if ($empresa_id >= 1) {
+            if ($tipoFiltro == 2) {
+                $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $nome_produto_like)->get();
+                return view('app.estoque_produto.index', [
+                    'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
+                ]);
+            } else {
+                $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->get();
+                return view('app.estoque_produto.index', [
+                    'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
+                ]);
+            }
+        } else {
+            $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
+            return view('app.estoque_produto.index', [
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
+            ]);
+        }
     }
     /**
      * Show the form for creating a new resource.

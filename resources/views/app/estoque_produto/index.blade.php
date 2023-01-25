@@ -6,6 +6,83 @@
         <div class="card-header-template">
             <div> Lista estoque de produtos</div>
 
+            <form id="formSearchingProducts" action="{{'Estoque-Produtos-filtro'}}" method="POST">
+                @csrf
+                <!--------------------------------------------------------------------------------------->
+                <!---------Select empresa------------->
+                <!--------------------------------------------------------------------------------------->
+
+                <div class="col-md-4 mb-0">
+                    <select name="empresa_id" id="empresa_id" class="form-control">
+                        <option value=""> --Selecione a empresa--</option>
+                        @foreach ($empresas as $empresas_find)
+                        <option value="{{$empresas_find->id}}" {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
+                            {{$empresas_find->razao_social}}
+                        </option>
+                        @endforeach
+                    </select>
+                    {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
+                </div>
+                <div class="col-md-4 mb-0">
+                    <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
+                        <option value="1">Busca Pela empresa</option>
+                        <option value="2">Busca pelo Id</option>
+                        <option value="3">Busca pelo Código do Fabricante</option>
+                        <option value="4">Busca por categoria</option>
+                        
+                    </select>
+                </div>
+
+                <!---estilização do input box buscar produtos---->
+                    <style>
+                        #formSearchingProducts {
+                            background-color: white;
+                            width: 800px;
+                            height: 44px;
+                            border-radius: 5px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                        }
+
+                        input {
+                            all: unset;
+                            font: 16px system-ui;
+                            color: blue;
+                            height: 100%;
+                            width: 100%;
+                            padding: 6px 10px;
+                        }
+
+                        ::placeholder {
+                            color: blueviolet;
+                            opacity: 0.9;
+                        }
+
+
+                        button {
+                            all: unset;
+                            cursor: pointer;
+                            width: 44px;
+                            height: 44px;
+                        }
+                    </style>
+                    <!-------------------------------------------------------------------------->
+                    <!--input box filtro buscar produto--------->
+
+                    <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
+                    <button type="submit">
+                        <i class="icofont-search"></i>
+                    </button>
+
+            </form>
+            <div>
+                <a href="{{ route('produto.index') }}" class="btn btn-sm btn-primary">
+                    Lista de produtos
+                </a>
+
+
+            </div>
         </div>
         <div class="card-body">
             <table class="table-template table-striped table-hover table-bordered">

@@ -133,7 +133,8 @@ Route::middleware('auth')->resource('/Saida-produto', 'App\Http\Controllers\Said
 Route::middleware('auth')->resource('/mostra-produto', 'App\Http\Controllers\SaidaProdutoController');
 //Rota estoque de produtos
 Route::middleware('auth')->resource('/Estoque-produto', 'App\Http\Controllers\EstoqueProdutoController');
-
+//Rota filtro estoque de produtos
+Route::middleware('auth')->post('/Estoque-Produtos-filtro', [App\Http\Controllers\EstoqueProdutoController::class, 'index']);
 //Rota pecas equipamentos
 Route::middleware('auth')->resource('/Peca-equipamento', 'App\Http\Controllers\PecaEquipamentoController');
 //Rota pedidos de compra
