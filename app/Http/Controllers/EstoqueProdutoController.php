@@ -55,7 +55,7 @@ class EstoqueProdutoController extends Controller
         //
         EstoqueProdutos::create($request->all());
         
-        return redirect()->route('entrada-produto.index');
+        return redirect()->route('Estoque-produto.index');
     }
 
     /**
