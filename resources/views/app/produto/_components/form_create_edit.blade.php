@@ -96,19 +96,7 @@
                 </div>
                 
             </div>
-            <div class="row mb-1">
-                <label for="local_estoque" class="col-md-4 col-form-label text-md-end text-right">local no estoque</label>
-
-                <div class="col-md-6">
-                    <input name="local_estoque" id="local_estoque" type="text"
-                        class="form-control-template @error('local_estoque') is-invalid @enderror"
-                        estoque_maximo="local_estoque"
-                        value="{{ $produto->local_estoque ?? old('local_estoque') }}">
-                    {{ $errors->has('local_estoque') ? $errors->first('local_estoque') : '' }}
-
-                </div>
-                
-            </div>
+      
 
             <div class="row mb-1">
                 <div class="col-md-6 offset-md-4">
