@@ -36,18 +36,19 @@
                         <td>{{ $estoque_produto->estoque_maximo}}</td>
                         <td>{{ $estoque_produto->local}}</td>
                         <td>{{ $estoque_produto->empresa->nome_fantasia}}</td>
-                        <td>
-                        <a href="{{ route('entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
 
-                            <i class="icofont-database-add"></i>
-                            </span>
-                            <span class="text">Inserir estoque</span>
-                        </a>
-                    </td>
+                        <td>
+                            <a href="{{ route('entrada-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
+
+                                <i class="icofont-database-add"></i>
+                                </span>
+                                <span class="text">Inserir estoque</span>
+                            </a>
+                        </td>
                     </tr>
-                   
-               
-                    
+
+
+
                     @endforeach
 
                 </tbody>
