@@ -34,7 +34,6 @@
                         </div>
                     </div>
 
-
                     <div class="row mb-1">
                         <label for="fornecedor_id" class="col-md-4 col-form-label text-md-end text-right">Fornecedor</label>
                         <div class="col-md-6">
