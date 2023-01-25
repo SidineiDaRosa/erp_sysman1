@@ -81,12 +81,25 @@
                             {{ $errors->has('valor') ? $errors->first('valor') : '' }}
                         </div>
                     </div>
-
                     <div class="row mb-1">
-                        <label for="nota_fiscal" class="col-md-4 col-form-label text-md-end text-right">Nota Fiscal</label>
+                        <label for="estoque_minimo" class="col-md-4 col-form-label text-md-end text-right">Estoque minimo</label>
                         <div class="col-md-6">
-                            <input name="nota_fiscal" id="nota_fiscal" type="text" class="form-control " value="{{ $produto->nota_fiscal ?? old('nota_fiscal') }}">
-                            {{ $errors->has('nota_fiscal') ? $errors->first('nota_fiscal') : '' }}
+                            <input name="estoque_minimo" id="estoque_minimo" type="text" class="form-control " value="">
+                            {{ $errors->has('estoque_minimo') ? $errors->first('estoque_minimo') : '' }}
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <label for="estoque_maximo" class="col-md-4 col-form-label text-md-end text-right">Estoque maximo</label>
+                        <div class="col-md-6">
+                            <input name="estoque_maximo" id="estoque_maximo" type="text" class="form-control " value="">
+                            {{ $errors->has('eestoque_maximo') ? $errors->first('estoque_maximo') : '' }}
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <label for="local" class="col-md-4 col-form-label text-md-end text-right">Local</label>
+                        <div class="col-md-6">
+                            <input name="local" id="local" type="text" class="form-control " value="">
+                            {{ $errors->has('local') ? $errors->first('local') : '' }}
                         </div>
                     </div>
 
