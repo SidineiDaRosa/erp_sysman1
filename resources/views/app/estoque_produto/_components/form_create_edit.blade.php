@@ -52,9 +52,9 @@
         </div>
         <!------------------------------------------------------------------------------------------->
         @foreach
-        ($unidades as $unidade)
+        ($unidades as $unidade_f)
         @endforeach
-        {{$unidade}}
+        {{$unidade_f}}
         <div class="row mb-1">
             <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Unid</label>
             <div class="col-md-6">
