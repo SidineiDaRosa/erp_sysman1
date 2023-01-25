@@ -120,13 +120,7 @@
                         </a>
                     </td>
                     
-                    <td>
-                        <a href="{{ route('Saida-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-warning">
-                            <i class="icofont-cart-alt"></i>
-                            </span>
-                            <span class="text">saida estoque</span>
-                        </a>
-                    </td>
+                  
                     <td>
                         <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
                             <a class="btn btn-sm-template btn-outline-primary" href="{{ route('produto.show', ['produto' => $produto->id]) }}">
