@@ -15,9 +15,7 @@
         <div class="card-body">
             @component('app.estoque_produto._components.form_create_edit', [
             'produtos' => $produtos,
-            'fornecedores'=>$fornecedores,'empresa'=>$empresa, 'produto_id',
-            
-           
+            'fornecedores'=>$fornecedores,'empresa'=>$empresa,
             ])
             @endcomponent
         </div>
