@@ -12,6 +12,7 @@ use App\Models\Equipamento;
 use App\Models\Marca;
 use App\Models\PedidoSaida;
 use App\Models\UnidadeMedida;
+use App\Models\EstoqueProdutos;
 
 class SaidaProdutoController extends Controller
 {
@@ -41,16 +42,18 @@ class SaidaProdutoController extends Controller
         //
         $patrimonios = Equipamento::all();
         $unidade_medida = UnidadeMedida::all();
-
+        $estoque_id=$produto_id->get('estoque_id');
         $produtoId = $produto_id->get('produto');
         $pedidoId = $produto_id->get('pedido');
         $produtos = Produto::where('id', $produtoId)->get();
         $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
         $pedido = PedidoSaida::where('id', $pedidoId)->get();
+        $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
         return view('app.saida_produto.create', [
             'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
             'unidade_medida' => $unidade_medida,
-            'pedido'=>$pedido 
+            'pedido'=>$pedido ,
+            'estoque'=>$estoque 
 
         ]);
     }
