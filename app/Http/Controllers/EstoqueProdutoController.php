@@ -37,7 +37,7 @@ class EstoqueProdutoController extends Controller
         //dd( $produtoId);
         $empresa = Empresas::all();
         $produtos  = Produto::where('id', $produtoId)->get();
-        return view('app.entrada_produto.create', [
+        return view('app.estoque_produto.create', [
             'produtos' => $produtos,
             'fornecedores' => $fornecedores,
             'empresa' => $empresa
