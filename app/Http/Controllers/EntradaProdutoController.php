@@ -8,6 +8,7 @@ use App\Models\Produto;
 use App\Models\Fornecedor;
 use App\Models\EntradaProdutos;
 use App\Models\Empresas;
+use App\Models\EstoqueProdutos;
 
 class EntradaProdutoController extends Controller
 {
@@ -77,13 +78,14 @@ class EntradaProdutoController extends Controller
         $produtoId = $produto_id->get('produto');
         $estoque_id=$produto_id->get('estoque_id');
         $fornecedores = Fornecedor::all();
-        echo ($estoque_id);
         $empresa = Empresas::all();
+        $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.entrada_produto.create', [
             'produtos' => $produtos,
             'fornecedores' => $fornecedores,
-            'empresa' => $empresa
+            'empresa' => $empresa,
+            'estoque'=>$estoque 
 
         ]);
     }
@@ -95,10 +97,13 @@ class EntradaProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        EntradaProduto::create($request->all());
-        $produto = Produto::find($request->input('produto_id')); //busca o registro do produto com o id da entrada do produto
-        $produto->estoque_ideal = $produto->estoque_ideal + $request->input('quantidade'); // soma estoque antigo com a entrada de produto
-        $produto->save();
+       // EntradaProduto::create($request->all());
+       // $produto = Produto::find($request->input('produto_id')); //busca o registro do produto com o id da entrada do produto
+        //$produto->estoque_ideal = $produto->estoque_ideal + $request->input('quantidade'); // soma estoque antigo com a entrada de produto
+       // $produto->save();
+        $estoque= EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
+        $estoque->quantidade = $estoque->quantidade + $request->input('quantidade'); // soma estoque antigo com a entrada de produto
+        $estoque->save();
         
         return redirect()->route('entrada-produto.index');
     }

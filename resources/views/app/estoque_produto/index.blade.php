@@ -38,7 +38,9 @@
                         <td>{{ $estoque_produto->empresa->nome_fantasia}}</td>
 
                         <td>
-                            <a href="{{ route('entrada-produto.create',['produto' => $estoque_produto->produto->nome,'estoque_id'=>$estoque_produto->id ]) }}" class="btn-sm btn-success">
+                            @foreach($produtos as $produto)
+                            @endforeach
+                            <a href="{{ route('entrada-produto.create',['produto' => $produto->id,'estoque_id'=>$estoque_produto->id ]) }}" class="btn-sm btn-success">
 
                                 <i class="icofont-database-add"></i>
                                 </span>

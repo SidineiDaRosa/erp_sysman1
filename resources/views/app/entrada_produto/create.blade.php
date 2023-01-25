@@ -16,8 +16,7 @@
                 @component('app.entrada_produto._components.form_create_edit', [
                     'produtos' => $produtos,
                     'fornecedores'=>$fornecedores,'empresa'=>$empresa,
-
-                    'produto_id'
+                    'estoque'=>$estoque,
                     ])
                 @endcomponent
             </div>

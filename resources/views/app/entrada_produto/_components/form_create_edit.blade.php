@@ -7,6 +7,15 @@
                     @csrf
                     @endif
                     <!------------------------------------------------------------------->
+                    <div class="row mb-1">
+                        <label for="estoque_id" class="col-md-4 col-form-label text-md-end text-right">Estoque</label>
+                        <div class="col-md-6">
+                            <input name="estoque_id" id="estoque_id" type="text" class="form-control " value="@foreach($estoque as $estoque_f)
+                    {{$estoque_f['id']}}
+                    @endforeach" readonly>
+                            {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                         <div class="col-md-6">

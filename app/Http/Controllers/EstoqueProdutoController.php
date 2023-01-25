@@ -20,9 +20,10 @@ class EstoqueProdutoController extends Controller
         //
         $estoque_produtos= EstoqueProdutos::all();
         $empresas=Empresas::all();
+        $produtos=Produto::all();
         
         return view('app.estoque_produto.index', [
-            'estoque_produtos'=>$estoque_produtos,'empresas'=>$empresas
+            'estoque_produtos'=>$estoque_produtos,'empresas'=>$empresas,'produtos'=>$produtos
         ]);
     }
     /**
