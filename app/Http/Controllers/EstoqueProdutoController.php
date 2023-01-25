@@ -55,14 +55,14 @@ class EstoqueProdutoController extends Controller
         $produtoId = $produto_id->get('produto');
         $fornecedores = Fornecedor::all();
         $empresa = Empresas::all();
-        $unidade_medida = UnidadeMedida::all();
+        $unidades = UnidadeMedida::all();
        
         $produtos  = Produto::where('id', $produtoId)->get();
         return view('app.estoque_produto.create', [
             'produtos' => $produtos,
             'fornecedores' => $fornecedores,
             'empresa' => $empresa,
-            'unidade_medida '=>$unidade_medida 
+            'unidades '=>$unidades
 
 
         ]);
