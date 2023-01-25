@@ -68,6 +68,13 @@
                     </div>
                     <!------------------------------------------------------------------------------------------->
                     <div class="row mb-1">
+                        <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Unid</label>
+                        <div class="col-md-6">
+                            <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="">
+                            {{ $errors->has('unidade_medida') ? $errors->first('unidade_medida') : '' }}
+                        </div>
+                    </div>
+                    <div class="row mb-1">
                         <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">Quantidade</label>
                         <div class="col-md-6">
                             <input name="quantidade" id="quantidade" type="text" class="form-control " value="{{ $produto->quantidade ?? old('quantidade') }}">
