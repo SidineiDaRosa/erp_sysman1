@@ -1,9 +1,9 @@
 @if (isset($produto->id))
-            <form action="{{ route('entrada-produto.update', ['entrada_produto' => $entrada_produto->id]) }}" method="POST">
+            <form action="{{ route('Estoque-produto.update', ['entrada_produto' => $entrada_produto->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
                 @else
-                <form action="{{ route('entrada-produto.store') }}" method="POST">
+                <form action="{{ route('Estoque-produto.store') }}" method="POST">
                     @csrf
                     @endif
                     <!------------------------------------------------------------------->
