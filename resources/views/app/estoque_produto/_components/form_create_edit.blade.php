@@ -33,22 +33,6 @@
                             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                         </div>
                     </div>
-
-
-                    <div class="row mb-1">
-                        <label for="fornecedor_id" class="col-md-4 col-form-label text-md-end text-right">Fornecedor</label>
-                        <div class="col-md-6">
-                            <select name="fornecedor_id" id="" class="form-control">
-                                <option value=""> --Selecione o fornecedor--</option>
-                                @foreach ($fornecedores as $fornecedor)
-                                <option value="{{ $fornecedor->id }}" {{ ($fornecedor->fornecedor_id ?? old('fornecedor_id')) == $fornecedor->id ? 'selected' : '' }}>
-                                    {{ $fornecedor->nome_fantasia }}
-                                </option>
-                                @endforeach
-                            </select>
-                            {{ $errors->has('fornecedor_id') ? $errors->first('fornecedor_id') : '' }}
-                        </div>
-                    </div>
                     <!--------------------------------------------------------------------------------------->
                     <!---------Select empresa------------->
                     <!--------------------------------------------------------------------------------------->
@@ -77,7 +61,7 @@
                     <div class="row mb-1">
                         <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">Quantidade</label>
                         <div class="col-md-6">
-                            <input name="quantidade" id="quantidade" type="text" class="form-control " value="{{ $produto->quantidade ?? old('quantidade') }}">
+                            <input name="quantidade" id="quantidade" type="text" class="form-control " value="0" readonly>
                             {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
                         </div>
                     </div>
