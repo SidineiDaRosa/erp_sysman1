@@ -4,7 +4,7 @@
     <main class="content">
         <div class="card">
             <div class="card-header-template">
-                <div>Entrada de Produtos</div>
+                <div>Estoque de Produtos</div>
                 <div>
                     <a href="{{ route('entrada-produto.index') }}" class="btn btn-sm btn-primary">
                         LISTAGEM
