@@ -52,7 +52,7 @@
         </div>
         <!------------------------------------------------------------------------------------------->
         @foreach
-        ($unidades as $unidade_f){{$unidade_f}}
+        ($unidades as $unidade_f)
         @endforeach
        
         <div class="row mb-1">
