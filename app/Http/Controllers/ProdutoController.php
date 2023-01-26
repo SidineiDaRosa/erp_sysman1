@@ -18,10 +18,9 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        
         $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
-        echo($tipoFiltro );
+        $categoria_id = $request->get('categoria_id');
         //$nome_produto_like='DIE';
         //$produtos=Produto::all();
         $unidades = UnidadeMedida::all();
@@ -57,14 +56,14 @@ class ProdutoController extends Controller
                 //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
             }
             if ($tipoFiltro == 4) {
-                $produtos = Produto::where('categoria_id', $nome_produto_like . '%')->get();
+                $produtos = Produto::where('categoria_id', $categoria_id )->get();
                 //if (isset($_POST['id'])) {
 
-                if (!empty($nome_produto_like)) {
+               // if (!empty($nome_produto_like)) {
                     return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
                 }
                 //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-            }
+           // }
         } else {
             $produtos = Produto::where('id', 0)->get();
             return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);

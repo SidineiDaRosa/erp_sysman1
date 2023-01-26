@@ -19,6 +19,17 @@
                         <option value="0">Busca Pelo estoque minimo</option>
                     </select>
                 </div>
+                <div class="col-md-4">
+                    <select name="categoria_id" id="" class="form-control-template">
+                        <option value=""> --Selecione a Categoria--</option>
+                        @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->id }}" {{ ($produto->categoria_id ?? old('categoria_id')) == $categoria->id ? 'selected' : '' }}>
+                            {{ $categoria->nome }}
+                        </option>
+                        @endforeach
+                    </select>
+                    {{ $errors->has('categoria_id') ? $errors->first('categoria_id') : '' }}
+                </div>
                 <!--input box filtro buscar produto--------->
 
                 <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
@@ -41,7 +52,7 @@
     <style>
         #formSearchingProducts {
             background-color: white;
-            width: 700px;
+            width: 900px;
             height: 44px;
             border-radius: 5px;
             display: flex;
@@ -103,7 +114,7 @@
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
                     <td>{{ $produto->categoria->nome}}</td>
-                    
+
                     <td>
                         <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
 
@@ -112,8 +123,8 @@
                             <span class="text">Criar estoque</span>
                         </a>
                     </td>
-                    
-                  
+
+
                     <td>
                         <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
                             <a class="btn btn-sm-template btn-outline-primary" href="{{ route('produto.show', ['produto' => $produto->id]) }}">
