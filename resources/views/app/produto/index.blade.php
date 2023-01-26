@@ -102,7 +102,7 @@
                     <td>{{ $produto->descricao }}</td>
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
-                    <td>{{ $produto->categoria}}</td>
+                    <td>{{ $produto->categoria_id}}</td>
                     
                     <td>
                         <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
