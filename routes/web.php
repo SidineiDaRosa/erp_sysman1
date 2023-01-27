@@ -40,7 +40,8 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('app.home
 
 //Marca
 Route::middleware('auth')->resource('/marca', 'App\Http\Controllers\MarcaController');
-
+//Marca
+Route::middleware('auth')->resource('/categoria', 'App\Http\Controllers\CategoriaController');
 
 //fornecedor
 Route::middleware('auth')->resource('/fornecedor', 'App\Http\Controllers\FornecedorController');

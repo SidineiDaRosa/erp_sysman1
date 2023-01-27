@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Marca;
-
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
-class MarcaController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,10 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::all();
-        return view('app.marca.index',['marcas'=> $marcas]);
+        //
+
+        $categorias = Categoria::all();
+        return view('app.categoria.index', ['categorias' => $categorias]);
     }
 
     /**
@@ -26,7 +27,9 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        return view('app.marca.create', );
+        //
+
+        return view('app.categoria.create',);
     }
 
     /**
@@ -37,39 +40,42 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        Marca::create($request->all());
-        return redirect()->route('marca.index');
+        Categoria::create($request->all());
+        return redirect()->route('categoria.index'); //
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Marca  $marca
+     * @param  int  $id
+    
      * @return \Illuminate\Http\Response
      */
-    public function show(Marca $marca)
+    public function show($id)
     {
-        return view('app.marca.show', ['marca'=>$marca]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Marca  $marca
+     * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marca $marca)
+    public function edit(Categoria $categoria)
     {
-        return view('app.marca.edit', ['marca'=>$marca]);
+        //
+        return view('app.categoria.edit', ['categoria' => $categoria]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Marca  $marca
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $marca)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,12 +83,11 @@ class MarcaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Marca  $marca
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marca $marca)
+    public function destroy($id)
     {
-        $marca->delete();
-        return redirect()->route('marca.index');
+        //
     }
 }

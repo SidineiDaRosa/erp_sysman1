@@ -86,6 +86,8 @@
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">Por
                         fornecedor</a><br>
+                        <hr>
+                    <a class="sidebar-submenu-expanded-a" href="{{route('categoria.index')}}">Categoria</a><br>
 
                 </div>
             </li>
