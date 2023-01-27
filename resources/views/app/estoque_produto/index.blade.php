@@ -25,24 +25,13 @@
                 </div>
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
-                        <option value="1">Busca Pela empresa</option>
-                        <option value="2">Busca pelo Id</option>
-                        <option value="3">Busca pelo Código do Fabricante</option>
-                        <option value="4">Busca por categoria</option>
-
+                        <option value="1">Busca pelo Id</option>
+                        <option value="2">Pela empresa</option>
+                       
+                       
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <select name="categoria_id" id="" class="form-control-template">
-                        <option value=""> --Selecione a Categoria--</option>
-                        @foreach ($categorias as $categoria)
-                        <option value="{{ $categoria->id }}" {{ ($produto->categoria_id ?? old('categoria_id')) == $categoria->id ? 'selected' : '' }}>
-                            {{ $categoria->nome }}
-                        </option>
-                        @endforeach
-                    </select>
-                    {{ $errors->has('categoria_id') ? $errors->first('categoria_id') : '' }}
-                </div>
+          
 
                 <!---estilização do input box buscar produtos---->
                 <style>

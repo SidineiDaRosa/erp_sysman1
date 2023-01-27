@@ -29,8 +29,7 @@ class ProdutoController extends Controller
             if ($tipoFiltro == 1) {
                 $produtos = Produto::where('id', $nome_produto_like)->get();
                 //if (isset($_POST['id'])) {
-                  
-                
+                         
                 if (!empty($nome_produto_like)) {
                  
                    //return QrCode::size(300)->generate('$nome_produto_like');
@@ -38,7 +37,7 @@ class ProdutoController extends Controller
                 }
             }
             if ($tipoFiltro == 2) {
-                $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
+                $produtos = Produto::where('categoria', $categoria_id )->get();
                 //if (isset($_POST['id'])) {
 
                 if (!empty($nome_produto_like)) {

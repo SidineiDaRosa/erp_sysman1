@@ -10,6 +10,7 @@ use App\Models\Empresas;
 use App\Models\PedidoSaida;
 use App\Models\UnidadeMedida;
 use App\Models\Categoria;
+
 class EstoqueProdutoController extends Controller
 {
     /**
@@ -21,6 +22,7 @@ class EstoqueProdutoController extends Controller
     {
         $empresa_id = $request->get('empresa_id');
         $tipoFiltro = $request->get('tipofiltro');
+        $categoria_id = $request->get('categoria_id');
         $nome_produto_like = $request->get('produto');
         $estoque_produtos = EstoqueProdutos::all();
         $empresas = Empresas::all();
@@ -28,21 +30,32 @@ class EstoqueProdutoController extends Controller
         $categorias = Categoria::all();
 
         if ($empresa_id >= 1) {
-            if ($tipoFiltro == 2) {
+            if ($tipoFiltro == 1) {
+                
                 $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $nome_produto_like)->get();
+                //dd($estoque_produtos);
                 return view('app.estoque_produto.index', [
-                    'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
-                ]);
-            } else {
-                $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->get();
-                return view('app.estoque_produto.index', [
-                    'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
+                    'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos, 'categorias' => $categorias
                 ]);
             }
-        } else {
-            $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
+
+            if ($tipoFiltro == 2) {
+             $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->get();
             return view('app.estoque_produto.index', [
-                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,'categorias' => $categorias
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos, 'categorias' => $categorias
+               ]);
+            }
+           // if ($tipoFiltro == 10) {
+               // $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->get();
+                //return view('app.estoque_produto.index', [
+                   // 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
+                //]);
+           //}
+                
+        } else {
+            $estoque_produtos = EstoqueProdutos::where('empresa_id',0)->get();
+            return view('app.estoque_produto.index', [
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos, 'categorias' => $categorias
             ]);
         }
     }
