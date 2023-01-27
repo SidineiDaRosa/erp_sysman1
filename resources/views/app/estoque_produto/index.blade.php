@@ -29,51 +29,62 @@
                         <option value="2">Busca pelo Id</option>
                         <option value="3">Busca pelo Código do Fabricante</option>
                         <option value="4">Busca por categoria</option>
-                        
+
                     </select>
+                </div>
+                <div class="col-md-2">
+                    <select name="categoria_id" id="" class="form-control-template">
+                        <option value=""> --Selecione a Categoria--</option>
+                        @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->id }}" {{ ($produto->categoria_id ?? old('categoria_id')) == $categoria->id ? 'selected' : '' }}>
+                            {{ $categoria->nome }}
+                        </option>
+                        @endforeach
+                    </select>
+                    {{ $errors->has('categoria_id') ? $errors->first('categoria_id') : '' }}
                 </div>
 
                 <!---estilização do input box buscar produtos---->
-                    <style>
-                        #formSearchingProducts {
-                            background-color: white;
-                            width: 800px;
-                            height: 44px;
-                            border-radius: 5px;
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                        }
+                <style>
+                    #formSearchingProducts {
+                        background-color: white;
+                        width: 100%;
+                        height: 44px;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }
 
-                        input {
-                            all: unset;
-                            font: 16px system-ui;
-                            color: blue;
-                            height: 100%;
-                            width: 100%;
-                            padding: 6px 10px;
-                        }
+                    input {
+                        all: unset;
+                        font: 16px system-ui;
+                        color: blue;
+                        height: 100%;
+                        width: 100%;
+                        padding: 6px 10px;
+                    }
 
-                        ::placeholder {
-                            color: blueviolet;
-                            opacity: 0.9;
-                        }
+                    ::placeholder {
+                        color: blueviolet;
+                        opacity: 0.9;
+                    }
 
 
-                        button {
-                            all: unset;
-                            cursor: pointer;
-                            width: 44px;
-                            height: 44px;
-                        }
-                    </style>
-                    <!-------------------------------------------------------------------------->
-                    <!--input box filtro buscar produto--------->
+                    button {
+                        all: unset;
+                        cursor: pointer;
+                        width: 44px;
+                        height: 44px;
+                    }
+                </style>
+                <!-------------------------------------------------------------------------->
+                <!--input box filtro buscar produto--------->
 
-                    <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
-                    <button type="submit">
-                        <i class="icofont-search"></i>
-                    </button>
+                <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
+                <button type="submit">
+                    <i class="icofont-search"></i>
+                </button>
 
             </form>
             <div>

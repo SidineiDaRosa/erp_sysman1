@@ -9,7 +9,7 @@ use App\Models\Fornecedor;
 use App\Models\Empresas;
 use App\Models\PedidoSaida;
 use App\Models\UnidadeMedida;
-
+use App\Models\Categoria;
 class EstoqueProdutoController extends Controller
 {
     /**
@@ -25,6 +25,7 @@ class EstoqueProdutoController extends Controller
         $estoque_produtos = EstoqueProdutos::all();
         $empresas = Empresas::all();
         $produtos = Produto::all();
+        $categorias = Categoria::all();
 
         if ($empresa_id >= 1) {
             if ($tipoFiltro == 2) {
@@ -41,7 +42,7 @@ class EstoqueProdutoController extends Controller
         } else {
             $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
             return view('app.estoque_produto.index', [
-                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,'categorias' => $categorias
             ]);
         }
     }
