@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Marca;
-
 use Illuminate\Http\Request;
-
+use App\Models\Marca;
 class MarcaController extends Controller
 {
     /**

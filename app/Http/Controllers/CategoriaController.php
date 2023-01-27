@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Categoria;
-
 class CategoriaController extends Controller
 {
     /**
@@ -59,15 +57,16 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Categoria  $categoria
+     * @param  \App\Categoria  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit(Categoria $grupo)
     {
         //
-        return view('app.categoria.edit', ['categoria' => $categoria]);
+      
+      echo( $grupo);
+       //return view('app.categoria.edit', ['categoria' => $categoria]);
     }
-
     /**
      * Update the specified resource in storage.
      *
