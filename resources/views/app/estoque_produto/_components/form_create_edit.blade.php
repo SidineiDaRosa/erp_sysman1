@@ -55,7 +55,7 @@
         <div class="row mb-1">
             <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Unid</label>
             <div class="col-md-6">
-                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="{{$empresas_f->unidade_medida->nome}}">
+                <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value="{{$empresas_f->unidade_medida->nome}}" readonly>
             </div>
         </div>
         <div class="row mb-1">
@@ -91,6 +91,12 @@
             <div class="col-md-6">
                 <input name="local" id="local" type="text" class="form-control " value="">
                 {{ $errors->has('local') ? $errors->first('local') : '' }}
+            </div>
+        </div>
+        <div class="row mb-1">
+            <label for="unidade_medida" class="col-md-4 col-form-label text-md-end text-right">Categoria</label>
+            <div class="col-md-6">
+                <input name="categoria_id" id="categoria_id" type="text" class="form-control " value="{{$empresas_f->categoria->nome}}">
             </div>
         </div>
 
