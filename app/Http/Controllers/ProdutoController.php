@@ -37,7 +37,7 @@ class ProdutoController extends Controller
                 }
             }
             if ($tipoFiltro == 2) {
-                $produtos = Produto::where('categoria', $categoria_id )->get();
+                $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
                 //if (isset($_POST['id'])) {
 
                 if (!empty($nome_produto_like)) {
