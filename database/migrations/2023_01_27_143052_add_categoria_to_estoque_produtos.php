@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUniMed extends Migration
+class AddCategoriaToEstoqueProdutos extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,8 @@ class AddUniMed extends Migration
     {
         Schema::table('estoque_produtos', function (Blueprint $table) {
             //
-          
-            $table->foreign('marca_id')->references('id')->on('marcas');//unindade de medida
-            $table->unsignedBigInteger('unidade_medida_id');
+            $table->unsignedBigInteger('categoria_id')->after('local');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
         });
     }
 

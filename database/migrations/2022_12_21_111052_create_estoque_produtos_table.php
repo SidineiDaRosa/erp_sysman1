@@ -24,6 +24,8 @@ class CreateEstoqueProdutosTable extends Migration
             $table->unsignedBigInteger('estoque_minimo')->after('valor');
             $table->unsignedBigInteger('estoque_maximo')->after('estoque_minimo');
             $table->string('local',10)->after('estoque_maximo');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
         });
     }
