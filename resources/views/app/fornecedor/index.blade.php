@@ -29,9 +29,8 @@
                         <th scope="col" class="th-title">Estado</th>
                         <th scope="col" class="th-title">Telefone</th>
                         <th scope="col" class="th-title">site</th>
-                        <th scope="col" class="th-title">Visualizar</th>
-                        <th scope="col" class="th-title">Excluir</th>
-                        <th scope="col" class="th-title">Editar</th>
+                        <th scope="col" class="th-title">Operações</th>
+
                     </tr>
                 </thead>
 
@@ -47,18 +46,34 @@
                         <td>{{ $fornecedor->telefone }}</td>
                         <td>{{ $fornecedor->site }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('fornecedor.show', ['fornecedor' => $fornecedor->id]) }}">Visualizar</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('fornecedor.edit', ['fornecedor' => $fornecedor->id]) }}">Editar</a>
+                            <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
+                                <a class="btn btn-sm-template btn-outline-primary" href="{{ route('fornecedor.show', ['fornecedor' => $fornecedor->id]) }}">
+                                    <i class="icofont-eye-alt"></i></a>
+                                <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{ route('fornecedor.edit', ['fornecedor' => $fornecedor->id]) }}">
 
-                        </td>
-                        <td>
-                            <a class="btn btn-danger btn-sm" href="#" onclick="document.getElementById('form_{{ $fornecedor->id }}').submit()">Excluir</a>
-                            <form id="form_{{ $fornecedor->id }}" method="post" action="{{ route('fornecedor.destroy', ['fornecedor' => $fornecedor->id]) }}">
+                                    <i class="icofont-ui-edit"></i> </a>
+                                <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarFornecedor()">
+                                    <i class="icofont-ui-delete"></i></a>
+                            </div>
+                            <script>
+                                function DeletarFornecedor() {
+                                    var x;
+                                    var r = confirm("Deseja deletar o fornecedor?");
+                                    if (r == true) {
+
+                                        document.getElementById('form_{{ $fornecedor->id }}').submit()
+                                    } else {
+                                        x = "Você pressionou Cancelar!";
+                                    }
+                                    document.getElementById("demo").innerHTML = x;
+                                }
+                            </script>
+
+                            <form id="form_{{ $fornecedor->id }}" method="post" action="{{ route('fornecedor.destroy', ['fornecedor' => $fornecedor->id]) }}" hidden>
                                 @method('DELETE')
                                 @csrf
                             </form>
+
                         </td>
                     </tr>
                     @endforeach

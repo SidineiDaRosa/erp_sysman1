@@ -24,9 +24,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">Visualizar</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Excluir</th>
+                        <th scope="col">Operações</th>
                     </tr>
                 </thead>
 
@@ -36,15 +34,35 @@
                         <th scope="row">{{ $marca->id }}</td>
                         <td>{{ $marca->nome }}</td>
                         <td>{{ $marca->descricao }}</td>
-                        <td><a class="btn btn-sm-template btn-primary" href="{{ route('marca.show', ['marca' => $marca->id]) }}">Visualizar</a></td>
-                        <td><a class="btn btn-sm-template btn-primary" href="{{ route('marca.edit', ['marca' => $marca->id]) }}">Editar</a></td>
                         <td>
-                            <form id="form_{{ $marca->id }}" method="post" action="{{ route('marca.destroy', ['marca' => $marca->id]) }}">
+                            <a class="btn btn-sm-template btn-outline-primary" href="{{ route('marca.show', ['marca' => $marca->id]) }}">
+                                <i class="icofont-eye-alt"></i></a>
+                            <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{ route('marca.edit', ['marca' => $marca->id]) }}">
+
+                                <i class="icofont-ui-edit"></i> </a>
+                            <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarMarca()">
+                                <i class="icofont-ui-delete"></i></a>
+                        </td>
+                        <script>
+                            function DeletarMarca() {
+                                var x;
+                                var r = confirm("Deseja deletar o registro marca?");
+                                if (r == true) {
+
+                                    document.getElementById('form_{{ $marca->id }}').submit()
+                                } else {
+                                    x = "Você pressionou Cancelar!";
+                                }
+                                document.getElementById("demo").innerHTML = x;
+                            }
+                        </script>
+                       
+                            <form id="form_{{ $marca->id }}" method="post" action="{{ route('marca.destroy', ['marca' => $marca->id]) }}" hidden>
                                 @method('DELETE')
                                 @csrf
-                                <a class="btn btn-sm-template btn-danger" href="#" onclick="document.getElementById('form_{{ $marca->id }}').submit()">Excluir</a>
+
                             </form>
-                        </td>
+                        
 
                     </tr>
                     @endforeach
