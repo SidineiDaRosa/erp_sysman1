@@ -24,7 +24,7 @@
                     {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
                 </div>
                
-                <input type="text" value="{{$pedido}}">
+                <input type="text" nome="pedido"value="{{$pedido}}">
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
                         <option value="1">Busca pelo Id</option>
