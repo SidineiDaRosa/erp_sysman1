@@ -106,6 +106,21 @@
                     </button>
                 </div>
             </div>
+            <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <?php
+
+                    $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+                    $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    $urlPaginaAtual = $protocolo . $url
+                    //echo $protocolo.$url;
+                    ?>
+                    Visualisar no web site:
+                    <p></p>
+                    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
+                </div>
+            </div>
+
         </form>
 </body>
 
