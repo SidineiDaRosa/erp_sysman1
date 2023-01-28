@@ -1,17 +1,7 @@
-<head>
-<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ asset('css/comum.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/icofont.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/template.css') }}">
-    <script src="{{ asset('js/date_time.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-</head>
+@extends('app.layouts.app')
 
-<main class="content" id="main1">
+@section('content')
+<main class="content">
     <div class="card">
         <div class="card-header-template">
             <div> Item saida de produto</div>
@@ -22,6 +12,8 @@
                 <!---------Select empresa------------->
                 <!--------------------------------------------------------------------------------------->
 
+           
+              
                 <input type="text" name="pedido"value="{{$pedido}}" readonly id="#input1"> <input type="text" name="empresa_id"value="{{$empresa_id}}" readonly id="#input1">
                 <input type="text" name="equipamento_id"value="{{$equipamento_id}}" readonly id="#input1">
                 <div class="col-md-4 mb-0">
@@ -34,12 +26,8 @@
                 </div>
                 <!---estilização do input box buscar produtos---->
                 <style>
-                  body{
-                    width:100%;
-                  }
                     #input1{
                         width:50px;
-                        
                     }
                     #formSearchingProducts {
                         background-color: white;
@@ -144,3 +132,4 @@
 
 
 </main>
+@endsection

@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <h1>Pedidos de saida subformulario</h1>
     @if (isset($produto->id))
     <form action="{{ route('Saida-produto.update', ['Saida_produto' => $saida_produto->id]) }}" method="POST">
         @csrf
