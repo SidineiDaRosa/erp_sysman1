@@ -18,7 +18,7 @@
                     'patrimonios' => $patrimonios,
                   
                     'estoque' => $estoque,
-
+                    'pedido' => $pedido,
                     ])
                 @endcomponent
             </div>
