@@ -6,7 +6,7 @@
         <div class="card-header-template">
             <div> Item saida de produto</div>
 
-            <form id="formSearchingProducts" action="{{'Item-Saida-Produto',['pedido'=>$pedido]}}" method="POST">
+            <form id="formSearchingProducts" action="{{'Item-Saida-Produto'}}" method="POST">
                 @csrf
                 <!--------------------------------------------------------------------------------------->
                 <!---------Select empresa------------->
@@ -23,7 +23,8 @@
                     </select>
                     {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
                 </div>
-                {{$pedido}}
+               
+                <input type="text" value="{{$pedido}}">
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
                         <option value="1">Busca pelo Id</option>
@@ -32,8 +33,6 @@
 
                     </select>
                 </div>
-
-
                 <!---estilização do input box buscar produtos---->
                 <style>
                     #formSearchingProducts {
