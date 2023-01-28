@@ -18,7 +18,7 @@
         <form action="{{ route('Saida-produto.store') }}" method="POST">
             @csrf
             @endif
-
+            {{$pedido}}
             <div class="row mb-3">
                 <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                 <div class="col-md-6">
@@ -36,7 +36,7 @@
             <div class="row mb-1">
                 <label for="valor" class="col-md-4 col-form-label text-md-end text-right">equipamento_id</label>
                 <div class="col-md-6">
-                    <input name="equipamento_id" id="valor" type="decimal" class="form-control " value="2" readonly>
+                    <input name="equipamento_id" id="valor" type="decimal" class="form-control " value="{{$equipamento_id}}" readonly>
                     {{ $errors->has('valor') ? $errors->first('valor') : '' }}
                 </div>
             </div>
@@ -88,8 +88,6 @@
                             document.getElementById('subtotal').value = sub;
                         };
                     </script>
-
-
                     {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
                 </div>
             </div>

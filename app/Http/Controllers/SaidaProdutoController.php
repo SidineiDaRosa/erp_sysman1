@@ -40,7 +40,8 @@ class SaidaProdutoController extends Controller
     public function create(Request $produto_id)
     {
         //
-        $patrimonios = Equipamento::all();
+        $equipamento_id =  $produto_id->get('equipamento_id');
+        echo($produto_id );
         $unidade_medida = UnidadeMedida::all();
         $estoque_id = $produto_id->get('estoque_id');
         $produtoId = $produto_id->get('produto');
@@ -50,7 +51,7 @@ class SaidaProdutoController extends Controller
         // $pedido = PedidoSaida::where('id', $pedidoId)->get();
         $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
         return view('app.saida_produto.create', [
-            'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
+            'produtos' => $produtos, 'equipamento_id' =>  $equipamento_id,
             'unidade_medida' => $unidade_medida,
             'pedido' => $pedido,
             'estoque' => $estoque

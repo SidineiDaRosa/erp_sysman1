@@ -15,9 +15,9 @@
             <div class="card-body">
                 @component('app.saida_produto._components.form_create_edit', [
                     'produtos' => $produtos,
-                    'patrimonios' => $patrimonios,
                     'estoque' => $estoque,
                     'pedido' => $pedido,
+                    'equipamento_id' => $equipamento_id,
                     ])
                 @endcomponent
             </div>

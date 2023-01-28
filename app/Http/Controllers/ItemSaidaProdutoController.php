@@ -24,6 +24,7 @@ class ItemSaidaProdutoController extends Controller
         $empresa_id = $request->get('empresa_id');
         $produto_id = $request->get("produto");
         $pedido_id = $request->get("pedido");
+        $equipamento_id= $request->get("equipamento");
         if ($tipoFiltro >=1) {
             $empresas = Empresas::all();
             $produtos = Empresas::all();
@@ -32,7 +33,8 @@ class ItemSaidaProdutoController extends Controller
             return view('app.item_saida_produto.index', [
                 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' =>$produtos,
                 'pedido' => $pedido_id,
-                'empresa_id'=>$empresa_id
+                'empresa_id'=>$empresa_id,
+                'equipamento_id'=>$equipamento_id
             ]);
         } else {
             $empresas = Empresas::all();
@@ -41,7 +43,8 @@ class ItemSaidaProdutoController extends Controller
             return view('app.item_saida_produto.index', [
                 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
                 'pedido' => $pedido_id,
-                'empresa_id'=>$empresa_id
+                'empresa_id'=>$empresa_id,
+                'equipamento_id'=>$equipamento_id
             ]);
         }
     }

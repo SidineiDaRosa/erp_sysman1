@@ -14,7 +14,8 @@
 
            
               
-                <input type="text" name="pedido"value="{{$pedido}}"> <input type="text" name="empresa_id"value="{{$empresa_id}}">
+                <input type="text" name="pedido"value="{{$pedido}}" readonly id="#input1"> <input type="text" name="empresa_id"value="{{$empresa_id}}" readonly id="#input1">
+                <input type="text" name="equipamento_id"value="{{$equipamento_id}}" readonly id="#input1">
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
                         <option value="1">Busca pelo Id</option>
@@ -25,6 +26,9 @@
                 </div>
                 <!---estilização do input box buscar produtos---->
                 <style>
+                    #input1{
+                        width:50px;
+                    }
                     #formSearchingProducts {
                         background-color: white;
                         width: 100%;
