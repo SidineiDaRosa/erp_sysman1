@@ -23,10 +23,8 @@ class ItemSaidaProdutoController extends Controller
         $tipoFiltro = $request->get('tipofiltro');
         $empresa_id = $request->get('empresa_id');
         $produto_id = $request->get('produto');
-        echo($request );
         $empresas = Empresas::all();
         $estoque_produtos = EstoqueProdutos::all();
-        $produtos = Produto::all();
         $pedido_id = $request->get('pedido');
 
         if ($tipoFiltro == 1) {
