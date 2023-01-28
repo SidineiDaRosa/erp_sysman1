@@ -80,7 +80,7 @@ class SaidaProdutoController extends Controller
         $categorias = Marca::all();
         $unidades = Empresas::all();
         //echo('controller saidas de produtos');
-        return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
+        echo('retornar');
     }
 
     /**
