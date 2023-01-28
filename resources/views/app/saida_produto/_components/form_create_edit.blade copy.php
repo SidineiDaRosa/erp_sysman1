@@ -7,7 +7,7 @@
     <form action="{{ route('Saida-produto.store') }}" method="POST">
         @csrf
         @endif
-     
+
         <div class="row mb-1">
             <label for="pedidos_saida_id" class="col-md-4 col-form-label text-md-end text-right">Num pedido saida</label>
             <div class="col-md-6">
@@ -39,7 +39,7 @@
             <div class="col-md-6">
                 <input name="unidade_medida" id="unidade_medida" type="text" class="form-control " value=" {{$empresas_f->unidade_medida->nome}}
                     " readonly>
-                    {{ $errors->has('unidade_medida->nome') ? $errors->first('unidade_medida->nome') : '' }}
+                {{ $errors->has('unidade_medida->nome') ? $errors->first('unidade_medida->nome') : '' }}
             </div>
         </div>
 
@@ -85,7 +85,7 @@
         <!---equipamento-->
         <!------------------------------------------------------------------------------------------->
         <div class="row mb-3">
-        <label for="equipamento_id" class="col-md-4 col-form-label text-md-end text-right">Num pedido saida</label>
+            <label for="equipamento_id" class="col-md-4 col-form-label text-md-end text-right">Num pedido saida</label>
             <div class="col-md-6">
                 <input name="equipamento_id" id="equipamento_id" type="null" class="form-control " value=" {{$pedido_f->equipamento->id}}">
                 {{ $errors->has('equipamento_id') ? $errors->first('equipamento_id') : '' }}
@@ -100,6 +100,20 @@
                 </button>
             </div>
         </div>
-     
+
 
     </form>
+    </table>
+    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}</tr>
+    <hr>
+
+    <hr><?php
+
+        $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+        $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $urlPaginaAtual = $protocolo . $url
+        //echo $protocolo.$url;
+        ?>
+    Visualisar no web site:
+    <p></p>
+    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
