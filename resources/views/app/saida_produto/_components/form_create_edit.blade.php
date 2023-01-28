@@ -34,9 +34,16 @@
                 </div>
             </div>
             <div class="row mb-1">
+                <label for="valor" class="col-md-4 col-form-label text-md-end text-right">equipamento_id</label>
+                <div class="col-md-6">
+                    <input name="equipamento_id" id="valor" type="decimal" class="form-control " value="2" readonly>
+                    {{ $errors->has('valor') ? $errors->first('valor') : '' }}
+                </div>
+            </div>
+            <div class="row mb-1">
                 <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Estoque id</label>
                 <div class="col-md-6">
-                    <input name="produto_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
+                    <input name="estoque_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
                     {{$empresas_f['id']}}
                     @endforeach" readonly>
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
@@ -52,9 +59,9 @@
                 </div>
             </div>
             <div class="row mb-1">
-                <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Produto id</label>
+                <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Unid</label>
                 <div class="col-md-6">
-                    <input name="produto_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
+                    <input name="unidade_medida" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
                     {{$empresas_f['unidade_medida']}}
                     @endforeach" readonly>
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
