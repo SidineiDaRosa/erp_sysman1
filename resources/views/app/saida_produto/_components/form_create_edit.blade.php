@@ -16,6 +16,8 @@
     <p></p>
     estoque:
     <p></p>
-    {{$estoque}}
+    {{$pedido}}
+  
+    <p></p>
 </body>
 </html>
