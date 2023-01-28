@@ -15,6 +15,7 @@
     {{$produtos}}
     <p></p>
     estoque:
+    {{$estoque}}
     <p></p>
     {{$pedido}}
   

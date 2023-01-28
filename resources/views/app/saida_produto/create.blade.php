@@ -16,7 +16,6 @@
                 @component('app.saida_produto._components.form_create_edit', [
                     'produtos' => $produtos,
                     'patrimonios' => $patrimonios,
-                  
                     'estoque' => $estoque,
                     'pedido' => $pedido,
                     ])
