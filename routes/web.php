@@ -161,3 +161,7 @@ Route::middleware('auth')->post('/item-produto-filtro', [App\Http\Controllers\It
                    /// ->backgroundColor(255,55,0)
                   ///  ->generate('A simple example of QR code');
 ///});
+//Filtro Produtos item  saida 
+Route::middleware('auth')->resource('/item-produto-saida', 'App\Http\Controllers\ItemSaidaProdutoController');
+//Filtro Produtos item  saida 
+Route::middleware('auth')->post('/Item-Saida-Produto', [App\Http\Controllers\ItemSaidaProdutoController::class, 'index']);
