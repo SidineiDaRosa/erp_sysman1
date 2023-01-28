@@ -10,33 +10,35 @@ use App\Models\Equipamento;
 use App\Models\OrdemServico;
 use App\Models\EstoqueProdutos;
 use App\Models\Produto;
+
 class ItemSaidaProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
-      * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $tipoFiltro = $request->get('tipofiltro');
         $empresa_id = $request->get('empresa_id');
-        $produto_id= $request->get('produto');
+        $produto_id = $request->get('produto');
+        echo($request );
         $empresas = Empresas::all();
         $estoque_produtos = EstoqueProdutos::all();
         $produtos = Produto::all();
         $pedido_id = $request->get('pedido');
-     
-       if($tipoFiltro==1){
-        $estoque_produtos = EstoqueProdutos::where('empresa_id',2)->get();
-        $empresa = Empresas::where('id',$empresa_id )->get();
-        $produtos = Produto::where('id',$produto_id )->get();
-        return view('app.item_saida_produto.index', [
-            'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa , 'produtos' => $produtos,
-            'pedido' => $pedido_id
-        ]);
-       }else {
-            $estoque_produtos = EstoqueProdutos::where('empresa_id',0)->get();
+
+        if ($tipoFiltro == 1) {
+            $estoque_produtos = EstoqueProdutos::where('empresa_id', 2)->get();
+            $empresa = Empresas::where('id', $empresa_id)->get();
+            $produtos = Produto::where('id', $produto_id)->get();
+            return view('app.item_saida_produto.index', [
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa, 'produtos' => $produtos,
+                'pedido' => $pedido_id
+            ]);
+        } else {
+            $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
             return view('app.item_saida_produto.index', [
                 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
                 'pedido' => $pedido_id
