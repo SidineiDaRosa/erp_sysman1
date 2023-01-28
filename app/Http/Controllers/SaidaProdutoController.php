@@ -41,7 +41,7 @@ class SaidaProdutoController extends Controller
     {
         //
         $equipamento_id =  $produto_id->get('equipamento_id');
-        echo($produto_id );
+        echo( $produto_id);
         $unidade_medida = UnidadeMedida::all();
         $estoque_id = $produto_id->get('estoque_id');
         $produtoId = $produto_id->get('produto');
