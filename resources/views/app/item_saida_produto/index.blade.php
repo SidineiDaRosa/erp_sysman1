@@ -6,7 +6,7 @@
         <div class="card-header-template">
             <div> Item saida de produto</div>
 
-            <form id="formSearchingProducts" action="{{'Item-Saida-Produto'}}" method="POST">
+            <form id="formSearchingProducts" action="{{'Item-Saida-Produto',['pedido'=>$pedido]}}" method="POST">
                 @csrf
                 <!--------------------------------------------------------------------------------------->
                 <!---------Select empresa------------->
