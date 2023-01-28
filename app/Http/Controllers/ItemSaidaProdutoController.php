@@ -23,19 +23,20 @@ class ItemSaidaProdutoController extends Controller
         $tipoFiltro = $request->get('tipofiltro');
         $empresa_id = $request->get('empresa_id');
         $produto_id = $request->get('produto');
-        $empresas = Empresas::all();
+      
         $estoque_produtos = EstoqueProdutos::all();
         $pedido_id = $request->get('pedido');
-
         if ($tipoFiltro == 1) {
             $estoque_produtos = EstoqueProdutos::where('empresa_id', 2)->get();
             $empresa = Empresas::where('id', $empresa_id)->get();
-            $produtos = Produto::where('id', $produto_id)->get();
+            $produto = Produto::where('id', $produto_id)->get();
             return view('app.item_saida_produto.index', [
-                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa, 'produtos' => $produtos,
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa, 'produtos' => $produto,
                 'pedido' => $pedido_id
             ]);
         } else {
+            $empresas = Empresas::all();
+            $produtos = Empresas::all();
             $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
             return view('app.item_saida_produto.index', [
                 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
