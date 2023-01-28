@@ -44,7 +44,7 @@ class SaidaProdutoController extends Controller
         $unidade_medida = UnidadeMedida::all();
         $estoque_id=$produto_id->get('estoque_id');
         $produtoId = $produto_id->get('produto');
-       // $pedidoId = $produto_id->get('pedido');
+       $pedidoId = $produto_id->get('pedido');
         $produtos = Produto::where('id', $produtoId)->get();
         $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
        // $pedido = PedidoSaida::where('id', $pedidoId)->get();
@@ -52,7 +52,7 @@ class SaidaProdutoController extends Controller
         return view('app.saida_produto.create', [
             'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
             'unidade_medida' => $unidade_medida,
-            //'pedido'=>$pedido ,
+            'pedido'=>$pedidoId ,
             'estoque'=>$estoque 
 
         ]);
