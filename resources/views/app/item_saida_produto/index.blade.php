@@ -113,7 +113,7 @@
                             @foreach($produtos as $produto)
                             @endforeach
 
-                            <a href="{{ route('Saida-produto.create',['produto' => $produto->id,'estoque_id'=>$estoque_produto->id,''pedido'=>$pedido]) }}" class="btn-sm btn-warning">
+                            <a href="{{ route('Saida-produto.create',['produto' => $produto->id,'estoque_id'=>$estoque_produto->id,'pedido'=>$pedido]) }}" class="btn-sm btn-warning">
                                 <i class="icofont-cart-alt"></i>
                                 </span>
                                 <span class="text">saida estoque</span>
