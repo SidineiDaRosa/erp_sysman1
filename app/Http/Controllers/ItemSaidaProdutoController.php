@@ -28,7 +28,7 @@ class ItemSaidaProdutoController extends Controller
         if ($tipoFiltro >=1) {
             $estoque_produtos = EstoqueProdutos::where('empresa_id', 2)->get();
             $empresa = Empresas::where('id', $empresa_id)->get();
-            $produto = Produto::where('id', $produto_id)->get();
+            $produto = Produto::where('id', 25)->get();
             return view('app.item_saida_produto.index', [
                 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa, 'produtos' => $produto,
                 'pedido' => $pedido_id
