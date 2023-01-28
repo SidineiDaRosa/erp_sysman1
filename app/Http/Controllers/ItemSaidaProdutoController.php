@@ -26,7 +26,7 @@ class ItemSaidaProdutoController extends Controller
       
         $estoque_produtos = EstoqueProdutos::all();
         $pedido_id = $request->get('pedido');
-        if ($tipoFiltro == 1) {
+        if ($tipoFiltro >=1) {
             $estoque_produtos = EstoqueProdutos::where('empresa_id', 2)->get();
             $empresa = Empresas::where('id', $empresa_id)->get();
             $produto = Produto::where('id', $produto_id)->get();
