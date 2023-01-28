@@ -20,14 +20,17 @@ class ItemSaidaProdutoController extends Controller
     public function index(Request $request)
     {
         $tipoFiltro = $request->get('tipofiltro');
+        $empresa_id = $request->get('tipofiltro');
         $empresas = Empresas::all();
         $estoque_produtos = EstoqueProdutos::all();
         $produtos = Produto::all();
         $pedido_id = $request->get('pedido');
+     
        if($tipoFiltro==1){
         $estoque_produtos = EstoqueProdutos::where('empresa_id',2)->get();
+        $empresa = Empresas::where('id',$empresa_id )->get();
         return view('app.item_saida_produto.index', [
-            'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
+            'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa , 'produtos' => $produtos,
             'pedido' => $pedido_id
         ]);
        }else {
