@@ -72,9 +72,9 @@ class SaidaProdutoController extends Controller
         $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
         SaidaProduto::create($request->all());
         $saidas_produtos = SaidaProduto::all();
-        //$estoque= EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
-        // $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
-        // $estoque->save();
+        $estoque= EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
+         $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
+         $estoque->save();
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
         $categorias = Marca::all();
