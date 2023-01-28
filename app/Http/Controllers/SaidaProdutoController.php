@@ -31,7 +31,6 @@ class SaidaProdutoController extends Controller
         //echo('controller saidas de produtos');
         return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
     }
-
     /**
      * Show the form for creating a new resource.
      * @param  \Illuminate\Http\Request  $request
