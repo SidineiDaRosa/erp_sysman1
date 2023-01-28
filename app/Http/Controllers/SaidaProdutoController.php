@@ -37,15 +37,15 @@ class SaidaProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $produto_id)
+    public function create(Request $Request)
     {
         //
-        $equipamento_id =  $produto_id->get('equipamento_id');
-        echo( $produto_id);
+        $equipamento_id =  $Request->get('equipamento_id');
         $unidade_medida = UnidadeMedida::all();
-        $estoque_id = $produto_id->get('estoque_id');
-        $produtoId = $produto_id->get('produto');
-        $pedido = $produto_id->get('pedido');
+        $estoque_id = $Request->get('estoque_id');
+        $produtoId = $Request->get('produto');
+        $pedido = $Request->get('pedido');
+        $pedido_saida_produtos= PedidoSaida::where('id', $pedido )->get();
         $produtos = Produto::where('id', $produtoId)->get();
         $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
         // $pedido = PedidoSaida::where('id', $pedidoId)->get();
@@ -54,11 +54,11 @@ class SaidaProdutoController extends Controller
             'produtos' => $produtos, 'equipamento_id' =>  $equipamento_id,
             'unidade_medida' => $unidade_medida,
             'pedido' => $pedido,
-            'estoque' => $estoque
+            'estoque' => $estoque,
+            'pedido_saida_produtos'=>$pedido_saida_produtos
 
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *

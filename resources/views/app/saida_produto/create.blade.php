@@ -11,13 +11,14 @@
                     </a>
                 </div>
             </div>
-
             <div class="card-body">
                 @component('app.saida_produto._components.form_create_edit', [
                     'produtos' => $produtos,
                     'estoque' => $estoque,
                     'pedido' => $pedido,
                     'equipamento_id' => $equipamento_id,
+                    'pedido_saida_produtos'=>$pedido_saida_produtos
+                    
                     ])
                 @endcomponent
             </div>
