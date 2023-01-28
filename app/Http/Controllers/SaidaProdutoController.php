@@ -42,18 +42,18 @@ class SaidaProdutoController extends Controller
         //
         $patrimonios = Equipamento::all();
         $unidade_medida = UnidadeMedida::all();
-        $estoque_id=$produto_id->get('estoque_id');
+        $estoque_id = $produto_id->get('estoque_id');
         $produtoId = $produto_id->get('produto');
-       $pedidoId = $produto_id->get('pedido');
+        $pedido = $produto_id->get('pedido');
         $produtos = Produto::where('id', $produtoId)->get();
         $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
-       // $pedido = PedidoSaida::where('id', $pedidoId)->get();
+        // $pedido = PedidoSaida::where('id', $pedidoId)->get();
         $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
         return view('app.saida_produto.create', [
             'produtos' => $produtos, 'patrimonios' =>  $patrimonios,
             'unidade_medida' => $unidade_medida,
-            'pedido'=>$pedidoId ,
-            'estoque'=>$estoque 
+            'pedido' => $pedido,
+            'estoque' => $estoque
 
         ]);
     }
@@ -68,18 +68,18 @@ class SaidaProdutoController extends Controller
     {
         //
         $pedido_saida_id = $request->get('pedidos_saida_id');
-        $pedido_saida = PedidoSaida::where('id',$pedido_saida_id)->get();
+        $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
         SaidaProduto::create($request->all());
         $saidas_produtos = SaidaProduto::all();
         //$estoque= EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
-       // $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
-       // $estoque->save();
+        // $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
+        // $estoque->save();
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
         $categorias = Marca::all();
         $unidades = Empresas::all();
         //echo('controller saidas de produtos');
-        return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias,'pedido_saida'=>$pedido_saida]);
+        return view('app.item_produto.add_item', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias, 'pedido_saida' => $pedido_saida]);
     }
 
     /**
