@@ -20,15 +20,15 @@ class ItemSaidaProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        $tipoFiltro = $request->get('tipofiltro');
-        $empresa_id = $request->get('empresa_id');
-        $produto_id = $request->get('produto');
-        $pedido_id = $request->get('pedido');
+        $tipoFiltro = $request->get("tipofiltro");
+        $empresa_id = $request->get("empresa_id");
+        $produto_id = $request->get("produto");
+        $pedido_id = $request->get("pedido");
         $estoque_produtos = EstoqueProdutos::all();
         if ($tipoFiltro >=1) {
             $estoque_produtos = EstoqueProdutos::where('empresa_id', 2)->get();
             $empresa = Empresas::where('id', $empresa_id)->get();
-            $produto = Produto::where('id', 25)->get();
+            $produto = Produto::where('id',  $produto_id )->get();
             return view('app.item_saida_produto.index', [
                 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresa, 'produtos' => $produto,
                 'pedido' => $pedido_id
