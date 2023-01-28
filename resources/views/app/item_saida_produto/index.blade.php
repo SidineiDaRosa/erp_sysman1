@@ -12,19 +12,9 @@
                 <!---------Select empresa------------->
                 <!--------------------------------------------------------------------------------------->
 
-                <div class="col-md-4 mb-0">
-                    <select name="empresa_id" id="empresa_id" class="form-control">
-                        <option value=""> --Selecione a empresa--</option>
-                        @foreach ($empresas as $empresas_find)
-                        <option value="{{$empresas_find->id}}" {{($empresas_find->empresa_id ?? old('empresa_id')) == $empresas_find->id ? 'selected' : '' }}>
-                            {{$empresas_find->razao_social}}
-                        </option>
-                        @endforeach
-                    </select>
-                    {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
-                </div>
-               
-                <input type="text" name="pedido"value="{{$pedido}}">
+           
+              
+                <input type="text" name="pedido"value="{{$pedido}}"> <input type="text" name="empresa_id"value="{{$empresa_id}}">
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
                         <option value="1">Busca pelo Id</option>
