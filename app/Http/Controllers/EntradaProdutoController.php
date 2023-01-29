@@ -75,12 +75,14 @@ class EntradaProdutoController extends Controller
      */
     public function create(Request $produto_id)
     {
+      
         $produtoId = $produto_id->get('produto');
         $estoque_id=$produto_id->get('estoque_id');
         $fornecedores = Fornecedor::all();
         $empresa = Empresas::all();
         $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
         $produtos  = Produto::where('id', $produtoId)->get();
+       
         return view('app.entrada_produto.create', [
             'produtos' => $produtos,
             'fornecedores' => $fornecedores,
