@@ -31,7 +31,7 @@ class EntradaProdutoController extends Controller
             if ($tipoFiltro == 1) {
                 //$entradas_produtos = EntradaProduto::all();
                 //$entradas_produtos = EntradaProduto::where('nome', 'like', $nome_produto_like . '%')->get();
-                $entradas_produtos = EntradaProduto::where('produto_id', $nome_produto_like)->get();
+                $entradas_produtos = EntradaProduto::where('produto_id', $nome_produto_like)->where('empresa_id',$empresa_id)->get();
                 if (!empty($entradas_produtos)) {
                     return view('app.entrada_produto.index', [
                         'entradas_produtos' => $entradas_produtos,
