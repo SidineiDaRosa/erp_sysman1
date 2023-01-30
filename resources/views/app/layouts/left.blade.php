@@ -12,6 +12,14 @@
 
 </html>
 <!--Classe principal do menu left-->
+<style>
+    .sidebar-submenu-expanded-a-1 {
+
+        opacity: 0.9;
+        font-size: 40px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+</style>
 
 <aside class="sidebar" id="sidebarleft">
     <nav class="menu mt-3" id="">
@@ -37,9 +45,9 @@
             <li class="nav-item">
                 <a onclick="FunExpandMenuHome();">
 
-                <i class="icofont-company icofont-2x"></i></i>&nbsp&nbsp&nbspUnidades Cia
+                    <i class="icofont-company icofont-2x"></i></i>&nbsp&nbsp&nbspUnidades Cia
                     <i class="icofont-caret-down icofont-2x"></i>
-                    
+
 
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-home">
@@ -86,7 +94,7 @@
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('produto-fornecedor.create')}}">Por
                         fornecedor</a><br>
-                        <hr>
+                    <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{route('categoria.index')}}">Categoria</a><br>
 
                 </div>
@@ -135,8 +143,6 @@
                     <i class="icofont-caret-down icofont-2x"></i>
                 </a>
             </li>
-
-
 
     </nav>
 
