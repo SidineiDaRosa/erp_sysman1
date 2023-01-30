@@ -37,7 +37,7 @@ class CreateOrdensServicosTable extends Migration
             $table->integer('gravidade',1);
             $table->integer('urgencia',1);
             $table->integer('tendencia',1);
-            $table->float('valor');
+            $table->deciam('valor',9,2);
             $table->string('situacao');
 
             $table->timestamps();
