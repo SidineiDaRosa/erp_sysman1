@@ -35,9 +35,10 @@ class OrdemServicoController extends Controller
                 'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
                 'empresa' => $empresa,
                 'valorTotal' => $valorTotal
+                
             ]);
+           
         }
-
 
         //if (isset($_POST['id'])) {//antigo pelo id
         //if (!empty($id)) {
@@ -78,7 +79,7 @@ class OrdemServicoController extends Controller
                 ->where('empresa_id', $empresa_id)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
             //somando valor
             $valorTotal = OrdemServico::where('data_inicio', ('>='), $dataFim)->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
-
+            echo($valorTotal);
             return view('app.ordem_servico.index', [
                 'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
                 'empresa' => $empresa, 'valorTotal' => $valorTotal
@@ -113,7 +114,9 @@ class OrdemServicoController extends Controller
                 'empresa' => $empresa,
                 'valorTotal' => $valorTotal
             ]);
+           
         }
+        
     }
 
     /**
