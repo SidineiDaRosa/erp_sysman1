@@ -17,6 +17,7 @@
         h1 {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             background-color: rgb(2111, 211, 211);
+            color:red;
 
         }
     </style>
@@ -24,7 +25,11 @@
     <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-dashboard">
         <a class="sidebar-submenu-expanded-a" href="{{ route('/') }}">voltar</a><br>
     </div>
-
+    <hr>Configurações gerais:
+    <hr>Configuraços de layout:
+<script>
+    window.print();
+</script>
 
 </body>
 
