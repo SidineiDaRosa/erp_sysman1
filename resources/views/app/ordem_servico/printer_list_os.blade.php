@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório de serviços</title>
-    <hr>
 </head>
 <style>
     body {
@@ -14,30 +13,31 @@
     }
 
     h3,
-    h2 {
+    h2,
+    h4 {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 500;
+        font-stretch: ultra-condensed;
     }
 </style>
 
 <body>
-    <h2>Relatório de serviços</h2>
-    <hr>
-    <h3>Sidinei da rosa</h3>
-    <p></p>
-    <h3>cel:(46)999842664 pix:95842896087 banco sicoob</h3>
-    <p></p>
-    <h3>Rua Luiz lovo 464 - Loteamento esplanada- Palmas-PR</h3>
-    <p></p>
-    <hr>
+    <h3>Relatório de serviços</h3>
+    <fieldset>
+        <h4>Sidinei da rosa</h4>
+        <h4>cel:(46)999842664 pix:95842896087 banco sicoob</h4>
+        <h4>Rua Luiz lovo 464 - Loteamento esplanada- Palmas-PR</h4>
 
-    @foreach($empresa as $empresas_f)
+        <p></p>
+        <hr>
+        @foreach($empresa as $empresas_f)
 
-    @endforeach
-    <h3>Nome fantasia:</h3>{{$empresas_f['nome_fantasia']}}
-    <p>
-    <h3>Razão social:</h3> {{$empresas_f['razao_social']}}
-    <hr>
+        @endforeach
+        <h3>Nome fantasia:</h3>{{$empresas_f['nome_fantasia']}}
+        <p>
+        <h3>Razão social:</h3> {{$empresas_f['razao_social']}}
 
+    </fieldset>
     <style>
         #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -88,8 +88,9 @@
         </tbody>
         @endforeach
     </table>
-    <h2>Valor total=R${{$valorTotal}}</h2><p></p>
-    
+    <h2>Valor Total=R${{$valorTotal}}</h2>
+    <p></p>
+
     <input type=" button" value="Imprimir" onclick="window.print()">
 
 </body>
