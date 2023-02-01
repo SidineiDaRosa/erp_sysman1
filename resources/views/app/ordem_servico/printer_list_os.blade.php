@@ -27,15 +27,16 @@
         <h4>Sidinei da rosa</h4>
         <h4>cel:(46)999842664 pix:95842896087 banco sicoob</h4>
         <h4>Rua Luiz lovo 464 - Loteamento esplanada- Palmas-PR</h4>
-
-        <p></p>
         <hr>
         @foreach($empresa as $empresas_f)
-
         @endforeach
-        <h3>Nome fantasia:</h3>{{$empresas_f['nome_fantasia']}}
-        <p>
-        <h3>Razão social:</h3> {{$empresas_f['razao_social']}}
+        <h3>Nome fantasia:{{''.$empresas_f['nome_fantasia']}}</h3>
+        <h3>Razão social:
+            {{$empresas_f[''.'razao_social']}}
+        </h3>
+        <h3>CNPJ:
+            {{$empresas_f[''.'cnpj']}} 
+        </h3>
 
     </fieldset>
     <style>
@@ -71,7 +72,7 @@
         <thead>
 
             <tr>
-                <th scope="col" class="">ID</th>
+                <th scope="col" class="">ID O.S</th>
                 <th scope="col" class="">Data</th>
                 <th scope="col" class="">Descrição</th>
                 <th scope="col" class="">Valor</th>
@@ -82,9 +83,9 @@
         <tbody>
             <tr>
                 <td>{{$ordens_servicos_f['id']}}</td>
-                <td>{{$ordens_servicos_f['data_emissao']}}</td>
+                <td>{{ date( 'd/m/Y' , strtotime($ordens_servicos_f['data_emissao']))}}</td>
                 <td>{{$ordens_servicos_f['descricao']}}</td>
-                <td>{{$ordens_servicos_f['valor']}}</td>
+                <td>{{ 'R$ '.number_format($ordens_servicos_f['valor'], 2, ',', '.') }} </td>
         </tbody>
         @endforeach
     </table>

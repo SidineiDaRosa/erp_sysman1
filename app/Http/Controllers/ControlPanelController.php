@@ -49,8 +49,7 @@ class ControlPanelController extends Controller
                 if($horasRestante<=72){
                     echo ('Estas ordens devem ser programadas para execução<p>');
                     echo ('Ordem:'.$numRegistroPecaEquip->id.'<hr>');
-                    echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');
-                    
+                    echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');                   
                 }
                 if($horasRestante<=1){
                     echo ('Estas ordens devem ser programadas para execução<p>');

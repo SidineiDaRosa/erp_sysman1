@@ -116,11 +116,13 @@ class OrdemServicoController extends Controller
             $dataFim = $request->get("data_fim");
             // $ordens_servicos = OrdemServico::where('empresa_id', $empresa_id )->where('situacao', $situacao)->get();
 
-            $valorTotal = OrdemServico::where('data_inicio', ('>='),$dataInicio)->where('data_inicio', ('<='),$dataFim )->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
-            $ordens_servicos = OrdemServico::where('data_inicio', ('>='),$dataInicio )
+            $valorTotal = OrdemServico::where('data_inicio', ('>='), $dataInicio)->where('data_inicio', ('<='), $dataFim)->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
+            $valorTotal = number_format($valorTotal, 2, ",", ".");
+            $ordens_servicos = OrdemServico::where('data_inicio', ('>='), $dataInicio)
                 ->where('data_inicio', ('<='), $dataFim)
                 ->where('empresa_id', $empresa_id)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
-
+             
+            
             return view(
                 'app.ordem_servico.printer_list_os',
                 ['empresa' => $empresa, 'ordens_servicos' => $ordens_servicos, 'valorTotal' => $valorTotal]
