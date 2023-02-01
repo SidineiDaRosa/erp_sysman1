@@ -83,6 +83,7 @@
                         <option value="4">=Data final</option>
                         <option value="5">=>Data inicial e equipamento</option>
                         <option value="6">Data inicial e empresa</option>
+                        <option value="7">Imprimir</option>
                     </select>
                 </div>
                 <!--------------------------------------------------------------------------------------->
@@ -123,6 +124,16 @@
                                 <i class="icofont-plus-circle"></i>
                             </span>
                             <span class="text">Nova ordem</span>
+                        </a>
+                </div>
+                <div class="col-md-0">
+                    <label for="btFiltrar" class="">imprimir</label>
+                    <p>
+                        <a href="{{route('ordem-servico.index',['printer'=>'printer'])}}" class="btn btn-info btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="icofont-plus-circle"></i>
+                            </span>
+                            <span class="text">imprimir</span>
                         </a>
                 </div>
             </div>

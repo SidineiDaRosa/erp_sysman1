@@ -21,9 +21,12 @@ class OrdemServicoController extends Controller
     //public function index(Request $request)
     public function index(Request $request)
     {
+
         $empresa = Empresas::all();
         $equipamento = Equipamento::all();
         $id = $request->get("id");
+        $printerOs = $request->get("printer");
+
         $tipo_consulta = $request->get("tipo_consulta");
 
         if ($tipo_consulta == 1 && $id >= 1) {
@@ -104,7 +107,26 @@ class OrdemServicoController extends Controller
                 'empresa' => $empresa, 'valorTotal' => $valorTotal
             ]);
         }
+        //Ipressão
+        if ($tipo_consulta == 7) {
+            $empresa_id = $request->get("empresa_id");
+            $empresa = Empresas::where('id', $empresa_id)->get();
+            $situacao = $request->get("situacao");
+            $dataInicio = $request->get("data_inicio");
+            $dataFim = $request->get("data_fim");
+            // $ordens_servicos = OrdemServico::where('empresa_id', $empresa_id )->where('situacao', $situacao)->get();
 
+            $valorTotal = OrdemServico::where('data_inicio', ('>='),$dataInicio)->where('data_inicio', ('<='),$dataFim )->where('empresa_id', $empresa_id)->where('situacao', $situacao)->sum('valor');
+            $ordens_servicos = OrdemServico::where('data_inicio', ('>='),$dataInicio )
+                ->where('data_inicio', ('<='), $dataFim)
+                ->where('empresa_id', $empresa_id)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
+
+            return view(
+                'app.ordem_servico.printer_list_os',
+                ['empresa' => $empresa, 'ordens_servicos' => $ordens_servicos, 'valorTotal' => $valorTotal]
+
+            );
+        }
         if (('teste')) {
             $funcionarios = Funcionario::all();
             $ordens_servicos = OrdemServico::where('id', 0)->get();
