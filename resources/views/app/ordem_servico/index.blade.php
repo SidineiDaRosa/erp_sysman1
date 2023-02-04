@@ -130,7 +130,7 @@
         </div>
         <div class="card-body">
     
-            <table class="table table-dark table-sm table-hover table-responsive-md-1 mb-0" id="tblOs">
+            <table class="table-template table-striped table-hover table-bordered" id="tblOs">
                 <thead>
                     <tr>
                         <th scope="col" class="">ID</th>

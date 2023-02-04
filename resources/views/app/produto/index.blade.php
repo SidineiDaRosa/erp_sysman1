@@ -113,16 +113,13 @@
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
                     <td>{{ $produto->categoria->nome}}</td>
-
                     <td>
                         <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
-
                             <i class="icofont-database-add"></i>
                             </span>
                             <span class="text">Criar estoque</span>
                         </a>
                     </td>
-
 
                     <td>
                         <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
