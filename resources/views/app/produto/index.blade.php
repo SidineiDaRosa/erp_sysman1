@@ -83,7 +83,7 @@
     </style>
     <!-------------------------------------------------------------------------->
     <div class="card-body">
-        <table class="table-template table-striped table-hover table-bordered table-responsive">
+        <table class="table-template table-striped table-hover table-bordered">
             <thead>   
                 <tr>
                     <th scope="col">Id</th>
