@@ -129,29 +129,54 @@
             </div>
         </div>
         <div class="card-body">
-    
-            <table class="table-template table-striped table-hover table-bordered" id="tblOs">
+            <style>
+                #tblOs {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                    background-color: rgb(211, 211, 211);
+                }
+
+                thead {
+                    background-color: rgb(169, 169, 169);
+                }
+
+                td,
+                th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
+
+                tr:hover {
+                    background-color: rgb(169, 169, 169);
+                }
+            </style>
+            <table class="" id="tblOs">
                 <thead>
                     <tr>
-                        <th scope="col" class="">ID</th>
-                        <th scope="col" class="" hidden>Data emissao</th>
-                        <th scope="col" class="" hidden>Hora</th>
-                        <th scope="col" class="">Data prevista</th>
-                        <th scope="col" class="">Hora prevista</th>
-                        <th scope="col" class="">Data fim</th>
-                        <th scope="col" class="">Hora fim</th>
-                        <th scope="col" class="">Empresa</th>
-                        <th scope="col" class="">Patrimônio</th>
-                        <th scope="col" class="">Emissor</th>
-                        <th scope="col" class="">Responsável</th>
-                        <th scope="col" class="">Descrição</th>
-                        <th scope="col" class="">Executado</th>
-                        <th scope="col" class="">link foto</th>
-                        <th scope="col" class="">Status</th>
-                        <th scope="col" class="">Valor</th>
-                        <th scope="col" class="">Operações</th>
-                        <th scope="col" class="">check</th>
-
+                        <th>ID</th>
+                        <th hidden>Data emissao</th>
+                        <th hidden>Hora</th>
+                        <th>Data prevista</th>
+                        <th>Hora prevista</th>
+                        <th>Data fim</th>
+                        <th>Hora fim</th>
+                        <th>Empresa</th>
+                        <th>Patrimônio</th>
+                        <th>Emissor</th>
+                        <th>Responsável</th>
+                        <th>Descrição</th>
+                        <th>Executado</th>
+                        <th>link foto</th>
+                        <th>Status</th>
+                        <th>Valor</th>
+                        <th>Operações</th>
+                        <th>check</th>
                     </tr>
                 </thead>
                 @foreach ($ordens_servicos as $ordem_servico)
