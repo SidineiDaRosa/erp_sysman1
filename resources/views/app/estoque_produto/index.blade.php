@@ -4,7 +4,7 @@
 <main class="content">
     <div class="card">
         <div class="card-header-template">
-            <div> Lista estoque de produtos</div>
+            <div> Lista do estoque de produtos</div>
 
             <form id="formSearchingProducts" action="{{'Estoque-Produtos-filtro'}}" method="POST">
                 @csrf

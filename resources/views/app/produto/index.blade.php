@@ -40,7 +40,6 @@
 
             <div>
 
-
                 <a href="{{ route('produto.create') }}" class="btn btn-sm btn-primary">
                     <i class="icofont-database-add icofont-2x"></i>
                     Novo produto
@@ -84,8 +83,8 @@
     </style>
     <!-------------------------------------------------------------------------->
     <div class="card-body">
-        <table class="table table-dark table-sm table-hover table-responsive-md-1 mb-0">
-            <thead>
+        <table class="table-template table-striped table-hover table-bordered table-responsive">
+            <thead>   
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Qrcode</th>

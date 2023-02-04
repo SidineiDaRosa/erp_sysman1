@@ -129,40 +129,7 @@
             </div>
         </div>
         <div class="card-body">
-            <!--
-            <style>
-            #tblOs {
-                font-size: small;
-                padding: 1px;
-                margin-left: 0px;
-                width: 100%;
-            }
-
-            thead {
-                font-size: 20px;
-                height: 50px;
-                padding: 1px;
-            }
-
-            th {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                font-size: 20px;
-                font-weight: 100;
-            }
-
-            tr {
-                height: auto;
-                font-weight: 300;
-
-            }
-
-            td {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                font-size: 10px;
-                font-weight: 1000;
-            }
-            </style>
-        -->
+    
             <table class="table table-dark table-sm table-hover table-responsive-md-1 mb-0" id="tblOs">
                 <thead>
                     <tr>
