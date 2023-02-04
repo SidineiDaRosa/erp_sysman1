@@ -126,16 +126,6 @@
                             <span class="text">Nova ordem</span>
                         </a>
                 </div>
-                <div class="col-md-0">
-                    <label for="btFiltrar" class="">imprimir</label>
-                    <p>
-                        <a href="{{route('ordem-servico.index',['printer'=>'printer'])}}" class="btn btn-info btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="icofont-plus-circle"></i>
-                            </span>
-                            <span class="text">imprimir</span>
-                        </a>
-                </div>
             </div>
         </div>
         <div class="card-body">
