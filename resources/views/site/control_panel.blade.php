@@ -4,8 +4,6 @@
 <html lang="pt">
 
 <body onload="checkCookies()">
-    <h1>Painel de controle</h1>
-
     <p id="demo"></p>
     <script>
         let data_atual = new Date();
