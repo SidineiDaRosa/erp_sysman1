@@ -49,41 +49,35 @@
     </div>
     <!---estilização do input box buscar produtos---->
     <style>
-        #formSearchingProducts {
-            background-color: white;
-            width: 900px;
-            height: 44px;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
+                #tblProdutos {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                    background-color: rgb(211, 211, 211);
+                }
 
-        input {
-            all: unset;
-            font: 16px system-ui;
-            color: blue;
-            height: 100%;
-            width: 100%;
-            padding: 6px 10px;
-        }
+                thead {
+                    background-color: rgb(169, 169, 169);
+                }
 
-        ::placeholder {
-            color: blueviolet;
-            opacity: 0.9;
-        }
+                td,
+                th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
 
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
 
-        button {
-            all: unset;
-            cursor: pointer;
-            width: 44px;
-            height: 44px;
-        }
+                tr:hover {
+                    background-color: rgb(169, 169, 169);
+                }
     </style>
     <!-------------------------------------------------------------------------->
     <div class="card-body">
-        <table class="table-template table-striped table-hover table-bordered">
+        <table class="table-template table-striped table-hover table-bordered" id="tblProdutos">
             <thead>   
                 <tr>
                     <th scope="col">Id</th>
