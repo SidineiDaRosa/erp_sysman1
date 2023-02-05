@@ -47,8 +47,8 @@ class ControlPanelController extends Controller
                 $numRegistroPecaEquip->horas_proxima_manutencao = $horasRestante;
                 $numRegistroPecaEquip->save();
                 if ($horasRestante <= 72) {
-                   // echo "<div class='divtxt'>Estas ordens devem ser programadas para execução</div><p>'";
-                   // echo ('Ordem:' . $numRegistroPecaEquip->id . '<hr>');
+                    // echo "<div class='divtxt'>Estas ordens devem ser programadas para execução</div><p>'";
+                    // echo ('Ordem:' . $numRegistroPecaEquip->id . '<hr>');
                     //echo ('Ordem:' . $numRegistroPecaEquip . '<hr>');
                 }
                 //if($horasRestante<=1){
@@ -65,10 +65,10 @@ class ControlPanelController extends Controller
         if ($x = $totRegPecEquip) {
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
                 ->where('horas_proxima_manutencao', ('<='), 4000)->get();
-             dd($ordens_servicos);   
+            //dd($ordens_servicos);
             $x = 0;
             $totRegPecEquip = 0;
-            return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos ]);
+            return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos]);
         }
         // }
         if ($tipo_atualizacao >= 1) {
