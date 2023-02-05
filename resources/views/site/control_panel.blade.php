@@ -99,7 +99,7 @@
         }
     </style>
     @foreach($ordens_servicos as $ordens_servicos_f)
-    {{$ordens_servicos->id}}
+    {{$ordens_servico->id}}
     @endforeach"
 </body>
 
