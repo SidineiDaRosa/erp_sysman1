@@ -97,10 +97,12 @@
                     <thead>
                         <tr>
                             <th scope="col" class="th-title">Id</th>
-                            <th scope="col" class="th-title">data_proxima_manutencao</th>
-                            <th scope="col" class="th-title">produto_id</th>
-                            <th scope="col" class="th-title">equipamento</th>
-                            <th scope="col" class="th-title">intervalo_manutencao</th>
+                            <th scope="col" class="th-title">Data_proxima_manutencao</th>
+                            <th scope="col" class="th-title">Produto_id</th>
+                            <th scope="col" class="th-title">Equipamento</th>
+                            <th scope="col" class="th-title">Intervalo_manutencao</th>
+                            <th scope="col" class="th-title">Equipamento</th>
+                            <th scope="col" class="th-title">Próxima_manutencao</th>
                           
 
                         </tr>
@@ -111,7 +113,8 @@
                         <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                         <td>{{ $ordem_servico_f->produto_id}}</td>
                         <td>{{ $ordem_servico_f->equipamento}}</td>
-                        <td>{{ $ordem_servico_f->intervalo_manutencao}}.hs</td>
+                        <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
+                        <td>Restam:{{ $ordem_servico_f->proxima_manutencao}}hs</td>
                     </tr>
                     @endforeach
                     </tbody>
