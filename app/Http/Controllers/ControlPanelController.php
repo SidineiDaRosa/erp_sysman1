@@ -21,6 +21,7 @@ class ControlPanelController extends Controller
 {
     public function index(Request $request)
     {
+       
         $tipo_atualizacao = 0;
         // $dataAtual=Date('now',$timezone);
         $diaAtual = date('d');
