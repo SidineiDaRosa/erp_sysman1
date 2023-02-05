@@ -99,6 +99,7 @@
         }
     </style>
 @foreach ($ordens_servicos as $ordem_servico_f) 
+{{$ordem_servico_f->id}}
 @endforeach
 </body>
 
