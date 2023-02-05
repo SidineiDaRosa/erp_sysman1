@@ -53,10 +53,5 @@
             </tbody>
         </table>
 
-
-
-
-
-
 </main>
 @endsection
