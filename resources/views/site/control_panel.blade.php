@@ -98,7 +98,8 @@
             font-size: 20px;
         }
     </style>
- {{$ordens_servicos}}
+@foreach ($ordens_servicos as $ordem_servico_f) 
+@endforeach
 </body>
 
 </html>
