@@ -68,6 +68,9 @@
                     body {
                         background-color: rgb(211, 211, 211);
                     }
+                    #spn1{
+                        color:blue;
+                    }
                 </style>
                 <input type="text" id="timer" readonly>
                 <p></p>
@@ -113,7 +116,7 @@
                         <td>{{ $ordem_servico_f->produto_id}}</td>
                         <td>{{ $ordem_servico_f->equipamento}}</td>
                         <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
-                        <td>Restam:{{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>
+                        <td><span id="spn1">Restam:</span> {{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>
                     </tr>
                     @endforeach
                     </tbody>
