@@ -98,9 +98,29 @@
             font-size: 20px;
         }
     </style>
-@foreach ($ordens_servicos as $ordem_servico_f) 
-{{$ordem_servico_f->id}}
-@endforeach
+  
+    <table class="table-template table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" class="th-title">Id</th>
+                <th scope="col" class="th-title">Data emissão</th>
+                <th scope="col" class="th-title">Descrição</th>
+                <th scope="col" class="th-title">Descrição</th>
+                <th scope="col" class="th-title">Equipamento</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($ordens_servicos as $ordem_servico_f)
+            <tr>
+                <th scope="row">  {{$ordem_servico_f->id}}</td>
+                <td>{{ $ordem_servico_f->data_emissao}}</td>
+                <td>{{ $ordem_servico_f->descricao}}</td>
+                <td>{{ $ordem_servico_f->equipamento_id}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
 </body>
 
 </html>
