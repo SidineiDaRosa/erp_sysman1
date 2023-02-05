@@ -78,7 +78,6 @@
                 <form id="form" action="{{route('control-panel.index')}}" method="get">
                     @method('POST')
                     @csrf
-                    <input id="btn1" type="submit" value="get">
                 </form>
                 <input type="button" value="Força atualização do intervalo de manutenção" onclick="PegaDataHoraPhp()">
                 <script>
@@ -99,14 +98,11 @@
                         <tr>
                             <th scope="col" class="th-title">Id</th>
                             <th scope="col" class="th-title">Data emissão</th>
-                            <th scope="col" class="th-title">hora emissão</th>
-                            <th scope="col" class="th-title">Data prevista</th>
-                            <th scope="col" class="th-title">hora prevista</th>
-                            <th scope="col" class="th-title">Equipamento</th>
-                            <th scope="col" class="th-title">Emissor</th>
-                            <th scope="col" class="th-title">status</th>
-                            <th scope="col" class="th-title">Os</th>
-                            <th scope="col" class="th-title">operaçoes</th>
+                            <th scope="col" class="th-title">data_proxima_manutencao</th>
+                            <th scope="col" class="th-title">produto_id</th>
+                            <th scope="col" class="th-title">equipamento</th>
+                            <th scope="col" class="th-title">>intervalo_manutencao</th>
+                          
 
                         </tr>
                     </thead>
