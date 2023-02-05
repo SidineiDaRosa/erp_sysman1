@@ -69,7 +69,7 @@
                         background-color: rgb(211, 211, 211);
                     }
                     #spn1{
-                        color:blue;
+                        color:red;
                     }
                 </style>
                 <input type="text" id="timer" readonly>
