@@ -67,7 +67,7 @@ class ControlPanelController extends Controller
                 ->where('horas_proxima_manutencao', ('<='), 4000)->get();
             $x = 0;
             $totRegPecEquip = 0;
-            return view('site.control_panel', ['ordens_de_serviço' => $ordens_servicos]);
+            return view('site.control_panel', ['ordens_de_serviços' => $ordens_servicos]);
         }
         // }
         if ($tipo_atualizacao >= 1) {
