@@ -111,7 +111,7 @@
                         <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                         <td>{{ $ordem_servico_f->produto_id}}</td>
                         <td>{{ $ordem_servico_f->equipamento}}</td>
-                        <td>{{ $ordem_servico_f->intervalo_manutencao}}</td>
+                        <td>{{ $ordem_servico_f->intervalo_manutencao}}.hs</td>
                     </tr>
                     @endforeach
                     </tbody>
