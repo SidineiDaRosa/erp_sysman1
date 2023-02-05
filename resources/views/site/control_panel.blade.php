@@ -97,11 +97,10 @@
                     <thead>
                         <tr>
                             <th scope="col" class="th-title">Id</th>
-                            <th scope="col" class="th-title">Data emissão</th>
                             <th scope="col" class="th-title">data_proxima_manutencao</th>
                             <th scope="col" class="th-title">produto_id</th>
                             <th scope="col" class="th-title">equipamento</th>
-                            <th scope="col" class="th-title">>intervalo_manutencao</th>
+                            <th scope="col" class="th-title">intervalo_manutencao</th>
                           
 
                         </tr>
