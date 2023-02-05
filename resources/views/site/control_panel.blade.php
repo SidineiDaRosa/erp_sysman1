@@ -101,7 +101,6 @@
                             <th scope="col" class="th-title">Produto_id</th>
                             <th scope="col" class="th-title">Equipamento</th>
                             <th scope="col" class="th-title">Intervalo_manutencao</th>
-                            <th scope="col" class="th-title">Equipamento</th>
                             <th scope="col" class="th-title">Próxima_manutencao</th>
                           
 
