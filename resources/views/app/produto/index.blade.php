@@ -96,7 +96,7 @@
         th {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 5px;
+            padding: 3px;
         }
 
         tr:nth-child(even) {
