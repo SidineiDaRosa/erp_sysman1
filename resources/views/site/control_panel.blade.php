@@ -1,3 +1,6 @@
+@extends('app.layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -99,7 +102,7 @@
         }
     </style>
     {{$ordens_servicos}}
-  
+
     <table class="table-template table-striped table-hover table-bordered">
         <thead>
             <tr>
@@ -111,9 +114,9 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($ordens_servicos as $ordem_servico_f)
+            @foreach ($ordens_servicos as $ordem_servico_f)
             <tr>
-                <th scope="row">  {{$ordem_servico_f->id}}</td>
+                <th scope="row"> {{$ordem_servico_f->id}}</td>
                 <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                 <td>{{ $ordem_servico_f->produto_id}}</td>
                 <td>{{ $ordem_servico_f->equipamento}}</td>
