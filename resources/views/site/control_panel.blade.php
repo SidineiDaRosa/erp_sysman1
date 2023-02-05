@@ -99,30 +99,7 @@
         }
     </style>
     {{$ordens_de_serviçoas}}
-    <table class="table-template table-striped table-hover table-bordered">
-        <thead>
-            <tr>
-                <th scope="col" class="th-title">Id</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ( {{$ordens_de_serviçoas $ordens_de_serviço_f}})
-            <tr>
-                <th scope="row">{{$ordens_de_serviço_f->id }}</td>
 
-                <td>
-                    <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
-                        <a class="btn btn-sm-template btn-outline-primary" href="{{ route('mostra-produto.show',[1]) }}">
-                            <i class="icofont-eye-alt"></i>
-                        </a>
-
-                    </div>
-                </td>
-            </tr>
-
-            @endforeach
-        </tbody>
-    </table>
 
 </body>
 
