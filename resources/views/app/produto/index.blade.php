@@ -77,7 +77,7 @@
     </style>
     <!-------------------------------------------------------------------------->
     <div class="card-body">
-        <table class="table-template table-striped table-hover table-bordered" id="tblProdutos">
+        <table class="ta" id="tblProdutos">
             <thead>   
                 <tr>
                     <th scope="col">Id</th>
