@@ -98,12 +98,9 @@
             font-size: 20px;
         }
     </style>
-   
-    @foreach
-    {{$ordens_servicos as $ordens_servicos_f}}
-    {{$ordens_servicos_f->id}}
-    @endforeach
-
+    @foreach($ordens_servicos as $ordens_servicos_f)
+    {{$ordens_servicos_f['id']}}
+    @endforeach"
 </body>
 
 </html>
