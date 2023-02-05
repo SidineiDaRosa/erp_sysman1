@@ -98,9 +98,7 @@
             font-size: 20px;
         }
     </style>
-    {{$ordens_de_serviçoas}}
-
-
+    {{$ordens_de_serviços}}
 </body>
 
 </html>
