@@ -98,6 +98,8 @@
             font-size: 20px;
         }
     </style>
+    {{$ordens_servicos as $ordens_servicos_f}}
+
 </body>
 
 </html>
