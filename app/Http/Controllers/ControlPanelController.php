@@ -46,30 +46,28 @@ class ControlPanelController extends Controller
                 $horasRestante = $totHorasFuturo - $totHorasAtual;
                 $numRegistroPecaEquip->horas_proxima_manutencao = $horasRestante;
                 $numRegistroPecaEquip->save();
-                if($horasRestante<=72){
-                    echo ('Estas ordens devem ser programadas para execução<p>');
-                    echo ('Ordem:'.$numRegistroPecaEquip->id.'<hr>');
-                    echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');                   
+                if ($horasRestante <= 72) {
+                    echo "<div class='divtxt'>Estas ordens devem ser programadas para execução</div><p>'";
+                    echo ('Ordem:' . $numRegistroPecaEquip->id . '<hr>');
+                    echo ('Ordem:' . $numRegistroPecaEquip . '<hr>');
                 }
-                if($horasRestante<=1){
-                    echo ('Estas ordens devem ser programadas para execução<p>');
-                    echo ('Ordem:'.$numRegistroPecaEquip->id.'<hr background_color="red";>');
-                    echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');
-                    
-                }
-                
-                /// } else {
-             
-                
-            }
+                //if($horasRestante<=1){
+                // echo ('Estas ordens devem ser programadas para execução<p>');
+                // echo ('Ordem:'.$numRegistroPecaEquip->id.'<hr background_color="red";>');
+                // echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');
 
+                //}
+
+                /// } else {     
+            }
             $x += 1;
         }
         if ($x = $totRegPecEquip) {
-
+            $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='),1)
+            ->where('horas_proxima_manutencao', ('<='), 72)->get();
             $x = 0;
             $totRegPecEquip = 0;
-            return view('site.control_panel');
+            return view('site.control_panel', ['ordens_de_serviço' => $ordens_servicos]);
         }
         // }
         if ($tipo_atualizacao >= 1) {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -30,19 +30,18 @@
         }, 60000);
 
         function calcula() {
+            //formata datas pegando ano dias mes e hora
             let data_inicial3 = document.getElementById('data_inicial').value
             let data_atual = new Date()
             let dataInicial = new Date(data_inicial)
             let ano = dataInicial.getFullYear()
             let dia = dataInicial.getDate()
             let hora = dataInicial.getHours()
-            ///
             let dia_atual = data_atual.getDate()
             ///https://www.treinaweb.com.br/blog/trabalhando-com-data-no-javascript?gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNmQO6WInMUWZ5oZB094L6ktEKAh_wAv4L39MlFsYgtnUIvffNkShuwaAtA4EALw_wcB
 
         }
         setInterval(function() {
-            //element.innerHTML += "Hello"
             document.getElementById('timer').value = new Date()
             let interval = document.getElementById('timer_interval').value
             interval1 = (interval++)
@@ -85,14 +84,21 @@
         @csrf
         <input id="btn1" type="submit" value="get">
     </form>
-    <input type="date" id="data_inicial">
-    <input type="button" value="Pega Data hora" onclick="PegaDataHoraPhp()">
+    <input type="button" value="Força atualização do intervalo de manutenção" onclick="PegaDataHoraPhp()">
     <script>
         function PegaDataHoraPhp() {
             document.getElementById('busca').click();
         }
     </script>
     <hr>
+    <style>
+        .divtxt {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+    {{$ordens_de_serviço}}
 </body>
 
 </html>

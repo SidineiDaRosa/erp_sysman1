@@ -51,7 +51,6 @@
             {{ $empresa->email }}
 
 
-
         </div>
 
     </div>
