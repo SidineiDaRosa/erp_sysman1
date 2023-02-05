@@ -1,15 +1,3 @@
-@extends('app.layouts.app')
-@section('content')
-<main class="content">
-    <div class="card">
-        <div class="card-header-template">
-            <div> Painel de controle</div>
-
-            <div class="card-body">
-
-            </div>
-        </div>
-    </div>
 
     <body onload="checkCookies()">
         <p id="demo"></p>
