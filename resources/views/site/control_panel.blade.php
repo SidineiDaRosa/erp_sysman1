@@ -104,19 +104,20 @@
         <thead>
             <tr>
                 <th scope="col" class="th-title">Id</th>
-                <th scope="col" class="th-title">Data emissão</th>
-                <th scope="col" class="th-title">Descrição</th>
-                <th scope="col" class="th-title">Descrição</th>
+                <th scope="col" class="th-title">Data programada</th>
+                <th scope="col" class="th-title">Produto</th>
                 <th scope="col" class="th-title">Equipamento</th>
+                <th scope="col" class="th-title">Intervalo</th>
             </tr>
         </thead>
         <tbody>
         @foreach ($ordens_servicos as $ordem_servico_f)
             <tr>
                 <th scope="row">  {{$ordem_servico_f->id}}</td>
-                <td>{{ $ordem_servico_f->data_emissao}}</td>
-                <td>{{ $ordem_servico_f->descricao}}</td>
-                <td>{{ $ordem_servico_f->equipamento_id}}</td>
+                <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
+                <td>{{ $ordem_servico_f->produto_id}}</td>
+                <td>{{ $ordem_servico_f->equipamento}}</td>
+                <td>{{ $ordem_servico_f->intervalo_manutencao}}</td>
             </tr>
             @endforeach
         </tbody>
