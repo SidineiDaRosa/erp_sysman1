@@ -49,36 +49,68 @@
     </div>
     <!---estilização do input box buscar produtos---->
     <style>
-                #tblProdutos {
-                    font-family: arial, sans-serif;
-                    border-collapse: collapse;
-                    width: 100%;
-                    background-color: rgb(211, 211, 211);
-                }
+        #formSearchingProducts {
+            background-color: white;
+            width: 900px;
+            height: 44px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-                thead {
-                    background-color: rgb(169, 169, 169);
-                }
+        input {
+            all: unset;
+            font: 16px system-ui;
+            color: blue;
+            height: 100%;
+            width: 100%;
+            padding: 6px 10px;
+        }
 
-                td,
-                th {
-                    border: 1px solid #dddddd;
-                    text-align: left;
-                    padding: 8px;
-                }
+        ::placeholder {
+            color: blueviolet;
+            opacity: 0.9;
+        }
 
-                tr:nth-child(even) {
-                    background-color: #dddddd;
-                }
 
-                tr:hover {
-                    background-color: rgb(169, 169, 169);
-                }
+        button {
+            all: unset;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+        }
+
+        #tblProdutos {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgb(211, 211, 211);
+        }
+
+        thead {
+            background-color: rgb(169, 169, 169);
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        tr:hover {
+            background-color: rgb(169, 169, 169);
+        }
     </style>
     <!-------------------------------------------------------------------------->
     <div class="card-body">
-        <table class="ta" id="tblProdutos">
-            <thead>   
+        <table class="" id="tblProdutos">
+            <thead>
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Qrcode</th>
