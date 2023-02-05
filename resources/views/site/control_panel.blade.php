@@ -98,7 +98,6 @@
             font-size: 20px;
         }
     </style>
-    {{ordens_de_serviços}}
 </body>
 
 </html>
