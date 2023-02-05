@@ -34,7 +34,7 @@
 
                 </a>
                 <div class="sidebar-submenu-expanded" id="sidebar-submenu-expanded-dashboard">
-                    <a class="sidebar-submenu-expanded-a" href="{{ route('site.control_panel') }}">Painel de controle</a><br>
+                    <a class="sidebar-submenu-expanded-a" href="{{ route('control-panel.index') }}">Painel de controle</a><br>
 
                     <hr>
                     <a class="sidebar-submenu-expanded-a" href="{{ route('site.configuracoes') }}">Configurações</a>
