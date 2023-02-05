@@ -98,6 +98,7 @@
             font-size: 20px;
         }
     </style>
+    {{$ordens_servicos}}
   
     <table class="table-template table-striped table-hover table-bordered">
         <thead>
