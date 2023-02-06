@@ -19,12 +19,12 @@ use Illuminate\Http\Request;
 
 class ControlPanelController extends Controller
 {
-    
+
     public function index(Request $request)
 
     {
-        $equipamentos=Equipamento::all();
-        $produtos=Produto::all();
+        $equipamentos = Equipamento::all();
+        $produtos = Produto::all();
 
         $tipo_atualizacao = 0;
         // $dataAtual=Date('now',$timezone);
@@ -59,20 +59,17 @@ class ControlPanelController extends Controller
         if ($x = $totRegPecEquip) {
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
                 ->where('horas_proxima_manutencao', ('<='), 4000)->get();
-            //dd($ordens_servicos);
             $x = 0;
             $totRegPecEquip = 0;
-            return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos,'equipamentos'=>$equipamentos,'produtos'=>$produtos]);
+            return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
         } else {
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
                 ->where('horas_proxima_manutencao', ('<='), 4000)->get();
-            return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos,'equipamentos'=>$equipamentos,'produtos'=>$produtos]);
+            return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
         }
-        // }
         if ($tipo_atualizacao >= 1) {
 
             $numRegistroPecaEquip = PecasEquipamentos::find(13); //busca o registro do produto com o id da entrada do produto
-
             $dataFutura = $numRegistroPecaEquip->data_proxima_manutencao;
             //$dataFuturaFormat = DateTime::createFromFormat('d/m/Y',$dataFutura);
             $data = implode("/", array_reverse(explode("-", $dataFutura))); //converte uma data para formato brasileiro trazido do banco mysql
@@ -92,4 +89,4 @@ class ControlPanelController extends Controller
             echo ('Diferença de horas entre datas=' . ($totHorasFuturo - $totHorasAtual) . '<hr></>');
         }
     }
-}// 
+}
