@@ -48,18 +48,7 @@ class ControlPanelController extends Controller
                 $numRegistroPecaEquip->horas_proxima_manutencao = $horasRestante;
                 $numRegistroPecaEquip->save();
                 if ($horasRestante <= 72) {
-                    // echo "<div class='divtxt'>Estas ordens devem ser programadas para execução</div><p>'";
-                    // echo ('Ordem:' . $numRegistroPecaEquip->id . '<hr>');
-                    //echo ('Ordem:' . $numRegistroPecaEquip . '<hr>');
                 }
-                //if($horasRestante<=1){
-                // echo ('Estas ordens devem ser programadas para execução<p>');
-                // echo ('Ordem:'.$numRegistroPecaEquip->id.'<hr background_color="red";>');
-                // echo ('Ordem:'.$numRegistroPecaEquip.'<hr>');
-
-                //}
-
-                /// } else {     
             }
             $x += 1;
         }
@@ -79,7 +68,7 @@ class ControlPanelController extends Controller
         if ($tipo_atualizacao >= 1) {
 
             $numRegistroPecaEquip = PecasEquipamentos::find(13); //busca o registro do produto com o id da entrada do produto
-          
+
             $dataFutura = $numRegistroPecaEquip->data_proxima_manutencao;
             //$dataFuturaFormat = DateTime::createFromFormat('d/m/Y',$dataFutura);
             $data = implode("/", array_reverse(explode("-", $dataFutura))); //converte uma data para formato brasileiro trazido do banco mysql
@@ -97,18 +86,6 @@ class ControlPanelController extends Controller
             echo ('Dias futuro=' . $totDiasFuturo . '<hr></>');
             echo ('Horas futuro=' . $totHorasFuturo . '<hr></>');
             echo ('Diferença de horas entre datas=' . ($totHorasFuturo - $totHorasAtual) . '<hr></>');
-            //echo ('Data sub=' . $numRegistroPecaEquip. '<br><hr></>');
-            //$numRegistroPecaEquip->horas_proxima_manutencao = $numRegistroPecaEquip->horas_proxima_manutencao - 10; // soma estoque antigo com a entrada de produto
-            //$numRegistroPecaEquip->save();
-
-
-            // echo ('Tempo='.$timezone.'<br>');
-            //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
-            //$produto->estoque_ideal = $produto->estoque_ideal -($qnt); // soma estoque antigo com a entrada de produto
-            //$produto->save();
-            //return view('site.control_panel', ['produtos' => $produtos]);
-
-
         }
     }
 }// 
