@@ -79,9 +79,7 @@ class ControlPanelController extends Controller
         if ($tipo_atualizacao >= 1) {
 
             $numRegistroPecaEquip = PecasEquipamentos::find(13); //busca o registro do produto com o id da entrada do produto
-            /// $numRegistroPecaEquip->data_susbstituicao = $numRegistroPecaEquip->data_susbstituicao; // soma estoque antigo com a entrada de produto
-            //$diaProximaManu= $numRegistroPecaEquip->data_susbstituicao('d');
-            //echo ('datra sub=' . $numRegistroPecaEquip->data_proxima_manutencao. '<br><hr></>');
+          
             $dataFutura = $numRegistroPecaEquip->data_proxima_manutencao;
             //$dataFuturaFormat = DateTime::createFromFormat('d/m/Y',$dataFutura);
             $data = implode("/", array_reverse(explode("-", $dataFutura))); //converte uma data para formato brasileiro trazido do banco mysql
