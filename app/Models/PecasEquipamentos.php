@@ -24,10 +24,8 @@ class PecasEquipamentos extends Model
         'link_peca',
        
     ];
-    //public function produto(){
-       // return $this->belongsTo('App\Models\PecasEquipamento');
-   // }
-    public function equipamento(){
+
+    public function equipamento_nome(){
         return $this->belongsTo('App\Models\Equipamento');
     }
     public function produto(){
