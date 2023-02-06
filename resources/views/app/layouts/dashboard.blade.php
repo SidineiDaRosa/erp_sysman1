@@ -15,7 +15,7 @@
 
     </div>
     <div>
-        <a class="nav-link" href="{{ route('site.control_panel') }}"> Painel de controle</a>
+        <a class="nav-link" href="{{ route('control-panel.index') }}"> Painel de controle</a>
         <label for="">Usuário logado no momento:</label>
         {{auth()->user()->name}}
     </div>
