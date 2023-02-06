@@ -28,9 +28,10 @@ class PecasEquipamentos extends Model
        // return $this->belongsTo('App\Models\PecasEquipamento');
    // }
     public function equipamento(){
-        return $this->belongsTo('App\Models\PecasEquipamento');
+        return $this->belongsTo('App\Models\Equipamento');
     }
     public function produto(){
         return $this->belongsTo('App\Models\Produto');//busca regsitro atraves do modulo produtos
     }
+    
 }
