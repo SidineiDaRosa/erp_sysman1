@@ -113,7 +113,7 @@
                     <tr>
                         <th scope="row"> {{$ordem_servico_f->id}}</td>
                         <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
-                        <td>{{ $ordem_servico_f->produtos->descricao}}</td>
+                        <td>{{ $ordem_servico_f->produto_id->nome}}</td>
                         <td>{{ $ordem_servico_f->equipamento}}</td>
                         <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
                         <td><span id="spn1">Restam:</span> {{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>
