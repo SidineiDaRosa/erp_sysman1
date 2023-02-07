@@ -85,7 +85,7 @@
         }
     </style>
     @foreach($equipamento as $equipamento_f)
-    {{$equipamento_f['id']}}
+    {{$equipamento_f['nome']}}
     @endforeach"
     <table class="table-template table-striped table-hover table-bordered">
         <thead>
