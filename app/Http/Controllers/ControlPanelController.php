@@ -57,12 +57,14 @@ class ControlPanelController extends Controller
             $x += 1;
         }
         if ($x = $totRegPecEquip) {
+            dd($equipamentos);
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
                 ->where('horas_proxima_manutencao', ('<='), 4000)->get();
             $x = 0;
             $totRegPecEquip = 0;
             return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
         } else {
+            dd($equipamentos);
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
                 ->where('horas_proxima_manutencao', ('<='), 4000)->get();
             return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
