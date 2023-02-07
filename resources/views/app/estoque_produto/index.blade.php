@@ -80,12 +80,10 @@
                 <a href="{{ route('produto.index') }}" class="btn btn-sm btn-primary">
                     Lista de produtos
                 </a>
-
-
             </div>
         </div>
         <div class="card-body">
-            <table class="">
+            <table class="table-template table-striped table-hover table-bordered">
                 <thead>
                     <tr>
                         <th scope="col" class="th-title">Id</th>

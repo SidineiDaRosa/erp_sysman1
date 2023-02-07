@@ -121,8 +121,6 @@ class OrdemServicoController extends Controller
             $ordens_servicos = OrdemServico::where('data_inicio', ('>='), $dataInicio)
                 ->where('data_inicio', ('<='), $dataFim)
                 ->where('empresa_id', $empresa_id)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
-             
-            
             return view(
                 'app.ordem_servico.printer_list_os',
                 ['empresa' => $empresa, 'ordens_servicos' => $ordens_servicos, 'valorTotal' => $valorTotal]
