@@ -25,7 +25,7 @@ class PecasEquipamentos extends Model
        
     ];
 
-    public function equipamento_nome(){
+    public function maquina(){
         return $this->belongsTo('App\Models\Equipamento');
     }
     public function produto(){
