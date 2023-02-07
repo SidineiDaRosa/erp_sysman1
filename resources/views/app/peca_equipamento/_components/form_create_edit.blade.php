@@ -32,7 +32,7 @@
                     <option value=""> --Selecione o Produto--</option>
                     @foreach ($produtos as $produto )
                     <option value="{{ $produto ->id}}" {{ ($produto ->nome ?? old('nome')) == $produto ->nome? 'selected' : '' }}>
-                        {{ $produto ->nome }}
+                    {{ $produto ->id }}.{{ $produto ->nome }}
                     </option>
                     @endforeach
                 </select>

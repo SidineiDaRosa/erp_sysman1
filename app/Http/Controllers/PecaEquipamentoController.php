@@ -49,11 +49,12 @@ class PecaEquipamentoController extends Controller
     public function store(Request $request)
     {
         //
-        
+
         PecasEquipamentos::create($request->all());
         $equipamentoId = $request->get('equipamento');
-        $equipamento = Equipamento::where('id',  $equipamentoId)->get();
-        $pecasEquip = PecasEquipamentos::all();
+        $equipamento = Equipamento::where('id', $equipamentoId)->get();
+        //$pecasEquip = PecasEquipamentos::all();
+        $pecasEquip = PecasEquipamentos::where('equipamento',$equipamentoId)->get();
         return view('app.peca_equipamento.index', ['pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento]);
     }
 
