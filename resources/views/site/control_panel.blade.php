@@ -68,8 +68,9 @@
                     body {
                         background-color: rgb(211, 211, 211);
                     }
-                    #spn1{
-                        color:red;
+
+                    #spn1 {
+                        color: red;
                     }
                 </style>
                 <input type="text" id="timer" readonly>
@@ -96,6 +97,8 @@
                         font-size: 20px;
                     }
                 </style>
+                @foreach($equipamento as $equipamento_f)
+                @endforeach"
                 <table class="table-template table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -105,7 +108,7 @@
                             <th scope="col" class="th-title">Equipamento</th>
                             <th scope="col" class="th-title">Intervalo_manutencao</th>
                             <th scope="col" class="th-title">Próxima_manutencao</th>
-                          
+
 
                         </tr>
                     </thead>
@@ -115,6 +118,7 @@
                         <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                         <td>{{ $ordem_servico_f->produto->nome}}</td>
                         <td>{{ $ordem_servico_f->equipamento}}</td>
+                        <td>{{$equipamento_f['nome']}}</td>
                         <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
                         <td><span id="spn1">Restam:</span> {{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>
                     </tr>
