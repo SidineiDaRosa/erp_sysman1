@@ -85,7 +85,6 @@
         }
     </style>
     @foreach($equipamento as $equipamento_f)
-    {{$equipamento_f['nome']}}
     @endforeach"
     <table class="table-template table-striped table-hover table-bordered">
         <thead>
@@ -103,7 +102,7 @@
                 <th scope="row"> {{$ordem_servico_f->id}}</td>
                 <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                 <td>{{ $ordem_servico_f->produto_id->descricao}}</td>
-
+                <td>{{$equipamento_f['nome']}}</td>
                 <td>{{ $ordem_servico_f->equipamento}}</td>
                 <td>{{ $ordem_servico_f->intervalo_manutencao}}</td>
             </tr>
