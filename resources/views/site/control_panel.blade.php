@@ -118,7 +118,7 @@
                         <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                         <td>{{ $ordem_servico_f->produto->nome}}</td>
                         <td>{{ $ordem_servico_f->equipamento}}</td>
-                        <td>{{$equipamento_f['nome']}}</td>
+                        <td>{{$equipamento_f->nome}}</td>
                         <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
                         <td><span id="spn1">Restam:</span> {{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>
                     </tr>
