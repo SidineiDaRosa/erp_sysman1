@@ -84,7 +84,7 @@
             font-size: 20px;
         }
     </style>
-    "@foreach($equipamento as $equipamento_f)
+    @foreach($equipamento as $equipamento_f)
     {{$equipamento_f['id']}}
     @endforeach"
     <table class="table-template table-striped table-hover table-bordered">
