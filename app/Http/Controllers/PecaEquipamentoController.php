@@ -32,7 +32,6 @@ class PecaEquipamentoController extends Controller
     {
         //
         $equipamentoId = $equipamento_id->get('equipamento');
-        //dd( $produtoId);
         $produtos = Produto::all();
         $equipamento = Equipamento::where('id',  $equipamentoId)->get();
         return view('app.peca_equipamento.create', [
@@ -49,7 +48,6 @@ class PecaEquipamentoController extends Controller
     public function store(Request $request)
     {
         //
-
         PecasEquipamentos::create($request->all());
         $equipamentoId = $request->get('equipamento');
         $equipamento = Equipamento::where('id', $equipamentoId)->get();
