@@ -97,7 +97,7 @@
                         font-size: 20px;
                     }
                 </style>
-                @foreach($equipamento as $equipamento_f)
+                @foreach($equipamentos as $equipamento_f)
                 @endforeach"
                 <table class="table-template table-striped table-hover table-bordered">
                     <thead>
