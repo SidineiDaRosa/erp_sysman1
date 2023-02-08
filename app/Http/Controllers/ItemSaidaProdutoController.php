@@ -25,27 +25,30 @@ class ItemSaidaProdutoController extends Controller
         $empresa_id = $request->get('empresa_id');
         $produto_id = $request->get("produto");
         $pedido_id = $request->get("pedido");
-        $equipamento_id= $request->get("equipamento");
-        if ($tipoFiltro >=1) {
+        $equipamento_id = $request->get("equipamento");
+        if ($tipoFiltro >= 1) {
             $empresas = Empresas::all();
             $produtos = Empresas::all();
-            $firma=$empresa_id;
-            $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id )->where('produto_id',$produto_id)->get();
+            $firma = $empresa_id;
+            $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produto_id)->get();
             return view('app.item_saida_produto.index', [
-                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' =>$produtos,
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
                 'pedido' => $pedido_id,
-                'empresa_id'=>$empresa_id,
-                'equipamento_id'=>$equipamento_id
+                'empresa_id' => $empresa_id,
+                'equipamento_id' => $equipamento_id
             ]);
         } else {
-            //$empresas = Empresas::all();
-            //$produtos = Empresas::all();
-            //$estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
+            $empresas = Empresas::all();
+            $produtos = Empresas::all();
+            $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
             //----------------------------------------------------------------
-            $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->get();
-            $equipamento = Equipamento::where('id',  $equipamento_id)->get();
+            // $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->get();
+            // $equipamento = Equipamento::where('id',  $equipamento_id)->get();
             return view('app.item_saida_produto.index', [
-                'pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento
+                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
+                'pedido' => $pedido_id,
+                'empresa_id' => $empresa_id,
+                'equipamento_id' => $equipamento_id
             ]);
         }
     }
