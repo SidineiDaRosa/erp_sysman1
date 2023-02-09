@@ -40,8 +40,8 @@ class SaidaProdutoController extends Controller
     {
         $empresa_id = $Request->get('empresa');
         $produtoId = $Request->get('produto');
-        $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get(); 
-        if (!empty($estoque_produtos )){
+        $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get();
+        if (!empty($estoque_produtos)){
             $equipamento_id =  $Request->get('equipamento_id');
             $unidade_medida = UnidadeMedida::all();
             $estoque_id = $Request->get('estoque_id');
@@ -57,13 +57,12 @@ class SaidaProdutoController extends Controller
                 'pedido' => $pedido,
                 'estoque' => $estoque,
                 'pedido_saida_produtos' => $pedido_saida_produtos,
-                'estoque_produtos'=>$estoque_produtos
+                'estoque_produtos' => $estoque_produtos
             ]);
-        }else{
-            echo('<div id="Alert">Não foi encontrado o produto no estoque!</div><Style>#Alert{background_color:Red;}</Style>');
-        } 
+        } else {
+            echo ('<div id="Alert">Não foi encontrado o produto no estoque!</div><Style>#Alert{background_color:Red;}</Style>');
+        }
         //
-      
     }
     /**
      * Store a newly created resource in storage.
