@@ -17,9 +17,7 @@
         <form action="{{ route('Saida-produto.store') }}" method="POST">
             @csrf
             @endif
-            @foreach
-            ($estoque_produtos as $estoque_produto_f)
-            @endforeach
+           
             <div class="row mb-3">
                 <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                 <div class="col-md-6">
@@ -46,8 +44,8 @@
             <div class="row mb-1">
                 <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Estoque id</label>
                 <div class="col-md-6">
-                    <input name="estoque_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
-                    {{$empresas_f['id']}}
+                    <input name="estoque_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque_produtos as $estoque_produto_f)
+                    {{$estoque_produto_f['id']}}
                     @endforeach" readonly>
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                 </div>
