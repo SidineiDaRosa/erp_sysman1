@@ -38,25 +38,32 @@ class SaidaProdutoController extends Controller
      */
     public function create(Request $Request)
     {
-        //
-        $equipamento_id =  $Request->get('equipamento_id');
-        $unidade_medida = UnidadeMedida::all();
-        $estoque_id = $Request->get('estoque_id');
+        $empresa_id = $Request->get('empresa');
         $produtoId = $Request->get('produto');
-        $pedido = $Request->get('pedido');
-        $pedido_saida_produtos= PedidoSaida::where('id', $pedido )->get();
-        $produtos = Produto::where('id', $produtoId)->get();
-        $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
-        // $pedido = PedidoSaida::where('id', $pedidoId)->get();
-        $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
-        return view('app.saida_produto.create', [
-            'produtos' => $produtos, 'equipamento_id' =>  $equipamento_id,
-            'unidade_medida' => $unidade_medida,
-            'pedido' => $pedido,
-            'estoque' => $estoque,
-            'pedido_saida_produtos'=>$pedido_saida_produtos
-
-        ]);
+        $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get();
+        if (!empty($estoque_produtos )){
+            $equipamento_id =  $Request->get('equipamento_id');
+            $unidade_medida = UnidadeMedida::all();
+            $estoque_id = $Request->get('estoque_id');
+            // $produtoId = $Request->get('produto');
+            $pedido = $Request->get('pedido');
+            $pedido_saida_produtos = PedidoSaida::where('id', $pedido)->get();
+            $produtos = Produto::where('id', $produtoId)->get();
+            $produtos = EntradaProduto::where('produto_id', $produtoId)->get();
+            // $pedido = PedidoSaida::where('id', $pedidoId)->get();
+            $estoque  = EstoqueProdutos::where('id', $estoque_id)->get();
+            return view('app.saida_produto.create', [
+                'produtos' => $produtos, 'equipamento_id' =>  $equipamento_id,
+                'unidade_medida' => $unidade_medida,
+                'pedido' => $pedido,
+                'estoque' => $estoque,
+                'pedido_saida_produtos' => $pedido_saida_produtos
+            ]);
+        }else{
+            echo('o registro não exite');
+        } 
+        //
+      
     }
     /**
      * Store a newly created resource in storage.
@@ -71,15 +78,15 @@ class SaidaProdutoController extends Controller
         $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
         SaidaProduto::create($request->all());
         $saidas_produtos = SaidaProduto::all();
-        $estoque= EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
-         $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
-         $estoque->save();
+        $estoque = EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
+        $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
+        $estoque->save();
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
         $categorias = Marca::all();
         $unidades = Empresas::all();
         //echo('controller saidas de produtos');
-        echo('retornar');
+        echo ('retornar');
     }
 
     /**

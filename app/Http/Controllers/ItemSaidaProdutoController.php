@@ -40,15 +40,22 @@ class ItemSaidaProdutoController extends Controller
         } else {
             $empresas = Empresas::all();
             $produtos = Empresas::all();
-            $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
+            // $estoque_produtos = EstoqueProdutos::where('empresa_id', 0)->get();
             //----------------------------------------------------------------
             // $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->get();
             // $equipamento = Equipamento::where('id',  $equipamento_id)->get();
+            // return view('app.item_saida_produto.index', [
+            // 'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
+            // 'pedido' => $pedido_id,
+            // 'empresa_id' => $empresa_id,
+            // 'equipamento_id' => $equipamento_id
+            // ]);
+            $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->get();
+            $equipamento = Equipamento::where('id',  $equipamento_id)->get();
+            //$estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produto_id)->get();
             return view('app.item_saida_produto.index', [
-                'estoque_produtos' => $estoque_produtos, 'empresas' => $empresas, 'produtos' => $produtos,
-                'pedido' => $pedido_id,
-                'empresa_id' => $empresa_id,
-                'equipamento_id' => $equipamento_id
+                'pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento, 'produtos' => $produtos, 'pedido' => $pedido_id,'empresa'=>$empresa_id 
+                //'estoque_produtos' => $estoque_produtos
             ]);
         }
     }
