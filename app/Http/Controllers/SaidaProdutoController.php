@@ -60,7 +60,7 @@ class SaidaProdutoController extends Controller
                 'estoque_produtos'=>$estoque_produtos
             ]);
         }else{
-            echo('o registro não exite');
+            echo('<div id="Alert">Não foi encontrado o produto no estoque!</div><Style>#Alert{background_color:Red;}</Style>');
         } 
         //
       
