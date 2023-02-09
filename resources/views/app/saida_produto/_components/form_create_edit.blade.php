@@ -71,8 +71,8 @@
             <div class="row mb-1">
                 <label for="valor" class="col-md-4 col-form-label text-md-end text-right">Valor</label>
                 <div class="col-md-6">
-                    <input name="valor" id="valor" type="deciaml" class="form-control " value="@foreach($estoque as $empresas_f)
-                    {{$empresas_f['valor']}}
+                    <input name="valor" id="valor" type="deciaml" class="form-control " value="@foreach($estoque_produtos as $estoque_produto_f)
+                    {{$estoque_produto_f['valor']}}
                     @endforeach" readonly>
                     {{ $errors->has('valor') ? $errors->first('valor') : '' }}
                 </div>
