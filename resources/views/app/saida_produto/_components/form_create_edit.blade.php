@@ -53,8 +53,8 @@
             <div class="row mb-1">
                 <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Produto id</label>
                 <div class="col-md-6">
-                    <input name="produto_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
-                    {{$empresas_f['produto_id']}}
+                    <input name="produto_id" id="produto_id" type="text" class="form-control " value="@foreach($estoque_produtos as $estoque_produto_f)
+                    {{$estoque_produto_f['produto_id']}}
                     @endforeach" readonly>
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                 </div>
