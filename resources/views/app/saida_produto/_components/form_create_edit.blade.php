@@ -62,8 +62,8 @@
             <div class="row mb-1">
                 <label for="produto" class="col-md-4 col-form-label text-md-end text-right">Unid</label>
                 <div class="col-md-6">
-                    <input name="unidade_medida" id="produto_id" type="text" class="form-control " value="@foreach($estoque as $empresas_f)
-                    {{$empresas_f['unidade_medida']}}
+                    <input name="unidade_medida" id="produto_id" type="text" class="form-control " value="@foreach($estoque_produtos as $estoque_produto_f)
+                    {{$estoque_produto_f['unidade_medida']}}
                     @endforeach" readonly>
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                 </div>
