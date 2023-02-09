@@ -20,8 +20,10 @@ class PedidosSaidaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $tipoFiltro=$request->get('tipofiltro');
+        echo($tipoFiltro);
         //
         $pedidos_saida = PedidoSaida::all();
         $equipamentos = Equipamento::all();

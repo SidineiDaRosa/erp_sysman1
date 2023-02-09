@@ -14,10 +14,8 @@
 
             <div class="card-body">
                 @component('app.produto._components.form_create_edit', ['marcas' => $marcas, 'unidades' => $unidades,
-                    'categorias' => $categorias
-                  
+                    'categorias' => $categorias                 
                     ])
-
                 @endcomponent
             </div>
         </div>

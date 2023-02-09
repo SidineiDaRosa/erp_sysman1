@@ -6,7 +6,7 @@
         <div class="card-header-template">
             <div> Pedidos de saida</div>
 
-            <form id="formSearchingProducts" action="{{'Produtos-filtro'}}" method="POST">
+            <form id="formSearchingProducts" action="{{'pedido-saida-filtro'}}" method="POST">
                 @csrf
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
