@@ -40,12 +40,11 @@ class SaidaProdutoController extends Controller
     {
         $empresa_id = $Request->get('empresa');
         $produtoId = $Request->get('produto');
-        $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get();
+        $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get(); 
         if (!empty($estoque_produtos )){
             $equipamento_id =  $Request->get('equipamento_id');
             $unidade_medida = UnidadeMedida::all();
             $estoque_id = $Request->get('estoque_id');
-            // $produtoId = $Request->get('produto');
             $pedido = $Request->get('pedido');
             $pedido_saida_produtos = PedidoSaida::where('id', $pedido)->get();
             $produtos = Produto::where('id', $produtoId)->get();
@@ -57,7 +56,8 @@ class SaidaProdutoController extends Controller
                 'unidade_medida' => $unidade_medida,
                 'pedido' => $pedido,
                 'estoque' => $estoque,
-                'pedido_saida_produtos' => $pedido_saida_produtos
+                'pedido_saida_produtos' => $pedido_saida_produtos,
+                'estoque_produtos'=>$estoque_produtos
             ]);
         }else{
             echo('o registro não exite');

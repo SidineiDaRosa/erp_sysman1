@@ -7,7 +7,7 @@
     <form action="{{ route('Saida-produto.store') }}" method="POST">
         @csrf
         @endif
-
+        {{$estoque_produtos}}
         <div class="row mb-1">
             <label for="pedidos_saida_id" class="col-md-4 col-form-label text-md-end text-right">Num pedido saida</label>
             <div class="col-md-6">
