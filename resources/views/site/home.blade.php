@@ -60,7 +60,6 @@
     </div>
     <div id="div-body">
         <img class="d-block w-100" src="{{ asset('img/automação-industrial-1.jpg') }}" alt="imagem 1">
-
     </div>
 
 </body>

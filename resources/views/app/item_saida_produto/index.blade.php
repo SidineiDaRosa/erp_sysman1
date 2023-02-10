@@ -42,8 +42,7 @@
                                 </span>
                                 <span class="text">Saída estoque</span>
                             </a>
-                        <td>
-
+                        </td>
                     </tr>
 
                     @endforeach
