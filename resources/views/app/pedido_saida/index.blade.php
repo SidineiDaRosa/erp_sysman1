@@ -10,31 +10,34 @@
                 @csrf
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
-                        <option value="1">Busca Aberto</option>
-                        <option value="1">Busca Fechado</option>
-                        <option value="1">Busca Indefinido</option>
-                        <option value="1">Busca Em andamanto</option>
+                        <option value="1">Situação</option>
+                        <option value="2">>= Data Emissão e <= Data Emissão </option>
+                        <option value="3">>= Data Emissão e <= Data Emissão e empresa</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-0">
+                    <select class="form-control" name="status" id="status" value="" placeholder="Selecione o estado do pedido">
+                        <option value="aberto">Busca Aberto</option>
+                        <option value="fechado">Busca Fechado</option>
+                        <option value="indefenido">Busca Indefinido</option>
+                        <option value="em andamento">Busca Em andamanto</option>
                     </select>
                 </div>
                 <!--input box filtro buscar produto--------->
 
-                <input type="text" id="query" name="produto" placeholder="Buscar produto..." aria-label="Search through site content">
+                <input type="text" id="query" name="produto" placeholder="Digite o número do pedido..." aria-label="Search through site content">
                 <button type="submit">
-                    <i class="icofont-search"></i>
+                    <i class="icofont-search icofont-2x"></i>
                 </button>
             </form>
-
             <div>
-
                 <a href="{{route('pedido-saida.create')}}" class="btn-sm btn-success">
 
                     <i class="icofont-database-add"></i>
                     </span>
                     <span class="text">Criar novo pedido de saída</span>
                 </a>
-
             </div>
-
         </div>
         <div class="card-body">
             <style>
@@ -142,7 +145,6 @@
                                     <form id="form_{{$pedido_saida->id }}" method="post" action="{{route('pedido-saida.destroy', [$pedido_saida->id])}}">
                                         @method('POST')
                                         @csrf
-
                                     </form>
                                     <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarPedidoSaida()">
                                         <i class="icofont-ui-delete"></i>

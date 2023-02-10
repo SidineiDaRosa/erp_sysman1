@@ -22,14 +22,19 @@ class PedidosSaidaController extends Controller
      */
     public function index(Request $request)
     {
-        $tipoFiltro=$request->get('tipofiltro');
-        echo($tipoFiltro);
-        //
-        $pedidos_saida = PedidoSaida::all();
+        $tipoFiltro = $request->get('tipofiltro');
+        $situacao = $request->get('status');
+        echo ($tipoFiltro . '---' . $situacao);
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
-        return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+        if ($tipoFiltro >= 1) {
+            $pedidos_saida = PedidoSaida::where('status', $situacao)->get();
+            return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+        } else {
+            $pedidos_saida = PedidoSaida::where('id', 0)->get();
+            return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+        }
     }
 
     /**
@@ -41,7 +46,7 @@ class PedidosSaidaController extends Controller
     {
         //
         $ordem_servico_id = $requ->get('ordem_servico');
-        $ordem_servico = OrdemServico::where('id',$ordem_servico_id)->get();
+        $ordem_servico = OrdemServico::where('id', $ordem_servico_id)->get();
         $pedidos_saida = PedidoSaida::all();
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
@@ -51,7 +56,7 @@ class PedidosSaidaController extends Controller
             'equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida,
             'empresa' => $empresas,
             'fornecedores' => $fornecedores,
-            'ordem_servico'=>$ordem_servico
+            'ordem_servico' => $ordem_servico
         ]);
     }
 
@@ -87,21 +92,21 @@ class PedidosSaidaController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param  \App\PedidoSaida  $equipamento
+     * @param  \App\PedidoSaida  $PedidoSaida
      * @return \Illuminate\Http\Response
      */
 
-    public function edit(PedidoSaida $pedido_saida)
+    public function edit(PedidoSaida $pedidoSaida)
     {
-        //
-        $pedido_saida_id_1 = $pedido_saida->get('pedido_saida->id');
+
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
-        $saidas_produto = SaidaProduto::all();
-        $saidas_produto = SaidaProduto::where('pedidos_saida_id', 1)->get();
+        $empresas = Empresas::all();
+        $fornecedores = Fornecedor::all();
         return view('app.pedido_saida.edit', [
-            'equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedido_saida' => $pedido_saida,
-            'saidas_produto' => $saidas_produto
+            'equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidoSaida,
+            'empresa' => $empresas,
+            'fornecedores' => $fornecedores,
         ]);
     }
     /**

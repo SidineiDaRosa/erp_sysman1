@@ -54,10 +54,6 @@
                             <input type="text" class="form-control" id="emissor" name="emissor" placeholder="emissor" value="{{auth()->user()->name}}" readonly>
                             <input type="text" class="form-control" id="funcionarios_id" name="funcionarios_id"value="1" hidden>
                         </div>
-                      
-                            
-
-                        
                         <!----------------------------------->
                         <div class="col-md-2 mb-0">
                             <label for="situacao" class="">Status:</label>
