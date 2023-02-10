@@ -35,7 +35,7 @@
                         <td>{{ $peca_equipamento->produto->id}}</td>
                         <td>{{ $peca_equipamento->produto->nome}}</td>
                         <td>
-                          
+
                             <a href="{{ route('Saida-produto.create',['produto' => $peca_equipamento->produto->id,'pedido'=>$pedido,'empresa'=>$empresa
                                 ]) }}" class="btn-sm btn-warning">
                                 <i class="icofont-cart-alt"></i>
@@ -43,8 +43,7 @@
                                 <span class="text">Saída estoque</span>
                             </a>
                         <td>
-                        </td>
-                        </td>
+
                     </tr>
 
                     @endforeach

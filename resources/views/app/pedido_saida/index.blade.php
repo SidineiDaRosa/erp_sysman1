@@ -127,7 +127,6 @@
                         <td>{{ $pedido_saida->funcionarios->primeiro_nome}}</td>
                         <td>{{ $pedido_saida->status}}</td>
                         <td>{{ $pedido_saida->ordem_servico_id}}</td>
-
                         <td>
                             <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
 
