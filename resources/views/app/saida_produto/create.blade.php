@@ -29,8 +29,8 @@
                     'equipamento_id' => $equipamento_id,
                     'pedido_saida_produtos'=>$pedido_saida_produtos,
                     'estoque_produtos'=>$estoque_produtos,
-                    'peca_equipamento_id'=>$peca_equipamento_id
-
+                    'peca_equipamento_id'=>$peca_equipamento_id,
+                    'peca_equipamento'=>$peca_equipamento
                     ])
                 @endcomponent
             </div>

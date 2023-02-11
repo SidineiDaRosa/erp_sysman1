@@ -24,6 +24,15 @@
                     {{ $errors->has('id') ? $errors->first('id') : '' }}
                 </div>
             </div>
+
+        {{$peca_equipamento}}
+            <div class="row mb-3">
+                <label for="data_proxima_manutencao" class="col-md-4 col-form-label text-md-end text-right">Data da próxima manutenção</label>
+                <div class="col-md-6">
+                    <input name="data_proxima_manutencao" id="data_proxima_manutencao" type="date" class="form-control " value="" readonly>
+                    {{ $errors->has('data') ? $errors->first('data') : '' }}
+                </div>
+            </div>
             <div class="row mb-3">
                 <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                 <div class="col-md-6">
@@ -93,6 +102,7 @@
                             let n2 = document.getElementById('quantidade').value;
                             let sub = n2 * n1;
                             document.getElementById('subtotal').value = sub;
+                            AtualizaProxManut()
                         };
                     </script>
                     {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
@@ -129,6 +139,61 @@
             </div>
 
         </form>
+        <script>
+            function AtualizaProxManut() {
+                let dataUltimaSub, anoUltimasub, diaUltimaSub
+                let dataProxManut
+                let intervaloMan
+                let mesesInter
+                let diasInter
+                let mesesProxima, diasProxima, anosProxima
+                dataUltimaSub = document.getElementById('data_substituicao').value
+                intervaloMan = document.getElementById('intervalo_manutencao').value
+                let dataUltimaSub_1 = new Date(dataUltimaSub)
+                let anoUltima = dataUltimaSub_1.getFullYear();
+                let mesUltima = dataUltimaSub_1.getMonth() + 1;
+                let diaUltima = dataUltimaSub_1.getDate() + 1;
+                if (intervaloMan >= 8700) {
+                    let anosInter = (intervaloMan / 8700)
+                    let anosInter_1 = (parseInt(anosInter))
+                    let getMeses = (parseInt(((anosInter - anosInter_1) * 8700) / 730))
+                    mesesProxima = String(getMeses + 1).padStart(2, '0');
+                    anosProxima = String(anosInter_1 + anoUltima).padStart(4, '0');
+                    diasProxima = String(diaUltima).padStart(2, '0')
+                    alert('A data da próxima manutenção será agendada para:' + diasProxima + '-' + mesesProxima + '-' + anosProxima)
+                }
+                if (intervaloMan >= 720 & intervaloMan < 8700) {
+                    mesesInter = (parseInt(intervaloMan / 730))
+                    //mesesProxima =( mesesInter + mesUltima).padStart(2, '0')
+                    anosProxima = String(anoUltima).padStart(4, '0');
+                    mesesProxima = String(mesesInter + mesUltima).padStart(2, '0');
+                    diasProxima = String(diaUltima).padStart(2, '0')
+                    alert('A data da próxima manutenção será agendada para:' + diasProxima + '-' + mesesProxima + '-' + anosProxima)
+                }
+                if (intervaloMan >= 1 & intervaloMan < 720) {
+                    diasInter = (parseInt(intervaloMan / 24)) + diaUltima
+                    if (diasInter >= 30) {
+                        mesUltima = mesUltima + 1
+
+                        diasInter = diasInter - 30
+                        diasInter = diasInter
+
+                    }
+                    anosProxima = anoUltima
+                    mesesProxima = String(mesUltima).padStart(2, '0');
+                    diasProxima = String(diasInter).padStart(2, '0')
+                    alert('A data da próxima manutenção será agendada para:' + diasProxima + '-' + mesesProxima + '-' + anosProxima)
+                }
+                //var dia = String(data_atual.getDate()).padStart(2, '0');
+                //var mes = String(mesesProxima .getMonth() + 1).padStart(2, '0');
+                dataProxManut = anosProxima + '-' + mesesProxima + '-' + diasProxima
+                document.getElementById('data_proxima_manutencao').value = dataProxManut
+                document.getElementById('horas_proxima_manutencao').value = intervaloMan
+                document.getElementById('status').value = 'ativo'
+                // document.getElementById('link_peca').value='vazio'
+                // document.getElementById('forma_medicao').value=1
+            }
+        </script>
 </body>
 
 </html>

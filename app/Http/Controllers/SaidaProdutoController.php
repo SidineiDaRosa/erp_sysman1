@@ -42,6 +42,7 @@ class SaidaProdutoController extends Controller
         $empresa_id = $Request->get('empresa');
         $produtoId = $Request->get('produto');
         $peca_equipamento_id = $Request->get('peca_equipamento_id');
+        $peca_equipamento=PecasEquipamentos::where('id',$peca_equipamento_id)->get();
         $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get();
         if (!empty($estoque_produtos)) {
             $equipamento_id =  $Request->get('equipamento_id');
