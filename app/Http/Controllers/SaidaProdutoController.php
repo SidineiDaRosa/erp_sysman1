@@ -60,7 +60,7 @@ class SaidaProdutoController extends Controller
                 'estoque' => $estoque,
                 'pedido_saida_produtos' => $pedido_saida_produtos,
                 'estoque_produtos' => $estoque_produtos,
-                'peca_equipamento_Id'=>$peca_equipamento_id
+                'peca_equipamento_id'=>$peca_equipamento_id
             ]);
         } else {
             echo ('<div id="Alert">Não foi encontrado o produto no estoque!</div><Style>#Alert{background_color:Red;}</Style>');
