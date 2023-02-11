@@ -19,7 +19,8 @@
                     const element = document.getElementById("demo");
                     setInterval(function() {
                         //element.innerHTML += "Hello"
-                        document.getElementById('busca').click();
+                        //document.getElementById('busca').click();
+                        PegaDataHoraPhp() //executa a função 
                         document.getElementById('timer_interval').value = 0;
                         // btn.addEventListener("click", exibirMensagem);
 
