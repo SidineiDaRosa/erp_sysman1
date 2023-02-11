@@ -36,7 +36,8 @@
                         <td>{{ $peca_equipamento->produto->nome}}</td>
                         <td>
 
-                            <a href="{{ route('Saida-produto.create',['produto' => $peca_equipamento->produto->id,'pedido'=>$pedido,'empresa'=>$empresa
+                            <a href="{{ route('Saida-produto.create',['produto' => $peca_equipamento->produto->id,'pedido'=>$pedido,'empresa'=>$empresa,
+                                'peca_equipamento_id'=>$peca_equipamento->id
                                 ]) }}" class="btn-sm btn-warning">
                                 <i class="icofont-cart-alt"></i>
                                 </span>

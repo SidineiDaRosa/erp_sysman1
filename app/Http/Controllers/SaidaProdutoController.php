@@ -13,6 +13,7 @@ use App\Models\Marca;
 use App\Models\PedidoSaida;
 use App\Models\UnidadeMedida;
 use App\Models\EstoqueProdutos;
+use App\Models\PecasEquipamentos;
 
 class SaidaProdutoController extends Controller
 {
@@ -40,6 +41,7 @@ class SaidaProdutoController extends Controller
     {
         $empresa_id = $Request->get('empresa');
         $produtoId = $Request->get('produto');
+        $peca_equipamento_id=$Request->get('peca_equipamento_id');
         $estoque_produtos = EstoqueProdutos::where('empresa_id', $empresa_id)->where('produto_id', $produtoId)->get();
         if (!empty($estoque_produtos)){
             $equipamento_id =  $Request->get('equipamento_id');
@@ -57,7 +59,8 @@ class SaidaProdutoController extends Controller
                 'pedido' => $pedido,
                 'estoque' => $estoque,
                 'pedido_saida_produtos' => $pedido_saida_produtos,
-                'estoque_produtos' => $estoque_produtos
+                'estoque_produtos' => $estoque_produtos,
+                'peca_equipamento_Id'=>$peca_equipamento_id
             ]);
         } else {
             echo ('<div id="Alert">Não foi encontrado o produto no estoque!</div><Style>#Alert{background_color:Red;}</Style>');
@@ -74,12 +77,16 @@ class SaidaProdutoController extends Controller
     {
         //
         $pedido_saida_id = $request->get('pedidos_saida_id');
+        //$peca_equipamento_id= $request->get('peca_equipamento_id');
         $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
         SaidaProduto::create($request->all());
         $saidas_produtos = SaidaProduto::all();
         $estoque = EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
         $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
         $estoque->save();
+        //-------------------------------------
+
+        $pecaEquipamento=PecasEquipamentos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
         $categorias = Marca::all();

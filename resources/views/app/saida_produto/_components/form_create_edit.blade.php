@@ -17,7 +17,13 @@
         <form action="{{ route('Saida-produto.store') }}" method="POST">
             @csrf
             @endif
-           
+            <div class="row mb-3">
+                <label for="peca_equipamento_id" class="col-md-4 col-form-label text-md-end text-right">Id Peça do equipamento</label>
+                <div class="col-md-6">
+                    <input name="peca_equipamento_id" id="peca_equipamento_id" type="number" class="form-control " value="{{ $peca_equipamento_id->id ?? old('id') }}" readonly>
+                    {{ $errors->has('id') ? $errors->first('id') : '' }}
+                </div>
+            </div>
             <div class="row mb-3">
                 <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                 <div class="col-md-6">
