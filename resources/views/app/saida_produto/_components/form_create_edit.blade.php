@@ -37,7 +37,7 @@
             <div class="row mb-3">
                 <label for="data_proxima_manutencao" class="col-md-4 col-form-label text-md-end text-right">Data da próxima manutenção</label>
                 <div class="col-md-6">
-                    <input name="data_proxima_manutencao" id="data_proxima_manutencao" type="date" class="form-control " value="{{$peca_equipamento_f->data_proxima_manutencao}}" readonly>
+                    <input name="data_proxima_manutencao" id="data_proxima_manutencao" type="date" class="form-control " value="" readonly>
                     {{ $errors->has('data') ? $errors->first('data') : '' }}
                 </div>
             </div>
