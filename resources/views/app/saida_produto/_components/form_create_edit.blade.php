@@ -20,7 +20,7 @@
             <div class="row mb-3">
                 <label for="peca_equipamento_id" class="col-md-4 col-form-label text-md-end text-right">Id Peça do equipamento</label>
                 <div class="col-md-6">
-                    <input name="peca_equipamento_id" id="peca_equipamento_id" type="number" class="form-control " value="{{ $peca_equipamento_id->id ?? old('id') }}" readonly>
+                    <input name="peca_equipamento_id" id="peca_equipamento_id" type="number" class="form-control " value="{{ $peca_equipamento_Id->id ?? old('id') }}" readonly>
                     {{ $errors->has('id') ? $errors->first('id') : '' }}
                 </div>
             </div>
