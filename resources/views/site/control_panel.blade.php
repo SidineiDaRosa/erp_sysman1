@@ -81,7 +81,7 @@
                 <form id="form" action="{{route('control-panel.index')}}" method="get">
                     @method('POST')
                     @csrf
-
+                    <input id="btn1" type="submit" value="get" hidden>
                     <input type="text" value="" id="horas_proxima_manutencao" placeholder="Digite o intervalo...">
                     <label for="Data inicial">Data inicial</label>
                     <input type="date" value="" id="data_inicial">
