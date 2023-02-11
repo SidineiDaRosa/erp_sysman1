@@ -110,7 +110,7 @@
                             let n2 = document.getElementById('quantidade').value;
                             let sub = n2 * n1;
                             document.getElementById('subtotal').value = sub;
-                            AtualizaProxManut()
+                            AtualizaProxManut();
                         };
                     </script>
                     {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
@@ -155,7 +155,7 @@
                 let mesesInter
                 let diasInter
                 let mesesProxima, diasProxima, anosProxima
-                dataUltimaSub = document.getElementById('data_substituicao').value
+                dataUltimaSub = document.getElementById('data').value
                 intervaloMan = document.getElementById('intervalo_manutencao').value
                 let dataUltimaSub_1 = new Date(dataUltimaSub)
                 let anoUltima = dataUltimaSub_1.getFullYear();
