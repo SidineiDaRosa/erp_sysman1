@@ -78,10 +78,15 @@
                 <h3>Tempo setado em 60s para atualização dos registros</h3>
                 <input type="number" id="timer_interval" readonly>
                 <p></p>
-                <a id="busca" class="sidebar-submenu-expanded-a" href="{{route('control-panel.index')}}">Busca</a><br>
                 <form id="form" action="{{route('control-panel.index')}}" method="get">
                     @method('POST')
                     @csrf
+                    <input id="btn1" type="submit" value="get">
+                    <input type="text" value="" id="horas_proxima_manutencao" placeholder="Digite o intervalo...">
+                    <label for="Data inicial">Data inicial</label>
+                    <input type="date" value="" id="data_inicial">
+                    <label for="data_final">Data final</label>
+                    <input type="date" value="" id="data_final">
                 </form>
                 <input type="button" value="Força atualização do intervalo de manutenção" onclick="PegaDataHoraPhp()">
                 <script>
