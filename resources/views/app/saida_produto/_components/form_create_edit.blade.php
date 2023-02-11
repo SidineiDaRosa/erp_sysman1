@@ -29,7 +29,7 @@
             <div class="row mb-3">
                 <label for="intervalo_manutencao" class="col-md-4 col-form-label text-md-end text-right">intervalo manutencao</label>
                 <div class="col-md-6">
-                    <input name="intervalo_manutencao" id="intervalo_manutencao" type="number" class="form-control " value="" readonly>
+                    <input name="intervalo_manutencao" id="intervalo_manutencao" type="number" class="form-control " value="{{$peca_equipamento_f->intervalo_manutencao}}" readonly>
                     {{ $errors->has('intervalo_manutencao') ? $errors->first('intervalo_manutencao') : '' }}
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="row mb-3">
                 <label for="data_proxima_manutencao" class="col-md-4 col-form-label text-md-end text-right">Data da próxima manutenção</label>
                 <div class="col-md-6">
-                    <input name="data_proxima_manutencao" id="data_proxima_manutencao" type="date" class="form-control " value="" readonly>
+                    <input name="data_proxima_manutencao" id="data_proxima_manutencao" type="date" class="form-control " value="{{$peca_equipamento_f->data_proxima_manutencao}}" readonly>
                     {{ $errors->has('data') ? $errors->first('data') : '' }}
                 </div>
             </div>
