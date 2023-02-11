@@ -91,7 +91,8 @@
                 <input type="button" value="Força atualização do intervalo de manutenção" onclick="PegaDataHoraPhp()">
                 <script>
                     function PegaDataHoraPhp() {
-                        document.getElementById('busca').click();
+                        //document.getElementById('busca').click();
+                        document.getElementById('form').submit();
                     }
                 </script>
                 <hr>
