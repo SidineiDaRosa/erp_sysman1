@@ -84,7 +84,7 @@ class SaidaProdutoController extends Controller
         $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
         $estoque->save();
         //-------------------------------------
-        $dataAtual = date('d/m/yy');
+        $dataAtual = date('d/m/y');
         echo($dataAtual );
         $pecaEquipamento = PecasEquipamentos::find($request->input('peca_equipamento_id')); //busca o registro do produto com o id da entrada do produto
         $pecaEquipamento->data_substitucao=$dataAtual; // soma estoque antigo com a entrada de produto
