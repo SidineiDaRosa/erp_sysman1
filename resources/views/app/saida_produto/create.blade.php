@@ -22,7 +22,6 @@
                 </div>
             </div>
             {{$peca_equipamento_id}}
-
             <div class="card-body">
                 @component('app.saida_produto._components.form_create_edit', [
                     'produtos' => $produtos,
@@ -30,8 +29,8 @@
                     'pedido' => $pedido,
                     'equipamento_id' => $equipamento_id,
                     'pedido_saida_produtos'=>$pedido_saida_produtos,
-                    'estoque_produtos'=>$estoque_produtos,
-                    'peca_equipamento_Id'=>$peca_equipamento_id
+                    'estoque_produtos'=>$estoque_produtos
+
                     ])
                 @endcomponent
             </div>
