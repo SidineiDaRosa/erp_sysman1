@@ -24,14 +24,14 @@
                     {{ $errors->has('id') ? $errors->first('id') : '' }}
                 </div>
             </div>
-            @foreach($peca_equipamento as {{$peca_equipamento_f)
-    @endforeach
+            @foreach($peca_equipamento as $peca_equipamento_f)
+            @endforeach
             <div class="row mb-3">
                 <label for="intervalo_manutencao" class="col-md-4 col-form-label text-md-end text-right">intervalo manutencao</label>
                 <div class="col-md-6">
                     <input name="intervalo_manutencao" id="intervalo_manutencao" type="number" class="form-control " value="" readonly>
                     {{ $errors->has('intervalo_manutencao') ? $errors->first('intervalo_manutencao') : '' }}
-            </div>
+                </div>
             </div>
 
             <div class="row mb-3">
