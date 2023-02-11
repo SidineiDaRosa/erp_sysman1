@@ -155,7 +155,7 @@
                 let mesesInter
                 let diasInter
                 let mesesProxima, diasProxima, anosProxima
-                dataUltimaSub = document.getElementById('data').value
+                dataUltimaSub = document.getElementById('data_emissao').value
                 intervaloMan = document.getElementById('intervalo_manutencao').value
                 let dataUltimaSub_1 = new Date(dataUltimaSub)
                 let anoUltima = dataUltimaSub_1.getFullYear();
@@ -185,7 +185,6 @@
 
                         diasInter = diasInter - 30
                         diasInter = diasInter
-
                     }
                     anosProxima = anoUltima
                     mesesProxima = String(mesUltima).padStart(2, '0');
