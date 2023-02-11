@@ -23,6 +23,7 @@ class ControlPanelController extends Controller
     public function index(Request $request)
 
     {
+        $horas_proxima_manutencao=$request->get('horas_proxima_manutencao');
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
 
