@@ -21,7 +21,6 @@
                     </a>
                 </div>
             </div>
-       
             <div class="card-body">
                 @component('app.saida_produto._components.form_create_edit', [
                     'produtos' => $produtos,

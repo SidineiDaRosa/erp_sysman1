@@ -77,20 +77,21 @@ class SaidaProdutoController extends Controller
     {
         //
         $pedido_saida_id = $request->get('pedidos_saida_id');
-        //$peca_equipamento_id= $request->get('peca_equipamento_id');
-        $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
-        SaidaProduto::create($request->all());
-        $saidas_produtos = SaidaProduto::all();
-        $estoque = EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
-        $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
-        $estoque->save();
+        $peca_equipamento_id= $request->get('peca_equipamento_id');
+        
+       /// $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
+       /// SaidaProduto::create($request->all());
+       /// $saidas_produtos = SaidaProduto::all();
+       /// $estoque = EstoqueProdutos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
+       /// $estoque->quantidade = $estoque->quantidade - $request->input('quantidade'); // soma estoque antigo com a entrada de produto
+       /// $estoque->save();
         //-------------------------------------
-
-        $pecaEquipamento=PecasEquipamentos::find($request->input('estoque_id')); //busca o registro do produto com o id da entrada do produto
-        $equipamentos = Equipamento::all();
-        $produtos = Produto::all();
-        $categorias = Marca::all();
-        $unidades = Empresas::all();
+        $pecaEquipamento=PecasEquipamentos::find($request->input('peca_equipamento_id')); //busca o registro do produto com o id da entrada do produto
+        dd($pecaEquipamento);
+       /// $equipamentos = Equipamento::all();
+       /// $produtos = Produto::all();
+       /// $categorias = Marca::all();
+       /// $unidades = Empresas::all();
         //echo('controller saidas de produtos');
         echo ('retornar');
     }
