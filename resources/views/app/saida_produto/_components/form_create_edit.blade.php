@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-        {{$peca_equipamento}}
+   
             <div class="row mb-3">
                 <label for="data_proxima_manutencao" class="col-md-4 col-form-label text-md-end text-right">Data da próxima manutenção</label>
                 <div class="col-md-6">
