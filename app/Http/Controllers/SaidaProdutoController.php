@@ -78,6 +78,7 @@ class SaidaProdutoController extends Controller
         //
         $pedido_saida_id = $request->get('pedidos_saida_id');
         $dataAtual = $request->get('data_emissao');
+        echo( $dataAtual);
         $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
         SaidaProduto::create($request->all());
         $saidas_produtos = SaidaProduto::all();
@@ -88,7 +89,7 @@ class SaidaProdutoController extends Controller
         //$dataAtual = date('y/m/d');
         //echo($dataAtual );
         $pecaEquipamento = PecasEquipamentos::find($request->input('peca_equipamento_id')); //busca o registro do produto com o id da entrada do produto
-        $pecaEquipamento->data_substitucao=$dataAtual; // soma estoque antigo com a entrada de produto
+        $pecaEquipamento->data_substituicao=$dataAtual; // soma estoque antigo com a entrada de produto
         $pecaEquipamento->save();
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
