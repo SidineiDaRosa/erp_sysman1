@@ -77,7 +77,7 @@ class SaidaProdutoController extends Controller
     {
         //
         $pedido_saida_id = $request->get('pedidos_saida_id');
-        $dataAtual = $request->get('data_emissao');
+        $dataAtual = $request->get('data');
         echo( $dataAtual);
         $pedido_saida = PedidoSaida::where('id', $pedido_saida_id)->get();
         SaidaProduto::create($request->all());
