@@ -105,7 +105,7 @@
                     }
                 </style>
                 @foreach($equipamentos as $equipamento_f)
-                @endforeach"
+                @endforeach
                 <table class="table-template table-striped table-hover table-bordered">
                     <thead>
                         <tr>

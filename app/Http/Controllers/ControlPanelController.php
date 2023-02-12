@@ -24,6 +24,7 @@ class ControlPanelController extends Controller
 
     {
         $horas_proxima_manutencao=$request->get('horas_proxima_manutencao');
+        echo($horas_proxima_manutencao);
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
 
@@ -59,13 +60,13 @@ class ControlPanelController extends Controller
         }
         if ($x = $totRegPecEquip) {
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
-                ->where('horas_proxima_manutencao', ('<='), 4000)->get();
+                ->where('horas_proxima_manutencao', ('<='), 1)->get();
             $x = 0;
             $totRegPecEquip = 0;
             return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
         } else {
             $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
-                ->where('horas_proxima_manutencao', ('<='), 4000)->get();
+                ->where('horas_proxima_manutencao', ('<='), 1)->get();
             return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
         }
         if ($tipo_atualizacao >= 1) {
