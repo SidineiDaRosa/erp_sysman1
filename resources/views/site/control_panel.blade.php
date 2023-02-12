@@ -83,7 +83,7 @@
                     @method('POST')
                     @csrf
                     <input id="btn1" type="submit" value="get" hidden>
-                    <input type="text" value="" id="horas_proxima_manutencao" name="horas_proxima_manutencao"placeholder="Digite o intervalo...">
+                    <input type="text" value="" id="horas_proxima_manutencao" name="horas_proxima_manutencao" placeholder="Digite o intervalo...">
                     <label for="Data inicial">Data inicial</label>
                     <input type="date" value="" id="data_inicial">
                     <label for="data_final">Data final</label>
@@ -112,7 +112,7 @@
                             <th scope="col" class="th-title">Id</th>
                             <th scope="col" class="th-title">Data_proxima_manutencao</th>
                             <th scope="col" class="th-title">Produto_id</th>
-                            <th scope="col" class="th-title"><i class="icofont-repair"></i>Equipamento</th>
+                            <th scope="col" class="th-title">Equipamento</th>
                             <th scope="col" class="th-title">Intervalo_manutencao</th>
                             <th scope="col" class="th-title">Próxima_manutencao</th>
                         </tr>
@@ -122,7 +122,7 @@
                         <th scope="row"> {{$ordem_servico_f->id}}</td>
                         <td>{{ $ordem_servico_f->data_proxima_manutencao}}</td>
                         <td>{{ $ordem_servico_f->produto->nome}}</td>
-                        <td>{{ $ordem_servico_f->equipamento}}</td>
+                        <td><i class="icofont-repair"></i>{{ $ordem_servico_f->equipamento}}</td>
                         <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
                         <td><span id="spn1">Restam:</span> {{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>
                     </tr>
