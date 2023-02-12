@@ -24,7 +24,7 @@ class ControlPanelController extends Controller
 
     {
         $horas_proxima_manutencao=$request->get('horas_proxima_manutencao');
-        echo('fazer manutencao');
+        echo($horas_proxima_manutencao);
         $equipamentos = Equipamento::all();
         $produtos = Produto::all();
 
