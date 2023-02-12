@@ -59,6 +59,7 @@ class ControlPanelController extends Controller
             $x += 1;
         }
         if ($x = $totRegPecEquip) {
+            echo ('total de peças equipamento ok');
             if (isset($horas_proxima_manutencao)) {
                 echo ('a varial exite');
                 if (!empty($horas_proxima_manutencao)) { //verifica se exite este registro
@@ -69,6 +70,13 @@ class ControlPanelController extends Controller
                     $totRegPecEquip = 0;
                     return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
                 }
+            } else {
+                echo ('total de peças equipamento não ok');
+                $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
+                    ->where('horas_proxima_manutencao', ('<='), 4000)->get();
+                $x = 0;
+                $totRegPecEquip = 0;
+                return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
             }
         }
         if ($tipo_atualizacao >= 1) {
