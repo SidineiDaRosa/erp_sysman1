@@ -59,6 +59,7 @@ class ControlPanelController extends Controller
             $x += 1;
         }
         if ($x = $totRegPecEquip) {
+            echo('total de peças equipamento ok');
             if (isset($horas_proxima_manutencao)) {
                 echo('a varial exite');
                 if (!empty($horas_proxima_manutencao)) { //verifica se exite este registro
