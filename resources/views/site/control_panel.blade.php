@@ -112,11 +112,9 @@
                             <th scope="col" class="th-title">Id</th>
                             <th scope="col" class="th-title">Data_proxima_manutencao</th>
                             <th scope="col" class="th-title">Produto_id</th>
-                            <th scope="col" class="th-title">Equipamento</th>
+                            <th scope="col" class="th-title"><i class="icofont-repair"></i>Equipamento</th>
                             <th scope="col" class="th-title">Intervalo_manutencao</th>
                             <th scope="col" class="th-title">Próxima_manutencao</th>
-
-
                         </tr>
                     </thead>
                     @foreach ($ordens_servicos as $ordem_servico_f)
