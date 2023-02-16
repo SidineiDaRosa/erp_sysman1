@@ -73,7 +73,7 @@ class ControlPanelController extends Controller
             } else {
                 echo ('total de peças equipamento não ok');
                 $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
-                    ->where('horas_proxima_manutencao', ('<='), 4000)->get();
+                    ->where('horas_proxima_manutencao', ('<='),400)->get();
                 $x = 0;
                 $totRegPecEquip = 0;
                 return view('site.control_panel', ['ordens_servicos' =>  $ordens_servicos, 'equipamentos' => $equipamentos, 'produtos' => $produtos]);
