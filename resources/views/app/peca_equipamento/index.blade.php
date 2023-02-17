@@ -37,13 +37,13 @@
                 {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
 
             </div>
-            <div class="col-md-4 mb-0">
+            <div class="col-md-6 mb-0">
                 <label for="data_fabricacao" class="col-md-2 col-form-label text-bg">Data Fabricação</label>
                 <input id="data_fabricacao" type="nuber" class="form-control-template md-2" name="data_fabricacao" value="@foreach($equipamento as $equipamento_f)
                     {{$equipamento_f['data_fabricacao']}}
                     @endforeach" readonly>
                 {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
-                
+
             </div>
             <p></p>
             <div class="col-md-4 mb-0">
@@ -75,7 +75,6 @@
 
                 </tr>
             </thead>
-
             <tbody>
                 @foreach ($pecas_equipamento as $peca_equipamento)
                 <tr>
@@ -102,18 +101,12 @@
                             <a class="btn btn-sm-template btn-outline-primary" href="">
                                 <i class="icofont-eye-alt"></i>
                             </a>
-
-
                             <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="">
-
                                 <i class="icofont-ui-edit"></i> </a>
-
-
                             <!--Condoçes para deletar a os-->
                             <form id="" method="post" action="">
                                 @method('DELETE')
                                 @csrf
-
                             </form>
                             <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarOs()">
                                 <i class="icofont-ui-delete"></i>
