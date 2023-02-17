@@ -7,12 +7,16 @@
             .card {
                 background-color: rgb(211, 211, 211);
             }
+
+            #equipamento_id {
+                font-size: 20px;
+            }
         </style>
         <div class="form-row mb-2">
 
             <div class="col-md-2 mb-0">
                 <label for="equipamento_id" class="col-md-2 col-form-label text-bg">ID</label>
-                <input id="equipamento_id" type="nuber" class="form-control-template txt-bg" name="equipamento_id" value="@foreach($equipamento as $equipamento_f)
+                <input id="equipamento_id" type="nuber" class="form-control-template" name="equipamento_id" value="@foreach($equipamento as $equipamento_f)
                     {{$equipamento_f['id']}}
                     @endforeach" readonly>
                 {{ $errors->has('id') ? $errors->first('id') : '' }}
@@ -24,15 +28,29 @@
                     {{$equipamento_f['nome']}}
                     @endforeach" readonly>
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+            </div>
+            <div class="col-md-4 mb-0">
+                <label for="descricao" class="col-md-2 col-form-label text-bg">Descrição</label>
+                <input id="descricao" type="nuber" class="form-control-template" name="descricao" value="@foreach($equipamento as $equipamento_f)
+                    {{$equipamento_f['descricao']}}
+                    @endforeach" readonly>
+                {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
 
             </div>
             <div class="col-md-4 mb-0">
+                <label for="data_fabricacao" class="col-md-2 col-form-label text-bg">Data Fabricação</label>
+                <input id="data_fabricacao" type="nuber" class="form-control-template md-2" name="data_fabricacao" value="@foreach($equipamento as $equipamento_f)
+                    {{$equipamento_f['data_fabricacao']}}
+                    @endforeach" readonly>
+                {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
+                
+            </div>
+            <p></p>
+            <div class="col-md-4 mb-0">
                 <label for="equipamento" class="col-md-4 col-form-label text-md-end"></label>
-                <p>
-                <p>
-                    <a href="{{ route('Peca-equipamento.create',['equipamento' => $equipamento_f->id]) }}" class="btn btn-sm btn-primary">
-                        Cadastrar peça do equipamento
-                    </a>
+                <a href="{{ route('Peca-equipamento.create',['equipamento' => $equipamento_f->id]) }}" class="btn btn-sm btn-primary">
+                    Cadastrar peça do equipamento
+                </a>
             </div>
         </div>
     </div>
