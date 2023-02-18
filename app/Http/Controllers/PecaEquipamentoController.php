@@ -18,7 +18,7 @@ class PecaEquipamentoController extends Controller
     {
         //
         $equipamento_id = $equipamento->get('equipamento');
-        $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->get();
+        $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->orderby('horas_proxima_manutencao')->get();
         $equipamento = Equipamento::where('id',  $equipamento_id)->get();
         return view('app.peca_equipamento.index', ['pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento]);
     }
