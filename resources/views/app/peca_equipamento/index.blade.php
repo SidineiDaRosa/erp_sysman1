@@ -149,7 +149,7 @@
 
             @foreach ($ordens_servicos as $ordem_servico_f)
             <div id="Div-os">
-                {{$ordem_servico_f}}
+                {{$ordem_servico_f->id}}
             </div>
 
 
