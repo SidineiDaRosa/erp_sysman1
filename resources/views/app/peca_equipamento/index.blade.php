@@ -165,7 +165,7 @@
 
                 </tr>
                 <tr>
-                    <td>{{$ordem_servico->id}}</td>
+                    <td>{{$ordem_servico_f['id']}}</td>
                     <td>Maria Anders</td>
                     <td>Germany</td>
                 </tr>
