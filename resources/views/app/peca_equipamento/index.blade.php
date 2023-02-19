@@ -136,7 +136,7 @@
         </table>
         <div class="card">
             Ordens de serviços abertos
-
+            {{$ordens_servicos}}
         </div>
 
 

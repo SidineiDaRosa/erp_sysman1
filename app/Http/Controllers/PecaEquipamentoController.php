@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Equipamento;
 use App\Models\PecasEquipamentos;
+use App\Models\OrdemServico;
 
 class PecaEquipamentoController extends Controller
 {
@@ -20,7 +21,10 @@ class PecaEquipamentoController extends Controller
         $equipamento_id = $equipamento->get('equipamento');
         $pecasEquip = PecasEquipamentos::where('equipamento',  $equipamento_id)->orderby('horas_proxima_manutencao')->get();
         $equipamento = Equipamento::where('id',  $equipamento_id)->get();
-        return view('app.peca_equipamento.index', ['pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento]);
+        //****filtro ordem de serviço pelo equipamento situacao*****
+            $ordens_servicos = OrdemServico::where('equipamento_id',  $equipamento_id)->where('situacao','aberto')->orderby('data_inicio')->orderby('hora_inicio')->get();
+           
+        return view('app.peca_equipamento.index', ['pecas_equipamento' => $pecasEquip, 'equipamento' => $equipamento,'ordens_servicos'=>$ordens_servicos]);
     }
     /**
      * Show the form for creating a new resource.
