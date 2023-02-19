@@ -166,8 +166,9 @@
                 </tr>
                 <tr>
                     <td>{{$ordem_servico_f['id']}}</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
+                    <td>{{$ordem_servico_f['data_prevista']}}</td>
+                    <td>{{$ordem_servico_f['descricao']}}</td>
+            
                 </tr>
             </table>
             @endforeach
