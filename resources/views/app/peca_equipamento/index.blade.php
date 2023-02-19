@@ -134,7 +134,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="form-row mb-2">
+        <div class="card">
             Ordens de serviços abertos
 
         </div>
