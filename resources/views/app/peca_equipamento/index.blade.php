@@ -157,7 +157,7 @@
                 }
             </style>
             <table>
-                @foreach ($pecas_equipamento as $peca_equipamento)
+                @foreach ($ordens_servicos as $ordem_servico_f)
                 <tr>
                     <th>id</th>
                     <th>Data</th>
@@ -165,7 +165,7 @@
 
                 </tr>
                 <tr>
-                    <td>{{$ordens_servicos}}</td>
+                    <td>{{$ordem_servico_f}}</td>
                     <td>Maria Anders</td>
                     <td>Germany</td>
                 </tr>
