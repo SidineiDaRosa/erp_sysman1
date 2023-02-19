@@ -166,12 +166,12 @@
 
                     </tr>
                 </thead>
-                <tr>
-                    @foreach ($ordens_servicos as $ordem_servico_f)
-                    <td>{{$ordem_servico_f}}</td>
-
-
-                </tr>
+                <tbody>
+                    <tr>
+                        @foreach ($ordens_servicos as $ordem_servico_f)
+                        <td>{{$ordem_servico_f}}</td>
+                    </tr>
+                </tbody>
             </table>
             @endforeach
         </div>
