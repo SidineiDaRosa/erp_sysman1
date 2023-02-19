@@ -157,6 +157,7 @@
                 }
             </style>
             <table>
+                @foreach ($pecas_equipamento as $peca_equipamento)
                 <tr>
                     <th>id</th>
                     <th>Data</th>
@@ -168,11 +169,9 @@
                     <td>Maria Anders</td>
                     <td>Germany</td>
                 </tr>
-
-
             </table>
+            @endforeach
         </div>
-
 
 </main>
 @endsection
