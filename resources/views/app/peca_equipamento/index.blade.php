@@ -143,8 +143,10 @@
     #Div-os{
         background-color:green;
         padding:10px;
+        margin-top:10px;
     }
 </style>
+
             @foreach ($ordens_servicos as $ordem_servico_f)
             <div id="Div-os">
                 {{$ordem_servico_f}}
