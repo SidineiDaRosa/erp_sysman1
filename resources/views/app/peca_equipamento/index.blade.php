@@ -141,7 +141,7 @@
 
 <style>
     #Div-os{
-        background-color:green;
+        background-color:gray;
         padding:10px;
         margin-top:10px;
     }
@@ -149,7 +149,9 @@
 
             @foreach ($ordens_servicos as $ordem_servico_f)
             <div id="Div-os">
-                {{$ordem_servico_f->id}}
+               id............:{{$ordem_servico_f->id}}
+               Data Inicio...:{{$ordem_servico_f->Data_inicio}}
+               Descrição.....:{{$ordem_servico_f->Descricao}}
             </div>
 
 
