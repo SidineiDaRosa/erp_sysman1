@@ -6,8 +6,8 @@
     <div class="card">
 
         <div class="card-footer justify-content-left">
-            <a href="{{route('produto.index')}}" class="btn">
-                LISTAGEM DE PRODUTOS
+            <a href="" class="btn">
+                Cadastro de peças do equipamento
             </a>
         </div>
         <div class="card-body">
