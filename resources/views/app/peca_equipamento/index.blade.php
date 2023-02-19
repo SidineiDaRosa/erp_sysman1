@@ -149,8 +149,8 @@
 
             @foreach ($ordens_servicos as $ordem_servico_f)
             <div id="Div-os">
-               id............:{{$ordem_servico_f->id}} <p></p>
-               Data_Inicio...:{{$ordem_servico_f->data_inicio}} <p></p>
+               id............:{{$ordem_servico_f->id}} <p>
+               Data_Inicio...:{{$ordem_servico_f->data_inicio}} <p>
                Descrição.....:{{$ordem_servico_f->descricao}}
             </div>
 
