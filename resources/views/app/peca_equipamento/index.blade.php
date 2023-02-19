@@ -136,9 +136,7 @@
         </table>
         <div class="card">
             Ordens de serviços abertos
-            @foreach
-            ($ordens_servicos as $ordem_servico_f)
-            @endforeach
+
 
             <style>
                 table {
@@ -158,26 +156,21 @@
                     background-color: #dddddd;
                 }
             </style>
-            </head>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Data</th>
+                    <th>Descrição</th>
 
-            <body>
-
-                <h2>HTML Table</h2>
-
-                <table>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
+                </tr>
+                <tr>
+                    <td>{{$ordens_servicos}}</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
 
 
-                </table>
+            </table>
         </div>
 
 
