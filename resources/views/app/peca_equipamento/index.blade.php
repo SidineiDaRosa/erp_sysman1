@@ -157,7 +157,7 @@
                 }
             </style>
             <table>
-                @foreach ($ordens_servicos as $ordem_servico_f)
+               
                 <tr>
                     <th>id</th>
                     <th>Data prevista</th>
@@ -165,10 +165,11 @@
 
                 </tr>
                 <tr>
+                     @foreach ($ordens_servicos as $ordem_servico_f)
                     <td>{{$ordem_servico_f['id']}}</td>
                     <td>{{$ordem_servico_f['data_inicio']}}</td>
                     <td>{{$ordem_servico_f['descricao']}}</td>
-            
+
                 </tr>
             </table>
             @endforeach
