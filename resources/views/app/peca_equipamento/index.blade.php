@@ -140,8 +140,8 @@
 
 
 <style>
-    .Div-os{
-        background-color: green;
+    #Div-os{
+        background-color:green;
         padding:10px;
     }
 </style>
