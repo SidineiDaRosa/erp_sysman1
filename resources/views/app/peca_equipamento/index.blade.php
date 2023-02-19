@@ -138,41 +138,14 @@
             Ordens de serviços abertos
 
 
-            <style>
-                table {
-                    font-family: arial, sans-serif;
-                    border-collapse: collapse;
-                    width: 100%;
-                }
 
-                td,
-                th {
-                    border: 1px solid #dddddd;
-                    text-align: left;
-                    padding: 8px;
-                }
 
-                tr:nth-child(even) {
-                    background-color: #dddddd;
-                }
-            </style>
-            <table>
-                <thead>
+            @foreach ($ordens_servicos as $ordem_servico_f)
+            <div>
+                {{$ordem_servico_f}}
+            </div>
 
-                    <tr>
-                        <th>id</th>
-                        <th>Data prevista</th>
-                        <th>Descrição</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        @foreach ($ordens_servicos as $ordem_servico_f)
-                        <td>{{$ordem_servico_f}}</td>
-                    </tr>
-                </tbody>
-            </table>
             @endforeach
         </div>
 
