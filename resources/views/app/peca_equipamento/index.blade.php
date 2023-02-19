@@ -136,7 +136,10 @@
         </table>
         <div class="card">
             Ordens de serviços abertos
-            {{$ordens_servicos->id}}
+            @foreach
+            ($ordens_servicos as $ordem_servico_f)
+            @endforeach
+
             <style>
                 table {
                     font-family: arial, sans-serif;
