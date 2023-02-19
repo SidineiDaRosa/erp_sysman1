@@ -131,7 +131,7 @@
                         </div>
 
                 </tr>
-
+                @endforeach
             </tbody>
         </table>
         <div class="card">
@@ -157,18 +157,19 @@
                 }
             </style>
             <table>
+                <thead>
 
-                <tr>
-                    <th>id</th>
-                    <th>Data prevista</th>
-                    <th>Descrição</th>
+                    <tr>
+                        <th>id</th>
+                        <th>Data prevista</th>
+                        <th>Descrição</th>
 
-                </tr>
+                    </tr>
+                </thead>
                 <tr>
                     @foreach ($ordens_servicos as $ordem_servico_f)
-                    <td>{{$ordem_servico_f['id']}}</td>
-                    <td>{{$ordem_servico_f['data_inicio']}}</td>
-                    <td>{{$ordem_servico_f['descricao']}}</td>
+                    <td>{{$ordem_servico_f}}</td>
+
 
                 </tr>
             </table>
