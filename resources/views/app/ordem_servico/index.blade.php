@@ -218,7 +218,6 @@
                                     <i class="icofont-eye-alt"></i>
                                 </a>
 
-
                                 <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{route('ordem-servico.edit', ['ordem_servico'=>$ordem_servico->id])}}">
 
                                     <i class="icofont-ui-edit"></i> </a>
