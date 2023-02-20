@@ -206,7 +206,7 @@
                         </td>
                         <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
                         <td>{{ $ordem_servico->situacao}}
-                            <div class="progress mb-3" role="progressbar" aria-label="Success example with label" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress mb-3" role="progressbar" aria-label="Success example with label" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                 <div class="progress-bar text-bg-warning">{{ $ordem_servico->status_servicos}}%</div>
                             </div>
                         </td>
