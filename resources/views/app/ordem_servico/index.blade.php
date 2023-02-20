@@ -207,7 +207,7 @@
                         <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
                         <td>{{ $ordem_servico->situacao}}
                             <div class="progress mb-3" role="progressbar" aria-label="Success example with label" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
-                                <div class="progress-bar text-bg-warning w-80">{{ $ordem_servico->status_servicos}}%</div>
+                                <div class="progress-bar text-bg-warning">{{ $ordem_servico->status_servicos}}%</div>
                             </div>
                         </td>
                         <td id="valor" value="{{ $ordem_servico->valor}}">{{ $ordem_servico->valor}}</td>
@@ -274,7 +274,6 @@
                         font-stretch: normal;
                         float: right;
                         padding: 10px;
-
                     }
                 </style>
                 Valor Total:R$ {{$valorTotal}}
@@ -284,7 +283,7 @@
         <div class="row mb-0 md-0">
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="executaTimeLine()">
-                    Gera time line grafico de gantt
+                    Gerar timeline
                 </button>
             </div>
         </div>
