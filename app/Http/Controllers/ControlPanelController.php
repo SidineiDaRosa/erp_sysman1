@@ -64,7 +64,7 @@ class ControlPanelController extends Controller
                 echo ('a varial exite');
                 if (!empty($horas_proxima_manutencao)) { //verifica se exite este registro
 
-                    $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), 1)
+                    $ordens_servicos = PecasEquipamentos::where('horas_proxima_manutencao', ('>='), -4000)
                         ->where('horas_proxima_manutencao', ('<='), $horas_proxima_manutencao)->get();
                     $x = 0;
                     $totRegPecEquip = 0;
