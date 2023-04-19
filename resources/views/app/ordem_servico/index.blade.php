@@ -81,7 +81,7 @@
                         <option value="2">>=Data inicial <= Data inicial </option>
                         <option value="3">>=Data inicial e <=Data final</option>
                         <option value="4">=Data final</option>
-                        <option value="5">=>Data inicial e equipamento</option>
+                        <option value="5">Data inicial e equipamento</option>
                         <option value="6">Data inicial e empresa</option>
                         <option value="7">Imprimir</option>
                     </select>
@@ -89,7 +89,7 @@
                 <!--------------------------------------------------------------------------------------->
                 <!---------Select empresa------------->
                 <!--------------------------------------------------------------------------------------->
-                <div class="col-md-6 mb-0">
+                <div class="col-md-5 mb-0">
                     <label for="empresas" class="">Empresa:</label>
                     <select name="empresa_id" id="empresa_id" class="form-control-template">
                         <option value=""> --Selecione a empresa--</option>
@@ -100,6 +100,13 @@
                         @endforeach
                     </select>
                     {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
+                </div>
+                <!------------------------------------------------------------------------------------------->
+                <!---------Select o equipament------------->
+                <!--------------------------------------------------------------------------------------->
+                <div class="col-md-3 mb-0">
+                    <label for="id">Patrimônio:</label>
+                    <input type="number" class="form-control" id="patrimonio" name="patrimonio_id" placeholder="ID patrimonio" value="">
                 </div>
                 <!------------------------------------------------------------------------------------------->
                 <div class="col-md-0">
