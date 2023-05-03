@@ -25,7 +25,8 @@
     <h3>Relatório de serviços</h3>
     <fieldset>
         <h4>Sidinei da rosa</h4>
-        <h4>cel:(46)999842664 pix:95842896087 banco sicoob</h4>
+        <h4>cel:(46)999842664 pix:banco sicoob 
+            95842896087 pix:banco caixa</h4>
         <h4>Rua Luiz lovo 464 - Loteamento esplanada- Palmas-PR</h4>
         <hr>
         @foreach($empresa as $empresas_f)
