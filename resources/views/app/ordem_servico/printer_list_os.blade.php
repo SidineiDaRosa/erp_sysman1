@@ -74,7 +74,9 @@
             <tr>
                 <th scope="col" class="">ID O.S</th>
                 <th scope="col" class="">Data</th>
+                <th scope="col" class="">Hora</th>
                 <th scope="col" class="">Descrição</th>
+                <th scope="col" class="">Executado</th>
                 <th scope="col" class="">Valor</th>
 
             </tr>
@@ -84,7 +86,9 @@
             <tr>
                 <td>{{$ordens_servicos_f['id']}}</td>
                 <td>{{ date( 'd/m/Y' , strtotime($ordens_servicos_f['data_emissao']))}}</td>
+                <td>{{$ordens_servicos_f['hora_fim']}}</td>
                 <td>{{$ordens_servicos_f['descricao']}}</td>
+                <td>{{$ordens_servicos_f['Executado']}}</td>
                 <td>{{ 'R$ '.number_format($ordens_servicos_f['valor'], 2, ',', '.') }} </td>
         </tbody>
         @endforeach
