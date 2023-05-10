@@ -135,26 +135,32 @@
             </tbody>
         </table>
         <div class="card">
-            Ordens de serviços abertos
+            <h4>Ordens de serviços abertos</h4>
 
 
 
 <style>
     #Div-os{
-        background-color:gray;
+        background-color:rgb(211, 211, 211);
         padding:10px;
         margin-top:10px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size:20px;
+    
+    
     }
 </style>
 
             @foreach ($ordens_servicos as $ordem_servico_f)
             <div id="Div-os">
-               id............:{{$ordem_servico_f->id}} <p>
-               Data_Inicio...:{{$ordem_servico_f->data_inicio}}.... Data_Fim:{{$ordem_servico_f->data_fim}}<p>
-               Descrição.....:{{$ordem_servico_f->descricao}}
+                <label for="">ID:</label>
+               {{$ordem_servico_f->id}} <p>
+               <label for="">Data Início:</label>
+               {{$ordem_servico_f->data_inicio}}.... Data_Fim:{{$ordem_servico_f->data_fim}}<p>
+               <label for="">descrição dos serviços:</label>
+               {{$ordem_servico_f->descricao}}
+               <hr>
             </div>
-
-
             @endforeach
         </div>
 
