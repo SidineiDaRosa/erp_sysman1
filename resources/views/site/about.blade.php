@@ -52,9 +52,11 @@
         <div class="font-30px">
             Missão <p></p>
             <div class="font-20px">
+                <i class="icofont-eye-alt icofont-3x"></i>
+                <p></p>
                 “Proporcionar soluções inovadoras capaz de otimizar processos <p></p>
-                de maneira eficiente fornecendo as melhores forma de aproveitamento de
-                recursos, sempre de forma sustentável". <p></p>
+                de maneira eficiente, fornecendo os melhores procedimentos de aproveitamento de
+                recursos, visando a sutentabilidade". <p></p>
 
             </div>
         </div>
@@ -63,6 +65,8 @@
         <div class="font-30px">
             Visão <p></p>
             <div class="font-20px">
+                <i class="icofont-dart icofont-3x"></i>
+                <p></p>
                 “ser referência no setor de serviços para indústria, sempre em busca dos melhores resultados<p></p>
                 trazendo satifação para stakeholders com produtos e serviços oferecidos, <p></p>
                 buscar sempre os melhores resultados”.
@@ -71,9 +75,11 @@
         <div class="font-30px">
             Valores <p></p>
             <div class="font-20px">
+                <i class="icofont-users-alt-3 icofont-3x"></i>
+                <p></p>
                 “Proporcionar assistência técnica de qualidade, visando<p></p>
                 trazer segurança formando uma parceria com clientes parceiros e colaboradores, <p></p>
-                prporcionando resultados duradouros pensado no curto médio e longo prazo”.
+                proporcionando resultados duradouros pensado no curto médio e longo prazo”.
             </div>
         </div>
 
