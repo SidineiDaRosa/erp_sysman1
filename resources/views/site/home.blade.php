@@ -29,7 +29,7 @@
         <div>
             <a id="div-produtos-servicos" class="nav-link" href="#"> Produtos e Serviços</a>
             <div id="div-produtos-1"></div>
-            
+
             <style>
                 #div-produtos-servicos:hover {
                     height: 400px;
@@ -46,7 +46,8 @@
         </div>
 
         <div>
-            <a class="nav-link" target="_blank" href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4">Webmail</a>
+            <a class="nav-link" target="_blank"
+                href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4">Webmail</a>
         </div>
         <div>
             <a class="nav-link" href="{{ route('app.home') }}">Área restrita</a>
@@ -55,14 +56,25 @@
         <div>
             <a class="nav-link" href="{{ route('site.about') }}"> sobre nós</a>
         </div>
-      
+
 
     </div>
     <div id="div-body">
         <img class="d-block w-100" src="{{ asset('img/automação-industrial-1.jpg') }}" alt="imagem 1">
     </div>
+    <!----------------------------------------------------------------------------------------->
+    <article>
+        O que é Lorem Ipsum?
+        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
+        desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um
+        livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração
+        eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou
+        decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de
+        editoração eletrônica como Aldus PageMaker.
+    </article>
 
 </body>
+
 <footer>
     <div id="footer_main">
 
@@ -77,8 +89,6 @@
                 <label for="">Egenharia de processos</label>
             </p>
             <p>
-
-
         </div>
         <div class="divt">
 
@@ -116,6 +126,9 @@
         width: 100%;
         background-image: url("/public/img/automação-industrial-1.jpg");
         background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
     }
 
     footer {
