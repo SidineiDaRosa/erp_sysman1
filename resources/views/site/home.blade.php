@@ -71,17 +71,77 @@
     </div>
     <div id="div-body">
         <article>
-            O que é Lorem Ipsum?
-            Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado 
-            desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um
-            livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração
-            eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou
-            decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de
-            editoração eletrônica como Aldus PageMaker
+            Soluçoes em produtos e serviços.
+            <a href="https://dolarhoje.com/" class="dolar-hoje-button" data-currency="dolar" target="_blank"
+                title="Cotação do Dólar Hoje">Dólar Hoje</a>
+            <script async src="//dolarhoje-widgets.s3.amazonaws.com/button.js"></script>
         </article>
+        <div id="footer_main">
+
+            <div class="continer-card-pecas" id="peca1">
+                <label for="">Programação de clps</label>
+                <p>
+            </div>
+            <div class="continer-card-pecas" id="peca2">
+
+                <label for="">Acertividade</label>
+
+            </div>
+            <div class="continer-card-pecas" id="peca3">
+                <label for="">Equipamentos</label>
+            </div>
+        </div>
     </div>
+    <style>
+        #cotiner-card-pecas {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            background-color: rgb(235, 227, 227);
+            position: relative;
+            align-items: center;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+
+        .continer-card-pecas {
+            height: 400px;
+            width: 33%;
+            margin: 1%;
+            background-color: rgb(119, 147, 172);
+            position: relative;
+        }
+
+        #peca1 {
+            background-image: url("{{ asset('img/clps.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+            object-fit: fill;
+
+        }
+
+        #peca2 {
+            background-image: url("{{ asset('img/consertos.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+
+        }
+
+        #peca3 {
+            background-image: url("{{ asset('img/disjuntor.png') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+            object-fit: cover;
+        }
+    </style>
     <!----------------------------------------------------------------------------------------->
-   
+
 
 </body>
 
@@ -130,16 +190,17 @@
         background-color: rgb(211, 211, 211);
     }
 
-  /*Configurações da div de fundo*/
+    /*Configurações da div de fundo*/
     #div-body {
         height: 700px;
         width: 100%;
-        background-image: url("{{asset('img/automação-industrial-1.jpg')}}");
+        background-image: url("{{ asset('img/automação-industrial-1.jpg') }}");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
         text-align: center;
+
     }
 
     footer {
