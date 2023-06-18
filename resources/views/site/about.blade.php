@@ -41,7 +41,7 @@
         </div>
 
         <div>
-            <a class="nav-link" href="{{ route('site.about') }}"> sobre nós</a>
+            <a class="nav-link" href="{{ route('site.about') }}"> Sobre nós</a>
         </div>
 
 
