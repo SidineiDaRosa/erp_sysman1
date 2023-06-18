@@ -17,7 +17,18 @@
     <title>sysman8</title>
 
 </head>
-<body>
+
+<body id="body-home">
+    <style>
+        #body-home {
+            align-items: center;
+            align-content: center;
+            text-align: center;
+            background-image: url("paisagem-natural-floresta.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
     <div id="div-topbar">
 
         <div>
@@ -62,15 +73,7 @@
         <img class="d-block w-100" src="{{ asset('img/automação-industrial-1.jpg') }}" alt="imagem 1">
     </div>
     <!----------------------------------------------------------------------------------------->
-    <article>
-        O que é Lorem Ipsum?
-        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-        desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um
-        livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração
-        eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou
-        decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de
-        editoração eletrônica como Aldus PageMaker.
-    </article>
+   
 
 </body>
 
