@@ -30,7 +30,7 @@
                 <label for="descricao" class="col-md-4 col-form-label text-md-end text-right">Dados técnicos</label>
 
                 <div class="col-md-6">
-                    <input id="descricao" name="descricao" type="text" class="form-control-template" descricao="descricao"
+                    <input id="descricao" name="descricao" type="textarea" class="form-control-template" descricao="descricao"
                         value="{{ $produto->descricao ?? old('descricao') }}" required autocomplete="descricao"
                         autofocus>
                     {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
