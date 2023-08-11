@@ -316,12 +316,12 @@
     <div class="form-row">
         <div class="col-sm-6 mb-0">
             <label for="responsavel" class="col-md-6 col-form-label text-md-end">Descrição</label>
-            <input id="nome" type="text" class="form-control-template" name="descricao" value="{{$ordem_servico->descricao}}">
+            <textarea id="nome" type="text" class="form-control" name="descricao" value="{{$ordem_servico->descricao}}" rows="3"></textarea>
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <div class="col-sm-6 mb-0">
             <label for="executado" class="col-md-6 col-form-label text-md-end">Descrição serviços executados</label>
-            <input type="text" class="form-control-template" name="executado" id="executado" value="{{$ordem_servico->Executado}}">
+            <textarea type="text" class="form-control" name="executado" id="executado" value="{{$ordem_servico->Executado}}" rows="3"></textarea>
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <!------------------------------------------------>

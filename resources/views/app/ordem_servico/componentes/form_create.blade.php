@@ -200,13 +200,13 @@
 
             <div class="col-md-6 mb-0">
                 <label for="responsavel" class="col-md-6 col-form-label text-md-end">Descrição</label>
-                <input id="descricao" type="text" class="form-control-template" name="descricao" value="">
+                <textarea id="descricao" type="text" class="form-control" name="descricao" value="" rows="3"></textarea>
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
 
             </div>
             <div class="col-md-6 mb-0">
                 <label for="responsavel" class="col-md-6 col-form-label text-md-end">executado</label>
-                <input id="executado" type="text" class="form-control-template" name="executado" value="">
+                <textarea id="executado" type="text" class="form-control" name="executado" value="" rows="3"></textarea>
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
             </div>
 
