@@ -13,6 +13,7 @@
                         <option value="1">Situação</option>
                         <option value="2">>= Data Emissão e <= Data Emissão </option>
                         <option value="3">>= Data Emissão e <= Data Emissão e empresa</option>
+                        <option value="4">Busca pela O.S</option>
                     </select>
                 </div>
                 <div class="col-md-4 mb-0">
@@ -25,14 +26,13 @@
                 </div>
                 <!--input box filtro buscar produto--------->
 
-                <input type="text" id="query" name="produto" placeholder="Digite o número do pedido..." aria-label="Search through site content">
+                <input type="text" id="query" name="produto" placeholder="Digite..." aria-label="Search through site content">
                 <button type="submit">
                     <i class="icofont-search icofont-2x"></i>
                 </button>
             </form>
             <div>
                 <a href="{{route('pedido-saida.create')}}" class="btn-sm btn-success">
-
                     <i class="icofont-database-add"></i>
                     </span>
                     <span class="text">Criar novo pedido de saída</span>

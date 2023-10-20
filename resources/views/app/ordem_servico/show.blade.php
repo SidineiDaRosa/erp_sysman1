@@ -12,9 +12,11 @@
                     </span>
                     <span class="text">Criar novo pedido de saída</span>
                 </a>
-
                 <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
                 <a class="btn btn-primary btn-lg" href="{{ route('ordem-servico.index') }}">listar</a>
+                <a href=""> <a href="">
+                        <div><i class="icofont-list icofont-2x"></i>
+                    </a>
             </div>
         </div>
         <div class="card-body">
@@ -92,11 +94,11 @@
                 <hr>
                 <?php
 
-                    $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
-                    $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                    $urlPaginaAtual = $protocolo . $url
-                    //echo $protocolo.$url;
-                    ?>
+                $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+                $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                $urlPaginaAtual = $protocolo . $url
+                //echo $protocolo.$url;
+                ?>
                 Visualisar no web site:
                 <p></p>
                 {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}

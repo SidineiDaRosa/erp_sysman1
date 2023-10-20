@@ -24,19 +24,24 @@ class PedidosSaidaController extends Controller
     {
         $tipoFiltro = $request->get('tipofiltro');
         $situacao = $request->get('status');
+        $produto= $request->get('produto');
         echo ($tipoFiltro . '---' . $situacao);
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
-        if ($tipoFiltro >= 1) {
+        if ($tipoFiltro == 1) {
             $pedidos_saida = PedidoSaida::where('status', $situacao)->get();
             return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
-        } else {
-            $pedidos_saida = PedidoSaida::where('id', 0)->get();
+        }
+        if ($tipoFiltro == 2) {
+            $pedidos_saida = PedidoSaida::where('status', $situacao)->get();
+            //return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+        }
+        if ($tipoFiltro == 4) {
+            $pedidos_saida = PedidoSaida::where('ordem_servico_id',$produto)->get();
             return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
         }
     }
-
     /**
      * Show the form for creating a new resource.
      * @param  \Illuminate\Http\Request  $request
