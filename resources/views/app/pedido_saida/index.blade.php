@@ -8,7 +8,13 @@
 
             <form id="formSearchingProducts" action="{{'pedido-saida-filtro'}}" method="POST">
                 @csrf
-                <div class="col-md-4 mb-0">
+                <div class="col-md-2 mb-0">
+                    <input type="date" class="form-control" name="data_inicio" id="data_inicio">
+                </div>
+                <div class="col-md-2 mb-0">
+                    <input type="date" class="form-control" name="data_fim" id="data_fim">
+                </div>
+                <div class="col-md-2 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
                         <option value="1">Situação</option>
                         <option value="2">>= Data Emissão e <= Data Emissão </option>
@@ -16,7 +22,7 @@
                         <option value="4">Busca pela O.S</option>
                     </select>
                 </div>
-                <div class="col-md-4 mb-0">
+                <div class="col-md-2 mb-0">
                     <select class="form-control" name="status" id="status" value="" placeholder="Selecione o estado do pedido">
                         <option value="aberto">Busca Aberto</option>
                         <option value="fechado">Busca Fechado</option>
@@ -43,14 +49,14 @@
             <style>
                 #formSearchingProducts {
                     background-color: white;
-                    width: 900px;
+                    width:auto;
                     height: 44px;
                     border-radius: 5px;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                 }
-
+             
                 input {
                     all: unset;
                     font: 16px system-ui;
