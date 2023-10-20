@@ -35,11 +35,16 @@ class PedidosSaidaController extends Controller
         }
         if ($tipoFiltro == 2) {
             $pedidos_saida = PedidoSaida::where('status', $situacao)->get();
-            //return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+            return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
         }
         if ($tipoFiltro == 4) {
             $pedidos_saida = PedidoSaida::where('ordem_servico_id',$produto)->get();
             return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+        }
+        if ((empty($tipoFiltro))) {
+            $pedidos_saida = PedidoSaida::where('id',2)->get();
+            return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
+            echo('vazio');
         }
     }
     /**
