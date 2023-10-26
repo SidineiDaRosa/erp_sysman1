@@ -260,21 +260,7 @@
                                 <input type="checkbox" name="" id="">
                             </div>
                         </td>
-                        <td>
-                            <!-------------------------------filtra pedidos de saida-------------------------------->
-                            <form id="formBuscaPedidosSaida" action="{{'pedido-saida-filtro'}}" method="POST">
-                                @csrf
-                                <input type="text" name="tipofiltro" value="4" hidden>
-                                <input type="text" name="tipofiltro" value="4" hidden>
-                                <input type="text" id="query" name="produto" value="283" hidden>
-                                <button type="submit">
-                                    <i class="icofont-list"></i>
-                                </button>
-                            </form>
-                            <input type="button" value="" onclick="">
-                            <!-------------------------------------------------------------------------------------->
-                        </td>
-
+                       
                     </tr>
 
                 </tbody>

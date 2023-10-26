@@ -7,11 +7,15 @@
                 Ordem de serviço
             </div>
             <div>
-                <a href="{{route('pedido-saida.create', ['ordem_servico'=>$ordem_servico->id])}}" class="btn-sm btn-success">
+                <a class="btn btn-primary btn-lg" href="{{route('pedido-saida.create', ['ordem_servico'=>$ordem_servico->id])}}">
                     <i class="icofont-database-add"></i>
-                    </span>
-                    <span class="text">Criar novo pedido de saída</span>
+                    Criar novo pedido de saída
                 </a>
+
+                <a class="btn btn-primary btn-lg" href="{{route('pedido-saida.index',['ordem_servico'=>$ordem_servico->id,'tipofiltro'=>4])}}">
+                <i class="icofont-search-2"></i>
+
+                    </i>Busca Pedidos </a>
                 <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
                 <a class="btn btn-primary btn-lg" href="{{ route('ordem-servico.index') }}">listar</a>
 
@@ -21,7 +25,7 @@
             <table class="table-template table-hover" border="1">
                 <tr>
                     <td>ID</td>
-                    <td>{{$ordem_servico->id}}</td>
+                    <td id="idos">{{$ordem_servico->id}}</td>
 
                 </tr>
                 <tr>
@@ -85,16 +89,14 @@
                     </tr>
                     <tr>
                         <!-------------------------------filtra pedidos de saida-------------------------------->
-                        <form id="formSearchingProducts" action="{{'pedido-saida-filtro'}}" method="POST">
-                            @csrf
-                            <input type="text" name="tipofiltro" value="4" hidden>
-                            <input type="text" name="tipofiltro" value="4" hidden>
-                            <input type="text" id="query" name="produto" value="283" hidden>
-                            <button type="submit">
-                                <i class="icofont-list"></i>
-                            </button>
-                        </form>
-                        <!-------------------------------------------------------------------------------------->
+                        <script>
+                            onload = teste()
+
+                            function teste() {
+                                // alert('teste')
+                            }
+                        </script>
+
                     </tr>
                 </table>
                 <p></p>

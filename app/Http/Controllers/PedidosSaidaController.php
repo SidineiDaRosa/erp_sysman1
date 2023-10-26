@@ -22,10 +22,11 @@ class PedidosSaidaController extends Controller
      */
     public function index(Request $request)
     {
+        $ordem_servico=$request->get('ordem_servico');
+        
         $tipoFiltro = $request->get('tipofiltro');
         $situacao = $request->get('status');
         $produto= $request->get('produto');
-        echo ($tipoFiltro . '---' . $situacao);
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
@@ -38,7 +39,8 @@ class PedidosSaidaController extends Controller
             return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
         }
         if ($tipoFiltro == 4) {
-            $pedidos_saida = PedidoSaida::where('ordem_servico_id',$produto)->get();
+           
+            $pedidos_saida = PedidoSaida::where('ordem_servico_id',$ordem_servico)->get();
             return view('app.pedido_saida.index', ['equipamentos' => $equipamentos, 'funcionarios' => $funcionarios, 'pedidos_saida' => $pedidos_saida]);
         }
         if ((empty($tipoFiltro))) {
