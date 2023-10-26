@@ -14,9 +14,7 @@
                 </a>
                 <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
                 <a class="btn btn-primary btn-lg" href="{{ route('ordem-servico.index') }}">listar</a>
-                <a href=""> <a href="">
-                        <div><i class="icofont-list icofont-2x"></i>
-                    </a>
+
             </div>
         </div>
         <div class="card-body">
@@ -85,7 +83,19 @@
                         <td>{{$ordem_servico->valor}}</td>
                     </tr>
                     </tr>
-
+                    <tr>
+                        <!-------------------------------filtra pedidos de saida-------------------------------->
+                        <form id="formSearchingProducts" action="{{'pedido-saida-filtro'}}" method="POST">
+                            @csrf
+                            <input type="text" name="tipofiltro" value="4" hidden>
+                            <input type="text" name="tipofiltro" value="4" hidden>
+                            <input type="text" id="query" name="produto" value="283" hidden>
+                            <button type="submit">
+                                <i class="icofont-list"></i>
+                            </button>
+                        </form>
+                        <!-------------------------------------------------------------------------------------->
+                    </tr>
                 </table>
                 <p></p>
                 {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $ordem_servico->id) !!}</tr>

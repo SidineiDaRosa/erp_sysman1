@@ -146,7 +146,7 @@
                                     <i class="icofont-list"></i>
                                     <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{route('pedido-saida.edit', ['pedido_saida'=>$pedido_saida->id])}}">
                                         <i class="icofont-ui-edit"></i> </a>
-                                    <!--Condioçes para deletar a os-->
+                                    <!--Condioçes para deletar-->
                                     <form id="form_{{$pedido_saida->id }}" method="post" action="{{route('pedido-saida.destroy', [$pedido_saida->id])}}">
                                         @method('POST')
                                         @csrf
