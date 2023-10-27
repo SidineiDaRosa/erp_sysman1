@@ -187,7 +187,9 @@ class OrdemServicoController extends Controller
      */
     public function show(OrdemServico $ordem_servico)
     {
-        return view('app.ordem_servico.show', ['ordem_servico' => $ordem_servico]);
+        $id=$ordem_servico->id;
+        $servicos_executado = Servicos_executado::where('ordem_servico_id', $id)->get();
+        return view('app.ordem_servico.show', ['ordem_servico' => $ordem_servico,'servicos_executado'=>$servicos_executado]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -200,8 +202,7 @@ class OrdemServicoController extends Controller
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
-        $id=$ordem_servico->id;
-        echo('3333333333333333333333333333333');
+        
         
         return view(
             'app.ordem_servico.edit',

@@ -13,7 +13,7 @@
                 </a>
 
                 <a class="btn btn-primary btn-lg" href="{{route('pedido-saida.index',['ordem_servico'=>$ordem_servico->id,'tipofiltro'=>4])}}">
-                <i class="icofont-search-2"></i>
+                    <i class="icofont-search-2"></i>
 
                     </i>Busca Pedidos </a>
                 <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
@@ -87,6 +87,33 @@
                         <td>{{$ordem_servico->valor}}</td>
                     </tr>
                     </tr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Data prevista</th>
+                                <th>Hora prevista</th>
+                                <th>Data fim</th>
+                                <th>Hora fim</th>
+                            </tr>
+                        </thead>
+                        @foreach($servicos_executado as $servicos_exec)
+                        <tbody>
+                        
+                            <td>{{$servicos_exec->id}}</td>
+                            <td>{{$servicos_exec->ordem_servico_id}}</td>
+                            <td>{{$servicos_exec->data_inicio}}</td>
+                            <td>{{$servicos_exec->hora_inicio}}</td>
+                            <td>{{$servicos_exec->data_fim}}</td>
+                            <td>{{$servicos_exec->hora_fim}}</td>
+                            <td>{{$servicos_exec->funcionario_id}}</td>
+                            <td>{{$servicos_exec->descricao}}</td>
+
+                            @endforeach
+                        </tbody>
+
+                    </table>
+
                     <tr>
                         <!-------------------------------filtra pedidos de saida-------------------------------->
                         <script>
