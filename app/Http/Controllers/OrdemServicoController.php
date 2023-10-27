@@ -10,6 +10,7 @@ use App\Models\Funcionario;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use League\CommonMark\Node\Query\OrExpr;
+use App\Models\Servicos_executado;
 
 class OrdemServicoController extends Controller
 {
@@ -34,10 +35,13 @@ class OrdemServicoController extends Controller
             $funcionarios = Funcionario::all();
             $ordens_servicos = OrdemServico::where('id', $id)->orderby('data_inicio')->orderby('hora_inicio')->get();
             $valorTotal = OrdemServico::where('id', $id)->orderby('data_inicio')->orderby('hora_inicio')->sum('valor');
+            $servicos_executado = Servicos_executado::where('ordem_servico_id', $id)->get();
+            //dd($servicos_executado );
             return view('app.ordem_servico.index', [
                 'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
                 'empresa' => $empresa,
-                'valorTotal' => $valorTotal
+                'valorTotal' => $valorTotal,
+                'servicos_executado' => $servicos_executado
 
             ]);
         }
@@ -70,24 +74,24 @@ class OrdemServicoController extends Controller
         }
         //Patrimonio
         if ($tipo_consulta == 5) {
-           //filtro ordem de serviço pelo data inicial e situação e patrimonio
-           $funcionarios = Funcionario::all();
-           $dataInicio = $request->get("data_inicio");
-           $dataFim = $request->get("data_fim");
-          // $empresa_id = $request->get("empresa_id");
-          $patrimonio = $request->get("patrimonio_id");
-           $situacao = $request->get("situacao");
-           $ordens_servicos = OrdemServico::where('data_inicio', ('>='), $dataInicio)
-               ->where('data_inicio', ('<='), $dataFim)
-               ->where('equipamento_id', $patrimonio)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
+            //filtro ordem de serviço pelo data inicial e situação e patrimonio
+            $funcionarios = Funcionario::all();
+            $dataInicio = $request->get("data_inicio");
+            $dataFim = $request->get("data_fim");
+            // $empresa_id = $request->get("empresa_id");
+            $patrimonio = $request->get("patrimonio_id");
+            $situacao = $request->get("situacao");
+            $ordens_servicos = OrdemServico::where('data_inicio', ('>='), $dataInicio)
+                ->where('data_inicio', ('<='), $dataFim)
+                ->where('equipamento_id', $patrimonio)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->get();
 
-           $valorTotal = OrdemServico::where('data_inicio', ('>='), $dataInicio)
-               ->where('data_inicio', ('<='), $dataFim)
-               ->where('equipamento_id', $patrimonio)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->sum('valor'); //somando valor
-           return view('app.ordem_servico.index', [
-               'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
-               'empresa' => $empresa, 'valorTotal' => $valorTotal
-           ]);
+            $valorTotal = OrdemServico::where('data_inicio', ('>='), $dataInicio)
+                ->where('data_inicio', ('<='), $dataFim)
+                ->where('equipamento_id', $patrimonio)->where('situacao', $situacao)->orderby('data_inicio')->orderby('hora_inicio')->sum('valor'); //somando valor
+            return view('app.ordem_servico.index', [
+                'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
+                'empresa' => $empresa, 'valorTotal' => $valorTotal
+            ]);
         }
         if ($tipo_consulta == 6) {
             //filtro ordem de serviço pelo data inicial e situação e empresa
@@ -108,7 +112,7 @@ class OrdemServicoController extends Controller
                 'empresa' => $empresa, 'valorTotal' => $valorTotal
             ]);
         }
-       
+
         //Ipressão
         if ($tipo_consulta == 7) {
             $empresa_id = $request->get("empresa_id");
@@ -196,6 +200,9 @@ class OrdemServicoController extends Controller
         $equipamentos = Equipamento::all();
         $funcionarios = Funcionario::all();
         $empresas = Empresas::all();
+        $id=$ordem_servico->id;
+        echo('3333333333333333333333333333333');
+        
         return view(
             'app.ordem_servico.edit',
             [

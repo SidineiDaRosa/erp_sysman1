@@ -163,6 +163,7 @@
                     background-color: rgb(169, 169, 169);
                 }
             </style>
+            
             <table class="" id="tblOs">
                 <thead>
                     <tr>
@@ -210,7 +211,8 @@
                         </td>
                         <td>
                             {{ $ordem_servico->Executado}}
-
+                       
+                           
                         </td>
                         <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
                         <td>{{ $ordem_servico->situacao}}
@@ -260,7 +262,7 @@
                                 <input type="checkbox" name="" id="">
                             </div>
                         </td>
-                       
+
                     </tr>
 
                 </tbody>
