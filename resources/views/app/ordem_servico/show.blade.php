@@ -22,129 +22,140 @@
             </div>
         </div>
         <div class="card-body">
+            <!--Cabeçalho------------------------------------------------------------------------->
+            <div id=top>
+
+                <style>
+                    #top {
+                        border: 1px;
+                        width: 100%;
+                        height: auto;
+                        text-align: center;
+                    }
+
+                    #idOs {
+                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                        font-size: 25px;
+                        font-weight: bold;
+
+                    }
+
+                    #qrCodes {
+                        width: auto;
+                        height: auto;
+                        float: right;
+                    }
+
+                    .inputTxt {
+                        width: 500px;
+                    }
+
+                    .content-input-txt {
+                        float: left;
+                    }
+
+                    .textarea-input {
+                        width: 99%;
+                        height: auto;
+                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    }
+                </style>
+                <div id=qrCodes>
+                    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $ordem_servico->id) !!}
+                    <?php
+                    $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+                    $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    $urlPaginaAtual = $protocolo . $url
+                    //echo $protocolo.$url;
+                    ?>
+                    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
+                </div>
+                <div id=idOs>
+                    ID O.S:{{$ordem_servico->id}}
+                </div>
+                <hr>
+                <div class="content-input-txt">
+                    <label for="">Data emissão..</label>
+                    <input type="text" value="{{$ordem_servico->data_emissao}}" readonly disabled>
+                    <label for="">Hora emissão</label>
+                    <input type="text" value="{{$ordem_servico->hora_emissao}}" readonly disabled>
+                    <label for="">Data início</label>
+                    <input type="text" value="{{$ordem_servico->data_inicio}}" readonly disabled>
+                    <label for="">Hora início</label>
+                    <input type="text" value="{{$ordem_servico->hora_fim}}" readonly disabled>
+                    <label for="">Data fim</label>
+                    <input type="text" value="{{$ordem_servico->data_fim}}" readonly disabled>
+                    <label for="">Hora fim</label>
+                    <input type="text" value="{{$ordem_servico->hora_inicio}}" readonly disabled>
+                </div>
+                <div class="content-input-txt">
+                    <label for="">Empresa/Filial</label>
+                    <input class="inputTxt" type="text" value="{{$ordem_servico->Empresa->razao_social}}" readonly disabled>
+                    <label for="">Ativo............</label>
+                    <input class="inputTxt" type="text" value="{{$ordem_servico->equipamento->nome}}" readonly disabled>
+                    <label for="">Status</label>
+                    <input class="inputTxt" type="text" value=" {{$ordem_servico->situacao}}" readonly disabled>
+
+                </div>
+                <p></p>
+                <div class="content-input-txt">
+                    <label for="">Emissor...........</label>
+                    <input class="inputTxt" type="text" value="{{$ordem_servico->emissor}}" readonly disabled>
+                    <label for="">Responsável</label>
+                    <input class="inputTxt" type="text" value="{{$ordem_servico->responsavel}}" readonly disabled>
+                </div>
+               
+                <div class="content-input-txt">
+                    <label for="">Descrição dos serviços a executar</label>
+                </div>
+
+                <textarea class="textarea-input" name="" id="" readonly disabled>{{$ordem_servico->descricao}}</textarea>
+
+
+            </div>
+
             <table class="table-template table-hover" border="1">
-                <tr>
-                    <td>ID</td>
-                    <td id="idos">{{$ordem_servico->id}}</td>
-
-                </tr>
-                <tr>
-                    <td>data emissao</td>
-                    <td>{{$ordem_servico->data_emissao}}</td>
-
-                    <td>hora emissao</td>
-                    <td>{{$ordem_servico->hora_emissao}}</td>
-                </tr>
-                <tr>
-                    <td>data inicio</td>
-                    <td>{{$ordem_servico->data_inicio}}</td>
-
-                    <td>hora inicio</td>
-                    <td>{{$ordem_servico->hora_inicio}}</td>
-                </tr>
-                <td>patrimonio</td>
-                <td>{{$ordem_servico->equipamento->nome}}</td>
-                </tr>
-                </tr>
-                <td>Empresa</td>
-                <td>{{$ordem_servico->Empresa->razao_social}}</td>
-                </tr>
-                <td>emissor</td>
-                <td>{{$ordem_servico->emissor}}</td>
-                </tr>
-                <td>responsavel</td>
-                <td>{{$ordem_servico->responsavel}}</td>
-                </tr>
-                <td>descrição</td>
-                <td>{{$ordem_servico->descricao}}</td>
-                </tr>
-                <td>Executado</td>
-                <td>{{$ordem_servico->Executado}}</td>
-                </tr>
-
-                <span>Descrição dos serviços a serem executados</span>
-                <table class="table-template table-hover" border="1">
+                <thead>
                     <tr>
-
-                        <td>
-                            {{$ordem_servico->descricao}}
-                        </td>
+                        <th>ID</th>
+                        <th>Data prevista</th>
+                        <th>Hora prevista</th>
+                        <th>Data fim</th>
+                        <th>Hora fim</th>
                     </tr>
-                </table>
-                <span>Descrição dos serviços executados</span>
-                <table class="table-template table-hover" border="1">
-                    <td>
-                        {{$ordem_servico->Executado}}
-                    </td>
+                </thead>
+                @foreach($servicos_executado as $servicos_exec)
+                <tbody>
+                    <td>{{$servicos_exec->id}}</td>
+                    <td>{{$servicos_exec->data_inicio}}</td>
+                    <td>{{$servicos_exec->hora_inicio}}</td>
+                    <td>{{$servicos_exec->data_fim}}</td>
+                    <td>{{$servicos_exec->hora_fim}}</td>
+                    <td>{{$servicos_exec->funcionario_id}}</td>
+                    <td>{{$servicos_exec->descricao}}</td>
 
-                </table>
+                    @endforeach
+                </tbody>
 
-                <table class="table-template table-hover" border="1">
-                    <tr>
-                        <td>situação</td>
-                        <td>{{$ordem_servico->situacao}}</td>
-                        <td>R$:</td>
-                        <td>{{$ordem_servico->valor}}</td>
-                    </tr>
-                    </tr>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Data prevista</th>
-                                <th>Hora prevista</th>
-                                <th>Data fim</th>
-                                <th>Hora fim</th>
-                            </tr>
-                        </thead>
-                        @foreach($servicos_executado as $servicos_exec)
-                        <tbody>
-                        
-                            <td>{{$servicos_exec->id}}</td>
-                            <td>{{$servicos_exec->ordem_servico_id}}</td>
-                            <td>{{$servicos_exec->data_inicio}}</td>
-                            <td>{{$servicos_exec->hora_inicio}}</td>
-                            <td>{{$servicos_exec->data_fim}}</td>
-                            <td>{{$servicos_exec->hora_fim}}</td>
-                            <td>{{$servicos_exec->funcionario_id}}</td>
-                            <td>{{$servicos_exec->descricao}}</td>
+            </table>
 
-                            @endforeach
-                        </tbody>
+            <tr>
+                <!-------------------------------filtra pedidos de saida-------------------------------->
+                <script>
+                    onload = teste()
 
-                    </table>
+                    function teste() {
+                        // alert('teste')
+                    }
+                </script>
 
-                    <tr>
-                        <!-------------------------------filtra pedidos de saida-------------------------------->
-                        <script>
-                            onload = teste()
+            </tr>
+            </table>
 
-                            function teste() {
-                                // alert('teste')
-                            }
-                        </script>
-
-                    </tr>
-                </table>
-                <p></p>
-                {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $ordem_servico->id) !!}</tr>
-                <hr>
-
-                <hr>
-                <?php
-
-                $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
-                $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                $urlPaginaAtual = $protocolo . $url
-                //echo $protocolo.$url;
-                ?>
-                Visualisar no web site:
-                <p></p>
-                {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
         </div>
 
     </div>
     </div>
-
+    <a class="btn btn-primary btn-lg" href="{{route('Servicos-executado.store',['ordem_servico'=>$ordem_servico->id])}}">servicos executados</a>
 </main>
 @endsection

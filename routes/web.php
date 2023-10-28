@@ -166,3 +166,6 @@ Route::middleware('auth')->post('/pedido-saida-filtro', [App\Http\Controllers\Pe
 Route::middleware('auth')->resource('/item-produto-saida', 'App\Http\Controllers\ItemSaidaProdutoController');
 //Filtro Produtos item  saida 
 Route::middleware('auth')->post('/Item-Saida-Produto', [App\Http\Controllers\ItemSaidaProdutoController::class, 'index']);
+//Serviçoes executados
+Route::middleware('auth')->post('/Servicos-executado-index', [App\Http\Controllers\ServicosExecutadosController::class, 'index']);
+Route::middleware('auth')->resource('/Servicos-executado','App\Http\Controllers\ServicosExecutadoController');
