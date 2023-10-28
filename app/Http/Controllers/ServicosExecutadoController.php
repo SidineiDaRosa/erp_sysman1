@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use League\CommonMark\Node\Query\OrExpr;
 use App\Models\Servicos_executado;
+use Illuminate\Http\Request;
 
 class ServicosExecutadoController extends Controller
 {
@@ -17,24 +18,29 @@ class ServicosExecutadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    //public function index(Request $request)
+    public function index(Request $request)
     {
         //
-    $funcionarios=Funcionario::all();
-    $ordem_servico=OrdemServico::all();
-    $ordem_servico_id=6;
-       // return view('app.marca.index',['marcas'=> $marcas]);
-       return view('app.servicos_executado.create',['ordem_servico'=>$ordem_servico,'funcionarios'=>$funcionarios,'ordem_servico_id'=>$ordem_servico_id]);
+        $ordem_servico_id = $request->get("ordem_servico");
+        $funcionarios = Funcionario::all();
+        $ordem_servico = OrdemServico::all();
+        // return view('app.marca.index',['marcas'=> $marcas]);
+        return view('app.servicos_executado.create', ['ordem_servico' => $ordem_servico, 'funcionarios' => $funcionarios, 'ordem_servico_id' => $ordem_servico_id]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $ordem_servico_id = $request->get("ordem_servico");
+        $funcionarios = Funcionario::all();
+        $ordem_servico = OrdemServico::all();
+        // return view('app.marca.index',['marcas'=> $marcas]);
+        return view('app.servicos_executado.create', ['ordem_servico' => $ordem_servico, 'funcionarios' => $funcionarios, 'ordem_servico_id' => $ordem_servico_id]);
     }
 
     /**
@@ -57,7 +63,7 @@ class ServicosExecutadoController extends Controller
     public function show($id)
     {
         //
-        
+
     }
 
     /**

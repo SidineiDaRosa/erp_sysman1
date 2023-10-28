@@ -156,6 +156,6 @@
 
     </div>
     </div>
-    <a class="btn btn-primary btn-lg" href="{{route('Servicos-executado.store',['ordem_servico'=>$ordem_servico->id])}}">servicos executados</a>
+    <a class="btn btn-primary btn-lg" href="{{route('Servicos-executado.create',['ordem_servico'=>$ordem_servico->id])}}">servicos executados</a>
 </main>
 @endsection

@@ -1,7 +1,7 @@
 <div class="col-md-2 mb-0">
-            <label for="idOs" class="col-md-4 col-form-label text-md-end">ID Os</label>
-            <input id="id1" type="nuber" class="form-control-template" name="id" value="{{$ordem_servico_id}}" disabled>
-        </div>
+    <label for="idOs" class="col-md-4 col-form-label text-md-end">ID Os</label>
+    <input id="id1" type="nuber" class="form-control-template" name="id" value="{{$ordem_servico_id}}" disabled>
+</div>
 
 <!------------------------------------------------------------------------------------------->
 <!----Datas-->
