@@ -52,6 +52,13 @@ class ServicosExecutadoController extends Controller
     public function store(Request $request)
     {
         //
+        echo($request);
+        Servicos_executado::create($request->all());
+        $ordem_servico_id=$request->get("ordem_servico_id");
+        $ordem_servico= OrdemServico::where('id', $ordem_servico_id)->orderby('data_inicio')->orderby('hora_inicio')->get();
+        $servicos_executado = Servicos_executado::where('ordem_servico_id',$ordem_servico_id)->get();
+      //return view('app.ordem_servico.show', ['ordem_servico' => $ordem_servico,'servicos_executado'=>$servicos_executado]
+
     }
 
     /**
@@ -86,6 +93,7 @@ class ServicosExecutadoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        echo('update');
         //
     }
 

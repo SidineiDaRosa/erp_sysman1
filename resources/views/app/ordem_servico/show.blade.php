@@ -12,10 +12,14 @@
                     Criar novo pedido de saída
                 </a>
 
+
                 <a class="btn btn-primary btn-lg" href="{{route('pedido-saida.index',['ordem_servico'=>$ordem_servico->id,'tipofiltro'=>4])}}">
                     <i class="icofont-search-2"></i>
-
                     </i>Busca Pedidos </a>
+                <a class="btn btn-primary btn-lg" href="{{route('Peca-equipamento.index', ['equipamento' =>$ordem_servico->equipamento->id]) }}">
+                <i class="icofont-tractor"></i>
+                    </i>ir para o equipamento</a>
+
                 <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
                 <a class="btn btn-primary btn-lg" href="{{ route('ordem-servico.index') }}">listar</a>
 
@@ -104,7 +108,7 @@
                     <label for="">Responsável</label>
                     <input class="inputTxt" type="text" value="{{$ordem_servico->responsavel}}" readonly disabled>
                 </div>
-               
+
                 <div class="content-input-txt">
                     <label for="">Descrição dos serviços a executar</label>
                 </div>
@@ -122,6 +126,8 @@
                         <th>Hora prevista</th>
                         <th>Data fim</th>
                         <th>Hora fim</th>
+                        <th>Executor</th>
+                        <th>Descrição dos serviços</th>
                     </tr>
                 </thead>
                 @foreach($servicos_executado as $servicos_exec)
@@ -133,7 +139,6 @@
                     <td>{{$servicos_exec->hora_fim}}</td>
                     <td>{{$servicos_exec->funcionario_id}}</td>
                     <td>{{$servicos_exec->descricao}}</td>
-
                     @endforeach
                 </tbody>
 
@@ -156,6 +161,7 @@
 
     </div>
     </div>
-    <a class="btn btn-primary btn-lg" href="{{route('Servicos-executado.create',['ordem_servico'=>$ordem_servico->id])}}">servicos executados</a>
+
+    <a class="btn btn-primary btn-lg" href="{{route('Servicos-executado.create',['ordem_servico'=>$ordem_servico->id])}}">Inserir serviço executado</a>
 </main>
 @endsection
