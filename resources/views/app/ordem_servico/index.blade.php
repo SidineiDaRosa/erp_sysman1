@@ -194,9 +194,9 @@
                         <td>{{ $ordem_servico->id }}</td>
                         <td hidden>{{ $ordem_servico->data_emissao}}</td>
                         <td hidden>{{ $ordem_servico->hora_emissao}}</td>
-                        <td>{{ $ordem_servico->data_inicio}}</td>
+                        <td> {{ date( 'd/m/Y' , strtotime($ordem_servico['data_inicio']))}}</td>
                         <td>{{ $ordem_servico->hora_inicio}}</td>
-                        <td>{{ $ordem_servico->data_fim}}</td>
+                        <td> {{ date( 'd/m/Y' , strtotime($ordem_servico['data_fim']))}}</td>
                         <td>{{ $ordem_servico->hora_fim}}</td>
                         <td>
                             {{ $ordem_servico->Empresa->razao_social}}

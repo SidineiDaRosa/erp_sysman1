@@ -84,11 +84,11 @@
                     <label for="">Hora emissão</label>
                     <input type="text" value="{{$ordem_servico->hora_emissao}}" readonly disabled>
                     <label for="">Data início</label>
-                    <input type="text" value="{{$ordem_servico->data_inicio}}" readonly disabled>
+                    <input type="text" value="{{ date( 'd/m/Y' , strtotime($ordem_servico['data_inicio']))}}" readonly disabled>
                     <label for="">Hora início</label>
                     <input type="text" value="{{$ordem_servico->hora_fim}}" readonly disabled>
                     <label for="">Data fim</label>
-                    <input type="text" value="{{$ordem_servico->data_fim}}" readonly disabled>
+                    <input type="text" value="{{ date( 'd/m/Y' , strtotime($ordem_servico['data_fim']))}}" readonly disabled>
                     <label for="">Hora fim</label>
                     <input type="text" value="{{$ordem_servico->hora_inicio}}" readonly disabled>
                 </div>

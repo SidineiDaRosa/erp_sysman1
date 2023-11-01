@@ -100,5 +100,4 @@
     <input type=" button" value="Imprimir" onclick="window.print()">
 
 </body>
-
 </html>
