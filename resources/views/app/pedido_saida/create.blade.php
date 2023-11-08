@@ -34,7 +34,7 @@
                     <div class="form-row">
                         <div class="col-md-1">
                             <label for="data_inicio">Data emissão:</label>
-                            <input type="date" class="form-control" name="data_emissao" id="data_emissao" placeholder="dataPrevista" value="" readonly>
+                            <input type="date" class="form-control -lg" name="data_emissao" id="data_emissao" placeholder="dataPrevista" value="" readonly>
                         </div>
                         <div class="col-md-1">
                             <label for="hora_inicio">Hora emissão:</label>
@@ -52,7 +52,7 @@
                             <label for="funcionarios_id" class="">Emissor</label>
 
                             <input type="text" class="form-control" id="emissor" name="emissor" placeholder="emissor" value="{{auth()->user()->name}}" readonly>
-                            <input type="text" class="form-control" id="funcionarios_id" name="funcionarios_id"value="1" hidden>
+                            <input type="text" class="form-control" id="funcionarios_id" name="funcionarios_id" value="1" hidden>
                         </div>
                         <!----------------------------------->
                         <div class="col-md-2 mb-0">
@@ -107,7 +107,7 @@
 
                         <div class="col-md-1">
                             <label for="ordem_serviço_id">Ordem serviço:</label>
-                            <input type="text" class="form-control" name="ordem_servico_id" id="ordem_servico_id" placeholder="ordem_serviço_id" value="{{$ordem_servico_f->id}}">
+                            <input type="text" class="form-control" name="ordem_servico_id" id="ordem_servico_id" placeholder="ordem_serviço_id" value="{{$ordem_servico_f->id}}" readonly>
                         </div>
                         <!------------------------------------------------------------------------------------------->
 
@@ -115,6 +115,7 @@
                             <div class="col-md-12">
                                 <label for="btFiltrar" class="">Salvar pedido</label>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <i class="icofont-save"></i>
                                     {{ isset($equipamento) ? 'Atualizar' : 'Salvar pedido de saída' }}
                                 </button>
                             </div>
