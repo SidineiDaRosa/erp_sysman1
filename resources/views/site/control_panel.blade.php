@@ -123,7 +123,7 @@
                         <td>{{ date( 'd/m/Y' , strtotime($ordem_servico_f['data_proxima_manutencao']))}}</td>
                         <td>{{ $ordem_servico_f->produto->nome}}</td>
                         <td> <a class="btn btn-secondary btn-sm" href="{{route('Peca-equipamento.index', ['equipamento' =>$ordem_servico_f->equipamento]) }}">
-                                <i class="icofont-content-scalling"></i></a>{{ $ordem_servico_f->equipamento}}
+                                <i class="icofont-search-document"></i></i></a>{{ $ordem_servico_f->equipamento}}
                         </td>
                         <td>{{ $ordem_servico_f->intervalo_manutencao}}hs</td>
                         <td><span id="spn1">Restam:</span> {{ $ordem_servico_f->horas_proxima_manutencao}}hs</td>

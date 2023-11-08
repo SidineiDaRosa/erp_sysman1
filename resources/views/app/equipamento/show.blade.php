@@ -15,7 +15,12 @@
                 </a>
             </div>
         </div>
-
+        <a href="{{route('ordem-servico.create', ['equipamento'=>12])}}" class="btn-sm btn-success">
+            <span class="icon text-white-50">
+                <i class="icofont-database-add"></i>
+            </span>
+            <span class="text">Nova ordem</span>
+        </a>
 
         <div class="card-body">
 

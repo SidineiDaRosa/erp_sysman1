@@ -51,6 +51,13 @@
                 <a href="{{ route('Peca-equipamento.create',['equipamento' => $equipamento_f->id]) }}" class="btn btn-sm btn-primary">
                     Cadastrar peça do equipamento
                 </a>
+       
+                <a href="{{route('ordem-servico.create', ['empresa'=>6,'equipamento'=>$equipamento_f->id])}}" class="btn-sm btn-success">
+                    <span class="icon text-white-50">
+                    <i class="icofont-database-add icofont-2x"></i>
+                    </span>
+                    <span class="text">Nova ordem</span>
+                </a>
             </div>
         </div>
     </div>
@@ -139,27 +146,29 @@
 
 
 
-<style>
-    #Div-os{
-        background-color:rgb(211, 211, 211);
-        padding:10px;
-        margin-top:10px;
-        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size:20px;
-    
-    
-    }
-</style>
+            <style>
+                #Div-os {
+                    background-color: rgb(211, 211, 211);
+                    padding: 10px;
+                    margin-top: 10px;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-size: 20px;
+
+
+                }
+            </style>
 
             @foreach ($ordens_servicos as $ordem_servico_f)
             <div id="Div-os">
                 <label for="">ID:</label>
-               {{$ordem_servico_f->id}} <p>
-               <label for="">Data Início:</label>
-               {{$ordem_servico_f->data_inicio}}.... Data_Fim:{{$ordem_servico_f->data_fim}}<p>
-               <label for="">descrição dos serviços:</label>
-               {{$ordem_servico_f->descricao}}
-               <hr>
+                {{$ordem_servico_f->id}}
+                <p>
+                    <label for="">Data Início:</label>
+                    {{$ordem_servico_f->data_inicio}}.... Data_Fim:{{$ordem_servico_f->data_fim}}
+                <p>
+                    <label for="">descrição dos serviços:</label>
+                    {{$ordem_servico_f->descricao}}
+                    <hr>
             </div>
             @endforeach
         </div>

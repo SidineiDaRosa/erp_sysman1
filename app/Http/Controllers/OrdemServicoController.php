@@ -154,16 +154,19 @@ class OrdemServicoController extends Controller
     {
 
         $id = $empresa->get('empresa');
+        $equipamento=$empresa->get('equipamento');
         // $funcionarios=Funcionario::all();
         $funcionarios = Funcionario::where('funcao', 'supervisor')->get();
         $equipamentos = Equipamento::where('empresa_id', $id)->get();
         $ordem_servico = OrdemServico::all();
         $empresa = Empresas::where('id', $id)->get();
-
         return view('app.ordem_servico.create', [
             'ordem_servico' =>  $ordem_servico, 'equipamentos' => $equipamentos, 'funcionarios' => $funcionarios,
-            'empresa' => $empresa
+            'empresa' => $empresa,
+            'equipamento'=>$equipamento
+            
         ]);
+       
     }
     /**
      * Store a newly created resource in storage.

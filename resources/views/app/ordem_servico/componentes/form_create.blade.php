@@ -15,6 +15,7 @@
     <form action="{{ route('ordem-servico.store') }}" method="POST">
         @csrf
         @endif
+        
         <!------------------------------------------------------------------------------------------->
         <div class="form-row mb-0">
             <div class="col-md-2 mb-0">
@@ -44,7 +45,7 @@
             <!---equipamento-->
             <!------------------------------------------------------------------------------------------->
             <div class="col-md-8 mb-0">
-                <label for="equipamento_pai" class="col-md-4 col-form-label text-md-end">Equipamento/Patrimônio</label>
+                <label for="equipamento_pai" class="col-md-4 col-form-label text-md-end">Equipamento/Patrimônio...{{$equipamento}}</label>
                 <select name="equipamento_id" id="equipamento_id" class="form-control-template">
                     <option value=""> --Selecione o equipamento--</option>
                     @foreach ($equipamentos as $equipment)
@@ -332,3 +333,4 @@
 
         });
     </script>
+   
