@@ -17,10 +17,10 @@
                     <i class="icofont-search-2"></i>
                     </i>Busca Pedidos </a>
                 <a class="btn btn-primary btn-lg" href="{{route('Peca-equipamento.index', ['equipamento' =>$ordem_servico->equipamento->id]) }}">
-                <i class="icofont-tractor"></i>
+                    <i class="icofont-tractor"></i>
                     </i>ir para o equipamento</a>
-
-                <a class="btn btn-primary btn-lg mr-2" href="{{ route('ordem-servico.index') }}">Voltar</a>
+                <a class="btn btn-primary btn-lg" href="{{route('ordem-servico.edit', ['ordem_servico'=>$ordem_servico->id])}}">
+                    <i class="icofont-ui-edit"></i>Editar</a>
                 <a class="btn btn-primary btn-lg" href="{{ route('ordem-servico.index') }}">listar</a>
 
             </div>
