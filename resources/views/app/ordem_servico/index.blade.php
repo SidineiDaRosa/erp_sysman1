@@ -163,29 +163,28 @@
                     background-color: rgb(169, 169, 169);
                 }
             </style>
-
-            <table class="" id="tblOs">
+            <table id="tblOs">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th hidden>Data emissao</th>
-                        <th hidden>Hora</th>
-                        <th>Data prevista</th>
-                        <th>Hora prevista</th>
-                        <th>Data fim</th>
-                        <th>Hora fim</th>
-                        <th>Empresa</th>
-                        <th>Patrimônio</th>
-                        <th>Emissor</th>
-                        <th>Responsável</th>
-                        <th>Descrição</th>
-                        <th>Executado</th>
+                        <th scope="col" class="">ID</th>
+                        <th scope="col" class="" hidden>Data emissao</th>
+                        <th scope="col" class="" hidden>Hora</th>
+                        <th scope="col" class="">Data prevista</th>
+                        <th scope="col" class="">Hora prevista</th>
+                        <th scope="col" class="">Data fim</th>
+                        <th scope="col" class="">Hora fim</th>
+                        <th scope="col" class="">Empresa</th>
+                        <th scope="col" class="">Patrimônio</th>
+                        <th scope="col" class="">Emissor</th>
+                        <th scope="col" class="">Responsável</th>
+                        <th scope="col" class="">Descrição</th>
+                        <th scope="col" class="">Executado</th>
                         <th>link foto</th>
                         <th>Status</th>
                         <th>Valor</th>
                         <th>Operações</th>
                         <th>check</th>
-                        <th>Pedido</th>
+
                     </tr>
                 </thead>
                 @foreach ($ordens_servicos as $ordem_servico)
@@ -194,12 +193,14 @@
                         <td>{{ $ordem_servico->id }}</td>
                         <td hidden>{{ $ordem_servico->data_emissao}}</td>
                         <td hidden>{{ $ordem_servico->hora_emissao}}</td>
-                        <td> {{$ordem_servico->data_inicio}}</td>
-                        <td>{{$ordem_servico->hora_inicio}}</td>
-                        <td> {{$ordem_servico->data_fim}}</td>
-                        <td>{{$ordem_servico->hora_fim}}</td>
+                        <td>{{ $ordem_servico->data_inicio}}</td>
+                        <td>{{ $ordem_servico->hora_inicio}}</td>
+                        <td>{{ $ordem_servico->data_fim}}</td>
+                        <td>{{ $ordem_servico->hora_fim}}</td>
                         <td>
+
                             {{ $ordem_servico->Empresa->razao_social}}
+
                         </td>
                         <td>{{ $ordem_servico->equipamento->nome}}</td>
                         <td>{{ $ordem_servico->emissor}}</td>
@@ -211,7 +212,6 @@
                         </td>
                         <td>
                             {{ $ordem_servico->Executado}}
-
 
                         </td>
                         <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
