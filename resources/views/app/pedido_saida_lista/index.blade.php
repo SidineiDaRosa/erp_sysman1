@@ -67,21 +67,27 @@
                 </div>
                 <!---------Select empresa------------->
                 <!------------------------------------>
-                <div class="col-md-2">
-                    <label for="equipamento">Patrimônio/equipamento:</label>
+                <div class="col-md-1">
+                    <label for="equipamento">Equipamento:</label>
                     <input type="text" class="form-control" name="equipamento" id="equipamento" value="{{$pedido_saida_f->equipamento->nome ?? old('hora_prevista') }}" required autocomplete="funcionarios_id " autofocus readonly>
                     {{ $errors->has('funcionarios_id ') ? $errors->first('funcionarios_id ') : '' }}
                 </div>
+
                 <div class="col-md-1">
                     <label for="ordem_serviço_id">Ordem serviço:</label>
                     <input type="text" class="form-control" name="ordem_servico_id" id="ordem_servico_id" placeholder="ordem_serviço_id" value="{{$pedido_saida_f->ordem_servico_id}}" readonly>
                 </div>
-                </form>
+                <div class="col-md-0">
+                    <label for="equipamento">ir para o.s:</label>
+                    <p></p>
+                    <a class="btn btn-sm-template btn-outline-primary" href="{{route('ordem-servico.show', ['ordem_servico'=>$pedido_saida_f->ordem_servico_id])}}">
+                        <i class="icofont-eye-alt icofont-2x"></i>
+                    </a>
+                </div>
                 <!--------------------------------------->
                 <div class="col-md-0">
-                    <label for="btFiltrar" class="">Adicionar produto</label>
+                    <label for="ordem_servico_id">Voltar:</label>
                     <p>
-
                         <a href="{{route('pedido-saida.index')}}" class="btn btn-info btn-icon-split">
                             <span class="icon text-white-50 ">
                                 <i class="icofont-list"></i>
@@ -128,11 +134,11 @@
             </table>
         </div>
         <!--Iframe do subformulario de produtos-->
-       <!-- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">-->
-    <!-- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">  
+        <!-- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">-->
+        <!-- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">  
     </iframe>-->
- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">  
-    </iframe>
+        <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">
+        </iframe>
         @endsection
 
         <footer>

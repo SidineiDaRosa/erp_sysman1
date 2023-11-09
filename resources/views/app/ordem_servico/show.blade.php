@@ -75,13 +75,13 @@
                     {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
                 </div>
                 <div id=idOs>
-                    ID O.S:{{$ordem_servico->id}}
+                    ID O.S:&nbsp&nbsp{{$ordem_servico->id}}
                 </div>
                 <hr>
                 <div class="content-input-txt">
-                    <label for="">Data emissão..</label>
+                    <label for="">Data emissão &nbsp</label>
                     <input type="text" value="{{$ordem_servico->data_emissao}}" readonly disabled>
-                    <label for="">Hora emissão</label>
+                    <label for="">Hora emissão &nbsp</label>
                     <input type="text" value="{{$ordem_servico->hora_emissao}}" readonly disabled>
                     <label for="">Data início</label>
                     <input type="text" value="{{ date( 'd/m/Y' , strtotime($ordem_servico['data_inicio']))}}" readonly disabled>
@@ -95,7 +95,7 @@
                 <div class="content-input-txt">
                     <label for="">Empresa/Filial</label>
                     <input class="inputTxt" type="text" value="{{$ordem_servico->Empresa->razao_social}}" readonly disabled>
-                    <label for="">Ativo............</label>
+                    <label for="">Ativo &nbsp&nbsp</label>
                     <input class="inputTxt" type="text" value="{{$ordem_servico->equipamento->nome}}" readonly disabled>
                     <label for="">Status</label>
                     <input class="inputTxt" type="text" value=" {{$ordem_servico->situacao}}" readonly disabled>
