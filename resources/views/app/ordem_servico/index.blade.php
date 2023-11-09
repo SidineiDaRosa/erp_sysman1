@@ -163,7 +163,7 @@
                     background-color: rgb(169, 169, 169);
                 }
             </style>
-            
+
             <table class="" id="tblOs">
                 <thead>
                     <tr>
@@ -194,10 +194,10 @@
                         <td>{{ $ordem_servico->id }}</td>
                         <td hidden>{{ $ordem_servico->data_emissao}}</td>
                         <td hidden>{{ $ordem_servico->hora_emissao}}</td>
-                        <td> {{ date( 'd/m/Y' , strtotime($ordem_servico['data_inicio']))}}</td>
-                        <td>{{ $ordem_servico->hora_inicio}}</td>
-                        <td> {{ date( 'd/m/Y' , strtotime($ordem_servico['data_fim']))}}</td>
-                        <td>{{ $ordem_servico->hora_fim}}</td>
+                        <td> {{$ordem_servico->data_inicio}}</td>
+                        <td>{{$ordem_servico->hora_inicio}}</td>
+                        <td> {{$ordem_servico->data_fim}}</td>
+                        <td>{{$ordem_servico->hora_fim}}</td>
                         <td>
                             {{ $ordem_servico->Empresa->razao_social}}
                         </td>
@@ -211,8 +211,8 @@
                         </td>
                         <td>
                             {{ $ordem_servico->Executado}}
-                       
-                           
+
+
                         </td>
                         <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
                         <td>{{ $ordem_servico->situacao}}
