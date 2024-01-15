@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\Marca;
 use App\Models\UnidadeMedida;
 use App\Models\Categoria;
+use BaconQrCode\Renderer\Path\Move;
+
 //use phpDocumentor\Reflection\Types\This;
 
 class ProdutoController extends Controller
@@ -29,10 +32,10 @@ class ProdutoController extends Controller
             if ($tipoFiltro == 1) {
                 $produtos = Produto::where('id', $nome_produto_like)->get();
                 //if (isset($_POST['id'])) {
-                         
+
                 if (!empty($nome_produto_like)) {
-                 
-                   //return QrCode::size(300)->generate('$nome_produto_like');
+
+                    //return QrCode::size(300)->generate('$nome_produto_like');
                     return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
                 }
             }
@@ -55,14 +58,14 @@ class ProdutoController extends Controller
                 //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
             }
             if ($tipoFiltro == 4) {
-                $produtos = Produto::where('categoria_id', $categoria_id )->get();
+                $produtos = Produto::where('categoria_id', $categoria_id)->get();
                 //if (isset($_POST['id'])) {
 
-               // if (!empty($nome_produto_like)) {
-                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-                }
-                //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
-           // }
+                // if (!empty($nome_produto_like)) {
+                return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+            //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            // }
         } else {
             $produtos = Produto::where('id', 0)->get();
             return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
@@ -93,7 +96,30 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        Produto::create($request->all());
+
+        //Image Upload
+        $produto = new Produto;
+        //criando um objeto
+        $produto->cod_fabricante = $request->cod_fabricante;
+        $produto->nome = $request->nome;
+        $produto->descricao = $request->descricao;
+        $produto->marca_id = $request->marca_id;
+        $produto->unidade_medida_id = $request->unidade_medida_id;
+        $produto->categoria_id = $request->categoria_id;
+        $produto->link_peca = $request->link_peca;
+        $produto->image = $request->image;
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image->Move(public_path('img/produtos'), $imageName);
+            $produto->image = $imageName;
+        };
+
+        //$produto_image->save();
+        //Produto::create($request->all());
+        $produto->save();
         return redirect()->route('produto.index');
     }
 

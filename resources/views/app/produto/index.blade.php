@@ -138,7 +138,10 @@
                     <td>{{ $produto->descricao }}</td>
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
+                    <td>
+                        <img src="/img/produtos/{{ $produto->image}}" alt="imagem"></td>
                     <td>{{ $produto->categoria->nome}}</td>
+                    
                     <td>
                         <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
                             <i class="icofont-database-add"></i>

@@ -52,6 +52,11 @@
                     <td class="text-right pr-2">Local no estoque</td>
                     <td>{{ $produto->local_estoque}}</td>
                 </tr>
+
+                <td>{{ $produto->categoria->nome}}</td>
+                <td>
+                    <img src="/img/produtos/{{ $produto->image}}" alt="imagem">
+                </td>
             </table>
             {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}</tr>
             <hr>
@@ -63,8 +68,8 @@
                 $urlPaginaAtual = $protocolo . $url
                 //echo $protocolo.$url;
                 ?>
-                Visualisar no web site:
-                <p></p>
+            Visualisar no web site:
+            <p></p>
             {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
         </div>
     </div>
