@@ -108,6 +108,8 @@ class ProdutoController extends Controller
         $produto->categoria_id = $request->categoria_id;
         $produto->link_peca = $request->link_peca;
         $produto->image = $request->image;
+        $produto->image2 = $request->image2;
+        $produto->image3 = $request->image3;
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
@@ -115,6 +117,19 @@ class ProdutoController extends Controller
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
             $request->image->Move(public_path('img/produtos'), $imageName);
             $produto->image = $imageName;
+        };
+        if ($request->hasFile('image2') && $request->file('image2')->isValid()) {
+            $requestImage = $request->image2;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image2->Move(public_path('img/produtos'), $imageName);
+            $produto->image2 = $imageName;
+        };   if ($request->hasFile('image3') && $request->file('image3')->isValid()) {
+            $requestImage = $request->image3;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image3->Move(public_path('img/produtos'), $imageName);
+            $produto->image3 = $imageName;
         };
 
         //$produto_image->save();

@@ -57,6 +57,12 @@
                 <td>
                     <img src="/img/produtos/{{ $produto->image}}" alt="imagem">
                 </td>
+                <td>
+                    <img src="/img/produtos/{{ $produto->image2}}" alt="imagem">
+                </td>
+                <td>
+                    <img src="/img/produtos/{{ $produto->image3}}" alt="imagem">
+                </td>
             </table>
             {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}</tr>
             <hr>

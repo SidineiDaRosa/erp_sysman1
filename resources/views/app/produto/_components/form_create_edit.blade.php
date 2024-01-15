@@ -96,7 +96,18 @@
                             <input type="file" id="image" name="image">
                         </div>
                     </div>
-     
+                    <div class="row mb-1">
+                        <label for="estoque_maximo" class="col-md-4 col-form-label text-md-end text-right">Carregar uma imagem</label>
+                        <div class="col-md-6">
+                            <input type="file" id="image2" name="image2">
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <label for="estoque_maximo" class="col-md-4 col-form-label text-md-end text-right">Carregar uma imagem</label>
+                        <div class="col-md-6">
+                            <input type="file" id="image3" name="image3">
+                        </div>
+                    </div>
                     <div class="row mb-1">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
