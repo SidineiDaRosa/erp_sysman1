@@ -7,10 +7,10 @@
 <main class="content">
     <div class="card">
         <div class="card-header-template">
-            <div>Visualizar Produto</div>
+            <div>Visualizar Produto venda</div>
             <div>
                 <a href="{{ route('produto.index') }}" class="btn btn-sm btn-primary">
-                    Lista de produtos
+                    Lista de produtos para visualização
                 </a>
             </div>
         </div>

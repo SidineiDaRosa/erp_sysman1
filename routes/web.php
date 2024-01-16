@@ -39,6 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('app.home');
 
 Route::get('/e-comerce-show-produto', 'App\Http\Controllers\ProdutoControllerComerce@index');
+Route::get('/e-comerce-show-produto-show', 'App\Http\Controllers\ProdutoControllerComerce@show');
 //Route::get('/e-comerce-show-produto', [App\Http\Controllers\ProdutoControllerComerce::class, 'index']);
 //-------------------------------------------------------------------------------------------------
 // Rota do venda no site 

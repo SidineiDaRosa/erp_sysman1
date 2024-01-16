@@ -40,9 +40,10 @@
 
             <div>
 
-                <a href="{{ route('produto.create') }}" class="btn btn-sm btn-primary">
-                    <i class="icofont-database-add icofont-2x"></i>
-                    Novo produto
+                <a href="#" class="btn btn-sm btn-primary">
+                   
+                    <i class="icofont-cart icofont-2x"></i>
+                    Meu carrinho
                 </a>
             </div>
         </div>
@@ -163,7 +164,7 @@
 
                     <td>
                         <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
-                            <a class="btn btn-sm-template btn-outline-primary" href="{{ route('produto.show', ['produto' => $produto->id]) }}">
+                            <a class="btn btn-sm-template btn-outline-primary" href="{{ route('e-comerce-show-produto-show', ['produto' => $produto->id]) }}">
                                 <i class="icofont-eye-alt"></i>
                             </a>
 

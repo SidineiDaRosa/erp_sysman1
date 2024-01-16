@@ -98,9 +98,9 @@ class ProdutoControllerComerce extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Produto $produto)
     {
-        //
+        return view('app.produto.showProdutoVenda', ['produto' => $produto]);
     }
 
     /**
