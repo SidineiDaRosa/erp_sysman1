@@ -137,11 +137,22 @@
                     <td>{{ $produto->unidade_medida->nome}}</td>
                     <td>{{ $produto->descricao }}</td>
                     <td>{{ $produto->marca->nome}}</td>
-                    <td><a href="{{ $produto->link_peca}}" target="blank">Ver peça</a></td>
+                    <td><a href="{{ $produto->link_peca}}" target="blank">Ver no site do fabricante
+                    <i class="icofont-arrow-right"></i>
+                    </a></td>
                     <td>
-                        <img src="/img/produtos/{{ $produto->image}}" alt="imagem"></td>
-                    <td>{{ $produto->categoria->nome}}</td>
-                    
+                        <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image">
+                    </td>
+                    <style>
+                        .preview-image {
+                            width: 100px;
+                            height: 100px;
+                            object-fit: cover;
+                            margin: 0 5px;
+                            cursor: pointer;
+                        }
+                    </style>
+
                     <td>
                         <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
                             <i class="icofont-database-add"></i>
@@ -187,7 +198,6 @@
                 @endforeach
             </tbody>
         </table>
-
 
     </div>
 
