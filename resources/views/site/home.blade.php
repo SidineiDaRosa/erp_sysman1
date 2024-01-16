@@ -37,7 +37,8 @@
             </a>
         </div>
         <div>
-            <a id="div-produtos-servicos" class="nav-link" href="#"> Produtos e Serviços</a>
+            <a id="div-produtos-servicos" class="nav-link" href="{{('e-comerce-show-produto')}}">Produtos e Serviços</a>
+
             <div id="div-produtos-1"></div>
 
             <style>
@@ -56,8 +57,7 @@
         </div>
 
         <div>
-            <a class="nav-link" target="_blank"
-                href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4">Webmail</a>
+            <a class="nav-link" target="_blank" href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4">Webmail</a>
         </div>
         <div>
             <a class="nav-link" href="{{ route('app.home') }}">Área restrita</a>
@@ -72,8 +72,7 @@
     <div id="div-body">
         <article>
             Soluçoes em produtos e serviços.
-            <a href="https://dolarhoje.com/" class="dolar-hoje-button" data-currency="dolar" target="_blank"
-                title="Cotação do Dólar Hoje">Dólar Hoje</a>
+            <a href="https://dolarhoje.com/" class="dolar-hoje-button" data-currency="dolar" target="_blank" title="Cotação do Dólar Hoje">Dólar Hoje</a>
             <script async src="//dolarhoje-widgets.s3.amazonaws.com/button.js"></script>
         </article>
         <div id="footer_main">

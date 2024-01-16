@@ -18,6 +18,5 @@
                 @endcomponent
             </div>
         </div>
-
     </main>
 @endsection
