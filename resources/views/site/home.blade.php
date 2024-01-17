@@ -37,7 +37,7 @@
             </a>
         </div>
         <div>
-            <a id="div-produtos-servicos" class="nav-link" href="{{('e-comerce-show-produto')}}">Produtos e Serviços</a>
+            <a id="div-produtos-servicos" class="nav-link" href="">Produtos e Serviços</a>
 
             <div id="div-produtos-1"></div>
 
