@@ -1,16 +1,35 @@
-@extends('app.layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('titulo', 'Produtos')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
 
 <main class="content">
+    @foreach ($produto as $produto)
+    @endforeach
     <div class="card">
         <div class="card-header-template">
-            <div>Visualizar Produto venda</div>
+            <div>Visualizar Produto</div>
             <div>
-                <a href="{{ route('produto.index') }}" class="btn btn-sm btn-primary">
-                    Lista de produtos para visualização
+                <a href="#" class="btn btn-sm btn-primary">
+                    <i class="icofont-cart icofont-2x"></i>
+                    Meu carrinho
                 </a>
             </div>
         </div>
@@ -48,7 +67,7 @@
                     margin: 0 auto;
                     overflow: hidden;
                     float: left;
-                    margin-left:100px;
+                    margin-left: 100px;
                 }
 
                 .carousel-images {
@@ -69,8 +88,8 @@
                 }
 
                 .preview-image {
-                    width: 50px;
-                    height: 50px;
+                    width: 70px;
+                    height: 70px;
                     object-fit: cover;
                     margin: 0 5px;
                     cursor: pointer;
@@ -79,6 +98,10 @@
                 .preview-image:hover {
                     border: 2px solid blue;
                 }
+
+                .card-body {
+                    background-color: rgb(220, 220, 220);
+                }
             </style>
             <!--  div dos dados do produto-->
             <style>
@@ -86,13 +109,13 @@
                     height: 500px;
                     width: 500px;
                     float: right;
-                
-                    margin-right:100px;
+
+                    margin-right: 100px;
                 }
             </style>
             <div id="dados-tec">
-                <h6>ID:</h6>{{ $produto->id }}
-                <h6>Nome:</h6>{{ $produto->nome }}
+                <h1>{{ $produto->nome }}-código:</h1>
+                <h1>R$: 1000,00</h1>
                 <h6>Descrição:</h6>{{ $produto->descricao }}
                 <h6>Marca:</h6>{{ $produto->marca->nome }}
                 <hr>
@@ -101,24 +124,12 @@
                 <h6>local:</h6>{{ $produto->local_estoque}}
                 <h6>Categoria</h6>{{ $produto->categoria->nome}}
                 <hr>
-
-                <hr><?php
-
-                    $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
-                    $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                    $urlPaginaAtual = $protocolo . $url
-                    //echo $protocolo.$url;
-                    ?>
-                Visualisar no web site:
-                <p>
-                    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
-                    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}
-                    {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}
             </div>
 
         </div>
     </div>
 
+
 </main>
 
-@endsection
+</html>

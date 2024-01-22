@@ -9,6 +9,7 @@ use App\Models\Marca;
 use App\Models\UnidadeMedida;
 use App\Models\Categoria;
 use BaconQrCode\Renderer\Path\Move;
+
 class ProdutoControllerComerce extends Controller
 {
     /**
@@ -34,7 +35,7 @@ class ProdutoControllerComerce extends Controller
                 if (!empty($nome_produto_like)) {
 
                     //return QrCode::size(300)->generate('$nome_produto_like');
-                    return view('app.produto.SerchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                    return view('app.produto.SearchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
                 }
             }
             if ($tipoFiltro == 2) {
@@ -42,7 +43,7 @@ class ProdutoControllerComerce extends Controller
                 //if (isset($_POST['id'])) {
 
                 if (!empty($nome_produto_like)) {
-                    return view('app.produto.SerchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                    return view('app.produto.SearchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
                 }
                 //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
             }
@@ -51,7 +52,7 @@ class ProdutoControllerComerce extends Controller
                 //if (isset($_POST['id'])) {
 
                 if (!empty($nome_produto_like)) {
-                    return view('app.produto.SerchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                    return view('app.produto.SearchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
                 }
                 //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
             }
@@ -60,13 +61,13 @@ class ProdutoControllerComerce extends Controller
                 //if (isset($_POST['id'])) {
 
                 // if (!empty($nome_produto_like)) {
-                return view('app.produto.SerchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                return view('app.produto.SearchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
             }
             //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
             // }
         } else {
-            $produtos = Produto::where('id', 0)->get();
-            return view('app.produto.SerchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            $produtos = Produto::where('id',)->get();
+            return view('app.produto.SearchingProdutosVenda', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
         };
         //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
 
@@ -98,9 +99,13 @@ class ProdutoControllerComerce extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
+    public function show(Request $request)
     {
-        return view('app.produto.showProdutoVenda', ['produto' => $produto]);
+        //echo ($request);
+        $idProduto = $request->get('idProduto');
+        
+        $produto = Produto::where('id',$idProduto)->get();
+         return view('app.produto.showProdutoVenda', ['produto' => $produto]);
     }
 
     /**

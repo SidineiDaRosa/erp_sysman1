@@ -102,8 +102,8 @@
                     {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
                 </div>
                 <!------------------------------------------------------------------------------------------->
-                <!---------Select o equipament------------->
-                <!--------------------------------------------------------------------------------------->
+                <!---------Select o equipament--------------------------------------------------------------->
+                <!------------------------------------------------------------------------------------------->
                 <div class="col-md-3 mb-0">
                     <label for="id">Patrimônio:</label>
                     <input type="number" class="form-control" id="patrimonio" name="patrimonio_id" placeholder="ID patrimonio" value="">
@@ -203,6 +203,7 @@
 
                         </td>
                         <td>{{ $ordem_servico->equipamento->nome}}</td>
+                        <td>{{ $ordem_servico->equipamento->id}}</td>
                         <td>{{ $ordem_servico->emissor}}</td>
                         <td>{{ $ordem_servico->responsavel}}</td>
                         <td id="descricao">
@@ -214,6 +215,7 @@
                             {{ $ordem_servico->Executado}}
 
                         </td>
+
                         <td><a href="{{ $ordem_servico->link_foto}}" target="blank">link foto</a></td>
                         <td>{{ $ordem_servico->situacao}}
                             <div class="progress mb-3" role="progressbar" aria-label="Success example with label" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
@@ -298,41 +300,327 @@
         <!--Código que gera o gáfico de gantt-->
         <!--------------------------------------------------------------------->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+        <div id="timeline" style="height:100%;">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <!--------------------------------------------------------------------->
+            <!--Código que gera o gáfico de pizza-->
+            <!--------------------------------------------------------------------->
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <button onclick="agruparNumerosIguais1()">Gerar tabela de geração de ordens</button>
+        <table id="tabelaAgrupada">
+            <caption>Tabela Agrupada</caption>
+            <thead>
+                <tr>
+                    <th>Nome do equipamento</th>
+                    <th>Id</th>
+                    <th>Quantidade de ordens geradas</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabelaAgrupada">
+                <!-- Aqui será preenchido dinamicamente com JavaScript -->
+            </tbody>
+        </table>
+        <style>
+            .container-chart {
+                display: flex;
+                height: 100%;
+                width: 100%;
+            }
+
+            .item {
+                flex: 1;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 5px;
+                border-radius: 5px;
+            }
+        </style>
+        <div class="container-chart">
+            <div class="item">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+                <h2>Div 3</h2>
+                <p>Conteúdo da terceira div.</p>
+            </div>
+        </div>
+
+        <script>
+            //-------------------------------------------------------------------------------------------------------
+
+            function VerTabela() {
+                agruparNumerosIguais() //chama criar tabela
+                table1 = document.getElementById("tblOs");
+                let totalColumnsTbOs = (table1.rows.length);
+                alert(totalColumnsTbOs)
+                for (var i = 1; i < table1.rows.length; i++) {
+                    let equipamentoId =
+                        document.getElementById("tblOs").rows[i].cells[9].innerHTML;
+                    //FunAjaxGetcontEquip()
+                };
+                if (i = totalColumnsTbOs) {
+
+                }
+            }
+            //Funçoes em ajax
+            //$(document).ready(function()
+            function FunAjaxGetcontEquip(url, sidinei, sucessoCallback, erroCallback) {
+                let valorInput = $("#os1").val(); //pega o valor do input
+                let date1 = $("#date1").val(); //pega o valor do input
+                let date2 = $("#date2").val(); //pega o valor do input
+                var linha = $("#tblOs tr:eq(1)"); // Pega a segunda linha da tabela (índice 1)
+                var equipamentoId = linha.find("td:eq(8)").text(); // Pega o texto da segunda célula (índice 1) da linha
+                var dataInicio = linha.find("td:eq(1)").text(); // Pega o texto da terceira célula (índice 2) da linha
+                var dataFim = linha.find("td:eq(3)").text(); // Pega o texto da terceira célula (índice 2) da linha
+
+                // Exibe um alerta com os valores obtidos
+                alert("esta fução busca e conta registros de equipaento nesta data-Equipamento id: " + equipamentoId + "Datas: " + date1 + '...' + date2);
+                $.ajax({
+
+                    url: "{{route('get-cont-os-equip')}}", // Substitua 'pagina.php' pelo URL da sua página de destino
+                    type: "get", // Ou "GET" dependendo do tipo de requisição que você deseja fazer
+                    data: {
+
+                        parametro1: date1,
+                        parametro2: date2,
+                        parametro3: equipamentoId
+                    }, // Se necessário, envie parâmetros para a página de destino
+                    success: function(response) {
+                        // Executa essa função quando a requisição for bem-sucedida
+                        alert("Requisição bem-sucedida! Resposta: " + response); // Mostra um alerta com a resposta da requisição
+                        document.getElementById('os1').value = response;
+                        // Alterando a cor de fundo do input
+                        $("#os1").css("background-color", "#ff0000");
+                    },
+                    error: function(xhr, status, error) {
+                        // Executa essa função se houver um erro na requisição
+                        // alert("Ocorreu um erro na requisição: " + xhr.responseText); // Mostra um alerta com a mensagem de erro
+                    }
+                });
+            };
         </script>
 
-        <div id="timeline" style="height: 2000px;">
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
-                let valor = "{{$valorTotal}}"; //pega valor total
-                google.charts.load('current', {
-                    'packages': ['corechart']
-                });
-                google.charts.setOnLoadCallback(drawChart);
 
-                function drawChart() {
-
-                    var data = google.visualization.arrayToDataTable([
-                        ['Task', 'Hours per Day'],
-                        ['Valor total', valor],
-                        ['Eat', 2],
-                        ['Commute', 2],
-                        ['Watch TV', 2],
-                        ['Sleep', 7]
-                    ]);
-                    var options = {
-                        title: 'My Daily Activities'
-                    };
-                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-                    chart.draw(data, options);
-                }
-            </script>
-            <div id="piechart" style="width: 900px; height: 500px;"></div>
-        </div>timeline
-        <!--------------------------------------------------------------------->
+        </script>
+        </body>
 </main>
 @endsection
 <footer>
 </footer>
+
+</html>
+
+</body>
+
+</html>
+
+<script>
+    function agruparNumerosIguais1() {
+        var tabela = document.getElementById("tblOs");
+        var numeros = {};
+
+        for (var i = 1; i < tabela.rows.length; i++) {
+            var nome = tabela.rows[i].cells[8].innerHTML;
+            var numero = tabela.rows[i].cells[9].innerHTML;
+            if (!numeros[nome]) {
+                numeros[nome] = {};
+            }
+            if (!numeros[nome][numero]) {
+                numeros[nome][numero] = 1;
+            } else {
+                numeros[nome][numero]++;
+            }
+        }
+
+        var tabelaAgrupada = document.getElementById("tabelaAgrupada");
+        var corpoTabelaAgrupada = document.getElementById("corpoTabelaAgrupada");
+        corpoTabelaAgrupada.innerHTML = "";
+
+        for (var nome in numeros) {
+            for (var numero in numeros[nome]) {
+                var row = corpoTabelaAgrupada.insertRow();
+                var cellNome = row.insertCell(0);
+                var cellNumero = row.insertCell(1);
+                var cellQuantidade = row.insertCell(2);
+                cellNome.innerHTML = nome;
+                cellNumero.innerHTML = numero;
+                cellQuantidade.innerHTML = numeros[nome][numero];
+
+            }
+        }
+        // Criar gráfico de pizza
+        // Obter os dados da tabela
+        const table = document.getElementById('tabelaAgrupada');
+        const rows = table.getElementsByTagName('tr');
+        const data = {
+            labels: [],
+            values: []
+        };
+
+        // Iterar sobre as linhas da tabela e extrair os dados
+        for (let i = 1; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName('td');
+            data.labels.push(cells[0].innerText);
+            const value1 = parseInt(cells[0].innerText);
+            const value2 = parseInt(cells[2].innerText);
+            data.values.push(value1 + value2);
+        }
+        GerarPieChart()
+        GerarGráficoLinhas()
+    }
+
+    function GerarPieChart() {
+        // Obter os dados da tabela
+        const table = document.getElementById('tabelaAgrupada');
+        const rows = table.getElementsByTagName('tr');
+        const data = {
+            labels: [],
+            values: []
+        };
+
+        // Iterar sobre as linhas da tabela e extrair os dados
+        for (let i = 1; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName('td');
+            data.labels.push(cells[0].innerText);
+            const value1 = parseInt(cells[1].innerText);
+            const value2 = parseInt(cells[2].innerText);
+            data.values.push(value1 + value2);
+        }
+
+        // Criar o gráfico de pizza
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Valores Agrupados',
+                    data: data.values,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        const canvas = document.getElementById('myChart');
+        canvas.width = 200;
+        canvas.height = 200;
+    }
+</script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela e Gráfico de Linhas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        canvas {
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tabela</h1>
+    <table id="myTable2">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Vendas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Produto A</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Produto B</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>Produto C</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Gráfico de Linhas</h1>
+    <div id="myChart2"></div>
+    <script>
+        // Obter os dados da tabela
+        const table2 = document.getElementById('myTable2');
+        const rows2 = table2.getElementsByTagName('tr');
+        const data1 = {
+            labels: [],
+            values: []
+        };
+
+        // Iterar sobre as linhas da tabela e extrair os dados
+        for (let i = 1; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName('td');
+            data.labels.push(cells[0].innerText);
+            data.values.push(parseInt(cells[1].innerText));
+        }
+
+        // Criar o gráfico de linhas
+        const ctx1 = document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Vendas por Produto',
+                    data: data.values,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
 
 </html>

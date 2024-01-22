@@ -41,7 +41,6 @@
                         <!-- Authentication Links -->
                         @auth
 
-
                         <li class="nav-item">
                             <a class="nav-link " href="{{route('marca.index')}}" role="button" >
                                 {{'MARCAS'}}

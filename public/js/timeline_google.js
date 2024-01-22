@@ -15,8 +15,8 @@ function executaTimeLine() {
         dataTable.addColumn({ type: "datetime", id: "Inicio" });
         dataTable.addColumn({ type: "datetime", id: "Fim" });
         //-----------------------------------------------------------------------//
+  
         table = document.getElementById("tblOs");
-
         for (var i = 1; i < table.rows.length; i++) {
             let codId =
                 document.getElementById("tblOs").rows[i].cells[0].innerHTML; //id

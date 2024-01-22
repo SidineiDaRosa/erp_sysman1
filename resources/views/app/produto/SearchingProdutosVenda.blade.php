@@ -1,14 +1,30 @@
-@extends('app.layouts.app')
-@section('titulo', 'Produtos')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
 <main class="content">
     <div class="card">
         <div class="card-header-template">
             <div>LISTAGEM DE PRODUTOS</div>
 
-            <form id="formSearchingProducts" action="{{('e-comerce-show-produto')}}" method="POST">
+            <form id="formSearchingProducts" action="{{'Produtos-filtro-e-comerce'}}" method="POST">
                 @csrf
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
@@ -37,11 +53,21 @@
                     <i class="icofont-search"></i>
                 </button>
             </form>
-
+            <svg id="svg1" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class=" css-1jtd2m7 eac13zx0">
+                <path d="M14.504 3a.5.5 0 00-.5.5v1a.5.5 0 00.5.5h3.085l-9.594 9.594a.5.5 0 000 .707l.707.708a.5.5 0 00.707 0l9.594-9.595V9.5a.5.5 0 00.5.5h1a.5.5 0 00.5-.5v-6a.5.5 0 00-.5-.5h-6z"></path>
+                <path d="M5 3.002a2 2 0 00-2 2v13.996a2 2 0 001.996 2.004h14a2 2 0 002-2v-6.5a.5.5 0 00-.5-.5h-1a.5.5 0 00-.5.5v6.5L5 18.998V5.002L11.5 5a.495.495 0 00.496-.498v-1a.5.5 0 00-.5-.5H5z"></path>
+            </svg>
+            <style>
+                #svg1 {
+                    height: 30px;
+                    width: 30px;
+                    cursor: pointer;
+                }
+            </style>
             <div>
 
                 <a href="#" class="btn btn-sm btn-primary">
-                   
+
                     <i class="icofont-cart icofont-2x"></i>
                     Meu carrinho
                 </a>
@@ -122,8 +148,7 @@
                     <th scope="col">Fabricante</th>
                     <th scope="col">Ver peça</th>
                     <th scope="col">Categoria</th>
-                    <th scope="col">Cad Estoque</th>
-                    <th scope="col">Operações</th>
+                    <th scope="col">oprações</th>
 
                 </tr>
             </thead>
@@ -139,8 +164,8 @@
                     <td>{{ $produto->descricao }}</td>
                     <td>{{ $produto->marca->nome}}</td>
                     <td><a href="{{ $produto->link_peca}}" target="blank">Ver no site do fabricante
-                    <i class="icofont-arrow-right"></i>
-                    </a></td>
+                            <i class="icofont-arrow-right"></i>
+                        </a></td>
                     <td>
                         <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image">
                     </td>
@@ -152,47 +177,29 @@
                             margin: 0 5px;
                             cursor: pointer;
                         }
+
+                        #submit_ver {
+                            cursor: pointer;
+                            width: 20px;
+                        }
+
+                        #formGoProduct {
+                            width: 40px;
+                        }
+
+                        .div-op {
+                            width: 20px;
+                        }
                     </style>
 
                     <td>
-                        <a href="{{ route('Estoque-produto.create',['produto' => $produto->id]) }}" class="btn-sm btn-success">
-                            <i class="icofont-database-add"></i>
-                            </span>
-                            <span class="text">Criar estoque</span>
-                        </a>
-                    </td>
-
-                    <td>
-                        <div {{-- class="div-op" --}} class="btn-group btn-group-actions visible-on-hover">
-                            <a class="btn btn-sm-template btn-outline-primary" href="{{ route('e-comerce-show-produto-show', ['produto' => $produto->id]) }}">
-                                <i class="icofont-eye-alt"></i>
-                            </a>
-
-                            <a class="btn btn-sm-template btn-outline-success  @can('user') disabled @endcan" href="{{ route('produto.edit', ['produto' => $produto->id]) }}">
-
-                                <i class="icofont-ui-edit"></i> </a>
-
-                            <form id="form_{{ $produto->id }}" method="post" action="{{ route('produto.destroy', ['produto' => $produto->id]) }}">
-                                @method('DELETE')
+                        <div class="btn-group btn-group-actions visible-on-hover">
+                            <form id="formGoProduct" action="{{'comerce-show-produto'}}" method="POST" class="form_ver">
                                 @csrf
-
+                                <input type="number" value="{{ $produto->id }}" name="idProduto" hidden>
+                                <input type="submit" value="Ver" id="submit_ver">
+                                </a>
                             </form>
-                            <a class="btn btn-sm-template btn-outline-danger @can('user') disabled @endcan" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick=" DeletarProduto()">
-                                <i class="icofont-ui-delete"></i>
-                                <script>
-                                    function DeletarProduto() {
-                                        var x;
-                                        var r = confirm("Deseja deletar o produto?");
-                                        if (r == true) {
-
-                                            document.getElementById('form_{{ $produto->id }}').submit()
-                                        } else {
-                                            x = "Você pressionou Cancelar!";
-                                        }
-                                        document.getElementById("demo").innerHTML = x;
-                                    }
-                                </script>
-                            </a>
                         </div>
                     </td>
                 </tr>
@@ -204,7 +211,6 @@
 
 
     </div>
-
-
 </main>
-@endsection
+
+</html>

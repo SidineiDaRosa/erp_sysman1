@@ -30,7 +30,6 @@ Route::get('/configuracoes', function () {
 //Route::get('/', function () {
 //return view('auth.login');
 //});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,9 +38,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('app.home');
 
 Route::get('/e-comerce-show-produto', 'App\Http\Controllers\ProdutoControllerComerce@index');
-Route::get('/e-comerce-show-produto-show', 'App\Http\Controllers\ProdutoControllerComerce@show');
-//route::get('/e-comerce-show-produto-filter', 'App\Http\Controllers\ProdutoController');
-//Route::get('/e-comerce-show-produto', [App\Http\Controllers\ProdutoControllerComerce::class, 'index']);
+//Route::post('/e-comerce-show-produto', [App\Http\Controllers\ProdutoControllerComerce::class, 'index']);
+Route::post('/Produtos-filtro-e-comerce', [App\Http\Controllers\ProdutoControllerComerce::class, 'index']);
+//Route::get('/e-comerce-show-produto', 'App\Http\Controllers\ProdutoControllerComerce');
+//Route::get('/filtro-e-comerce', [App\Http\Controllers\ProdutoControllerComerce::class, 'show']);
+Route::post('/comerce-show-produto', [App\Http\Controllers\ProdutoControllerComerce::class, 'show']);
 //-------------------------------------------------------------------------------------------------
 // Rota do venda no site 
 //-------------------------------------------------------------------------------------------------
@@ -55,7 +56,6 @@ Route::middleware('auth')->resource('/fornecedor', 'App\Http\Controllers\Fornece
 
 //produto
 Route::middleware('auth')->resource('/produto', 'App\Http\Controllers\ProdutoController');
-
 //equipamento
 Route::middleware('auth')->resource('/equipamento', 'App\Http\Controllers\EquipamentoController');
 
@@ -125,6 +125,11 @@ Route::middleware('auth')->get(
     'utils/get-last-id-os',
     'App\Http\Controllers\UtilsController@getLastIdOs'
 )->name('get-last-id-os');
+//busca conta os por equipamento ajax.
+Route::middleware('auth')->get(
+    'utils/get-cont-os-equip',
+    'App\Http\Controllers\UtilsController@getContOsEquip'
+)->name('get-cont-os-equip');
 
 //busca ordem se serviços todas.
 Route::middleware('auth')->get(
