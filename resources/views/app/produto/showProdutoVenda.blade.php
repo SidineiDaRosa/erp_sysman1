@@ -35,13 +35,14 @@
         </div>
         <div class="card-body">
             <!--  div dos fotos-->
-            <div class="carousel-container">
+            <div class="carousel-container1">
                 <div class="carousel-images">
                     <img src="/img/produtos/{{ $produto->image}}" alt="Imagem 1">
                     <img src="/img/produtos/{{ $produto->image2}}" alt="Imagem 2">
                     <img src="/img/produtos/{{ $produto->image3}}" alt="Imagem 3">
                     <!-- Adicione mais imagens conforme necessário -->
                 </div>
+
                 <div class="carousel-preview">
                     <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image">
                     <img src="/img/produtos/{{ $produto->image2}}" alt="imagem" class="preview-image">
@@ -55,30 +56,43 @@
                     const previewImages = document.querySelectorAll('.preview-image');
 
                     previewImages.forEach((preview, index) => {
-                        preview.addEventListener('click', () => {
+                        preview.addEventListener('mouseover', () => {
                             carouselImages.style.transform = `translateX(-${index * 100}%)`;
                         });
                     });
                 });
             </script>
             <style>
-                .carousel-container {
+                .card-header-template {
+                    background-color: black;
+                }
+
+                .carousel-container1 {
                     max-width: 600px;
                     margin: 0 auto;
                     overflow: hidden;
                     float: left;
                     margin-left: 100px;
+                    
+
                 }
 
                 .carousel-images {
                     display: flex;
-                    transition: transform 0.5s ease;
+                    transition: transform 1.5s ease;
+                    
+         
+                    
+
                 }
 
                 .carousel-images img {
-                    width: 100%;
+                    width: 140%;
                     height: auto;
                     object-fit: cover;
+                   
+                 
+ 
                 }
 
                 .carousel-preview {
@@ -101,6 +115,11 @@
 
                 .card-body {
                     background-color: rgb(220, 220, 220);
+                    margin-top: 5%;
+                    padding: 100px;
+                    width: -100px;
+
+
                 }
             </style>
             <!--  div dos dados do produto-->
@@ -109,8 +128,25 @@
                     height: 500px;
                     width: 500px;
                     float: right;
-
+                    border-radius: 20px;
                     margin-right: 100px;
+                    font-family: 'Roboto Condensed', sans-serif;
+                }
+
+                .btn {
+                    color: #fff;
+                    background-color: #0d6efd;
+                    border-color: blue;
+                    padding: 30px;
+                    margin: 1%;
+                    transition: 0.5s;
+                }
+
+                .card-header-template div {
+                    color: white;
+                    text-align: center;
+                    font-size: 30px;
+                    font-family: 'Roboto Condensed', sans-serif;
                 }
             </style>
             <div id="dados-tec">

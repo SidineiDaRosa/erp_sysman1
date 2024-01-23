@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
 
-    <title>sysman8 - ERP Industrial</title>
+    <title>ManuWEb|ERP Industrial</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
        
         <div class="logo">
         <i class="icofont-architecture-alt icofont-2x wite"></i>
-            <span class="font-wheight-light">Sysman8.V1.0</span>
+            <span class="font-wheight-light">ManuWEb|ERP Industrial</span>
         </div>
         <div class="spacer"></div>
 

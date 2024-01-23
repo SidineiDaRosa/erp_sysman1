@@ -16,6 +16,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="myProjects/webProject/icofont/css/icofont.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -28,8 +30,9 @@
                 @csrf
                 <div class="col-md-4 mb-0">
                     <select class="form-control" name="tipofiltro" id="tipofiltro" value="" placeholder="Selecione o tipo de filtro">
-                        <option value="1">Busca pelo ID</option>
+
                         <option value="2">Busca Pelas inicias</option>
+                        <option value="1">Busca pelo ID</option>
                         <option value="3">Busca pelo Código do Fabricante</option>
                         <option value="4">Busca por categoria</option>
                         <option value="0">Busca Pelo estoque minimo</option>
@@ -52,52 +55,119 @@
                 <button type="submit">
                     <i class="icofont-search"></i>
                 </button>
-            </form>
-            <svg id="svg1" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class=" css-1jtd2m7 eac13zx0">
-                <path d="M14.504 3a.5.5 0 00-.5.5v1a.5.5 0 00.5.5h3.085l-9.594 9.594a.5.5 0 000 .707l.707.708a.5.5 0 00.707 0l9.594-9.595V9.5a.5.5 0 00.5.5h1a.5.5 0 00.5-.5v-6a.5.5 0 00-.5-.5h-6z"></path>
-                <path d="M5 3.002a2 2 0 00-2 2v13.996a2 2 0 001.996 2.004h14a2 2 0 002-2v-6.5a.5.5 0 00-.5-.5h-1a.5.5 0 00-.5.5v6.5L5 18.998V5.002L11.5 5a.495.495 0 00.496-.498v-1a.5.5 0 00-.5-.5H5z"></path>
-            </svg>
-            <style>
-                #svg1 {
-                    height: 30px;
-                    width: 30px;
-                    cursor: pointer;
-                }
-            </style>
-            <div>
 
                 <a href="#" class="btn btn-sm btn-primary">
 
-                    <i class="icofont-cart icofont-2x"></i>
+                    <span class="material-symbols-outlined">
+                        shopping_cart_checkout
+                    </span>
+
                     Meu carrinho
                 </a>
+            </form>
+
+            <div>
+
+
             </div>
         </div>
     </div>
     <!---estilização do input box buscar produtos---->
     <style>
-        #formSearchingProducts {
+        .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: blue;
+            margin: 10%;
+            transition: 0.5s;
+
+
+        }
+
+        #tipofiltro.form-control {
+            margin: 10px;
+            margin-top: 6px;
+
+        }
+
+        .form-control-template {
+            margin: 15px;
+        }
+
+        .col-md-4 {
+            margin: 30px;
+            font-size: 18px;
+        }
+
+        .card-header-template div {
+            color: white;
+            margin: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .icofont-cart {
+            padding: 0px;
+            width: 0;
+            padding: 10px;
+            min-width: 100px;
+            max-width: 200px;
+
+        }
+
+
+        .card-header-template {
+            background-color: black;
+        }
+
+
+        .placeholder {
             background-color: white;
+
+        }
+
+
+
+        input#query {
+            background-color: rgb(211, 211, 211);
+            border-radius: 20px;
+            padding: 10px;
+            min-width: 600px;
+            max-width: 2000px;
+            margin: 10%;
+            border-color: black;
+
+        }
+
+
+
+        #formSearchingProducts {
+            background-color: black;
             width: 900px;
             height: 44px;
-            border-radius: 5px;
+            border-radius: 20px;
             display: flex;
             flex-direction: row;
             align-items: center;
+            font-size: 15px;
+            margin: 20px;
         }
 
         input {
             all: unset;
-            font: 16px system-ui;
-            color: blue;
+            font: 15px system-ui;
+            color: black;
             height: 100%;
             width: 100%;
             padding: 6px 10px;
+            font-family: 'Oswald', sans-serif;
         }
 
         ::placeholder {
-            color: blueviolet;
+            color: black;
             opacity: 0.9;
+            font-family: 'Oswald', sans-serif;
+            font: 20px system-ui;
         }
 
 
@@ -106,6 +176,7 @@
             cursor: pointer;
             width: 44px;
             height: 44px;
+            background-color: white;
         }
 
         #tblProdutos {
@@ -113,6 +184,7 @@
             border-collapse: collapse;
             width: 100%;
             background-color: rgb(211, 211, 211);
+            color: black;
         }
 
         thead {
@@ -132,6 +204,16 @@
 
         tr:hover {
             background-color: rgb(169, 169, 169);
+            transition: 0.5s;
+        }
+
+        a {
+            color: black;
+            text-decoration: underline;
+            text-decoration: none;
+            font-size: 18px;
+
+
         }
     </style>
     <!-------------------------------------------------------------------------->
@@ -139,8 +221,7 @@
         <table class="" id="tblProdutos">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Qrcode</th>
+                    <th scope="col">imagem</th>
                     <th scope="col">cod_fabricante</th>
                     <th scope="col">Nome</th>
                     <th scope="col">un medida</th>
@@ -156,19 +237,20 @@
             <tbody>
                 @foreach ($produtos as $produto)
                 <tr>
-                    <th scope="row">{{ $produto->id }}</td>
-                    <td> {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $produto->id.'--'.$produto->nome) !!}</td>
+
+                    <td>
+                        <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image">
+                    </td>
                     <td>{{ $produto->cod_fabricante }}</td>
                     <td>{{ $produto->nome }}</td>
                     <td>{{ $produto->unidade_medida->nome}}</td>
                     <td>{{ $produto->descricao }}</td>
                     <td>{{ $produto->marca->nome}}</td>
-                    <td><a href="{{ $produto->link_peca}}" target="blank">Ver no site do fabricante
-                            <i class="icofont-arrow-right"></i>
+                    <td><a href="{{ $produto->link_peca}}" target="blank">Fabricante
+                            <span class="material-symbols-outlined">
+                                open_in_new
+                            </span>
                         </a></td>
-                    <td>
-                        <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image">
-                    </td>
                     <style>
                         .preview-image {
                             width: 100px;
@@ -176,30 +258,39 @@
                             object-fit: cover;
                             margin: 0 5px;
                             cursor: pointer;
+
                         }
 
                         #submit_ver {
                             cursor: pointer;
                             width: 20px;
+                            transition: 0.5s;
+                            color: white;
                         }
 
-                        #formGoProduct {
-                            width: 40px;
-                        }
 
                         .div-op {
                             width: 20px;
+
                         }
                     </style>
 
                     <td>
+
                         <div class="btn-group btn-group-actions visible-on-hover">
-                            <form id="formGoProduct" action="{{'comerce-show-produto'}}" method="POST" class="form_ver">
+
+                            <form id="formGoProduct" action="{{'comerce-show-produto'}}" method="POST">
                                 @csrf
+                                <input type="submit" value="ver" onclick="ActionSuibmitformGoProduct()">
                                 <input type="number" value="{{ $produto->id }}" name="idProduto" hidden>
-                                <input type="submit" value="Ver" id="submit_ver">
-                                </a>
                             </form>
+
+                            <script>
+                                function ActionSuibmitformGoProduct() {
+                                    //document.getElementById('busca').click();
+                                    document.getElementById('formGoProduct').submit();
+                                }
+                            </script>
                         </div>
                     </td>
                 </tr>
