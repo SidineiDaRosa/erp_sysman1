@@ -53,8 +53,7 @@ class EmpresasController extends Controller
     {
         $empresa=Empresas::all();
       return view('app.empresa.create', ['empresa'=>$empresa]); //
-      //$fornecedores=Fornecedor::all();
-     // return view('app.fornecedor.create', ['fornecedores'=>$fornecedores]);
+ 
     }
     /**
      * Store a newly created resource in storage.
