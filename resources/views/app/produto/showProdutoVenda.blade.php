@@ -25,13 +25,9 @@
     @endforeach
     <div class="card">
         <div class="card-header-template">
-            <div>Visualizar Produto</div>
-            <div>
-                <a href="#" class="btn btn-sm btn-primary">
-                    <i class="icofont-cart icofont-2x"></i>
-                    Meu carrinho
-                </a>
-            </div>
+            <a href="#" class="btn btn-sm btn-primary">
+                Meu carrinho
+            </a>
         </div>
         <div class="card-body">
             <!--  div dos fotos-->
@@ -73,16 +69,16 @@
                     overflow: hidden;
                     float: left;
                     margin-left: 100px;
-                    
+
 
                 }
 
                 .carousel-images {
                     display: flex;
                     transition: transform 1.5s ease;
-                    
-         
-                    
+
+
+
 
                 }
 
@@ -90,9 +86,9 @@
                     width: 140%;
                     height: auto;
                     object-fit: cover;
-                   
-                 
- 
+
+
+
                 }
 
                 .carousel-preview {

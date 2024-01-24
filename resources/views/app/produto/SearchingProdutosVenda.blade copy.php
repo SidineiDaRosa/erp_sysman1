@@ -39,7 +39,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <select name="categoria_id" id="categoria_id" class="form-control">
+                    <select name="categoria_id" id="" class="form-control-template">
                         <option value=""> --Selecione a Categoria--</option>
                         @foreach ($categorias as $categoria)
                         <option value="{{ $categoria->id }}" {{ ($produto->categoria_id ?? old('categoria_id')) == $categoria->id ? 'selected' : '' }}>
@@ -120,15 +120,18 @@
             background-color: black;
         }
 
+
         .placeholder {
             background-color: white;
 
         }
 
+
+
         input#query {
             background-color: rgb(211, 211, 211);
             border-radius: 20px;
-            padding: 5px;
+            padding: 10px;
             min-width: 600px;
             max-width: 2000px;
             margin: 10%;
@@ -176,118 +179,122 @@
             background-color: white;
         }
 
+        #tblProdutos {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgb(211, 211, 211);
+            color: black;
+        }
+
+        thead {
+            background-color: rgb(169, 169, 169);
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 3px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        tr:hover {
+            background-color: rgb(169, 169, 169);
+            transition: 0.5s;
+        }
+
         a {
             color: black;
             text-decoration: underline;
             text-decoration: none;
             font-size: 18px;
 
+
         }
     </style>
     <!-------------------------------------------------------------------------->
-    <!--Criando um modelo com divs para que ao executar a query, estes venha dentro de uma div,-->
-    <!--mostrando os produtos dentro delas e coms suas respectivas descrições-->
     <div class="card-body">
-        @foreach ($produtos as $produto)
-        <div id="div-card-parts">
-            <div id="div-card-parts-children">
+        <table class="" id="tblProdutos">
+            <thead>
+                <tr>
+                    <th scope="col">imagem</th>
+                    <th scope="col">cod_fabricante</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">un medida</th>
+                    <th scope="col">Dados técnicos</th>
+                    <th scope="col">Fabricante</th>
+                    <th scope="col">Ver peça</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">oprações</th>
 
-                <div class="continer-img">
-                    <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image" onclick="ActionSuibmitformGoProduct();" >
+                </tr>
+            </thead>
 
-                </div>
-                <div id="continer-description-parts">
-                    <p></p>
-                    <h4>Código:{{ $produto->cod_fabricante }}</h4>
-                    <ul>
-                        <li>{{ $produto->nome }}</li>
-                        <li> {{ $produto->descricao }}</li>
-                    </ul>
-                    <form id="formGoProduct" action="{{'comerce-show-produto'}}" method="POST">
-                        @csrf
-                        <input type="submit" value="VER" onclick="ActionSuibmitformGoProduct()">
-                        <input type="number" value="{{ $produto->id }}" name="idProduto" hidden>
-                        <script>
-                            function ActionSuibmitformGoProduct() {
-                                //document.getElementById('busca').click();
-                                document.getElementById('formGoProduct').submit();
-                            }
-                        </script>
-                    </form>
-                </div>
-            </div>
-            <hr>
-        </div>
+            <tbody>
+                @foreach ($produtos as $produto)
+                <tr>
+                    <td>{{ $produto->cod_fabricante }}</td>
+                    <td>{{ $produto->nome }}</td>
+                    <td>{{ $produto->descricao }}</td>
+                    <td>{{ $produto->marca->nome}}</td>
+                    <td><a href="{{ $produto->link_peca}}" target="blank">Fabricante
+                            <span class="material-symbols-outlined">
+                                open_in_new
+                            </span>
+                        </a></td>
+                    <td>
+                        <img src="/img/produtos/{{ $produto->image}}" alt="imagem" class="preview-image">
+                    </td>
+                    <style>
+                        .preview-image {
+                            width: 100px;
+                            height: 100px;
+                            object-fit: cover;
+                            margin: 0 5px;
+                            cursor: pointer;
 
-        <style>
-            .preview-image {
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
-                margin: 0 5px;
-                cursor: pointer;
-            }
+                        }
 
-            #submit_ver {
-                cursor: pointer;
-                width: 20px;
-                transition: 0.5s;
-                color: white;
-            }
-
-
-            .div-op {
-                width: 20px;
-
-            }
+                        #submit_ver {
+                            cursor: pointer;
+                            width: 20px;
+                            transition: 0.5s;
+                            color: white;
+                        }
 
 
+                        .div-op {
+                            width: 20px;
 
-            .card-body {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-color: rgb(233, 233, 233);
-            }
+                        }
+                    </style>
 
-            #div-card-parts {
-                height: auto;
-                width: 50%;
-                background-color: transparent;
-                display: flex;
-                flex-direction: column;
-                padding: 10px;
-                margin-left: 15%;
+                    <td>
 
-            }
+                        <div class="btn-group btn-group-actions visible-on-hover">
 
-            .continer-img {
-                display: flex;
-                float: left;
-            }
+                            <form id="formGoProduct" action="{{'comerce-show-produto'}}" method="POST">
+                                @csrf
+                                <input type="submit" value="ver" onclick="ActionSuibmitformGoProduct()">
+                                <input type="number" value="{{ $produto->id }}" name="idProduto" hidden>
+                            </form>
 
-            #continer-description-parts {
-                display: flex;
-                float: right;
-                padding: 10px;
-            }
-
-            #div-card-parts-children {
-                display: flex;
-                float: right;
-                flex-direction: row;
-            }
-
-            li {
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                font-size: 20px;
-                font-weight: 200;
-                font-style: normal;
-                color: black;
-            }
-        </style>
-        @endforeach
-    </div>
+                            <script>
+                                function ActionSuibmitformGoProduct() {
+                                    //document.getElementById('busca').click();
+                                    document.getElementById('formGoProduct').submit();
+                                }
+                            </script>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 
     </div>
 
