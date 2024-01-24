@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'BRESIS') }}
+                    {{ config('app.name', 'sysman8') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,6 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @auth
-
 
                         <li class="nav-item">
                             <a class="nav-link " href="{{route('marca.index')}}" role="button" >

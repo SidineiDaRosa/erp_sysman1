@@ -38,4 +38,8 @@ class Equipamento extends Model
     {
         return $this->belongsTo('App\Models\Empresas');
     }
+    public function equipamentos()
+    {
+        return $this->belongsTo('App\Models\PecasEquipamentos');
+    }
 }

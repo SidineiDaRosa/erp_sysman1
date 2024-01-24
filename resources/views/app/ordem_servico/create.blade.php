@@ -15,7 +15,8 @@
         <div class="card-body">
             @component('app.ordem_servico.componentes.form_create', ['ordem_servico'=>$ordem_servico,
             'equipamentos'=>$equipamentos,'funcionarios'=>$funcionarios,
-            'empresa'=>$empresa])
+            'empresa'=>$empresa,
+            'equipamento'=>$equipamento])
             @endcomponent
         </div>
     </div>

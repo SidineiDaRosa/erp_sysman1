@@ -7,10 +7,28 @@
                     @csrf
                     @endif
                     <!------------------------------------------------------------------->
+                    <div class="row mb-1">
+                        <label for="estoque_id" class="col-md-4 col-form-label text-md-end text-right">Estoque</label>
+                        <div class="col-md-6">
+                            <input name="estoque_id" id="estoque_id" type="text" class="form-control " value="@foreach($estoque as $estoque_f)
+                    {{$estoque_f['id']}}
+                    @endforeach" readonly>
+                            {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+                        </div>
+                    </div>
+                    @foreach ($empresa as $empresas_find)
+                    @endforeach
+                    <div class="row mb-1">
+                        <label for="empresa_id" class="col-md-4 col-form-label text-md-end text-right">Empresa</label>
+                        <div class="col-md-6">
+                            <input name="empresa_id" id="empresa_id" type="text" class="form-control " value="{{$estoque_f->empresa->id}}" readonly>
+
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <label for="data" class="col-md-4 col-form-label text-md-end text-right">Data</label>
                         <div class="col-md-6">
-                            <input name="data" id="data_emissao" type="date" class="form-control " value="{{ $produto->data ?? old('data') }}"readonly>
+                            <input name="data" id="data_emissao" type="date" class="form-control " value="{{ $produto->data ?? old('data') }}" readonly>
                             {{ $errors->has('data') ? $errors->first('data') : '' }}
                         </div>
                     </div>
@@ -33,7 +51,6 @@
                             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
                         </div>
                     </div>
-                    
 
                     <div class="row mb-1">
                         <label for="fornecedor_id" class="col-md-4 col-form-label text-md-end text-right">Fornecedor</label>
@@ -49,12 +66,18 @@
                             {{ $errors->has('fornecedor_id') ? $errors->first('fornecedor_id') : '' }}
                         </div>
                     </div>
-
                     <div class="row mb-1">
                         <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">Quantidade</label>
                         <div class="col-md-6">
                             <input name="quantidade" id="quantidade" type="text" class="form-control " value="{{ $produto->quantidade ?? old('quantidade') }}">
                             {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <label for="quantidade" class="col-md-4 col-form-label text-md-end text-right">R$</label>
+                        <div class="col-md-6">
+                            <input name="valor" id="valor" type="text" class="form-control " value="{{ $produto->valor ?? old('valor') }}">
+                            {{ $errors->has('valor') ? $errors->first('valor') : '' }}
                         </div>
                     </div>
 
@@ -66,8 +89,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
@@ -75,5 +96,19 @@
                             </button>
                         </div>
                     </div>
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <?php
+
+                            $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
+                            $url = '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                            $urlPaginaAtual = $protocolo . $url
+                            //echo $protocolo.$url;
+                            ?>
+                            Inserir no estoque:
+                            <p></p>
+                            {!! QrCode::size(100)->backgroundColor(255,90,0)->generate( $urlPaginaAtual ) !!}
+                        </div>
+                    </div>
+
                 </form>
-                

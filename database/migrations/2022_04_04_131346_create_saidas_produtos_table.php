@@ -17,8 +17,11 @@ class CreateSaidasProdutosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('produto_id');
             $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->unsignedBigInteger('equipamento_id')->nullable(); //foreing vem da própria tabela equipamentos
+            $table->foreign('equipamento_id')->references('id')->on('equipamentos');
             $table->double('quantidade', 8,2);
             $table->date('data');
+            
             $table->timestamps();
         });
     }

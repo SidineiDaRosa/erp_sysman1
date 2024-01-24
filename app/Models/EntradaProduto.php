@@ -13,8 +13,10 @@ class EntradaProduto extends Model
         'produto_id',
         'fornecedor_id',
         'quantidade',
+        'valor',
         'nota_fiscal',
-        'data'
+        'data',
+        'empresa_id'
     ];
 
     public function produto(){
@@ -22,5 +24,8 @@ class EntradaProduto extends Model
     }
     public function Fornecedor(){
         return $this->belongsTo('App\Models\Fornecedor');
+    }
+    public function Empresa(){
+        return $this->belongsTo('App\Models\Empresas');
     }
 }

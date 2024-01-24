@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrdemServicoController;
+//use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,21 @@ use App\Http\Controllers\OrdemServicoController;
 */
 
 Route::get('/', function () {
-return view('auth.login');
-});
+    return view('site.home');
+})->name('site.home');
+Route::get('/site-about', function () {
+    return view('site.about');
+})->name('site.about');
+Route::get('/site-panel', function () {
+    return view('site.control_panel');
+})->name('site.control_panel');
+Route::get('/configuracoes', function () {
+    return view('site.configuracoes');
+})->name('site.configuracoes');
 
+//Route::get('/', function () {
+//return view('auth.login');
+//});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -24,16 +37,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('app.home');
 
+Route::get('/e-comerce-show-produto', 'App\Http\Controllers\ProdutoControllerComerce@index');
+//Route::post('/e-comerce-show-produto', [App\Http\Controllers\ProdutoControllerComerce::class, 'index']);
+Route::post('/Produtos-filtro-e-comerce', [App\Http\Controllers\ProdutoControllerComerce::class, 'index']);
+//Route::get('/e-comerce-show-produto', 'App\Http\Controllers\ProdutoControllerComerce');
+//Route::get('/filtro-e-comerce', [App\Http\Controllers\ProdutoControllerComerce::class, 'show']);
+Route::post('/comerce-show-produto', [App\Http\Controllers\ProdutoControllerComerce::class, 'show']);
+//-------------------------------------------------------------------------------------------------
+// Rota do venda no site 
+//-------------------------------------------------------------------------------------------------
 //Marca
 Route::middleware('auth')->resource('/marca', 'App\Http\Controllers\MarcaController');
-
-
+//Categoria
+Route::middleware('auth')->resource('/categoria', 'App\Http\Controllers\CategoriaController');
+Route::middleware('auth')->resource('/categoria-edit', 'App\Http\Controllers\CategoriaController');
 //fornecedor
 Route::middleware('auth')->resource('/fornecedor', 'App\Http\Controllers\FornecedorController');
 
 //produto
 Route::middleware('auth')->resource('/produto', 'App\Http\Controllers\ProdutoController');
-
 //equipamento
 Route::middleware('auth')->resource('/equipamento', 'App\Http\Controllers\EquipamentoController');
 
@@ -41,7 +63,7 @@ Route::middleware('auth')->resource('/equipamento', 'App\Http\Controllers\Equipa
 Route::middleware('auth')->resource('/ordem-servico', 'App\Http\Controllers\OrdemServicoController');
 
 //ordem de serviço rota de pesquisas
-Route::middleware('auth')->post('/filtro-os', [App\Http\Controllers\OrdemServicoController::class,'index']);
+Route::middleware('auth')->post('/filtro-os', [App\Http\Controllers\OrdemServicoController::class, 'index']);
 
 //ordem de produção
 
@@ -88,37 +110,74 @@ Route::middleware('auth')->post(
 )->name('parada-equipamento.store');
 
 //busca o horimetro inicial de Ordem de produção via ajax
-Route::middleware('auth')->get('utils/get-horimetro-inicial',
-'App\Http\Controllers\UtilsController@getHorimetroInicial')->name('utils.get-horimetro-inicial');
+Route::middleware('auth')->get(
+    'utils/get-horimetro-inicial',
+    'App\Http\Controllers\UtilsController@getHorimetroInicial'
+)->name('utils.get-horimetro-inicial');
 
 //busca o horimetro inicial de recursos de produção via ajax.
-Route::middleware('auth')->get('utils/get-horimetro-inicial-recursos',
-'App\Http\Controllers\UtilsController@getHorimetroInicialRecursos')->name('utils.get-horimetro-inicial-recursos');
+Route::middleware('auth')->get(
+    'utils/get-horimetro-inicial-recursos',
+    'App\Http\Controllers\UtilsController@getHorimetroInicialRecursos'
+)->name('utils.get-horimetro-inicial-recursos');
 //busca ultimo registro de ordem de serviço ajax.
-Route::middleware('auth')->get('utils/get-last-id-os',
-'App\Http\Controllers\UtilsController@getLastIdOs')->name('get-last-id-os');
+Route::middleware('auth')->get(
+    'utils/get-last-id-os',
+    'App\Http\Controllers\UtilsController@getLastIdOs'
+)->name('get-last-id-os');
+//busca conta os por equipamento ajax.
+Route::middleware('auth')->get(
+    'utils/get-cont-os-equip',
+    'App\Http\Controllers\UtilsController@getContOsEquip'
+)->name('get-cont-os-equip');
 
 //busca ordem se serviços todas.
-Route::middleware('auth')->get('utils/get-todas-os',
-'App\Http\Controllers\UtilsController@getTodasOs')->name('get-todas-os');
+Route::middleware('auth')->get(
+    'utils/get-todas-os',
+    'App\Http\Controllers\UtilsController@getTodasOs'
+)->name('get-todas-os');
 //busca empresas
-Route::middleware('auth')->post('/Empresas-filtro', [App\Http\Controllers\EmpresasController::class,'index']);
+Route::middleware('auth')->post('/Empresas-filtro', [App\Http\Controllers\EmpresasController::class, 'index']);
 Route::middleware('auth')->resource('/empresas', 'App\Http\Controllers\EmpresasController');
 //Filtro Produtos
-Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\ProdutoController::class,'index']);
+Route::middleware('auth')->post('/Produtos-filtro', [App\Http\Controllers\ProdutoController::class, 'index']);
 //Rota saida de produtos
 Route::middleware('auth')->resource('/Saida-produto', 'App\Http\Controllers\SaidaProdutoController');
 Route::middleware('auth')->resource('/mostra-produto', 'App\Http\Controllers\SaidaProdutoController');
 //Rota estoque de produtos
 Route::middleware('auth')->resource('/Estoque-produto', 'App\Http\Controllers\EstoqueProdutoController');
+//Rota filtro estoque de produtos
+Route::middleware('auth')->post('/Estoque-Produtos-filtro', [App\Http\Controllers\EstoqueProdutoController::class, 'index']);
 //Rota pecas equipamentos
 Route::middleware('auth')->resource('/Peca-equipamento', 'App\Http\Controllers\PecaEquipamentoController');
 //Rota pedidos de compra
 Route::middleware('auth')->resource('/pedido-compra', 'App\Http\Controllers\PedidoCompraController');
-//Rota pedidos de saida
+//Rota filtro pedido de entrada
+Route::middleware('auth')->post('/Ent-Produtos-filtro', [App\Http\Controllers\EntradaProdutoController::class, 'index']);
+//Rota control panel
+Route::middleware('auth')->resource('/control-panel', 'App\Http\Controllers\ControlPanelController');
+//Rota Busca produto para dicionar item a pedidos
+Route::middleware('auth')->resource('/item-produto', 'App\Http\Controllers\ItemProdutoController');
+//Filtro Produtos item
+Route::middleware('auth')->post('/item-produto-filtro', [App\Http\Controllers\ItemProdutoController::class, 'index']);
+//rota qrcode
+///Route::get('qrcode', function () {
+///return QrCode::size(300)->generate('A basic example of QR code!');//https://morioh.com/p/5f7b3d064fb9----https://techvblogs.com/blog/generate-qr-code-laravel-8
+///});
+///Route::get('qrcode-with-color', function () {
+/// return \QrCode::size(300)
+/// ->backgroundColor(255,55,0)
+///  ->generate('A simple example of QR code');
+///});
+
+//Rotas pedidos de saida--------------------------------------------------------------------------
 Route::middleware('auth')->resource('/pedido-saida', 'App\Http\Controllers\PedidosSaidaController');
 //Rota pedidos de saida
 Route::middleware('auth')->resource('/pedido-saida-lista', 'App\Http\Controllers\PedidoSaidaListaController');
-
-
-
+Route::middleware('auth')->post('/pedido-saida-filtro', [App\Http\Controllers\PedidosSaidaController::class, 'index']);
+Route::middleware('auth')->resource('/item-produto-saida', 'App\Http\Controllers\ItemSaidaProdutoController');
+//Filtro Produtos item  saida 
+Route::middleware('auth')->post('/Item-Saida-Produto', [App\Http\Controllers\ItemSaidaProdutoController::class, 'index']);
+//Serviçoes executados
+Route::middleware('auth')->post('/Servicos-executado-index', [App\Http\Controllers\ServicosExecutadosController::class, 'index']);
+Route::middleware('auth')->resource('/Servicos-executado','App\Http\Controllers\ServicosExecutadoController');

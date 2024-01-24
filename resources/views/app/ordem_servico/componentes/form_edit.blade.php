@@ -2,6 +2,11 @@
 <!----modal window -->
 <!---*************************************************************************************----->
 <!--Janela modal-->
+<style>
+    form{
+        background-color:rgb(220,220,220);
+    }
+</style>
 <div class="bg-modal" id="bg-modal">
     <div class="modal-md">
         <h6>Alteração do status da ordem de serviço</h6>
@@ -117,8 +122,6 @@
         document.getElementById('bg-modal').style.display = 'none';
     }
 </script>
-
-
 <!----**************************************************************************************--->
 <!----Grava -->
 <!---*************************************************************************************----->
@@ -134,10 +137,10 @@
             <input id="id1" type="nuber" class="form-control-template" name="id" value="{{$ordem_servico->id}}" disabled>
             {{ $errors->has('id') ? $errors->first('id') : '' }}
         </div>
-        
+
         <!------------------------------------------------------>
-         <!-------------empresa--------------->
-         <div class="col-sm-1 mb-0">
+        <!-------------empresa--------------->
+        <div class="col-sm-1 mb-0">
             <label for="empresa_id" class="col-md-6 col-form-label text-md-end">ID</label>
             <input type="text" class="form-control-template" name="empresa_id" id="empresa_id" value="{{$ordem_servico->empresa->id}}" readonly>
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
@@ -164,9 +167,22 @@
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <div class="col-md-2 mb-0">
-                <label for="valor" class="col-md-6 col-form-label text-md-end">R$:</label>
-                <input id="valor" name="valor" value="{{$ordem_servico->valor}}"input type="number" min="0.00" max="100000.00" step="00.01" class="form-control-template">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tipo de os</label>
+                <select class="form-control" name="tendencia" id="tendencia" value="">
+                    <option value="Corretiva">Corretiva</option>
+                    <option value="Preventiva">Preventiva</option>
+                    <option value="Preditiva">preditiva</option>
+                    <option value="Melhoria">Melhoria</option>
+                  
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
             </div>
+        <div class="col-md-2 mb-0">
+            <label for="valor" class="col-md-6 col-form-label text-md-end">R$:</label>
+            <input id="valor" name="valor" value="{{$ordem_servico->valor}}" input type="number" min="0.00" max="100000.00" step="00.01" class="form-control-template">
+        </div>
     </div>
     <!------------------------------------------------------------------------------------------->
     <!----Datas---------------------------------------------------------------------------------->
@@ -174,14 +190,14 @@
     <div class="form-row">
         <div class="col-md-3 mb-0">
             <label for="data_Emissao">Data emissao</label>
-            <input type="date" class="form-control" id="data_Emissao" name="data_emissao" placeholder="dataEmissao" value="{{$ordem_servico->data_emissao}}" readonly>
+            <input type="date" class="form-control" id="data_emissao" name="data_emissao" placeholder="dataEmissao" value="{{$ordem_servico->data_emissao}}" readonly>
             <div class="invalid-tooltip">
                 informe a data
             </div>
         </div>
         <div class="col-sm-3 mb-0">
             <label for="horaEmissao">Hora emissao</label>
-            <input type="time" class="form-control" name=hora_emissao id="horaEmissao" placeholder="horaEmissao" required value="{{$ordem_servico->hora_emissao}}" readonly>
+            <input type="time" class="form-control" name=hora_emissao id="hora_Emissao" placeholder="horaEmissao" required value="{{$ordem_servico->hora_emissao}}" readonly>
             <div class="invalid-tooltip">
                 Por favor, informe a hora.
             </div>
@@ -189,29 +205,71 @@
 
         <div class="col-sm-3 mb-0">
             <label for="dataPrevista">Data prevista</label>
-            <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}">
+            <input type="date" class="form-control" name="data_inicio" id="data_prevista" placeholder="dataPrevista" required value="{{$ordem_servico->data_inicio}}" onchange="">
             <div class="invalid-tooltip">
                 Por favor, informe data
             </div>
+            <script>
+                function ValidateDate() {
+
+                    let dataEmissao = document.getElementById('data_emissao').value;
+                    let dataPrevista = document.getElementById('data_prevista').value;
+                    let dataFim = document.getElementById('data_fim').value;
+                    if (dataPrevista < dataEmissao) {
+                        alert('A data prevista deve ser maior que a data de emissão!');
+                        document.getElementById('data_prevista').value = 'null';
+
+                    }
+                    if (dataFim != 'null') {
+                        if (dataFim < dataPrevista) {
+                            alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
+                            document.getElementById('data_fim').value = 'null';
+
+                        }
+                    }
+
+                }
+            </script>
         </div>
 
         <div class="col-sm-3 mb-0">
             <label for="horaPrevista">Hora prevista</label>
-            <input type="time" class="form-control" name="hora_inicio" id="horaPrevista" placeholder="horaPrevista" required value="{{$ordem_servico->hora_inicio}}">
+            <input type="time" class="form-control" name="hora_inicio" id="hora_prevista" placeholder="horaPrevista" required value="{{$ordem_servico->hora_inicio}}">
             <div class="invalid-tooltip">
                 Por favor, informe hora.
             </div>
         </div>
         <div class="col-sm-3 mb-0">
             <label for="dataFim">Data fim</label>
-            <input type="date" class="form-control" name="data_fim" id="dataFim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}">
+            <input type="date" class="form-control" name="data_fim" id="data_fim" placeholder="dataFim" required value="{{$ordem_servico->data_fim}}" required onchange="">
             <div class="invalid-tooltip">
                 Por favor, informe dataFim.
             </div>
+            <script>
+                function ValidateDateFim() {
+                    alert()
+                    // let dataEmissao = document.getElementById('data_emissao').value;
+                    //let dataPrevista = document.getElementById('dataPrevista').value;
+                    //let dataFim = document.getElementById('dataFim').value;
+
+                    // if (dataPrevista < dataEmissao) {
+                    // alert('A data prevista deve ser maior que a data de emissão!');
+                    // document.getElementById('dataPrevista').value = 'null';
+
+                    //}
+
+
+                    //if (dataFim < dataPrevista) {
+                    //  alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
+                    // document.getElementById('dataFim').value = 'null';
+
+                    // }
+                };
+            </script>
         </div>
         <div class="col-sm-3 mb-0">
             <label for="horaFim">Hora fim</label>
-            <input type="time" class="form-control" name="hora_fim" id="horaFim" placeholder="horaFim" required value="{{$ordem_servico->hora_fim}}">
+            <input type="time" class="form-control" name="hora_fim" id="hora_Fim" placeholder="horaFim" required value="{{$ordem_servico->hora_fim}}">
             <div class="invalid-tooltip">
                 Por favor, informe um estado válido.
             </div>
@@ -258,16 +316,105 @@
     <div class="form-row">
         <div class="col-sm-6 mb-0">
             <label for="responsavel" class="col-md-6 col-form-label text-md-end">Descrição</label>
-            <input id="nome" type="text" class="form-control-template" name="descricao" value="{{$ordem_servico->descricao}}">
+            <input type="text" id="nome" class="form-control" name="descricao" value="{{$ordem_servico->descricao}}" rows="3">
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <div class="col-sm-6 mb-0">
             <label for="executado" class="col-md-6 col-form-label text-md-end">Descrição serviços executados</label>
-            <input type="text" class="form-control-template" name="Executado" id="Executado" value="{{$ordem_servico->Executado}}">
+            <input type="text" class="form-control" name="executado" id="executado" value="{{$ordem_servico->Executado}}" rows="3">
             {{ $errors->has('nome') ? $errors->first('nome') : '' }}
         </div>
         <!------------------------------------------------>
         <!------------------------------------------------>
+    </div>
+    <div class="form-row mb-0">
+
+        <div class="col-md-4 mb-0">
+            <label for="link_foto" class="col-md-4 col-form-label text-md-end">link foto</label>
+            <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="{{$ordem_servico->link_foto}}">
+            {{ $errors->has('link_foto') ? $errors->first('link_foto') : '' }}
+
+        </div>
+        <div class="col-md-2 mb-0">
+            <label for="status_servicos" class="col-md-4 col-form-label text-md-end">status %</label>
+            <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="{{$ordem_servico->status_servicos}}">
+            {{ $errors->has('status_servicos') ? $errors->first('status_servicos') : '' }}
+        </div>
+        <div class="col-md-2 mb-0">
+                <label for="gravidade" class="col-md-4 col-form-label text-md-end">Gravidade</label>
+                <select class="form-control" name="gravidade" id="gravidade" value="">
+                    <option value="5">Extremamante grave</option>
+                    <option value="4">Muito grave</option>
+                    <option value="3">Grave</option>
+                    <option value="2">Pouco grave</option>
+                    <option value="1">Nada grave</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a urgencia.
+                </div>
+            </div>
+
+            <div class="col-md-2 mb-0">
+                <label for="urgencia" class="col-md-4 col-form-label text-md-end">Urgência</label>
+                <select class="form-control" name="urgencia" id="urgencia" value="">
+                    <option value="5">Extremamante urgente</option>
+                    <option value="4">Urgente</option>
+                    <option value="3">Urgente se possível</option>
+                    <option value="2">Pouco urgente</option>
+                    <option value="1">Não urgente</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a urgencia.
+                </div>
+            </div>
+            <!---->
+            <div class="col-md-2 mb-0">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+                <select class="form-control" name="tendencia" id="tendencia" value="">
+                    <option value="5">Piorar rápidamante</option>
+                    <option value="4">Piorar em curto prazo</option>
+                    <option value="3">Piorar</option>
+                    <option value="2">Piorar logo prazo</option>
+                    <option value="1">Não irá piorar</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="causa" class="col-md-4 col-form-label text-md-end">Causa</label>
+                <select class="form-control" name="causa" id="causa" value="">
+                    <option value="5">Quebra</option>
+                    <option value="4">Imprevisto</option>
+                    <option value="3">Proposital</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="efeito" class="col-md-4 col-form-label text-md-end">Efeito</label>
+                <select class="form-control" name="efeito" id="efeito" value="">
+                    <option value="5">Prejuizo na produção</option>
+                    <option value="4">Atrazo</option>
+                    <option value="3">Riscos humano</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="solucao" class="col-md-4 col-form-label text-md-end">Solução</label>
+                <select class="form-control" name="solucao" id="solucao" value="">
+                    <option value="5">Agilizar</option>
+                    <option value="4">Mão de obra autonama</option>
+                    <option value="3">Acionar segurança</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+
     </div>
     <hr>
     <div class="row sm-3 mb-0">

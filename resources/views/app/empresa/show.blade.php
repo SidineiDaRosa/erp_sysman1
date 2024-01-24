@@ -18,9 +18,9 @@
             ID:
             {{ $empresa->id }}
             <p></p>
-            <h3> Razão Social:
+            <h4> Razão Social:
                 {{ $empresa->razao_social }}
-            </h3>
+            </h4 >
 
             <p></p>
             Nome fantasia:
@@ -49,7 +49,6 @@
             <p></p>
             E-mail:
             {{ $empresa->email }}
-
 
 
         </div>

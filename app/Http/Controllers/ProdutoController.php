@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\Marca;
 use App\Models\UnidadeMedida;
 use App\Models\Categoria;
+use BaconQrCode\Renderer\Path\Move;
+
 //use phpDocumentor\Reflection\Types\This;
 
 class ProdutoController extends Controller
@@ -18,23 +21,67 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
+        $tipoFiltro = $request->get('tipofiltro');
         $nome_produto_like = $request->get('produto');
+        $categoria_id = $request->get('categoria_id');
         //$nome_produto_like='DIE';
         //$produtos=Produto::all();
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
-        $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
-        
-        return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+        if ($tipoFiltro >= 1) {
+            if ($tipoFiltro == 1) {
+                $produtos = Produto::where('id', $nome_produto_like)->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+
+                    //return QrCode::size(300)->generate('$nome_produto_like');
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+            }
+            if ($tipoFiltro == 2) {
+                $produtos = Produto::where('nome', 'like', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+                //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+            if ($tipoFiltro == 3) {
+                $produtos = Produto::where('cod_fabricante', 'like', $nome_produto_like . '%')->get();
+                //if (isset($_POST['id'])) {
+
+                if (!empty($nome_produto_like)) {
+                    return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+                }
+                //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+            if ($tipoFiltro == 4) {
+                $produtos = Produto::where('categoria_id', $categoria_id)->get();
+                //if (isset($_POST['id'])) {
+
+                // if (!empty($nome_produto_like)) {
+                return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            }
+            //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+            // }
+        } else {
+            $produtos = Produto::where('id', 0)->get();
+            return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+        };
+        //return view('app.produto.index', ['produtos' => $produtos, 'unidades' => $unidades, 'categorias' => $categorias]);
+
     }
     /**
      * Show the form for creating a new resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        
+
         $marcas = Marca::all();
         $unidades = UnidadeMedida::all();
         $categorias = Categoria::all();
@@ -49,7 +96,45 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        Produto::create($request->all());
+
+        //Image Upload
+        $produto = new Produto;
+        //criando um objeto
+        $produto->cod_fabricante = $request->cod_fabricante;
+        $produto->nome = $request->nome;
+        $produto->descricao = $request->descricao;
+        $produto->marca_id = $request->marca_id;
+        $produto->unidade_medida_id = $request->unidade_medida_id;
+        $produto->categoria_id = $request->categoria_id;
+        $produto->link_peca = $request->link_peca;
+        $produto->image = $request->image;
+        $produto->image2 = $request->image2;
+        $produto->image3 = $request->image3;
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image->Move(public_path('img/produtos'), $imageName);
+            $produto->image = $imageName;
+        };
+        if ($request->hasFile('image2') && $request->file('image2')->isValid()) {
+            $requestImage = $request->image2;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image2->Move(public_path('img/produtos'), $imageName);
+            $produto->image2 = $imageName;
+        };   if ($request->hasFile('image3') && $request->file('image3')->isValid()) {
+            $requestImage = $request->image3;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image3->Move(public_path('img/produtos'), $imageName);
+            $produto->image3 = $imageName;
+        };
+
+        //$produto_image->save();
+        //Produto::create($request->all());
+        $produto->save();
         return redirect()->route('produto.index');
     }
 
@@ -61,6 +146,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
+
         return view('app.produto.show', ['produto' => $produto]);
     }
 

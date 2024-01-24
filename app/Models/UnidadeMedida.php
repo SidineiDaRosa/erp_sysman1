@@ -10,4 +10,11 @@ class UnidadeMedida extends Model
     use HasFactory;
     protected $fillable=['nome', 'descricao'];
     protected $table='unidades_medida';
+    
+    public function unidade_medida(){
+        //  return $this->belongsTo('App\Models\UnidadeMedida', 'unidade_medida_id', 'id');
+        return $this->belongsTo('App\Models\Produto');
+        
+      }
 }
+

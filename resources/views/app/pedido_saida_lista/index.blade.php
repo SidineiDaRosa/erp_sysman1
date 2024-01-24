@@ -46,12 +46,12 @@
                 </div>
                 <div class="col-md-2">
                     <label for="dataFim">Data Prevista entrega:</label>
-                    <input type="date" class="form-control" name="data_fim" id="dataFim" value="{{$pedido_saida_f->data_prevista ?? old('data_prevista') }}" required autocomplete="data_prevista" autofocus>
+                    <input type="date" class="form-control" name="data_fim" id="dataFim" value="{{$pedido_saida_f->data_prevista ?? old('data_prevista') }}" required autocomplete="data_prevista" autofocus readonly>
                     {{ $errors->has('data_prevista') ? $errors->first('data_prevista') : '' }}
                 </div>
                 <div class="col-md-2">
                     <label for="horaFim">Hora prevista:</label>
-                    <input type="time" class="form-control" name="hora_fim" id="horaFim" value="{{$pedido_saida_f->hora_prevista ?? old('hora_prevista') }}" required autocomplete="hora_prevista" autofocus>
+                    <input type="time" class="form-control" name="hora_fim" id="horaFim" value="{{$pedido_saida_f->hora_prevista ?? old('hora_prevista') }}" required autocomplete="hora_prevista" autofocus readonly>
                     {{ $errors->has('hora_prevista') ? $errors->first('hora_prevista') : '' }}
                 </div>
                 <div class="col-md-2">
@@ -59,55 +59,42 @@
                     <input type="text" class="form-control" name="emissor" id="emissor" value="{{$pedido_saida_f->funcionarios->primeiro_nome ?? old('hora_prevista') }}" required autocomplete="funcionarios_id " autofocus readonly>
                     {{ $errors->has('funcionarios_id ') ? $errors->first('funcionarios_id ') : '' }}
                 </div>
-                <!-----------------------------------
-                <div class="col-md-2 mb-0">
-                    <label for="situacao" class="">Situação:</label><input type="checkbox" name="" id="">
-                    <select class="form-control" name="situacao" id="situacao" value="">
-                        <option value="aberto">aberto</option>
-                        <option value="fechado">fechado</option>
-                        <option value="indefinido">indefinido</option>
-                        <option value="cancelada">cancelada</option>
-                        <option value="em andamento">em andamento</option>
-                    </select>
-                </div>
-                
-                -------------------------------------------------------------------------------------->
+
                 <div class="col-md-2">
                     <label for="status">Status:</label>
                     <input type="text" class="form-control" name="status" id="status" value="{{$pedido_saida_f->status ?? old('status') }}" required autocomplete="status" autofocus readonly>
                     {{ $errors->has('status') ? $errors->first('status') : '' }}
                 </div>
                 <!---------Select empresa------------->
-                <!--------------------------------------------------------------------------------------->
-                <div class="col-md-2">
-                    <label for="equipamento">Patrimônio/equipamento:</label>
+                <!------------------------------------>
+                <div class="col-md-1">
+                    <label for="equipamento">Equipamento:</label>
                     <input type="text" class="form-control" name="equipamento" id="equipamento" value="{{$pedido_saida_f->equipamento->nome ?? old('hora_prevista') }}" required autocomplete="funcionarios_id " autofocus readonly>
                     {{ $errors->has('funcionarios_id ') ? $errors->first('funcionarios_id ') : '' }}
                 </div>
-                <!------------------------------------------------------------------------------------------->
-                <div class="col-md-0">
-                    <label for="btFiltrar" class="">Filtrar:</label>
-                    <p>
-                        <input type="submit" class="btn btn-info btn-icon-split" value="Filtrar">
 
-                        <span class="icon text-white-50">
-                            <i class="icofont-filter"></i>
-                        </span>
-                        <span class="text"></span>
-
-                        </input>
+                <div class="col-md-1">
+                    <label for="ordem_serviço_id">Ordem serviço:</label>
+                    <input type="text" class="form-control" name="ordem_servico_id" id="ordem_servico_id" placeholder="ordem_serviço_id" value="{{$pedido_saida_f->ordem_servico_id}}" readonly>
                 </div>
-                </form>
+                <div class="col-md-0">
+                    <label for="equipamento">ir para o.s:</label>
+                    <p></p>
+                    <a class="btn btn-sm-template btn-outline-primary" href="{{route('ordem-servico.show', ['ordem_servico'=>$pedido_saida_f->ordem_servico_id])}}">
+                        <i class="icofont-eye-alt icofont-2x"></i>
+                    </a>
+                </div>
                 <!--------------------------------------->
                 <div class="col-md-0">
-                    <label for="btFiltrar" class="">Nova os</label>
+                    <label for="ordem_servico_id">Voltar:</label>
                     <p>
-                        <a href="" class="btn btn-info btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="icofont-plus-circle"></i>
+                        <a href="{{route('pedido-saida.index')}}" class="btn btn-info btn-icon-split">
+                            <span class="icon text-white-50 ">
+                                <i class="icofont-list"></i>
                             </span>
-                            <span class="text">Nova ordem</span>
+                            <span class="text">Voltar para pedidos de saída</span>
                         </a>
+
                 </div>
             </div>
         </div>
@@ -116,9 +103,13 @@
                 <thead>
                     <tr>
                         <th scope="col" class="th-title">Id</th>
-                        <th scope="col" class="th-title">pedido_saida_id</th>
-                        <th scope="col" class="th-title">Produto</th>
+                        <th scope="col" class="th-title">Cod fabricante</th>
+                        <th scope="col" class="th-title">Produto_ID</th>
+                        <th scope="col" class="th-title">Descrição</th>
+                        <th scope="col" class="th-title">Unidade</th>
                         <th scope="col" class="th-title">Quantidade</th>
+                        <th scope="col" class="th-title">Valor Unit</th>
+                        <th scope="col" class="th-title">Subtotal</th>
                         <th scope="col" class="th-title">Data</th>
                         <th scope="col" class="th-title">Patrmônio</th>
                     </tr>
@@ -127,9 +118,13 @@
                     @foreach ($saidas_produto as $saida_produto)
                     <tr>
                         <th scope="row">{{$saida_produto->id }}</td>
-                        <td>{{ $saida_produto->pedidos_saida_id}}</td>
-                        <td>{{ $saida_produto->produto->nome }}</td>
-                        <td>{{ $saida_produto->quantidade }}</td>
+                        <td>{{ $saida_produto->produto->cod_fabricante}}</td>
+                        <td>{{ $saida_produto->produto->id}}</td>
+                        <td>{{ $saida_produto->produto->nome}}</td>
+                        <td>{{ $saida_produto->unidade_medida}}</td>
+                        <td>{{ $saida_produto->quantidade}}</td>
+                        <td>{{ $saida_produto->valor}}</td>
+                        <td>{{ $saida_produto->subtotal}}</td>
                         <td>{{ $saida_produto->data }}</td>
                         <td>{{ $saida_produto->equipamento->nome}}</td>
 
@@ -138,7 +133,14 @@
                 </tbody>
             </table>
         </div>
+        <!--Iframe do subformulario de produtos-->
+        <!-- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">-->
+        <!-- <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">  
+    </iframe>-->
+        <iframe id="ifm1" src="{{route('item-produto-saida.index',['pedido' => $pedido_saida_f->id,'empresa_id'=>$pedido_saida_f->empresa->id,'equipamento'=>$pedido_saida_f->equipamento->id])}}" width="90%" height="600" style="border:1px solid black;">
+        </iframe>
         @endsection
+
         <footer>
         </footer>
 

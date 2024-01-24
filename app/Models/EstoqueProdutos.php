@@ -8,19 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 class EstoqueProdutos extends Model
 {
     use HasFactory;
-    protected $table='estoque_produtos';
-    protected $fillable=[
+    protected $table = 'estoque_produtos';
+    protected $fillable = [
         'empresa_id',
         'produto_id',
-        'empresas_id', 
+        'unidade_medida',
         'quantidade',
+        'valor',
+        'estoque_minimo',
+        'estoque_maximo',
+        'local',
+
     ];
 
-    public function produto(){
+    public function produto()
+    {
         return $this->belongsTo('App\Models\Produto');
     }
-    public function Empresa(){
+    public function Empresa()
+    {
         return $this->belongsTo('App\Models\Empresas');
-    
-}
+    }
+    public function unidade_medida()
+    {
+        //  return $this->belongsTo('App\Models\UnidadeMedida', 'unidade_medida_id', 'id');
+        return $this->belongsTo('App\Models\UnidadeMedida');
+    }
 }

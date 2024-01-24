@@ -23,6 +23,10 @@ class CreatePecasEquipamentosTable extends Migration
             $table->date('data_substituicao');
             $table->time('hora_substituicao');
             $table->integer('intervalo_manutencao')->nullable();
+            $table->date('data_proxima_manutencao');
+            $table->date('hora_proxima_manutencao');
+            $table->integer('horimetro')->nullable();
+            $table->integer('forma_medicao')->nullable();
             $table->string('status', 10);
             $table->string('link_peca', 200);
             $table->timestamps();

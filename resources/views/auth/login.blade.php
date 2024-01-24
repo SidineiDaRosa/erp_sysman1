@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <style>
     body{
-       background-image:url("{{ asset('img/94170.jpg') }}");
+       background-image:url("{{ asset('img/horizonte_fundo.jpg') }}");
        background-repeat:no-repeat;
        object-fit: contain;
        background-size:100%;
@@ -20,7 +20,7 @@
        
     }
 </style>
-    <title>SYSMAN- Login</title>
+    <title>ManWEB- Login</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 
  
             <i class="fa-solid fa-user-helmet-safety"></i>
-                <span class="font-wheight-light">SYSMAN 1.0.0</span>
+                <span class="font-wheight-light">ManWEB</span>
             </div>
             <div class="card-body">
                 <div class="form-group">

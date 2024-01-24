@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Marca;
-
 use Illuminate\Http\Request;
-
+use App\Models\Marca;
 class MarcaController extends Controller
 {
     /**
@@ -40,7 +37,6 @@ class MarcaController extends Controller
         Marca::create($request->all());
         return redirect()->route('marca.index');
     }
-
     /**
      * Display the specified resource.
      *

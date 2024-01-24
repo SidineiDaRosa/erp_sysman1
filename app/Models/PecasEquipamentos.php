@@ -16,14 +16,20 @@ class PecasEquipamentos extends Model
         'data_substituicao',
         'hora_substituicao',
         'intervalo_manutencao',
+        'data_proxima_manutencao',
+        'horas_proxima_manutencao',
+        'horimetro',
+        'forma_medicao',
         'status',
         'link_peca',
        
     ];
-    public function produto(){
-        return $this->belongsTo('App\Models\PecasEquipamento');
-    }
+
     public function equipamento(){
-        return $this->belongsTo('App\Models\PecasEquipamento');
+        return $this->belongsTo('App\Models\Equipamento');
     }
+    public function produto(){
+        return $this->belongsTo('App\Models\Produto');//busca regsitro atraves do modulo produtos
+    }
+    
 }

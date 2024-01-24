@@ -1,6 +1,12 @@
 <!----**************************************************************************************--->
 <!----Grava -->
+
 <!---*************************************************************************************----->
+<style>
+    form {
+        background-color: rgb(220, 220, 220);
+    }
+</style>
 @if (isset($ordem_servico->id))
 <form action="{{route('ordem-servico.store',['ordem_servico' => $ordem_servico->id]) }}" method="POST">
     @csrf
@@ -9,6 +15,7 @@
     <form action="{{ route('ordem-servico.store') }}" method="POST">
         @csrf
         @endif
+        
         <!------------------------------------------------------------------------------------------->
         <div class="form-row mb-0">
             <div class="col-md-2 mb-0">
@@ -21,26 +28,24 @@
             <!--------------------------------------------------------------------------------------->
             <div class="col-md-0 mb-0">
                 <label for="empresa_id" class="col-md-4 col-form-label text-md-end">Id</label>
-                <input id="empresa_id" type="text" class="form-control-template" name="empresa_id" 
-                value="@foreach($empresa as $empresas_f)
+                <input id="empresa_id" type="text" class="form-control-template" name="empresa_id" value="@foreach($empresa as $empresas_f)
                     {{$empresas_f['id']}}
-                    @endforeach" readonly >
+                    @endforeach" readonly>
                 {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
             </div>
             <div class="col-md-7 mb-0">
                 <label for="empresa" class="col-md-4 col-form-label text-md-end">Empresa</label>
-                <input id="empresa" type="text" class="form-control-template" name="empresa" 
-                value="@foreach($empresa as $empresas_f)
+                <input id="empresa" type="text" class="form-control-template" name="empresa" value="@foreach($empresa as $empresas_f)
                     {{$empresas_f['razao_social']}}
-                    @endforeach" readonly >
+                    @endforeach" readonly>
                 {{ $errors->has('empresa_id') ? $errors->first('empresa_id') : '' }}
-            
+
             </div>
             <!------------------------------------------------------------------------------------------->
             <!---equipamento-->
             <!------------------------------------------------------------------------------------------->
             <div class="col-md-8 mb-0">
-                <label for="equipamento_pai" class="col-md-4 col-form-label text-md-end">Equipamento/Patrimônio</label>
+                <label for="equipamento_pai" class="col-md-4 col-form-label text-md-end">Equipamento/Patrimônio...{{$equipamento}}</label>
                 <select name="equipamento_id" id="equipamento_id" class="form-control-template">
                     <option value=""> --Selecione o equipamento--</option>
                     @foreach ($equipamentos as $equipment)
@@ -53,7 +58,7 @@
             </div>
             <div class="col-md-2 mb-0">
                 <label for="valor" class="col-md-6 col-form-label text-md-end">R$:</label>
-                <input id="valor" name="valor" value="" input type="number" min="0.00" max="100000.00" step="00.01"  placeholder="R$00,00" class="form-control-template">
+                <input id="valor" name="valor" value="" input type="number" min="0.00" max="100000.00" step="00.01" placeholder="R$00,00" class="form-control-template">
             </div>
         </div>
         <!------------------------------------------------------------------------------------------->
@@ -77,7 +82,7 @@
 
             <div class="col-md-2 mb-0">
                 <label for="dataPrevista">Data prevista</label>
-                <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="" onchange="">
+                <input type="date" class="form-control" name="data_inicio" id="dataPrevista" placeholder="dataPrevista" required value="" onchange="ValidateDatePrevista()">
                 <div class="invalid-tooltip">
                     Por favor, informe data.
                 </div>
@@ -86,8 +91,8 @@
                         let dataPrevista = document.getElementById('dataPrevista').value;
                         let dataEmissao = document.getElementById('data_emissao').value;
                         if (dataPrevista < dataEmissao) {
-                            alert('A data prevista deve ser maior');
-                            document.getElementById('dataPrevista').value = 'null';
+                            alert('Atenção! A data prevista que você está inserindo é anterior a data de emissão.');
+                            //document.getElementById('dataPrevista').value = 'null';
 
                         }
                     }
@@ -96,7 +101,7 @@
                         let dataPrevista = document.getElementById('dataPrevista').value;
                         let dataFim = document.getElementById('dataFim').value;
                         if (dataFim < dataPrevista) {
-                            alert('A data prevista deve ser maior');
+                            alert('Atenção! A data prevista deve ser maior que a data prevista para término.');
                             document.getElementById('dataFim').value = 'null';
 
                         }
@@ -141,6 +146,19 @@
                     Por favor, informe situacao.
                 </div>
             </div>
+            <div class="col-md-2 mb-0">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tipo de os</label>
+                <select class="form-control" name="tendencia" id="tendencia" value="">
+                    <option value="Corretiva">Corretiva</option>
+                    <option value="Preventiva">Preventiva</option>
+                    <option value="Preditiva">preditiva</option>
+                    <option value="Melhoria">Melhoria</option>
+                  
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
 
         </div>
         <!------------------------------------------------------------------------------------------->
@@ -148,16 +166,20 @@
         <!------------------------------------------------------------------------------------------->
         <div class="form-row mb-0">
             <div class="col-md-6 mb-0">
-                <label for="emissor" class="col-md-4 col-form-label text-md-end">Emissor</label>
-                <select name="emissor" id="emissor" class="form-control-template">
+                <label for="emissor" class="col-md-6 col-form-label text-md-end">Emissor</label>
+
+                <input type="text" class="form-control" id="emissor" name="emissor" placeholder="emissor" value="{{auth()->user()->name}}" readonly>
+
+                <!----<select name="emissor" id="emissor" class="form-control-template">
                     <option value=""> --Selecione o emissor--</option>
                     @foreach ($funcionarios as $funcionario_find)
                     <option value="{{$funcionario_find->primeiro_nome}}" {{($funcionario_find->emissor ?? old('emissor')) == $funcionario_find->primeiro_nome ? 'selected' : '' }}>
                         {{$funcionario_find->primeiro_nome}}
                     </option>
                     @endforeach
-                </select>
-                {{ $errors->has('emissor') ? $errors->first('emissor') : '' }}
+                      {{ $errors->has('emissor') ? $errors->first('emissor') : '' }}
+                </select>-->
+                
             </div>
             <!-------------------------------------------------------------------------------------------->
             <!---Responsável ------------->
@@ -179,25 +201,114 @@
 
             <div class="col-md-6 mb-0">
                 <label for="responsavel" class="col-md-6 col-form-label text-md-end">Descrição</label>
-                <input id="descricao" type="text" class="form-control-template" name="descricao" value="">
+                <input type="text" id="descricao" type="text" class="form-control" name="descricao" value="" rows="3">
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
 
             </div>
             <div class="col-md-6 mb-0">
                 <label for="responsavel" class="col-md-6 col-form-label text-md-end">executado</label>
-                <input id="executado" type="text" class="form-control-template" name="executado" value="">
+                <input type="text" id="executado" type="text" class="form-control" name="executado" value="" rows="3">
                 {{ $errors->has('nome') ? $errors->first('nome') : '' }}
             </div>
 
         </div>
-        <hr>
-        <div class="row mb-0">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">
-                    {{ isset($equipamento) ? 'Atualizar' : 'Cadastrar' }}
-                </button>
+        <div class="form-row mb-0">
+
+            <div class="col-md-4 mb-0">
+                <label for="link_foto" class="col-md-4 col-form-label text-md-end">link foto</label>
+                <input id="link_foto" type="text" class="form-control-template" name="link_foto" value="">
+                {{ $errors->has('link_foto') ? $errors->first('link_foto') : '' }}
+
             </div>
-        </div>
+            <div class="col-md-2 mb-0">
+                <label for="status_servicos" class="col-md-4 col-form-label text-md-end">status %</label>
+                <input id="status_servicos" type="text" class="form-control-template" name="status_servicos" value="">
+                {{ $errors->has('status_servicos') ? $errors->first('status_servicos') : '' }}
+            </div>
+
+            <div class="col-md-2 mb-0">
+                <label for="gravidade" class="col-md-4 col-form-label text-md-end">Gravidade</label>
+                <select class="form-control" name="gravidade" id="gravidade" value="">
+                    <option value="5">Extremamante grave</option>
+                    <option value="4">Muito grave</option>
+                    <option value="3">Grave</option>
+                    <option value="2">Pouco grave</option>
+                    <option value="1">Nada grave</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a urgencia.
+                </div>
+            </div>
+
+            <div class="col-md-2 mb-0">
+                <label for="urgencia" class="col-md-4 col-form-label text-md-end">Urgência</label>
+                <select class="form-control" name="urgencia" id="urgencia" value="">
+                    <option value="5">Extremamante urgente</option>
+                    <option value="4">Urgente</option>
+                    <option value="3">Urgente se possível</option>
+                    <option value="2">Pouco urgente</option>
+                    <option value="1">Não urgente</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a urgencia.
+                </div>
+            </div>
+            <!---->
+            <div class="col-md-2 mb-0">
+                <label for="tendencia" class="col-md-4 col-form-label text-md-end">Tendência</label>
+                <select class="form-control" name="tendencia" id="tendencia" value="">
+                    <option value="5">Piorar rápidamante</option>
+                    <option value="4">Piorar em curto prazo</option>
+                    <option value="3">Piorar</option>
+                    <option value="2">Piorar logo prazo</option>
+                    <option value="1">Não irá piorar</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <!---->
+            <div class="col-md-2 mb-0">
+                <label for="causa" class="col-md-4 col-form-label text-md-end">Causa</label>
+                <select class="form-control" name="causa" id="causa" value="">
+                    <option value="5">Quebra</option>
+                    <option value="4">Imprevisto</option>
+                    <option value="3">Proposital</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="efeito" class="col-md-4 col-form-label text-md-end">Efeito</label>
+                <select class="form-control" name="efeito" id="efeito" value="">
+                    <option value="5">Prejuizo na produção</option>
+                    <option value="4">Atrazo</option>
+                    <option value="3">Riscos humano</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <div class="col-md-2 mb-0">
+                <label for="solucao" class="col-md-4 col-form-label text-md-end">Solução</label>
+                <select class="form-control" name="solucao" id="solucao" value="">
+                    <option value="5">Agilizar</option>
+                    <option value="4">Mão de obra autonama</option>
+                    <option value="3">Acionar segurança</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Por favor, informe a tendência.
+                </div>
+            </div>
+            <hr>
+            <div class="row mb-0">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        {{ isset($equipamento) ? 'Atualizar' : 'Cadastrar' }}
+                    </button>
+                </div>
+            </div>
     </form>
 
     <script>
@@ -222,3 +333,4 @@
 
         });
     </script>
+   
