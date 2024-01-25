@@ -47,7 +47,7 @@ class HomeController extends Controller
         //filtro ordem de serviço pelo data inicial e situação
         //  $prensa = onda_b_tmp_prensa0::where('TimeString', ('>'), '27/04/2023 14:08:08')->where('TimeString', ('<'), '27/04/2023 15:08:08')->get();
         $hoje = date("Y-m-d"); //data de hoje
-        $data = date("Y-m-d", strtotime("-240 days")); //desconta dias para pegar a data inicial
+        $data = date("Y-m-d", strtotime("-120 days")); //desconta dias para pegar a data inicial
         //$dataInicio = '2023-01-01';
         $dataInicio = $data;
         $dataFim = $hoje; //formato en
@@ -59,13 +59,20 @@ class HomeController extends Controller
             ->where('empresa_id', ('<='),2)
             ->orderby('data_inicio')->orderby('hora_inicio')->get();
         //somando valor
-        $countOS = OrdemServico::where('situacao', $situacao)
+        $countOSFechado = OrdemServico::where('situacao', $situacao)
             ->where('data_inicio', ('>='), $dataInicio)
             ->where('data_fim', ('<='), $dataFim)->count();
+            $countOS = OrdemServico::where('situacao', 'fechado')
+            ->where('data_inicio', ('>='), $dataInicio)
+            ->where('data_fim', ('<='), $dataFim)->count();
+            $countOSAberto = OrdemServico::where('situacao', 'aberto')->count();
+            $countOSFechado = OrdemServico::where('situacao', 'fechado')->count();
         return view('app.layouts.dashboard', [
             'equipamento' => $equipamento, 'ordens_servicos' => $ordens_servicos, 'funcionarios' => $funcionarios,
             'empresa' => $empresa,
-            'countos' => $countOS,'data_inicio' =>$dataInicio,'data_fim'=>$dataFim
+            'countos' => $countOS,'data_inicio' =>$dataInicio,'data_fim'=>$dataFim,'countos_fechado'=>$countOSFechado,
+            'total_aberto'=>$countOSAberto,'total_fechado'=>$countOSFechado
+
         ]);
     }
 }

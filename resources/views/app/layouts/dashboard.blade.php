@@ -192,19 +192,7 @@
     <!--------------------------------------------------------------------->
     <div class="container-chart">
         <div class="item">
-            <div>
-                <style>
-                    h5 {
-                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                    }
-                </style>
-                <h5>Foram achado:{{$countos}} O.S no periodo de:
-                    {{ date( 'd-m-Y' , strtotime($data_inicio))}} até
-                    {{ date( 'd-m-Y' , strtotime($data_fim))}}
-                </h5>
-            </div>
+
             <!-- Onde o gráfico será exibido -->
             <div id="graficoPizza"></div>
         </div>
@@ -218,26 +206,29 @@
     <div class="container-chart">
         <div class="item">
             <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card-header">O.S NO PERIODO</div>
+                <div class="card-header">{{ date( 'd-m-Y' , strtotime($data_inicio))}} até
+                    {{ date( 'd-m-Y' , strtotime($data_fim))}}
                 </div>
-            </div>
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
                 <div class="card-body">
-                    <h5 class="card-title">Secondary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Abertas</h5>
+                    {{$countos}} O.S
+                    <hr>
+                    <h5 class="card-title">Fechadas</h5>
+                    {{$countos_fechado}} O.S
                 </div>
             </div>
         </div>
         <div class="item">
             <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header">TOTAL ABERTA</div>
                 <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">total Aberta</h5>
+                    <p class="card-text">{{$total_aberto}}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">total Fechado</h5>
+                    <p class="card-text">{{$total_fechado}}</p>
                 </div>
             </div>
         </div>
@@ -245,8 +236,8 @@
             <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
                 <div class="card-body">
-                    <h5 class="card-title">Danger card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Titulo</h5>
+                    <p class="card-text"></p>
                 </div>
                 <!--Exemplo de progressbar com um input texto-->
                 <div class="progress">

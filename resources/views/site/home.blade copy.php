@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ asset('css/comum.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icofont.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('img') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,45 +27,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overlock+SC&family=Teko:wght@500&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link href="../Carousel_dinamic/bootstrap-5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/style.css">
-
 </head>
+<div id="div-topbar">
+    <header>
+        <div class="container">
+            <div class="menu">
+                <a href="" class="title-menu">HOME</a>
+                <a href="{{'e-comerce-show-produto'}}" class="title-menu">PRODUTOS & SERVIÇOS</a>
+                <a href="{{ route('app.home') }}" class="title-menu">MANUWEB</a>
+                <a href="https://webmail.manuweb.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4" class="title-menu">Webmail</a>
+                <a href="{{ route('site.about') }}" class="title-menu">SOBRE NÓS</a>
+                <style>
+                    #div-topbar {
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        height: 100px;
+                        width: 100%;
+                        background-color:black;
+                    }
+
+                    .container {
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+                        margin-top: 20PX;
+                    }
+
+                    .menu {
+                        width: 100%;
+
+
+                    }
+
+                    .title-menu {
+                        margin: 5px;
+                        text-decoration: none;
+                        color: white;
+
+                    }
+
+                    .logo,
+                    .sociais {
+                        border-radius: 20px;
+                        font-family: 'Roboto Mono', monospace;
+
+                    }
+
+                    .sociais button {
+                        background-color: rgb(255, 255, 255);
+                        border-radius: 20px;
+                        border-color: black;
+                        padding: 10px;
+                        text-align: center;
+                    }
+
+                    a.title-menu {
+                        margin: 5%;
+
+                    }
+                </style>
+            </div>
+            <div class="sociais">
+                <button>criar conta</button>
+            </div>
+        </div>
+    </header>
+
+</div>
 
 <body id="body-home">
-    <div id="div-topbar">
-
-        <header>
-            <div class="container">
-                <div class="menu">
-                    <a href="" class="title-menu"> <i class="icofont-home icofont-2x"></i>HOME</a>
-                    <a href="{{'e-comerce-show-produto'}}" class="title-menu">Soluçoes</a>
-                    <a href="{{ route('app.home') }}" class="title-menu">ManWEB</a>
-                    <a href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4" class="title-menu">Webmail</a>
-                    <a href="{{ route('site.about') }}" class="title-menu">Sobre nós</a>
-                    <style>
-                        .container {
-                            display: flex;
-                            flex-direction: row;
-                        }
-
-                        .title-menu {
-                            margin: 10px;
-                            text-decoration: none;
-                            color: white;
-
-                        }
-                    </style>
-                </div>
-                <div class="sociais">
-                    <button>criar conta?</button>
-                </div>
-            </DIV>
-        </header>
-
-    </div>
-
     <!----------------------------------------------------------------------------------------->
     <div id="carousel-example-generic" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -100,7 +130,6 @@
             <div class="carousel-caption d-none d-md-block">
                 <h1>INVESTIMENTO E CONHECIMENTO!</h1>
             </div>
-
             <button class="carousel-control-prev" data-bs-target="#carousel-example-generic" type="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -131,27 +160,13 @@
                 t0 = performance.now()
             })
         </script>
-
-
-
         </head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="scripts.js"></script>
 
 </body>
-
-
 <style>
-    #div-topbar {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        height: 100px;
-        width: 100%;
-        background-color: rgb(211, 211, 211);
-    }
-
     /*Configurações da div de fundo*/
     #div-body {
         height: 700px;
@@ -261,54 +276,11 @@
 
     }
 
-
-    .container {
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-
-
-    }
-
-    header {
-        background-color: black;
-        width: 100%;
-        padding: 20px;
-
-
-
-    }
-
-    .logo,
-    .sociais {
-        border-radius: 20px;
-        font-family: 'Roboto Mono', monospace;
-
-    }
-
-    .sociais button {
-        background-color: rgb(255, 255, 255);
-        border-radius: 20px;
-        border-color: black;
-        padding: 25px;
-        text-align: center;
-    }
-
-
-    .menu {
-        width: 75%;
-
-
-    }
-
     .menu nav a {
         color: aliceblue;
         text-decoration: none;
         padding-right: 30px;
         font-size: 18px;
-
     }
 
     .elementos p {
@@ -319,14 +291,6 @@
 
     .elementos h1 {
         text-align: center;
-
-
-    }
-
-    a.title-menu {
-        margin: 8%;
-
-
 
     }
 </style>
@@ -347,7 +311,7 @@
         <a href="#" class="title-footer">HOME</a>|
         <a href="{{'e-comerce-show-produto'}}" class="title-footer">PRODUTOS & SERVIÇOS</a>|
         <a href="{{ route('site.about') }}" class="title-footer">SOBRE NÓS</a>|
-        <a href="#" class="title-footer">DOWNLOADS</a>|
+        <a href="#" class="title-footer">DOWNLOADS</a>
         <a href="https://webmail.sysman8.com.br/?_task=logout&_token=4m0BgjeEKoTjDuHVj7+FrWw8UTaffSeOHlw8MKJFMy4" class="title-footer">Webmail</a>
         <a href="" class="title-menu"> <i class="icofont-home icofont-2x"></i>HOME</a>
     </div>
